@@ -4,17 +4,17 @@ import Model.Producto;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ProductoController extends Controller {
+public class ProductoController{
 
-    @Override
-    public void Create(Object Model) {
-        Array.add(Model);
+    ArrayList<Producto> lista_producto = new ArrayList();
+    
+    public void Create(Producto Model) {
+        lista_producto.add(Model);
     }
-
-    @Override
-    public ArrayList<Object> Read(String Filter) {
-        ArrayList<Object> Get = new ArrayList<>();
-        Iterator<Object> it = getArray().iterator();
+    
+    public ArrayList<Producto> Read(String Filter) {
+        ArrayList<Producto> Get = new ArrayList<>();
+        Iterator<Producto> it = getLista_producto().iterator();
         while (it.hasNext()) {
             Producto current = (Producto) it.next();
             if (current.getNombre().contains(Filter)) {
@@ -23,15 +23,21 @@ public class ProductoController extends Controller {
         }
         return Get;
     }
-
-    @Override
+   
     public void Delete(int Index) {
-        Array.remove(Index);
+        lista_producto.remove(Index);
+    }
+    
+    public void Update(int Index, Producto Model) {
+       lista_producto.set(Index, Model);
     }
 
-    @Override
-    public void Update(int Index, Object Model) {
-       Array.set(Index, (Producto) Model);
+    public ArrayList<Producto> getLista_producto() {
+        return lista_producto;
     }
 
+    public void setLista_producto(ArrayList<Producto> lista_producto) {
+        this.lista_producto = lista_producto;
+    }    
+    
 }

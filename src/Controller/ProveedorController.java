@@ -4,17 +4,17 @@ import Model.Proveedor;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ProveedorController extends Controller {
+public class ProveedorController {
 
-    @Override
-    public void Create(Object Model) {
-        Array.add((Proveedor) Model);
+    ArrayList<Proveedor> lista_proovedor = new ArrayList();
+    
+    public void Create(Proveedor Model) {
+        lista_proovedor.add(Model);
     }
-
-    @Override
-    public ArrayList<Object> Read(String Filter) {
-        ArrayList<Object> Get = new ArrayList<>();
-        Iterator<Object> it = getArray().iterator();
+    
+    public ArrayList<Proveedor> Read(String Filter) {
+        ArrayList<Proveedor> Get = new ArrayList<>();
+        Iterator<Proveedor> it = lista_proovedor.iterator();
         while (it.hasNext()) {
             Proveedor current = (Proveedor) it.next();
             if (current.getNombre().contains(Filter)) {
@@ -23,15 +23,24 @@ public class ProveedorController extends Controller {
         }
         return Get;
     }
-
-    @Override
+   
     public void Delete(int Index) {
-        Array.remove(Index);
+        lista_proovedor.remove(Index);
+    }
+    
+    public void Update(int Index, Proveedor Model) {
+       lista_proovedor.set(Index, Model);
     }
 
-    @Override
-    public void Update(int Index, Object Model) {
-        Array.set(Index, (Proveedor) Model);
+    public ArrayList<Proveedor> getLista_proovedor() {
+        return lista_proovedor;
     }
+
+    public void setLista_proovedor(ArrayList<Proveedor> lista_proovedor) {
+        this.lista_proovedor = lista_proovedor;
+    }
+
+   
+ 
 
 }
