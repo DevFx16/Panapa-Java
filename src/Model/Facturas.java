@@ -9,12 +9,14 @@ public class Facturas {
     protected Date Fecha;
     protected int Cantidad;
     protected double Total;
+    protected double Pago;
 
-    public Facturas(String Id, Date Fecha, int Cantidad, double Total) {
+    public Facturas(String Id, Date Fecha, int Cantidad, double Total, double Pago) {
         this.Id = Id;
         this.Fecha = Fecha;
         this.Cantidad = Cantidad;
         this.Total = Total;
+        this.Pago = Pago;
     }
 
     public String getId() {
@@ -32,5 +34,8 @@ public class Facturas {
     public double getTotal() {
         return Total;
     }
-    
+
+    public double getPago() {
+        return Pago;
+    }
 }

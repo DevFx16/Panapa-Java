@@ -8,8 +8,8 @@ public class FacturaProducto extends Facturas{
     
     private ArrayList<Producto> Productos = new ArrayList<>();
     
-    public FacturaProducto(String Id, Date Fecha, int Cantidad, double Total, ArrayList<Producto> Productos) {
-        super(Id, Fecha, Cantidad, Total);
+    public FacturaProducto(String Id, Date Fecha, int Cantidad, double Total, ArrayList<Producto> Productos, double Pago) {
+        super(Id, Fecha, Cantidad, Total, Pago);
         this.Productos =  (ArrayList<Producto>) Productos.clone();
     }
 
