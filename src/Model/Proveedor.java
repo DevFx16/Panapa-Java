@@ -1,6 +1,6 @@
-package Models;
+package Model;
 
-public class ProveedorModel {
+public class Proveedor {
 
     private String Id;
     private String Nombre;
@@ -11,7 +11,7 @@ public class ProveedorModel {
     private double Precio_Paquete;
     private int Cantidad_Paquete;
 
-    public ProveedorModel(String Id, String Nombre, String Servicio, String Telefono, String Direccion, String NIT, double Precio_Paquete, int Cantidad_Paquete) {
+    public Proveedor(String Id, String Nombre, String Servicio, String Telefono, String Direccion, String NIT, double Precio_Paquete, int Cantidad_Paquete) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.Servicio = Servicio;

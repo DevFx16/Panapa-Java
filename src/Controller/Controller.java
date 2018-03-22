@@ -1,11 +1,12 @@
 
-package Controllers;
+package Controller;
 
 import java.util.ArrayList;
 
 abstract public class Controller {
     
     protected ArrayList<Object> Array = new ArrayList<>();
+    
     abstract public void Create(Object Model);
     abstract public ArrayList<Object> Read(String Filter);
     abstract public void Delete(int Index);

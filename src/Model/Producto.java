@@ -1,13 +1,13 @@
-package Models;
+package Model;
 
-public class ProductoModel {
+public class Producto {
     
     private String Id;
     private String Nombre;
     private int Cantidad;
     private double Precio;
 
-    public ProductoModel(String Id, String Nombre, int Cantidad, double Precio) {
+    public Producto(String Id, String Nombre, int Cantidad, double Precio) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.Cantidad = Cantidad;

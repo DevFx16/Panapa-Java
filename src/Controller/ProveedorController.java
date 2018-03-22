@@ -1,14 +1,14 @@
-package Controllers;
+package Controller;
 
-import Models.ProductoModel;
+import Model.Proveedor;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ProductoController extends Controller {
+public class ProveedorController extends Controller {
 
     @Override
     public void Create(Object Model) {
-        Array.add(Model);
+        Array.add((Proveedor) Model);
     }
 
     @Override
@@ -16,7 +16,7 @@ public class ProductoController extends Controller {
         ArrayList<Object> Get = new ArrayList<>();
         Iterator<Object> it = getArray().iterator();
         while (it.hasNext()) {
-            ProductoModel current = (ProductoModel) it.next();
+            Proveedor current = (Proveedor) it.next();
             if (current.getNombre().contains(Filter)) {
                 Get.add(current);
             }
@@ -31,7 +31,7 @@ public class ProductoController extends Controller {
 
     @Override
     public void Update(int Index, Object Model) {
-       Array.set(Index, (ProductoModel) Model);
+        Array.set(Index, (Proveedor) Model);
     }
 
 }

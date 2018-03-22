@@ -1,5 +1,5 @@
 
-package Models;
+package Model;
 
 import java.util.Date;
 
