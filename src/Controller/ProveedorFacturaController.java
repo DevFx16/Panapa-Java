@@ -33,4 +33,7 @@ public class ProveedorFacturaController {
         return Lista_Factura;
     }
 
+    public void setLista_Factura(ArrayList<FacturaProveedor> Lista_Factura) {
+        this.Lista_Factura = Lista_Factura;
+    }
 }

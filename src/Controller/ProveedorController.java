@@ -36,8 +36,4 @@ public class ProveedorController {
     public void setLista_proovedor(ArrayList<Proveedor> lista_proovedor) {
         this.lista_proovedor = lista_proovedor;
     }
-
-   
- 
-
 }

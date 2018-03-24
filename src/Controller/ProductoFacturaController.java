@@ -32,5 +32,8 @@ public class ProductoFacturaController {
     public ArrayList<FacturaProducto> getLista_Factura() {
         return Lista_Factura;
     }
-    
+
+    public void setLista_Factura(ArrayList<FacturaProducto> Lista_Factura) {
+        this.Lista_Factura = Lista_Factura;
+    }
 }
