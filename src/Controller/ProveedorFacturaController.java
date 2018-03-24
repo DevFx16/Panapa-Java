@@ -2,7 +2,6 @@ package Controller;
 
 import Model.FacturaProveedor;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ProveedorFacturaController {
 
@@ -14,11 +13,9 @@ public class ProveedorFacturaController {
 
     public ArrayList<FacturaProveedor> Read(String Filter) {
         ArrayList<FacturaProveedor> Get = new ArrayList<>();
-        Iterator<FacturaProveedor> it = Lista_Factura.iterator();
-        while (it.hasNext()) {
-            FacturaProveedor current = (FacturaProveedor) it.next();
-            if (current.getProveedor().getNombre().contains(Filter)) {
-                Get.add(current);
+        for(FacturaProveedor Fact : getLista_Factura()){
+            if(Fact.getId().contains(Filter)){
+                Get.add(Fact);
             }
         }
         return Get;

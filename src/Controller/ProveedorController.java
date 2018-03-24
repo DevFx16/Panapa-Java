@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Proveedor;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ProveedorController {
 
@@ -14,11 +13,9 @@ public class ProveedorController {
     
     public ArrayList<Proveedor> Read(String Filter) {
         ArrayList<Proveedor> Get = new ArrayList<>();
-        Iterator<Proveedor> it = lista_proovedor.iterator();
-        while (it.hasNext()) {
-            Proveedor current = (Proveedor) it.next();
-            if (current.getNombre().contains(Filter)) {
-                Get.add(current);
+        for(Proveedor Pro : getLista_proovedor()){
+            if(Pro.getNombre().contains(Filter)){
+                Get.add(Pro);
             }
         }
         return Get;
