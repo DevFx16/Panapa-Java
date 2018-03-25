@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class ProductoFacturaController {
     
-    ArrayList<FacturaProducto> Lista_Factura = new ArrayList<>();
+    private ArrayList<FacturaProducto> Lista_Factura = new ArrayList<>();
 
     public void Create(FacturaProducto Factura) {
         Lista_Factura.add(Factura);

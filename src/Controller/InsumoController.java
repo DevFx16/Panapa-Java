@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class InsumoController {
 
-    ArrayList<Insumo> Lista_Insumos = new ArrayList<>();
+    private ArrayList<Insumo> Lista_Insumos = new ArrayList<>();
 
     public void Create(Insumo Factura) {
         Lista_Insumos.add(Factura);

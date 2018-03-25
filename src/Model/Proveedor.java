@@ -9,9 +9,8 @@ public class Proveedor {
     private String Direccion;
     private String NIT;
     private double Precio_Paquete;
-    private int Cantidad_Paquete;
 
-    public Proveedor(String Id, String Nombre, String Servicio, String Telefono, String Direccion, String NIT, double Precio_Paquete, int Cantidad_Paquete) {
+    public Proveedor(String Id, String Nombre, String Servicio, String Telefono, String Direccion, String NIT, double Precio_Paquete) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.Servicio = Servicio;
@@ -19,7 +18,6 @@ public class Proveedor {
         this.Direccion = Direccion;
         this.NIT = NIT;
         this.Precio_Paquete = Precio_Paquete;
-        this.Cantidad_Paquete = Cantidad_Paquete;
     }
 
     public String getId() {
@@ -49,9 +47,4 @@ public class Proveedor {
     public double getPrecio_Paquete() {
         return Precio_Paquete;
     }
-
-    public int getCantidad_Paquete() {
-        return Cantidad_Paquete;
-    }
-    
 }

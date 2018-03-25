@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class ProveedorController {
 
-    ArrayList<Proveedor> lista_proovedor = new ArrayList();
+    private ArrayList<Proveedor> lista_proovedor = new ArrayList();
     
     public void Create(Proveedor Model) {
         lista_proovedor.add(Model);

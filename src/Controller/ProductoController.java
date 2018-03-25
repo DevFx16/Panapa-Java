@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class ProductoController {
 
-    ArrayList<Producto> lista_producto = new ArrayList();
+    private ArrayList<Producto> lista_producto = new ArrayList();
 
     public void Create(Producto Model) {
         lista_producto.add(Model);
