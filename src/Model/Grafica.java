@@ -12,11 +12,11 @@ public class Grafica {
     private ChartPanel Panel;
     private Date Fecha;
 
-    public Grafica(DefaultCategoryDataset Datos, JFreeChart Grafico, ChartPanel Panel, Date Fecha) {
+    public Grafica(DefaultCategoryDataset Datos, JFreeChart Grafico, Date Fecha) {
         this.Datos = Datos;
         this.Grafico = Grafico;
-        this.Panel = Panel;
         this.Fecha = Fecha;
+        this.Panel = new ChartPanel(this.Grafico);
     }
 
     public DefaultCategoryDataset getDatos() {
