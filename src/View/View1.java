@@ -4,13 +4,11 @@ import Model.Grafica;
 import java.awt.Color;
 import java.util.Date;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
 
 public class View1 extends javax.swing.JFrame {
 
@@ -18,24 +16,16 @@ public class View1 extends javax.swing.JFrame {
         initComponents();
         //Fuente de Datos
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        String taxi1 = "Taxi 1";
-        String taxi2 = "Taxi 2";
-        String dia1 = "Día 1";
-        String dia2 = "Día 2";
-        String dia3 = "Día 3";
-        String dia4 = "Día 4";
-        dataset.addValue(18, taxi1, dia1);
-        dataset.addValue(15, taxi1, dia2);
-        dataset.addValue(16, taxi1, dia3);
-        dataset.addValue(12, taxi1, dia4);
-        dataset.addValue(16, taxi2, dia1);
-        dataset.addValue(19, taxi2, dia2);
-        dataset.addValue(10, taxi2, dia3);
-        dataset.addValue(11, taxi2, dia4);
-        JFreeChart graficoBarras = ChartFactory.createBarChart(
-                "Uso de los Taxis", //Título de la gráfica 
-                "Días de labor", //leyenda Eje horizontal 
-                "Número de carreras", //leyenda Eje vertical 
+        dataset.addValue(18, "Pan De Queso", "");
+        dataset.addValue(15, "Pan De Jamón", "");
+        dataset.addValue(16, "Pan De Bocadillo Con Queso", "");
+        dataset.addValue(12, "Pan De Bocadillo", "");
+        dataset.addValue(10, "Pan De Pizza", "");
+        dataset.addValue(12, "Pan De Arequipe", "");
+        JFreeChart graficoBarras = ChartFactory.createBarChart3D(
+                "Mas Panes Vendidos", //Título de la gráfica 
+                "Panes", //leyenda Eje horizontal 
+                "Número de Panes", //leyenda Eje vertical 
                 dataset, //datos 
                 PlotOrientation.VERTICAL, //orientación 
                 true, //incluir leyendas 
@@ -43,7 +33,7 @@ public class View1 extends javax.swing.JFrame {
                 true);
         graficoBarras.setBackgroundPaint(Color.LIGHT_GRAY);
         CategoryPlot plot = (CategoryPlot) graficoBarras.getPlot();
-        plot.setBackgroundPaint(Color.CYAN); //fondo del grafico 
+        plot.setBackgroundPaint(Color.WHITE); //fondo del grafico 
         plot.setDomainGridlinesVisible(true);//lineas de rangos, visibles 
         plot.setRangeGridlinePaint(Color.BLACK);//color de las lineas de rangos 
         ChartPanel frame = new ChartPanel(graficoBarras);
