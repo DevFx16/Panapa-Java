@@ -31,7 +31,7 @@ public class View1 extends javax.swing.JFrame {
                 true, //incluir leyendas 
                 true, //mostrar tooltips 
                 true);
-        graficoBarras.setBackgroundPaint(Color.LIGHT_GRAY);
+        graficoBarras.setBackgroundPaint(Color.WHITE);
         CategoryPlot plot = (CategoryPlot) graficoBarras.getPlot();
         plot.setBackgroundPaint(Color.WHITE); //fondo del grafico 
         plot.setDomainGridlinesVisible(true);//lineas de rangos, visibles 
