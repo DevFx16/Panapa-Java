@@ -2,10 +2,15 @@ package Controller;
 
 import Model.Proveedor;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class ProveedorController {
 
     private ArrayList<Proveedor> lista_proovedor = new ArrayList();
+    
+    public ProveedorController(){
+        Create(new Proveedor(UUID.randomUUID().toString(), "DELICIAS LAS 51", "PANADERIA", "ALGUNO", "ALGUNO", "", 0));
+    }
     
     public void Create(Proveedor Model) {
         lista_proovedor.add(Model);

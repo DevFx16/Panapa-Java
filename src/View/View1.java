@@ -1,22 +1,33 @@
 package View;
 
+import Controller.ProductoController;
+import Controller.ProveedorController;
 import Model.Grafica;
+import Model.Producto;
+import Model.Proveedor;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.util.*;
 import java.util.logging.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.*;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 public class View1 extends javax.swing.JFrame {
 
+    //instacio controladores
+    private ProductoController Proco = new ProductoController();
+    private ProveedorController Proveeco = new ProveedorController();
+
     public View1() {
-        initComponents();        
+        initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         IconosPanel();
+        Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
+        ComboBoxList(provePanReg_cmbx, Proveeco.getLista_proovedor());
         //Fuente de Datos
 //        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 //        dataset.addValue(18, "Pan De Queso", "");
@@ -227,7 +238,7 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Cantidad", "Precio", "Proveedor"
+                "Index", "Nombre", "Precio", "Proveedor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -238,7 +249,16 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaPanesReg_tbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(listaPanesReg_tbl);
+        if (listaPanesReg_tbl.getColumnModel().getColumnCount() > 0) {
+            listaPanesReg_tbl.getColumnModel().getColumn(0).setMinWidth(80);
+            listaPanesReg_tbl.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaPanesReg_tbl.getColumnModel().getColumn(0).setMaxWidth(80);
+            listaPanesReg_tbl.getColumnModel().getColumn(1).setResizable(false);
+            listaPanesReg_tbl.getColumnModel().getColumn(2).setResizable(false);
+            listaPanesReg_tbl.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         registrarPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         registrarPan_btn.setText("Registrar");
@@ -936,8 +956,7 @@ public class View1 extends javax.swing.JFrame {
                         .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
                                 .addGap(59, 59, 59)
-                                .addComponent(jLabel27)
-                                .addGap(50, 50, 50))
+                                .addComponent(jLabel27))
                             .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(nitProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1772,12 +1791,13 @@ public class View1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-     public void IconosPanel() {//ICONOS 
-         
+    //metodo para los iconos de la pantalla
+    public void IconosPanel() {//ICONOS 
+
         // Titulo + Icono del programa
         setTitle("Panapa 1.6.215");
         setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Icons/bread.png")));
-        
+
         //Productos
         Panel_General.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Icons/groceries.png")));
         //Proveedores
@@ -1809,13 +1829,12 @@ public class View1 extends javax.swing.JFrame {
         Contenedor_Stast.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Icons/receipt.png")));
         //Datos del Producto
         Contenedor_Stast.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
-        
-        listaProdVenta_tbl.getColumnModel().getColumn(0).setPreferredWidth(150);
 
+        listaProdVenta_tbl.getColumnModel().getColumn(0).setPreferredWidth(150);
 
     }
 
-    
+
     private void Panel_GeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_GeneralMouseClicked
 
     }//GEN-LAST:event_Panel_GeneralMouseClicked
@@ -2019,8 +2038,25 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_GuardarEditPan_btnmodificarPan
 
+    //Evento de registrar Producto
     private void registrarPan_btnregistrarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarPan_btnregistrarPan
-
+        //Valido la entrada
+        if (ValProducto(nombrePanReg_txt.getText(), precioPanReg_txt.getText())) {
+            //valido el combobox
+            if (provePanReg_cmbx.getSelectedIndex() >= 0) {
+                //creo el producto
+                Proco.Create(new Producto(UUID.randomUUID().toString(), nombrePanReg_txt.getText().toLowerCase(), 
+                        Double.parseDouble(precioPanReg_txt.getText()), Proveeco.getLista_proovedor().get(provePanReg_cmbx.getSelectedIndex())));
+                Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
+                JOptionPane.showMessageDialog(null, "El producto ha sido registrado", "Registrado", 1);
+            }else{
+                //si los datos no son validos
+                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+            }
+        } else {
+            //si los datos no son validos
+            JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+        }
     }//GEN-LAST:event_registrarPan_btnregistrarPan
 
     private void cantidadPanReg_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadPanReg_txtKeyPressed
@@ -2051,9 +2087,45 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_listaProdVenta_tbl1MouseClicked
 
+    //Este Metodo Sirve Para Validar Los Productos
+    private boolean ValProducto(String Nombre, String Precio) {
+        try {
+            //valido si no hay algun error y retorno si es verdadero o falso
+            if (Nombre.isEmpty() || Nombre == null || Double.parseDouble(Precio) == 0) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    //Este Metodo Sirve Para Listar las Tablas
+    private void Listar(DefaultTableModel Tabla, ArrayList<String[]> Lista) {
+        //Elimino todas las filas
+        while (Tabla.getRowCount() != 0) {
+            Tabla.removeRow(0);
+        }
+        //Agrego las Filas
+        for (String[] Row : Lista) {
+            Tabla.addRow(Row);
+        }
+    }
+
+    //Este metodo sirve para listar combobox
+    private void ComboBoxList(JComboBox Cb, ArrayList<Proveedor> Array) {
+        //Elimino todos los elementos del comobobox
+        Cb.removeAllItems();
+        //Agrego items Al combobox
+        for (Proveedor Pro : Array) {
+            Cb.addItem(Pro.getNombre());
+        }
+    }
+
     public static void main(String args[]) {
-      
-        String s = "de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel";       
+
+        String s = "de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel";
 
         try {
             javax.swing.UIManager.setLookAndFeel(s);
