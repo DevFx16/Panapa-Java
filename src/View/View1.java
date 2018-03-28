@@ -6,6 +6,7 @@ import Model.Grafica;
 import Model.Producto;
 import Model.Proveedor;
 import java.awt.*;
+import static java.awt.Event.ENTER;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.util.*;
@@ -26,8 +27,7 @@ public class View1 extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         IconosPanel();
-        Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
-        ComboBoxList(provePanReg_cmbx, Proveeco.getLista_proovedor());
+        ListAll();
         //Fuente de Datos
 //        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 //        dataset.addValue(18, "Pan De Queso", "");
@@ -231,6 +231,12 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel2.setText("Cantidad : ");
 
+        precioPanReg_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                precioPanReg_txtKeyPressed(evt);
+            }
+        });
+
         jLabel3.setText("Precio : ");
 
         listaPanesReg_tbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -343,7 +349,7 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Cantidad", "Precio", "Proveedor"
+                "Index", "Nombre", "Precio", "Proveedor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -354,6 +360,7 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaPanesEdit_tbl.getTableHeader().setReorderingAllowed(false);
         listaPanesEdit_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaPanesEdit_tblselecProdModif_tbl(evt);
@@ -365,6 +372,14 @@ public class View1 extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(listaPanesEdit_tbl);
+        if (listaPanesEdit_tbl.getColumnModel().getColumnCount() > 0) {
+            listaPanesEdit_tbl.getColumnModel().getColumn(0).setMinWidth(80);
+            listaPanesEdit_tbl.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaPanesEdit_tbl.getColumnModel().getColumn(0).setMaxWidth(80);
+            listaPanesEdit_tbl.getColumnModel().getColumn(1).setResizable(false);
+            listaPanesEdit_tbl.getColumnModel().getColumn(2).setResizable(false);
+            listaPanesEdit_tbl.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         cantidadPanEdit_txt.setEnabled(false);
         cantidadPanEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -385,6 +400,12 @@ public class View1 extends javax.swing.JFrame {
 
         selecEditPan_chbx.setText("Seleccionado");
         selecEditPan_chbx.setEnabled(false);
+
+        nombrePanConsultEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nombrePanConsultEdit_txtKeyPressed(evt);
+            }
+        });
 
         jLabel7.setText("Buscar :");
 
@@ -1967,7 +1988,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_registrarProv_btnregistrarPan
 
     private void ProductosActualizar_panel(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductosActualizar_panel
-
+        ListAll();
     }//GEN-LAST:event_ProductosActualizar_panel
 
     private void consultPanEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEliminar_btnActionPerformed
@@ -2017,8 +2038,10 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EditPan_btnActionPerformed
 
+    //Evento para buscar en el modificar en el producto
     private void consultPanEdit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEdit_btnActionPerformed
-
+        FindProducto(nombrePanConsultEdit_txt.getText().toUpperCase(), listaPanesEdit_tbl);
+        nombrePanConsultEdit_txt.setText(null);
     }//GEN-LAST:event_consultPanEdit_btnActionPerformed
 
     private void cantidadPanEdit_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadPanEdit_txtKeyPressed
@@ -2045,11 +2068,13 @@ public class View1 extends javax.swing.JFrame {
             //valido el combobox
             if (provePanReg_cmbx.getSelectedIndex() >= 0) {
                 //creo el producto
-                Proco.Create(new Producto(UUID.randomUUID().toString(), nombrePanReg_txt.getText().toLowerCase(), 
+                Proco.Create(new Producto(UUID.randomUUID().toString(), nombrePanReg_txt.getText().toUpperCase(),
                         Double.parseDouble(precioPanReg_txt.getText()), Proveeco.getLista_proovedor().get(provePanReg_cmbx.getSelectedIndex())));
                 Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
+                BorrarProducto_txt(nombrePanReg_txt, precioPanReg_txt, provePanReg_cmbx);
+                nombrePanReg_txt.requestFocus();
                 JOptionPane.showMessageDialog(null, "El producto ha sido registrado", "Registrado", 1);
-            }else{
+            } else {
                 //si los datos no son validos
                 JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
             }
@@ -2087,6 +2112,16 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_listaProdVenta_tbl1MouseClicked
 
+    //Evento del enter en buscar producto modificar
+    private void nombrePanConsultEdit_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePanConsultEdit_txtKeyPressed
+        EventoEnter(evt, consultPanEdit_btn);
+    }//GEN-LAST:event_nombrePanConsultEdit_txtKeyPressed
+
+    //Evento del Enter en registrar producto
+    private void precioPanReg_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioPanReg_txtKeyPressed
+        EventoEnter(evt, registrarPan_btn);
+    }//GEN-LAST:event_precioPanReg_txtKeyPressed
+
     //Este Metodo Sirve Para Validar Los Productos
     private boolean ValProducto(String Nombre, String Precio) {
         try {
@@ -2099,6 +2134,13 @@ public class View1 extends javax.swing.JFrame {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    //Este Metodo Sirve para listar todo
+    private void ListAll() {
+        Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
+        Listar((DefaultTableModel) listaPanesEdit_tbl.getModel(), Proco.ReadAll());
+        ComboBoxList(provePanReg_cmbx, Proveeco.getLista_proovedor());
     }
 
     //Este Metodo Sirve Para Listar las Tablas
@@ -2120,6 +2162,34 @@ public class View1 extends javax.swing.JFrame {
         //Agrego items Al combobox
         for (Proveedor Pro : Array) {
             Cb.addItem(Pro.getNombre());
+        }
+    }
+
+    //Este metodo sirve para borrar texto en productos
+    private void BorrarProducto_txt(JTextField Nombre, JTextField Precio, JComboBox Cb) {
+        Nombre.setText(null);
+        Precio.setText(null);
+        Cb.setSelectedIndex(0);
+    }
+
+    //envento del enter
+    private void EventoEnter(java.awt.event.KeyEvent evt, JButton boton) {
+        if (evt.getKeyChar() == ENTER) {
+            boton.doClick();
+        }
+    }
+
+    //Metodo para buscar en los productos
+    private void FindProducto(String Filter, JTable Tabla) {
+        //Valido la entrada del buscar
+        if (Filter.isEmpty() || Filter == null) {
+            JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+        } else {
+            if (Proco.Read(Filter).size() <= 0 || Proco.Read(Filter) == null) {
+                JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "No se han encontrado", 1);
+            } else {
+                Listar((DefaultTableModel) Tabla.getModel(), Proco.Read(Filter));
+            }
         }
     }
 
@@ -2294,6 +2364,4 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JTextField totalProdVenta;
     // End of variables declaration//GEN-END:variables
 
-    private void EventoEnter(KeyEvent evt, JButton registrarPan_btn, JTextField nombrePanReg_txt) {
-    }
 }
