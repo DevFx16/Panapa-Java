@@ -6,12 +6,14 @@ public class Producto {
     private String Nombre;
     private double Precio;
     private Proveedor Proveedor;
+    private int Cantidad;
 
-    public Producto(String Id, String Nombre, double Precio, Proveedor Proveedor) {
+    public Producto(String Id, String Nombre, double Precio, Proveedor Proveedor, int Cantidad) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.Precio = Precio;
         this.Proveedor = Proveedor;
+        this.Cantidad = Cantidad;
     }
 
     public String getId() {
@@ -29,5 +31,9 @@ public class Producto {
     public Proveedor getProveedor() {
         return Proveedor;
     }
- 
+
+    public int getCantidad() {
+        return Cantidad;
+    }
+
 }
