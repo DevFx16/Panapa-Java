@@ -94,7 +94,7 @@ public class View1 extends javax.swing.JFrame {
         EditPan_btn = new javax.swing.JButton();
         cancelarEditPan_btn = new javax.swing.JButton();
         jLabel42 = new javax.swing.JLabel();
-        provePanReg_cmbx1 = new javax.swing.JComboBox<>();
+        provePanEdit_cmbx = new javax.swing.JComboBox<>();
         Consultar_Producto = new javax.swing.JPanel();
         selecConsultPan_chbx = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
@@ -436,8 +436,8 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel42.setText("Nuevo Proveedor:");
 
-        provePanReg_cmbx1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        provePanReg_cmbx1.setEnabled(false);
+        provePanEdit_cmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        provePanEdit_cmbx.setEnabled(false);
 
         javax.swing.GroupLayout Modificar_ProductoLayout = new javax.swing.GroupLayout(Modificar_Producto);
         Modificar_Producto.setLayout(Modificar_ProductoLayout);
@@ -466,7 +466,7 @@ public class View1 extends javax.swing.JFrame {
                                         .addComponent(jLabel5))
                                     .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(precioPanEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(provePanReg_cmbx1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(provePanEdit_cmbx, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Modificar_ProductoLayout.createSequentialGroup()
                                             .addGap(8, 8, 8)
                                             .addComponent(jLabel42)))))
@@ -511,7 +511,7 @@ public class View1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cantidadPanEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(provePanReg_cmbx1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(provePanEdit_cmbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(EditPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(Modificar_ProductoLayout.createSequentialGroup()
@@ -2030,8 +2030,11 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_nombrePanConsult_txtActionPerformed
 
+    //Evento de cancelar en el Editar
     private void cancelarEditPan_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEditPan_btnmodificarPan
-
+        BorrarProducto_txt(nombrePanEdit_txt, precioPanEdit_txt, provePanEdit_cmbx);
+        EnabledBtn(EditPan_btn, GuardarEditPan_btn, cancelarEditPan_btn, false);
+        EnabledTxt_Producto(nombrePanEdit_txt, precioPanEdit_txt, provePanEdit_cmbx, false);
     }//GEN-LAST:event_cancelarEditPan_btnmodificarPan
 
     private void EditPan_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPan_btnActionPerformed
@@ -2192,6 +2195,20 @@ public class View1 extends javax.swing.JFrame {
             }
         }
     }
+    
+    //Metodo para habilitar o deshabilitar los botones del modificar
+    private void EnabledBtn(JButton Mod, JButton Save, JButton Cancel, boolean Cond){
+        Mod.setEnabled(Cond);
+        Save.setEnabled(Cond);
+        Cancel.setEnabled(Cond);
+    }
+    
+    //Metodo para habilitar o deshabilitar los Jtextfield del modificar producto
+    private void EnabledTxt_Producto(JTextField Nombre, JTextField Precio, JComboBox Cb, boolean Cond){
+        Nombre.setEnabled(Cond);
+        Precio.setEnabled(Cond);
+        Cb.setEnabled(Cond);
+    }
 
     public static void main(String args[]) {
 
@@ -2343,8 +2360,8 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JTextField pagoClientVenta_txt;
     private javax.swing.JTextField precioPanEdit_txt;
     private javax.swing.JTextField precioPanReg_txt;
+    private javax.swing.JComboBox<String> provePanEdit_cmbx;
     private javax.swing.JComboBox<String> provePanReg_cmbx;
-    private javax.swing.JComboBox<String> provePanReg_cmbx1;
     private javax.swing.JButton registrarPan_btn;
     private javax.swing.JButton registrarProv_btn;
     private javax.swing.JButton retirarProdVenta_btn;

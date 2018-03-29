@@ -309,7 +309,7 @@
                                                   </Group>
                                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                                       <Component id="precioPanEdit_txt" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
-                                                      <Component id="provePanReg_cmbx1" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                                      <Component id="provePanEdit_cmbx" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                                           <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
@@ -370,7 +370,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="cantidadPanEdit_txt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="provePanReg_cmbx1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="provePanEdit_cmbx" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
@@ -554,7 +554,7 @@
                         <Property name="text" type="java.lang.String" value="Nuevo Proveedor:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="provePanReg_cmbx1">
+                    <Component class="javax.swing.JComboBox" name="provePanEdit_cmbx">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
