@@ -21,6 +21,7 @@ public class View1 extends javax.swing.JFrame {
     //instacio controladores
     private ProductoController Proco = new ProductoController();
     private ProveedorController Proveeco = new ProveedorController();
+    private Object IndexTable = null;
 
     public View1() {
         initComponents();
@@ -2035,10 +2036,13 @@ public class View1 extends javax.swing.JFrame {
         BorrarProducto_txt(nombrePanEdit_txt, precioPanEdit_txt, provePanEdit_cmbx);
         EnabledBtn(EditPan_btn, GuardarEditPan_btn, cancelarEditPan_btn, false);
         EnabledTxt_Producto(nombrePanEdit_txt, precioPanEdit_txt, provePanEdit_cmbx, false);
+        SelecTable(listaPanesEdit_tbl, selecEditPan_chbx, EditPan_btn, false);
     }//GEN-LAST:event_cancelarEditPan_btnmodificarPan
 
+    //Evento para modificar producto
     private void EditPan_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPan_btnActionPerformed
-
+        EnabledTxt_Producto(nombrePanEdit_txt, precioPanEdit_txt, provePanEdit_cmbx, true);
+        EnabledMod(EditPan_btn, GuardarEditPan_btn, true);
     }//GEN-LAST:event_EditPan_btnActionPerformed
 
     //Evento para buscar en el modificar en el producto
@@ -2055,13 +2059,31 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_listaPanesEdit_tblKeyPressed
 
+    //Evento para cuando se seleccione un pan de la tabla del modificar
     private void listaPanesEdit_tblselecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEdit_tblselecProdModif_tbl
-
-
+        SelecTable(listaPanesEdit_tbl, selecEditPan_chbx, EditPan_btn, true);
+        cancelarEditPan_btn.setEnabled(true);
+        nombrePanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 1).toString());
+        precioPanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 2).toString());
+        provePanEdit_cmbx.setSelectedItem(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 3).toString());
     }//GEN-LAST:event_listaPanesEdit_tblselecProdModif_tbl
 
+    //Evento para Guardar La Modificación
     private void GuardarEditPan_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarEditPan_btnmodificarPan
-
+        //Confirmo el la petición
+        if (ConfirmDialog("¿Esta seguro que desea modificar este producto?")) {
+            if (ValProducto(nombrePanEdit_txt.getText(), precioPanEdit_txt.getText())) {
+                Proco.Update(Integer.parseInt(IndexTable.toString()),
+                        new Producto(Proco.getLista_producto().get(Integer.parseInt(IndexTable.toString())).getId(), nombrePanEdit_txt.getText(),
+                                Double.parseDouble(precioPanEdit_txt.getText()), Proveeco.getLista_proovedor().get(provePanEdit_cmbx.getSelectedIndex()), 0));
+                cancelarEditPan_btn.doClick();
+                ListAll();
+                JOptionPane.showMessageDialog(null, "El producto ha sido modificado", "modificado", 1);
+            } else {
+                //si los datos no son validos
+                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+            }
+        }
     }//GEN-LAST:event_GuardarEditPan_btnmodificarPan
 
     //Evento de registrar Producto
@@ -2072,8 +2094,8 @@ public class View1 extends javax.swing.JFrame {
             if (provePanReg_cmbx.getSelectedIndex() >= 0) {
                 //creo el producto
                 Proco.Create(new Producto(UUID.randomUUID().toString(), nombrePanReg_txt.getText().toUpperCase(),
-                        Double.parseDouble(precioPanReg_txt.getText()), Proveeco.getLista_proovedor().get(provePanReg_cmbx.getSelectedIndex())));
-                Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
+                        Double.parseDouble(precioPanReg_txt.getText()), Proveeco.getLista_proovedor().get(provePanReg_cmbx.getSelectedIndex()), 0));
+                ListAll();
                 BorrarProducto_txt(nombrePanReg_txt, precioPanReg_txt, provePanReg_cmbx);
                 nombrePanReg_txt.requestFocus();
                 JOptionPane.showMessageDialog(null, "El producto ha sido registrado", "Registrado", 1);
@@ -2144,6 +2166,7 @@ public class View1 extends javax.swing.JFrame {
         Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
         Listar((DefaultTableModel) listaPanesEdit_tbl.getModel(), Proco.ReadAll());
         ComboBoxList(provePanReg_cmbx, Proveeco.getLista_proovedor());
+        ComboBoxList(provePanEdit_cmbx, Proveeco.getLista_proovedor());
     }
 
     //Este Metodo Sirve Para Listar las Tablas
@@ -2195,19 +2218,45 @@ public class View1 extends javax.swing.JFrame {
             }
         }
     }
-    
+
     //Metodo para habilitar o deshabilitar los botones del modificar
-    private void EnabledBtn(JButton Mod, JButton Save, JButton Cancel, boolean Cond){
+    private void EnabledBtn(JButton Mod, JButton Save, JButton Cancel, boolean Cond) {
         Mod.setEnabled(Cond);
         Save.setEnabled(Cond);
         Cancel.setEnabled(Cond);
     }
-    
+
     //Metodo para habilitar o deshabilitar los Jtextfield del modificar producto
-    private void EnabledTxt_Producto(JTextField Nombre, JTextField Precio, JComboBox Cb, boolean Cond){
+    private void EnabledTxt_Producto(JTextField Nombre, JTextField Precio, JComboBox Cb, boolean Cond) {
         Nombre.setEnabled(Cond);
         Precio.setEnabled(Cond);
         Cb.setEnabled(Cond);
+    }
+
+    //Metodo para cuando seleccione un elemento de una tabla y asi mismo cuando termina el proceso
+    private void SelecTable(JTable Tabla, JCheckBox Check, JButton Boton, boolean Cond) {
+        Check.setSelected(Cond);
+        Boton.setEnabled(Cond);
+        if (Cond) {
+            IndexTable = Integer.parseInt(Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString());
+        } else {
+            IndexTable = null;
+        }
+    }
+
+    //Metodo para cuando se presiona el boton de modificar
+    private void EnabledMod(JButton Mod, JButton Save, boolean Cond) {
+        Save.setEnabled(Cond);
+        Mod.setEnabled(!Cond);
+    }
+
+    //Metodo para hacer confirm dialog
+    private boolean ConfirmDialog(String Mensaje) {
+        if (JOptionPane.showConfirmDialog(null, Mensaje) == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static void main(String args[]) {

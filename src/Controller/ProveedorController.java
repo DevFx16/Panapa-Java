@@ -10,6 +10,7 @@ public class ProveedorController {
     
     public ProveedorController(){
         Create(new Proveedor(UUID.randomUUID().toString(), "DELICIAS LAS 51", "PANADERIA", "ALGUNO", "ALGUNO", "", 0));
+        Create(new Proveedor(UUID.randomUUID().toString(), "COCA", "PANADERIA", "ALGUNO", "ALGUNO", "", 0));
     }
     
     public void Create(Proveedor Model) {
