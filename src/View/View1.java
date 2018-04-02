@@ -22,6 +22,7 @@ public class View1 extends javax.swing.JFrame {
     private ProductoController Proco = new ProductoController();
     private ProveedorController Proveeco = new ProveedorController();
     private Object IndexTable = null;
+    private int index;
 
     public View1() {
         initComponents();
@@ -222,8 +223,11 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
+        nombrePanReg_txt.setText("brazo");
+
         jLabel1.setText("Nombre del Tipo de Producto : ");
 
+        cantidadPanReg_txt.setText("5");
         cantidadPanReg_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cantidadPanReg_txtKeyPressed(evt);
@@ -232,6 +236,12 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel2.setText("Cantidad : ");
 
+        precioPanReg_txt.setText("500");
+        precioPanReg_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                precioPanReg_txtActionPerformed(evt);
+            }
+        });
         precioPanReg_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 precioPanReg_txtKeyPressed(evt);
@@ -646,6 +656,11 @@ public class View1 extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(listaPanesEliminar_tbl);
 
+        nombrePanEliminar_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombrePanEliminar_txtActionPerformed(evt);
+            }
+        });
         nombrePanEliminar_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 nombrePanEliminar_txtKeyPressed(evt);
@@ -1993,12 +2008,12 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProductosActualizar_panel
 
     private void consultPanEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEliminar_btnActionPerformed
-
-
+        FindProducto(nombrePanEliminar_txt.getText(), listaPanesEliminar_tbl);
     }//GEN-LAST:event_consultPanEliminar_btnActionPerformed
 
     private void eliminarPan_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPan_btnActionPerformed
-
+        Proco.Delete(index);
+        ListAll();
     }//GEN-LAST:event_eliminarPan_btnActionPerformed
 
     private void nombrePanEliminar_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePanEliminar_txtKeyPressed
@@ -2010,7 +2025,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaPanesEliminar_tblKeyPressed
 
     private void listaPanesEliminar_tblselecProdEliminar_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEliminar_tblselecProdEliminar_tbl
-
+        index = listaPanesEliminar_tbl.getSelectedRow();
 
     }//GEN-LAST:event_listaPanesEliminar_tblselecProdEliminar_tbl
 
@@ -2019,7 +2034,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaPanesConsult_tblMouseClicked
 
     private void consultPan_btn(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPan_btn
-
+        FindProducto(nombrePanConsult_txt.getText(), listaPanesConsult_tbl);
 
     }//GEN-LAST:event_consultPan_btn
 
@@ -2147,6 +2162,14 @@ public class View1 extends javax.swing.JFrame {
         EventoEnter(evt, registrarPan_btn);
     }//GEN-LAST:event_precioPanReg_txtKeyPressed
 
+    private void precioPanReg_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioPanReg_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precioPanReg_txtActionPerformed
+
+    private void nombrePanEliminar_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrePanEliminar_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombrePanEliminar_txtActionPerformed
+
     //Este Metodo Sirve Para Validar Los Productos
     private boolean ValProducto(String Nombre, String Precio) {
         try {
@@ -2165,6 +2188,7 @@ public class View1 extends javax.swing.JFrame {
     private void ListAll() {
         Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
         Listar((DefaultTableModel) listaPanesEdit_tbl.getModel(), Proco.ReadAll());
+        Listar((DefaultTableModel) listaPanesEliminar_tbl.getModel(), Proco.ReadAll());
         ComboBoxList(provePanReg_cmbx, Proveeco.getLista_proovedor());
         ComboBoxList(provePanEdit_cmbx, Proveeco.getLista_proovedor());
     }
