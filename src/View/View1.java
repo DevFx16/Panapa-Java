@@ -574,11 +574,11 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Cantidad", "Precio", "Proveerdor"
+                "Index", "Nombre", "Cantidad", "Precio", "Proveerdor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -591,6 +591,15 @@ public class View1 extends javax.swing.JFrame {
             }
         });
         jScrollPane3.setViewportView(listaPanesConsult_tbl);
+        if (listaPanesConsult_tbl.getColumnModel().getColumnCount() > 0) {
+            listaPanesConsult_tbl.getColumnModel().getColumn(0).setMinWidth(80);
+            listaPanesConsult_tbl.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaPanesConsult_tbl.getColumnModel().getColumn(0).setMaxWidth(80);
+            listaPanesConsult_tbl.getColumnModel().getColumn(1).setResizable(false);
+            listaPanesConsult_tbl.getColumnModel().getColumn(2).setResizable(false);
+            listaPanesConsult_tbl.getColumnModel().getColumn(3).setResizable(false);
+            listaPanesConsult_tbl.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         javax.swing.GroupLayout Consultar_ProductoLayout = new javax.swing.GroupLayout(Consultar_Producto);
         Consultar_Producto.setLayout(Consultar_ProductoLayout);
@@ -633,17 +642,18 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Cantidad", "Precio", "Proveerdor"
+                "Index", "Nombre", "Cantidad", "Precio", "Proveerdor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        listaPanesEliminar_tbl.getTableHeader().setReorderingAllowed(false);
         listaPanesEliminar_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaPanesEliminar_tblselecProdEliminar_tbl(evt);
@@ -655,6 +665,15 @@ public class View1 extends javax.swing.JFrame {
             }
         });
         jScrollPane4.setViewportView(listaPanesEliminar_tbl);
+        if (listaPanesEliminar_tbl.getColumnModel().getColumnCount() > 0) {
+            listaPanesEliminar_tbl.getColumnModel().getColumn(0).setMinWidth(80);
+            listaPanesEliminar_tbl.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaPanesEliminar_tbl.getColumnModel().getColumn(0).setMaxWidth(80);
+            listaPanesEliminar_tbl.getColumnModel().getColumn(1).setResizable(false);
+            listaPanesEliminar_tbl.getColumnModel().getColumn(2).setResizable(false);
+            listaPanesEliminar_tbl.getColumnModel().getColumn(3).setResizable(false);
+            listaPanesEliminar_tbl.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         nombrePanEliminar_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2039,7 +2058,6 @@ public class View1 extends javax.swing.JFrame {
 
     private void listaPanesEliminar_tblselecProdEliminar_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEliminar_tblselecProdEliminar_tbl
         index = listaPanesEliminar_tbl.getSelectedRow();
-
     }//GEN-LAST:event_listaPanesEliminar_tblselecProdEliminar_tbl
 
     private void listaPanesConsult_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesConsult_tblMouseClicked
