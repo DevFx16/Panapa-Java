@@ -22,7 +22,7 @@ public class View1 extends javax.swing.JFrame {
     private ProductoController Proco = new ProductoController();
     private ProveedorController Proveeco = new ProveedorController();
     private Object IndexTable = null;
-    private int index;
+    private int index = -1;
 
     public View1() {
         initComponents();
@@ -2012,8 +2012,21 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_consultPanEliminar_btnActionPerformed
 
     private void eliminarPan_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPan_btnActionPerformed
-        Proco.Delete(index);
-        ListAll();
+        try {
+            if (index >= 0) {
+                Proco.Delete(index);
+                ListAll();
+                index = -1;
+            } else if (Proco.getLista_producto().size() == 0) {
+                JOptionPane.showMessageDialog(null,"No hay productos registrados.", "AVISO",1);
+            } else if (index == -1) {
+                JOptionPane.showMessageDialog(null,"No ha seleccionado un producto.", "AVISO",1);
+            }
+
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_eliminarPan_btnActionPerformed
 
     private void nombrePanEliminar_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePanEliminar_txtKeyPressed
