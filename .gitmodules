@@ -1,0 +1,3 @@
+[submodule "panaderias_pa_crud"]
+	path = panaderias_pa_crud
+	url = https://github.com/castillag18/panaderia_pa_crud.git
