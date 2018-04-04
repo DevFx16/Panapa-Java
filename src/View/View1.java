@@ -1987,19 +1987,34 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_nombreProvConsult_txtActionPerformed
 
     private void cancelarEditProv_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEditProv_btnmodificarPan
-
+        BorrarTextFieldProv(nombreProvEdit_txt, telefonoProvEdit_txt, nitProvEdit_txt, serviProvEdit_txt, direcProvEdit_txt);
+        EnabledBtn(EditProv_btn, GuardarEditProv_btn, cancelarEditProv_btn, false);
+        EnabledTxt_Proveedor(nombreProvEdit_txt, telefonoProvEdit_txt, nitProvEdit_txt, serviProvEdit_txt, direcProvEdit_txt, false);
+        SelecTable(listaProveedoresEdit_tbl, selecEditProv_chbx, EditProv_btn, false);
     }//GEN-LAST:event_cancelarEditProv_btnmodificarPan
 
     private void GuardarEditProv_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarEditProv_btnmodificarPan
-
+        if (ConfirmDialog("¿Esta seguro que desea modificar este proveedorq?")) {
+            if (ValProveedor(nombreProvEdit_txt.getText(), telefonoProvEdit_txt.getText(), nitProvEdit_txt.getText(), serviProvEdit_txt.getText(), direcProvEdit_txt.getText())) {
+                Proveeco.Update(Integer.parseInt(IndexTable.toString()), new Proveedor(UUID.randomUUID().toString(), nombreProvEdit_txt.getText().toUpperCase(),
+                serviProvEdit_txt.getText().toUpperCase(), telefonoProvEdit_txt.getText(), direcProvEdit_txt.getText().toUpperCase(), nitProvEdit_txt.getText().toUpperCase(), 0));
+                ListAll();
+                cancelarEditProv_btn.doClick();
+                JOptionPane.showMessageDialog(null,"El producto hasido midificado", "modificado", 1);
+            } else {
+                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+            }
+        }
     }//GEN-LAST:event_GuardarEditProv_btnmodificarPan
 
     private void EditProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProv_btnActionPerformed
-
+        EnabledTxt_Proveedor(nombreProvEdit_txt, telefonoProvEdit_txt, nitProvEdit_txt, serviProvEdit_txt, direcProvEdit_txt, true);
+        EnabledMod(EditProv_btn, GuardarEditProv_btn, true);
     }//GEN-LAST:event_EditProv_btnActionPerformed
 
     private void consultProvEdit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEdit_btnActionPerformed
-
+        FindProveedor(nombreProvConsultEdit_txt.getText().toUpperCase(), listaProveedoresEdit_tbl);
+        nombreProvConsultEdit_txt.setText(null);
     }//GEN-LAST:event_consultProvEdit_btnActionPerformed
 
     private void direcProvEdit_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_direcProvEdit_txtKeyPressed
@@ -2011,8 +2026,8 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaProveedoresEdit_tblKeyPressed
 
     private void listaProveedoresEdit_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProveedoresEdit_tblMouseClicked
-
-
+        SelecTable(listaProveedoresEdit_tbl, selecEditProv_chbx, EditProv_btn, true);
+        cancelarEditProv_btn.setEnabled(true);
     }//GEN-LAST:event_listaProveedoresEdit_tblMouseClicked
 
     private void nombreProvConsultEdit_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreProvConsultEdit_txtKeyPressed
@@ -2298,6 +2313,19 @@ public class View1 extends javax.swing.JFrame {
             }
         }
     }
+    
+    private void FindProveedor(String Filter, JTable Tabla) {
+        //Valido la entrada del buscar
+        if (Filter.isEmpty() || Filter == null) {
+            JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+        } else {
+            if (Proveeco.Read(Filter).size() <= 0 || Proveeco.Read(Filter) == null) {
+                JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "No se han encontrado", 1);
+            } else {
+                Listar((DefaultTableModel) Tabla.getModel(), Proveeco.Read(Filter));
+            }
+        }
+    }
 
     //Metodo para habilitar o deshabilitar los botones del modificar
     private void EnabledBtn(JButton Mod, JButton Save, JButton Cancel, boolean Cond) {
@@ -2311,6 +2339,15 @@ public class View1 extends javax.swing.JFrame {
         Nombre.setEnabled(Cond);
         Precio.setEnabled(Cond);
         Cb.setEnabled(Cond);
+    }
+    
+    //Metodo para habilitar o deshabilitar los Jtextfield del modificar Proveedor
+    private void EnabledTxt_Proveedor(JTextField Nombre, JTextField Telefono, JTextField Nit, JTextField Producto, JTextField Direccion, boolean Cond){
+        Nombre.setEnabled(Cond);
+        Telefono.setEnabled(Cond);
+        Nit.setEnabled(Cond);
+        Producto.setEnabled(Cond);
+        Direccion.setEnabled(Cond);
     }
 
     //Metodo para cuando seleccione un elemento de una tabla y asi mismo cuando termina el proceso

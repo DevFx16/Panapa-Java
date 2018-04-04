@@ -17,11 +17,13 @@ public class ProveedorController {
         lista_proovedor.add(Model);
     }
 
-    public ArrayList<Proveedor> Read(String Filter) {
-        ArrayList<Proveedor> Get = new ArrayList<>();
-        for (Proveedor Pro : getLista_proovedor()) {
-            if (Pro.getNombre().contains(Filter)) {
-                Get.add(Pro);
+    public ArrayList<String[]> Read(String Filter) {
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < getLista_proovedor().size(); i++) {
+            if (getLista_proovedor().get(i).getNombre().contains(Filter)) {
+                Get.add(new String[]{i + "", getLista_proovedor().get(i).getNombre(),
+                    getLista_proovedor().get(i).getServicio(), getLista_proovedor().get(i).getTelefono(),
+                    getLista_proovedor().get(i).getDireccion(), getLista_proovedor().get(i).getNIT()});
             }
         }
         return Get;
