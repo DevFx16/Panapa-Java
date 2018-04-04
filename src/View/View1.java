@@ -1986,6 +1986,7 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_nombreProvConsult_txtActionPerformed
 
+    //Evento para cancelar el modificar del proveedor
     private void cancelarEditProv_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEditProv_btnmodificarPan
         BorrarTextFieldProv(nombreProvEdit_txt, telefonoProvEdit_txt, nitProvEdit_txt, serviProvEdit_txt, direcProvEdit_txt);
         EnabledBtn(EditProv_btn, GuardarEditProv_btn, cancelarEditProv_btn, false);
@@ -1993,25 +1994,32 @@ public class View1 extends javax.swing.JFrame {
         SelecTable(listaProveedoresEdit_tbl, selecEditProv_chbx, EditProv_btn, false);
     }//GEN-LAST:event_cancelarEditProv_btnmodificarPan
 
+    //evento para guardar modificacion
     private void GuardarEditProv_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarEditProv_btnmodificarPan
-        if (ConfirmDialog("¿Esta seguro que desea modificar este proveedorq?")) {
-            if (ValProveedor(nombreProvEdit_txt.getText(), telefonoProvEdit_txt.getText(), nitProvEdit_txt.getText(), serviProvEdit_txt.getText(), direcProvEdit_txt.getText())) {
-                Proveeco.Update(Integer.parseInt(IndexTable.toString()), new Proveedor(UUID.randomUUID().toString(), nombreProvEdit_txt.getText().toUpperCase(),
-                serviProvEdit_txt.getText().toUpperCase(), telefonoProvEdit_txt.getText(), direcProvEdit_txt.getText().toUpperCase(), nitProvEdit_txt.getText().toUpperCase(), 0));
-                ListAll();
-                cancelarEditProv_btn.doClick();
-                JOptionPane.showMessageDialog(null,"El producto hasido midificado", "modificado", 1);
-            } else {
-                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+        try {
+            if (ConfirmDialog("¿Esta seguro que desea modificar este proveedorq?")) {
+                if (ValProveedor(nombreProvEdit_txt.getText(), telefonoProvEdit_txt.getText(), nitProvEdit_txt.getText(), serviProvEdit_txt.getText(), direcProvEdit_txt.getText())) {
+                    Proveeco.Update(Integer.parseInt(IndexTable.toString()), new Proveedor(UUID.randomUUID().toString(), nombreProvEdit_txt.getText().toUpperCase(),
+                            serviProvEdit_txt.getText().toUpperCase(), telefonoProvEdit_txt.getText(), direcProvEdit_txt.getText().toUpperCase(), nitProvEdit_txt.getText().toUpperCase(), 0));
+                    ListAll();
+                    cancelarEditProv_btn.doClick();
+                    JOptionPane.showMessageDialog(null, "El proveedor ha sido modificado", "modoficado", 1);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+                }
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido algun error vuelva a intentar", "Error", 0);
         }
     }//GEN-LAST:event_GuardarEditProv_btnmodificarPan
 
+    //Evento del boton de modificar proveedor
     private void EditProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProv_btnActionPerformed
         EnabledTxt_Proveedor(nombreProvEdit_txt, telefonoProvEdit_txt, nitProvEdit_txt, serviProvEdit_txt, direcProvEdit_txt, true);
         EnabledMod(EditProv_btn, GuardarEditProv_btn, true);
     }//GEN-LAST:event_EditProv_btnActionPerformed
 
+    //Metodo para consular en el modificar proveedor
     private void consultProvEdit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEdit_btnActionPerformed
         FindProveedor(nombreProvConsultEdit_txt.getText().toUpperCase(), listaProveedoresEdit_tbl);
         nombreProvConsultEdit_txt.setText(null);
@@ -2025,9 +2033,15 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_listaProveedoresEdit_tblKeyPressed
 
+    //Evento para seleccionar un proveedor del modificar
     private void listaProveedoresEdit_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProveedoresEdit_tblMouseClicked
         SelecTable(listaProveedoresEdit_tbl, selecEditProv_chbx, EditProv_btn, true);
         cancelarEditProv_btn.setEnabled(true);
+        nombreProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 1).toString());
+        serviProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 2).toString());
+        telefonoProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 3).toString());
+        direcProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 4).toString());
+        nitProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 5).toString());
     }//GEN-LAST:event_listaProveedoresEdit_tblMouseClicked
 
     private void nombreProvConsultEdit_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreProvConsultEdit_txtKeyPressed
@@ -2038,16 +2052,17 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_direcProvReg_txtKeyPressed
 
+    //Evento para registrar proveedor
     private void registrarProv_btnregistrarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarProv_btnregistrarPan
         try {
             if (ValProveedor(nombreProvReg_txt.getText(), telefonoProvReg_txt.getText(), nitProvReg_txt.getText(), serviProvReg_txt.getText(), direcProvReg_txt.getText())) {
                 Proveeco.Create(new Proveedor(UUID.randomUUID().toString(), nombreProvReg_txt.getText().toUpperCase(),
-                serviProvReg_txt.getText().toUpperCase(), telefonoProvReg_txt.getText(), direcProvReg_txt.getText().toUpperCase(), nitProvReg_txt.getText().toUpperCase(), 0));
+                        serviProvReg_txt.getText().toUpperCase(), telefonoProvReg_txt.getText(), direcProvReg_txt.getText().toUpperCase(), nitProvReg_txt.getText().toUpperCase(), 0));
                 BorrarTextFieldProv(nombreProvReg_txt, telefonoProvReg_txt, nitProvReg_txt, serviProvReg_txt, direcProvReg_txt);
             }
             ListAll();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Ha ocurrido un error, vuelva a intentar.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error, vuelva a intentar.", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_registrarProv_btnregistrarPan
@@ -2056,7 +2071,7 @@ public class View1 extends javax.swing.JFrame {
         ListAll();
     }//GEN-LAST:event_ProductosActualizar_panel
 
-    //Boton de consultar en el consultar
+    //Boton de consultar en el consultar producto
     private void consultPanEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEliminar_btnActionPerformed
         FindProducto(nombrePanEliminar_txt.getText().toUpperCase(), listaPanesEliminar_tbl);
     }//GEN-LAST:event_consultPanEliminar_btnActionPerformed
@@ -2140,19 +2155,23 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento para Guardar La Modificación
     private void GuardarEditPan_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarEditPan_btnmodificarPan
-        //Confirmo el la petición
-        if (ConfirmDialog("¿Esta seguro que desea modificar este producto?")) {
-            if (ValProducto(nombrePanEdit_txt.getText(), precioPanEdit_txt.getText())) {
-                Proco.Update(Integer.parseInt(IndexTable.toString()),
-                        new Producto(Proco.getLista_producto().get(Integer.parseInt(IndexTable.toString())).getId(), nombrePanEdit_txt.getText(),
-                                Double.parseDouble(precioPanEdit_txt.getText()), Proveeco.getLista_proovedor().get(provePanEdit_cmbx.getSelectedIndex()), 0));
-                cancelarEditPan_btn.doClick();
-                ListAll();
-                JOptionPane.showMessageDialog(null, "El producto ha sido modificado", "modificado", 1);
-            } else {
-                //si los datos no son validos
-                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+        try {
+            //Confirmo el la petición
+            if (ConfirmDialog("¿Esta seguro que desea modificar este producto?")) {
+                if (ValProducto(nombrePanEdit_txt.getText(), precioPanEdit_txt.getText())) {
+                    Proco.Update(Integer.parseInt(IndexTable.toString()),
+                            new Producto(Proco.getLista_producto().get(Integer.parseInt(IndexTable.toString())).getId(), nombrePanEdit_txt.getText(),
+                                    Double.parseDouble(precioPanEdit_txt.getText()), Proveeco.getLista_proovedor().get(provePanEdit_cmbx.getSelectedIndex()), 0));
+                    cancelarEditPan_btn.doClick();
+                    ListAll();
+                    JOptionPane.showMessageDialog(null, "El producto ha sido modificado", "modificado", 1);
+                } else {
+                    //si los datos no son validos
+                    JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+                }
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar", "Error", 0);
         }
     }//GEN-LAST:event_GuardarEditPan_btnmodificarPan
 
@@ -2235,13 +2254,14 @@ public class View1 extends javax.swing.JFrame {
         }
     }
 
+    //Metodo para validar los prveedores
     private boolean ValProveedor(String Nombre, String Telefono, String Nit, String Producto, String Direccion) {
         try {
             if (Nombre.isEmpty() || Nombre == null || Telefono.isEmpty() || Telefono == null || Nit.isEmpty() || Nit == null || Producto.isEmpty() || Producto == null || Direccion.isEmpty() || Direccion == null) {
                 JOptionPane.showMessageDialog(null, "Hubo un error, rellene todos los campos.", "Error", 0);
                 return false;
             } else {
-                
+
                 return true;
             }
         } catch (Exception e) {
@@ -2313,7 +2333,8 @@ public class View1 extends javax.swing.JFrame {
             }
         }
     }
-    
+
+    //Metodo para buscar en  los proveedores
     private void FindProveedor(String Filter, JTable Tabla) {
         //Valido la entrada del buscar
         if (Filter.isEmpty() || Filter == null) {
@@ -2340,9 +2361,9 @@ public class View1 extends javax.swing.JFrame {
         Precio.setEnabled(Cond);
         Cb.setEnabled(Cond);
     }
-    
+
     //Metodo para habilitar o deshabilitar los Jtextfield del modificar Proveedor
-    private void EnabledTxt_Proveedor(JTextField Nombre, JTextField Telefono, JTextField Nit, JTextField Producto, JTextField Direccion, boolean Cond){
+    private void EnabledTxt_Proveedor(JTextField Nombre, JTextField Telefono, JTextField Nit, JTextField Producto, JTextField Direccion, boolean Cond) {
         Nombre.setEnabled(Cond);
         Telefono.setEnabled(Cond);
         Nit.setEnabled(Cond);
@@ -2352,8 +2373,10 @@ public class View1 extends javax.swing.JFrame {
 
     //Metodo para cuando seleccione un elemento de una tabla y asi mismo cuando termina el proceso
     private void SelecTable(JTable Tabla, JCheckBox Check, JButton Boton, boolean Cond) {
-        Check.setSelected(Cond);
-        Boton.setEnabled(Cond);
+        if (IndexTable == null) {
+            Check.setSelected(Cond);
+            Boton.setEnabled(Cond);
+        }
         if (Cond) {
             IndexTable = Integer.parseInt(Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString());
         } else {
@@ -2375,8 +2398,9 @@ public class View1 extends javax.swing.JFrame {
             return false;
         }
     }
-    
-    private void BorrarTextFieldProv(JTextField Nombre, JTextField Telefono, JTextField Nit, JTextField Producto, JTextField Direccion){
+
+    //Metodo sirve para borrar texto de los proveedores
+    private void BorrarTextFieldProv(JTextField Nombre, JTextField Telefono, JTextField Nit, JTextField Producto, JTextField Direccion) {
         String t = null;
         Nombre.setText(t);
         Telefono.setText(t);
