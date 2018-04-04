@@ -1,0 +1,7 @@
+Actualizar submodulo:
+
+$ git submodule update
+
+Agregar submodulo:
+
+$ git submodule add <url> <name_path>
