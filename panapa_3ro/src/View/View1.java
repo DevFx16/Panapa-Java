@@ -728,18 +728,29 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Servicio/Producto", "Contacto", "Direccion", "NIT"
+                "Index", "Nombre", "Servicio/Producto", "Contacto", "Direccion", "NIT"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        listaProveedorReg_tbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(listaProveedorReg_tbl);
+        if (listaProveedorReg_tbl.getColumnModel().getColumnCount() > 0) {
+            listaProveedorReg_tbl.getColumnModel().getColumn(0).setMinWidth(80);
+            listaProveedorReg_tbl.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaProveedorReg_tbl.getColumnModel().getColumn(0).setMaxWidth(80);
+            listaProveedorReg_tbl.getColumnModel().getColumn(1).setResizable(false);
+            listaProveedorReg_tbl.getColumnModel().getColumn(2).setResizable(false);
+            listaProveedorReg_tbl.getColumnModel().getColumn(3).setResizable(false);
+            listaProveedorReg_tbl.getColumnModel().getColumn(4).setResizable(false);
+            listaProveedorReg_tbl.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         registrarProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         registrarProv_btn.setText("Registrar");
@@ -859,17 +870,18 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Servicio/Producto", "Contacto", "Direccion", "NIT"
+                "Index", "Nombre", "Servicio/Producto", "Contacto", "Direccion", "NIT"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        listaProveedoresEdit_tbl.getTableHeader().setReorderingAllowed(false);
         listaProveedoresEdit_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaProveedoresEdit_tblMouseClicked(evt);
@@ -881,6 +893,16 @@ public class View1 extends javax.swing.JFrame {
             }
         });
         jScrollPane6.setViewportView(listaProveedoresEdit_tbl);
+        if (listaProveedoresEdit_tbl.getColumnModel().getColumnCount() > 0) {
+            listaProveedoresEdit_tbl.getColumnModel().getColumn(0).setMinWidth(80);
+            listaProveedoresEdit_tbl.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaProveedoresEdit_tbl.getColumnModel().getColumn(0).setMaxWidth(80);
+            listaProveedoresEdit_tbl.getColumnModel().getColumn(1).setResizable(false);
+            listaProveedoresEdit_tbl.getColumnModel().getColumn(2).setResizable(false);
+            listaProveedoresEdit_tbl.getColumnModel().getColumn(3).setResizable(false);
+            listaProveedoresEdit_tbl.getColumnModel().getColumn(4).setResizable(false);
+            listaProveedoresEdit_tbl.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         nombreProvEdit_txt.setEnabled(false);
 
@@ -1084,23 +1106,34 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Servicio/Producto", "Contacto", "Direccion", "NIT"
+                "Index", "Nombre", "Servicio/Producto", "Contacto", "Direccion", "NIT"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        listaProvConsult_tbl.getTableHeader().setReorderingAllowed(false);
         listaProvConsult_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaProvConsult_tblMouseClicked(evt);
             }
         });
         jScrollPane7.setViewportView(listaProvConsult_tbl);
+        if (listaProvConsult_tbl.getColumnModel().getColumnCount() > 0) {
+            listaProvConsult_tbl.getColumnModel().getColumn(0).setMinWidth(80);
+            listaProvConsult_tbl.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaProvConsult_tbl.getColumnModel().getColumn(0).setMaxWidth(80);
+            listaProvConsult_tbl.getColumnModel().getColumn(1).setResizable(false);
+            listaProvConsult_tbl.getColumnModel().getColumn(2).setResizable(false);
+            listaProvConsult_tbl.getColumnModel().getColumn(3).setResizable(false);
+            listaProvConsult_tbl.getColumnModel().getColumn(4).setResizable(false);
+            listaProvConsult_tbl.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         javax.swing.GroupLayout Consultar_ProveedoresLayout = new javax.swing.GroupLayout(Consultar_Proveedores);
         Consultar_Proveedores.setLayout(Consultar_ProveedoresLayout);
@@ -1166,17 +1199,18 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Servicio/Producto", "Contacto", "Direccion", "NIT"
+                "Index", "Nombre", "Servicio/Producto", "Contacto", "Direccion", "NIT"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        listaProvEliminar_tbl.getTableHeader().setReorderingAllowed(false);
         listaProvEliminar_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaProvEliminar_tblMouseClicked(evt);
@@ -1188,6 +1222,13 @@ public class View1 extends javax.swing.JFrame {
             }
         });
         jScrollPane8.setViewportView(listaProvEliminar_tbl);
+        if (listaProvEliminar_tbl.getColumnModel().getColumnCount() > 0) {
+            listaProvEliminar_tbl.getColumnModel().getColumn(0).setMinWidth(80);
+            listaProvEliminar_tbl.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaProvEliminar_tbl.getColumnModel().getColumn(0).setMaxWidth(80);
+            listaProvEliminar_tbl.getColumnModel().getColumn(2).setResizable(false);
+            listaProvEliminar_tbl.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         consultProvEliminar_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
         consultProvEliminar_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -1905,7 +1946,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaProdVenta_tblMouseClicked
 
     private void ProveedoresActualizar_panel(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProveedoresActualizar_panel
-
+        ListAll();
     }//GEN-LAST:event_ProveedoresActualizar_panel
 
     private void consultProvEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEliminar_btnActionPerformed
@@ -1945,20 +1986,43 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_nombreProvConsult_txtActionPerformed
 
+    //Evento para cancelar el modificar del proveedor
     private void cancelarEditProv_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEditProv_btnmodificarPan
-
+        BorrarTextFieldProv(nombreProvEdit_txt, telefonoProvEdit_txt, nitProvEdit_txt, serviProvEdit_txt, direcProvEdit_txt);
+        EnabledBtn(EditProv_btn, GuardarEditProv_btn, cancelarEditProv_btn, false);
+        EnabledTxt_Proveedor(nombreProvEdit_txt, telefonoProvEdit_txt, nitProvEdit_txt, serviProvEdit_txt, direcProvEdit_txt, false);
+        SelecTable(listaProveedoresEdit_tbl, selecEditProv_chbx, EditProv_btn, false);
     }//GEN-LAST:event_cancelarEditProv_btnmodificarPan
 
+    //evento para guardar modificacion
     private void GuardarEditProv_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarEditProv_btnmodificarPan
-
+        try {
+            if (ConfirmDialog("¿Esta seguro que desea modificar este proveedorq?")) {
+                if (ValProveedor(nombreProvEdit_txt.getText(), telefonoProvEdit_txt.getText(), nitProvEdit_txt.getText(), serviProvEdit_txt.getText(), direcProvEdit_txt.getText())) {
+                    Proveeco.Update(Integer.parseInt(IndexTable.toString()), new Proveedor(UUID.randomUUID().toString(), nombreProvEdit_txt.getText().toUpperCase(),
+                            serviProvEdit_txt.getText().toUpperCase(), telefonoProvEdit_txt.getText(), direcProvEdit_txt.getText().toUpperCase(), nitProvEdit_txt.getText().toUpperCase(), 0));
+                    ListAll();
+                    cancelarEditProv_btn.doClick();
+                    JOptionPane.showMessageDialog(null, "El proveedor ha sido modificado", "modoficado", 1);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido algun error vuelva a intentar", "Error", 0);
+        }
     }//GEN-LAST:event_GuardarEditProv_btnmodificarPan
 
+    //Evento del boton de modificar proveedor
     private void EditProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProv_btnActionPerformed
-
+        EnabledTxt_Proveedor(nombreProvEdit_txt, telefonoProvEdit_txt, nitProvEdit_txt, serviProvEdit_txt, direcProvEdit_txt, true);
+        EnabledMod(EditProv_btn, GuardarEditProv_btn, true);
     }//GEN-LAST:event_EditProv_btnActionPerformed
 
+    //Metodo para consular en el modificar proveedor
     private void consultProvEdit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEdit_btnActionPerformed
-
+        FindProveedor(nombreProvConsultEdit_txt.getText().toUpperCase(), listaProveedoresEdit_tbl);
+        nombreProvConsultEdit_txt.setText(null);
     }//GEN-LAST:event_consultProvEdit_btnActionPerformed
 
     private void direcProvEdit_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_direcProvEdit_txtKeyPressed
@@ -1969,9 +2033,15 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_listaProveedoresEdit_tblKeyPressed
 
+    //Evento para seleccionar un proveedor del modificar
     private void listaProveedoresEdit_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProveedoresEdit_tblMouseClicked
-
-
+        SelecTable(listaProveedoresEdit_tbl, selecEditProv_chbx, EditProv_btn, true);
+        cancelarEditProv_btn.setEnabled(true);
+        nombreProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 1).toString());
+        serviProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 2).toString());
+        telefonoProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 3).toString());
+        direcProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 4).toString());
+        nitProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 5).toString());
     }//GEN-LAST:event_listaProveedoresEdit_tblMouseClicked
 
     private void nombreProvConsultEdit_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreProvConsultEdit_txtKeyPressed
@@ -1982,7 +2052,18 @@ public class View1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_direcProvReg_txtKeyPressed
 
+    //Evento para registrar proveedor
     private void registrarProv_btnregistrarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarProv_btnregistrarPan
+        try {
+            if (ValProveedor(nombreProvReg_txt.getText(), telefonoProvReg_txt.getText(), nitProvReg_txt.getText(), serviProvReg_txt.getText(), direcProvReg_txt.getText())) {
+                Proveeco.Create(new Proveedor(UUID.randomUUID().toString(), nombreProvReg_txt.getText().toUpperCase(),
+                        serviProvReg_txt.getText().toUpperCase(), telefonoProvReg_txt.getText(), direcProvReg_txt.getText().toUpperCase(), nitProvReg_txt.getText().toUpperCase(), 0));
+                BorrarTextFieldProv(nombreProvReg_txt, telefonoProvReg_txt, nitProvReg_txt, serviProvReg_txt, direcProvReg_txt);
+            }
+            ListAll();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error, vuelva a intentar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_registrarProv_btnregistrarPan
 
@@ -1990,7 +2071,7 @@ public class View1 extends javax.swing.JFrame {
         ListAll();
     }//GEN-LAST:event_ProductosActualizar_panel
 
-    //Boton de consultar en el consultar
+    //Boton de consultar en el consultar producto
     private void consultPanEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEliminar_btnActionPerformed
         FindProducto(nombrePanEliminar_txt.getText().toUpperCase(), listaPanesEliminar_tbl);
     }//GEN-LAST:event_consultPanEliminar_btnActionPerformed
@@ -2074,19 +2155,23 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento para Guardar La Modificación
     private void GuardarEditPan_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarEditPan_btnmodificarPan
-        //Confirmo el la petición
-        if (ConfirmDialog("¿Esta seguro que desea modificar este producto?")) {
-            if (ValProducto(nombrePanEdit_txt.getText(), precioPanEdit_txt.getText())) {
-                Proco.Update(Integer.parseInt(IndexTable.toString()),
-                        new Producto(Proco.getLista_producto().get(Integer.parseInt(IndexTable.toString())).getId(), nombrePanEdit_txt.getText(),
-                                Double.parseDouble(precioPanEdit_txt.getText()), Proveeco.getLista_proovedor().get(provePanEdit_cmbx.getSelectedIndex()), 0));
-                cancelarEditPan_btn.doClick();
-                ListAll();
-                JOptionPane.showMessageDialog(null, "El producto ha sido modificado", "modificado", 1);
-            } else {
-                //si los datos no son validos
-                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+        try {
+            //Confirmo el la petición
+            if (ConfirmDialog("¿Esta seguro que desea modificar este producto?")) {
+                if (ValProducto(nombrePanEdit_txt.getText(), precioPanEdit_txt.getText())) {
+                    Proco.Update(Integer.parseInt(IndexTable.toString()),
+                            new Producto(Proco.getLista_producto().get(Integer.parseInt(IndexTable.toString())).getId(), nombrePanEdit_txt.getText(),
+                                    Double.parseDouble(precioPanEdit_txt.getText()), Proveeco.getLista_proovedor().get(provePanEdit_cmbx.getSelectedIndex()), 0));
+                    cancelarEditPan_btn.doClick();
+                    ListAll();
+                    JOptionPane.showMessageDialog(null, "El producto ha sido modificado", "modificado", 1);
+                } else {
+                    //si los datos no son validos
+                    JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+                }
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar", "Error", 0);
         }
     }//GEN-LAST:event_GuardarEditPan_btnmodificarPan
 
@@ -2169,12 +2254,32 @@ public class View1 extends javax.swing.JFrame {
         }
     }
 
+    //Metodo para validar los prveedores
+    private boolean ValProveedor(String Nombre, String Telefono, String Nit, String Producto, String Direccion) {
+        try {
+            if (Nombre.isEmpty() || Nombre == null || Telefono.isEmpty() || Telefono == null || Nit.isEmpty() || Nit == null || Producto.isEmpty() || Producto == null || Direccion.isEmpty() || Direccion == null) {
+                JOptionPane.showMessageDialog(null, "Hubo un error, rellene todos los campos.", "Error", 0);
+                return false;
+            } else {
+
+                return true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error, digite de nuevo", "Error", 0);
+            return false;
+        }
+    }
+
     //Este Metodo Sirve para listar todo
     private void ListAll() {
         Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
         Listar((DefaultTableModel) listaPanesEdit_tbl.getModel(), Proco.ReadAll());
         Listar((DefaultTableModel) listaPanesEliminar_tbl.getModel(), Proco.ReadAll());
         Listar((DefaultTableModel) listaPanesConsult_tbl.getModel(), Proco.ReadAll());
+        Listar((DefaultTableModel) listaProveedorReg_tbl.getModel(), Proveeco.ReadAll());
+        Listar((DefaultTableModel) listaProveedoresEdit_tbl.getModel(), Proveeco.ReadAll());
+        Listar((DefaultTableModel) listaProvConsult_tbl.getModel(), Proveeco.ReadAll());
+        Listar((DefaultTableModel) listaProvEliminar_tbl.getModel(), Proveeco.ReadAll());
         ComboBoxList(provePanReg_cmbx, Proveeco.getLista_proovedor());
         ComboBoxList(provePanEdit_cmbx, Proveeco.getLista_proovedor());
     }
@@ -2229,6 +2334,20 @@ public class View1 extends javax.swing.JFrame {
         }
     }
 
+    //Metodo para buscar en  los proveedores
+    private void FindProveedor(String Filter, JTable Tabla) {
+        //Valido la entrada del buscar
+        if (Filter.isEmpty() || Filter == null) {
+            JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+        } else {
+            if (Proveeco.Read(Filter).size() <= 0 || Proveeco.Read(Filter) == null) {
+                JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "No se han encontrado", 1);
+            } else {
+                Listar((DefaultTableModel) Tabla.getModel(), Proveeco.Read(Filter));
+            }
+        }
+    }
+
     //Metodo para habilitar o deshabilitar los botones del modificar
     private void EnabledBtn(JButton Mod, JButton Save, JButton Cancel, boolean Cond) {
         Mod.setEnabled(Cond);
@@ -2243,10 +2362,21 @@ public class View1 extends javax.swing.JFrame {
         Cb.setEnabled(Cond);
     }
 
+    //Metodo para habilitar o deshabilitar los Jtextfield del modificar Proveedor
+    private void EnabledTxt_Proveedor(JTextField Nombre, JTextField Telefono, JTextField Nit, JTextField Producto, JTextField Direccion, boolean Cond) {
+        Nombre.setEnabled(Cond);
+        Telefono.setEnabled(Cond);
+        Nit.setEnabled(Cond);
+        Producto.setEnabled(Cond);
+        Direccion.setEnabled(Cond);
+    }
+
     //Metodo para cuando seleccione un elemento de una tabla y asi mismo cuando termina el proceso
     private void SelecTable(JTable Tabla, JCheckBox Check, JButton Boton, boolean Cond) {
-        Check.setSelected(Cond);
-        Boton.setEnabled(Cond);
+        if (IndexTable == null) {
+            Check.setSelected(Cond);
+            Boton.setEnabled(Cond);
+        }
         if (Cond) {
             IndexTable = Integer.parseInt(Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString());
         } else {
@@ -2269,6 +2399,16 @@ public class View1 extends javax.swing.JFrame {
         }
     }
 
+    //Metodo sirve para borrar texto de los proveedores
+    private void BorrarTextFieldProv(JTextField Nombre, JTextField Telefono, JTextField Nit, JTextField Producto, JTextField Direccion) {
+        String t = null;
+        Nombre.setText(t);
+        Telefono.setText(t);
+        Nit.setText(t);
+        Producto.setText(t);
+        Direccion.setText(t);
+    }
+
     public static void main(String args[]) {
 
         String s = "de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel";
@@ -2277,11 +2417,16 @@ public class View1 extends javax.swing.JFrame {
             javax.swing.UIManager.setLookAndFeel(s);
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(View1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(View1.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            Logger.getLogger(View1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(View1.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(View1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(View1.class
+                    .getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
         }
         /* Create and display the form */
