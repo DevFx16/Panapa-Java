@@ -1950,7 +1950,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProveedoresActualizar_panel
 
     private void consultProvEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEliminar_btnActionPerformed
-
+        FindProveedor(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl);
     }//GEN-LAST:event_consultProvEliminar_btnActionPerformed
 
     private void listaProvEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblKeyPressed
