@@ -1,6 +1,8 @@
 package Model;
 
-public class Insumo extends Producto{
+import java.io.Serializable;
+
+public class Insumo extends Producto implements Serializable{
     
     String Unidad;
     public Insumo(String Id, String Nombre, double Precio, Proveedor Proveedor, int Cantidad, String Unidad) {

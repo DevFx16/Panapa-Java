@@ -5,14 +5,15 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Roberto Batty
  */
-public class Usuario {
-    
+public class Usuario implements Serializable{
+
     private ArrayList<Producto> lista_Producto;
     private ArrayList<Insumo> lista_Insumos;
     private ArrayList<Proveedor> lista_Proovedor;
@@ -20,13 +21,23 @@ public class Usuario {
     private ArrayList<FacturaProveedor> lista_Factura_proveedor;
     private ArrayList<Grafica> lista_Graficas;
 
-    public Usuario(ArrayList<Producto> lista_Producto, ArrayList<Insumo> lista_Insumos, ArrayList<Proveedor> lista_Proovedor, ArrayList<FacturaProducto> lista_Factura_producto, ArrayList<FacturaProveedor> lista_Factura_proveedor, ArrayList<Grafica> lista_Graficas) {
+    public Usuario(
+            ArrayList<Producto> lista_Producto,
+            ArrayList<Insumo> lista_Insumos,
+            ArrayList<Proveedor> lista_Proovedor,
+            ArrayList<FacturaProducto> lista_Factura_producto,
+            ArrayList<FacturaProveedor> lista_Factura_proveedor,
+            ArrayList<Grafica> lista_Graficas
+    ) {
         this.lista_Producto = lista_Producto;
         this.lista_Insumos = lista_Insumos;
         this.lista_Proovedor = lista_Proovedor;
         this.lista_Factura_producto = lista_Factura_producto;
         this.lista_Factura_proveedor = lista_Factura_proveedor;
         this.lista_Graficas = lista_Graficas;
+    }
+
+    public Usuario() {
     }
 
     public ArrayList<Producto> getLista_Producto() {
@@ -76,8 +87,5 @@ public class Usuario {
     public void setLista_Graficas(ArrayList<Grafica> lista_Graficas) {
         this.lista_Graficas = lista_Graficas;
     }
-    
-    
-    
-    
+
 }

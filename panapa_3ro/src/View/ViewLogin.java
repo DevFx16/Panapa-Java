@@ -116,9 +116,10 @@ public class ViewLogin extends javax.swing.JFrame {
         }
 
         if (usuario_existente) {
-            if (Lista_panaderias.get(index_user).getPass_usuario().equals(txt_contraseña.getText())) {
-                JOptionPane.showMessageDialog(null, Lista_panaderias.get(index_user).getNombre());
+            if (Lista_panaderias.get(index_user).getPass_usuario().equals(txt_contraseña.getText())) {                
                 View1 panapa1 = new View1(Lista_panaderias.get(index_user).getNom_usuario(), Lista_panaderias.get(index_user).getNombre());
+                panapa1.setVisible(true);
+                this.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
             }
