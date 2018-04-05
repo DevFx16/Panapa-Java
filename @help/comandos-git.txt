@@ -1,6 +1,7 @@
 Actualizar submodulo:
 
 $ git submodule update
+$ git submodule update --init
 
 Agregar submodulo:
 
