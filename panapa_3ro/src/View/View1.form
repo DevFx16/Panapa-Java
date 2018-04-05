@@ -472,6 +472,9 @@
                         <Property name="text" type="java.lang.String" value="Seleccionado"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selecEditPan_chbxActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="nombrePanConsultEdit_txt">
                       <Events>
@@ -802,6 +805,9 @@
                         <Property name="text" type="java.lang.String" value="Seleccionado"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selecPanEliminar_chbxActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="eliminarPan_btn">
                       <Properties>
@@ -1232,6 +1238,9 @@
                         <Property name="text" type="java.lang.String" value="Seleccionado"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selecEditProv_chbxActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="nombreProvConsultEdit_txt">
                       <Events>
@@ -1471,6 +1480,9 @@
                         <Property name="text" type="java.lang.String" value="Seleccionado"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selecConsultProv_chbxActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel17">
                       <Properties>
@@ -1645,6 +1657,9 @@
                         <Property name="text" type="java.lang.String" value="Seleccionado"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selecEliminarProv_chbxActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="EliminarProv_btn">
                       <Properties>

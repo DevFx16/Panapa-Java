@@ -382,6 +382,11 @@ public class View1 extends javax.swing.JFrame {
 
         selecEditPan_chbx.setText("Seleccionado");
         selecEditPan_chbx.setEnabled(false);
+        selecEditPan_chbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecEditPan_chbxActionPerformed(evt);
+            }
+        });
 
         nombrePanConsultEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -653,6 +658,11 @@ public class View1 extends javax.swing.JFrame {
 
         selecPanEliminar_chbx.setText("Seleccionado");
         selecPanEliminar_chbx.setEnabled(false);
+        selecPanEliminar_chbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecPanEliminar_chbxActionPerformed(evt);
+            }
+        });
 
         eliminarPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
         eliminarPan_btn.setText("Eliminar");
@@ -856,6 +866,11 @@ public class View1 extends javax.swing.JFrame {
 
         selecEditProv_chbx.setText("Seleccionado");
         selecEditProv_chbx.setEnabled(false);
+        selecEditProv_chbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecEditProv_chbxActionPerformed(evt);
+            }
+        });
 
         nombreProvConsultEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1079,6 +1094,11 @@ public class View1 extends javax.swing.JFrame {
 
         selecConsultProv_chbx.setText("Seleccionado");
         selecConsultProv_chbx.setEnabled(false);
+        selecConsultProv_chbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecConsultProv_chbxActionPerformed(evt);
+            }
+        });
 
         jLabel17.setText("Buscar :");
 
@@ -1185,6 +1205,11 @@ public class View1 extends javax.swing.JFrame {
 
         selecEliminarProv_chbx.setText("Seleccionado");
         selecEliminarProv_chbx.setEnabled(false);
+        selecEliminarProv_chbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecEliminarProv_chbxActionPerformed(evt);
+            }
+        });
 
         EliminarProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
         EliminarProv_btn.setText("Eliminar");
@@ -1950,7 +1975,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProveedoresActualizar_panel
 
     private void consultProvEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEliminar_btnActionPerformed
-
+       
     }//GEN-LAST:event_consultProvEliminar_btnActionPerformed
 
     private void listaProvEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblKeyPressed
@@ -1962,7 +1987,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaProvEliminar_tblMouseClicked
 
     private void EliminarProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProv_btnActionPerformed
-
+            
     }//GEN-LAST:event_EliminarProv_btnActionPerformed
 
     private void nombreEliminarProv_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreEliminarProv_txtKeyPressed
@@ -1974,7 +1999,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaProvConsult_tblMouseClicked
 
     private void consultProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProv_btnActionPerformed
-
+        FindProveedor(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl);
 
     }//GEN-LAST:event_consultProv_btnActionPerformed
 
@@ -2239,6 +2264,26 @@ public class View1 extends javax.swing.JFrame {
     private void nombrePanEliminar_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrePanEliminar_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombrePanEliminar_txtActionPerformed
+
+    private void selecEliminarProv_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecEliminarProv_chbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selecEliminarProv_chbxActionPerformed
+
+    private void selecConsultProv_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecConsultProv_chbxActionPerformed
+       
+    }//GEN-LAST:event_selecConsultProv_chbxActionPerformed
+
+    private void selecEditProv_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecEditProv_chbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selecEditProv_chbxActionPerformed
+
+    private void selecPanEliminar_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecPanEliminar_chbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selecPanEliminar_chbxActionPerformed
+
+    private void selecEditPan_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecEditPan_chbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selecEditPan_chbxActionPerformed
 
     //Este Metodo Sirve Para Validar Los Productos
     private boolean ValProducto(String Nombre, String Precio) {
