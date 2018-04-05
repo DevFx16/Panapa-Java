@@ -2,10 +2,11 @@ package Model;
 
 import Model.Facturas;
 import Model.Proveedor;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class FacturaProveedor extends Facturas {
+public class FacturaProveedor extends Facturas implements Serializable{
 
     private Proveedor Proveedor;
     private ArrayList<Insumo> Insumo_Compra = new ArrayList<>();

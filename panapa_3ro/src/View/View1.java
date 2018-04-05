@@ -1,18 +1,21 @@
 package View;
 
-import Controller.ProductoController;
-import Controller.ProveedorController;
-import Model.Grafica;
-import Model.Producto;
-import Model.Proveedor;
+import Controller.*;
+import Model.*;
 import java.awt.*;
 import static java.awt.Event.ENTER;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.util.*;
 import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import model.panaderia;
 import org.jfree.chart.*;
 import org.jfree.data.category.DefaultCategoryDataset;
 
@@ -21,41 +24,62 @@ public class View1 extends javax.swing.JFrame {
     //instacio controladores
     private ProductoController Proco = new ProductoController();
     private ProveedorController Proveeco = new ProveedorController();
+
+            
     private Object IndexTable = null;
+    String FileName = "";
+    String Nombre_Panaderia = "";
+
+    public View1(String FileName, String Nombre_Panaderia) {
+        this.FileName = FileName;
+        this.Nombre_Panaderia = Nombre_Panaderia;
+        initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
+        IconosPanel();         
+        cargar_datos(FileName);
+        mbar_nameUser.setText("Usuario: "+FileName);
+        ListAll();
+    }
 
     public View1() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         IconosPanel();
-        ListAll();
-        //Fuente de Datos
-//        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-//        dataset.addValue(18, "Pan De Queso", "");
-//        dataset.addValue(15, "Pan De Jamón", "");
-//        dataset.addValue(16, "Pan De Bocadillo Con Queso", "");
-//        dataset.addValue(12, "Pan De Bocadillo", "");
-//        dataset.addValue(10, "Pan De Pizza", "");
-//        dataset.addValue(12, "Pan De Arequipe", "");
-//        JFreeChart graficoBarras = ChartFactory.createBarChart3D(
-//                "Mas Panes Vendidos", //Título de la gráfica 
-//                "Panes", //leyenda Eje horizontal 
-//                "Número de Panes", //leyenda Eje vertical 
-//                dataset, //datos 
-//                PlotOrientation.VERTICAL, //orientación 
-//                true, //incluir leyendas 
-//                true, //mostrar tooltips 
-//                true);
-//        graficoBarras.setBackgroundPaint(Color.WHITE);
-//        CategoryPlot plot = (CategoryPlot) graficoBarras.getPlot();
-//        plot.setBackgroundPaint(Color.WHITE); //fondo del grafico 
-//        plot.setDomainGridlinesVisible(true);//lineas de rangos, visibles 
-//        plot.setRangeGridlinePaint(Color.BLACK);//color de las lineas de rangos 
-//        ChartPanel frame = new ChartPanel(graficoBarras);
-//        Grafica Graf = new Grafica(dataset, graficoBarras, new Date());
-//        jPanel1.setLayout(new java.awt.BorderLayout());
-//        jPanel1.add(Graf.getPanel());
-//        jPanel1.validate();
+        ListAll(); 
+    }
+    
+    public void cargar_datos(String nameFile) {
+        String path = ".\\PanaderiasData\\"+nameFile+".dat";
+        File fichero = new File(path);
+        
+        if (fichero.exists()) {
+            try {
+                FileInputStream archivo = new FileInputStream(path);
+                ObjectInputStream obj_archivo = new ObjectInputStream(archivo);
+               Usuario u1 = ((Usuario) obj_archivo.readObject());
+               Proco.setLista_producto(u1.getLista_Producto());
+               Proveeco.setLista_proovedor(u1.getLista_Proovedor());
+               
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
+            }
+        }
+
+    }
+
+    public void salvar_datos(String nameFile) {
+        String path = ".\\PanaderiasData\\"+nameFile+".dat";
+        try {
+            Usuario u1 = new Usuario(Proco.getLista_producto(), null, Proveeco.getLista_proovedor(), null, null, null);
+            FileOutputStream archivo = new FileOutputStream(path);
+            ObjectOutputStream obj_archivo = new ObjectOutputStream(archivo);
+            obj_archivo.writeObject(u1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
+            System.out.println(e);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -203,6 +227,10 @@ public class View1 extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        mbar_nameUser = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -507,7 +535,7 @@ public class View1 extends javax.swing.JFrame {
                                     .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(selecEditPan_chbx)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1802,7 +1830,7 @@ public class View1 extends javax.swing.JFrame {
                                 .addComponent(selecProdVenta_chbx)))
                         .addGap(29, 29, 29)
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Panel_General.addTab("Ventas", Ventas);
@@ -1858,8 +1886,20 @@ public class View1 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(Panel_General, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
+
+        jMenu3.setText("Inicio");
+
+        jMenuItem1.setText("Salir");
+        jMenu3.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu3);
+
+        mbar_nameUser.setText("user");
+        jMenuBar1.add(mbar_nameUser);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1881,7 +1921,7 @@ public class View1 extends javax.swing.JFrame {
     public void IconosPanel() {//ICONOS 
 
         // Titulo + Icono del programa
-        setTitle("Panapa 1.6.215");
+        setTitle("Panapa 2.0.0");
         setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Icons/bread.png")));
 
         //Productos
@@ -2214,6 +2254,7 @@ public class View1 extends javax.swing.JFrame {
                 ListAll();
                 BorrarProducto_txt(nombrePanReg_txt, precioPanReg_txt, provePanReg_cmbx);
                 nombrePanReg_txt.requestFocus();
+                salvar_datos(FileName);
                 JOptionPane.showMessageDialog(null, "El producto ha sido registrado", "Registrado", 1);
             } else {
                 //si los datos no son validos
@@ -2458,6 +2499,8 @@ public class View1 extends javax.swing.JFrame {
 
     public static void main(String args[]) {
 
+        JOptionPane.showMessageDialog(null, "Debes iniciar desde el login");
+        
         String s = "de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel";
 
         try {
@@ -2476,12 +2519,12 @@ public class View1 extends javax.swing.JFrame {
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
         }
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new View1().setVisible(true);
-            }
-        });
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new View1().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2557,6 +2600,9 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2589,6 +2635,7 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JTable listaProvEliminar_tbl;
     private javax.swing.JTable listaProveedorReg_tbl;
     private javax.swing.JTable listaProveedoresEdit_tbl;
+    private javax.swing.JMenu mbar_nameUser;
     private javax.swing.JTextField nitProvEdit_txt;
     private javax.swing.JTextField nitProvReg_txt;
     private javax.swing.JTextField nombreClientVenta_txt;
