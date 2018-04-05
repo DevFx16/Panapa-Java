@@ -1975,11 +1975,9 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProveedoresActualizar_panel
 
     private void consultProvEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEliminar_btnActionPerformed
-<<<<<<< HEAD
+
         FindProveedor(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl);
-=======
-       
->>>>>>> 479216f9af822449ae277f55896581131c272dca
+
     }//GEN-LAST:event_consultProvEliminar_btnActionPerformed
 
     private void listaProvEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblKeyPressed
@@ -1991,7 +1989,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaProvEliminar_tblMouseClicked
 
     private void EliminarProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProv_btnActionPerformed
-            
+
     }//GEN-LAST:event_EliminarProv_btnActionPerformed
 
     private void nombreEliminarProv_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreEliminarProv_txtKeyPressed
@@ -2274,7 +2272,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_selecEliminarProv_chbxActionPerformed
 
     private void selecConsultProv_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecConsultProv_chbxActionPerformed
-       
+
     }//GEN-LAST:event_selecConsultProv_chbxActionPerformed
 
     private void selecEditProv_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecEditProv_chbxActionPerformed
