@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.util.*;
 import java.util.logging.*;
@@ -19,7 +20,7 @@ import model.panaderia;
 import org.jfree.chart.*;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class View1 extends javax.swing.JFrame {
+public class View1 extends javax.swing.JFrame{
 
     //instacio controladores
     private ProductoController Proco = new ProductoController();
@@ -27,7 +28,7 @@ public class View1 extends javax.swing.JFrame {
 
             
     private Object IndexTable = null;
-    String FileName = "";
+    public static String FileName = "";
     String Nombre_Panaderia = "";
 
     public View1(String FileName, String Nombre_Panaderia) {
@@ -49,6 +50,14 @@ public class View1 extends javax.swing.JFrame {
         IconosPanel();
         ListAll(); 
     }
+
+    public String getFileName() {
+        return FileName;
+    }
+
+    public String getNombre_Panaderia() {
+        return Nombre_Panaderia;
+    }
     
     public void cargar_datos(String nameFile) {
         String path = ".\\PanaderiasData\\"+nameFile+".dat";
@@ -69,18 +78,6 @@ public class View1 extends javax.swing.JFrame {
 
     }
 
-    public void salvar_datos(String nameFile) {
-        String path = ".\\PanaderiasData\\"+nameFile+".dat";
-        try {
-            Usuario u1 = new Usuario(Proco.getLista_producto(), null, Proveeco.getLista_proovedor(), null, null, null);
-            FileOutputStream archivo = new FileOutputStream(path);
-            ObjectOutputStream obj_archivo = new ObjectOutputStream(archivo);
-            obj_archivo.writeObject(u1);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
-            System.out.println(e);
-        }
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -2253,8 +2250,7 @@ public class View1 extends javax.swing.JFrame {
                         Double.parseDouble(precioPanReg_txt.getText()), Proveeco.getLista_proovedor().get(provePanReg_cmbx.getSelectedIndex()), 0));
                 ListAll();
                 BorrarProducto_txt(nombrePanReg_txt, precioPanReg_txt, provePanReg_cmbx);
-                nombrePanReg_txt.requestFocus();
-                salvar_datos(FileName);
+                nombrePanReg_txt.requestFocus();                
                 JOptionPane.showMessageDialog(null, "El producto ha sido registrado", "Registrado", 1);
             } else {
                 //si los datos no son validos
