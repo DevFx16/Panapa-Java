@@ -1,11 +1,12 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Date;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class Grafica {
+public class Grafica implements Serializable{
     
     private DefaultCategoryDataset Datos;
     private JFreeChart Grafico;

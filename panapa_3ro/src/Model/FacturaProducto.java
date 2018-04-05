@@ -1,10 +1,11 @@
 
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class FacturaProducto extends Facturas{
+public class FacturaProducto extends Facturas implements Serializable{
     
     private ArrayList<Producto> Productos = new ArrayList<>();
     

@@ -1,9 +1,10 @@
 
 package Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Facturas {
+public class Facturas implements Serializable{
     
     protected String Id;
     protected Date Fecha;
