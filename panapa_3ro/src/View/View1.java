@@ -22,40 +22,25 @@ public class View1 extends javax.swing.JFrame {
     private ProductoController Proco = new ProductoController();
     private ProveedorController Proveeco = new ProveedorController();
     private Object IndexTable = null;
+    String FileName = "";
+    String Nombre_Panaderia = "";
 
-    public View1() {
+    public View1(String FileName, String Nombre_Panaderia) {
+        this.FileName = FileName;
+        this.Nombre_Panaderia = Nombre_Panaderia;
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         IconosPanel();
-        ListAll();
-        //Fuente de Datos
-//        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-//        dataset.addValue(18, "Pan De Queso", "");
-//        dataset.addValue(15, "Pan De Jamón", "");
-//        dataset.addValue(16, "Pan De Bocadillo Con Queso", "");
-//        dataset.addValue(12, "Pan De Bocadillo", "");
-//        dataset.addValue(10, "Pan De Pizza", "");
-//        dataset.addValue(12, "Pan De Arequipe", "");
-//        JFreeChart graficoBarras = ChartFactory.createBarChart3D(
-//                "Mas Panes Vendidos", //Título de la gráfica 
-//                "Panes", //leyenda Eje horizontal 
-//                "Número de Panes", //leyenda Eje vertical 
-//                dataset, //datos 
-//                PlotOrientation.VERTICAL, //orientación 
-//                true, //incluir leyendas 
-//                true, //mostrar tooltips 
-//                true);
-//        graficoBarras.setBackgroundPaint(Color.WHITE);
-//        CategoryPlot plot = (CategoryPlot) graficoBarras.getPlot();
-//        plot.setBackgroundPaint(Color.WHITE); //fondo del grafico 
-//        plot.setDomainGridlinesVisible(true);//lineas de rangos, visibles 
-//        plot.setRangeGridlinePaint(Color.BLACK);//color de las lineas de rangos 
-//        ChartPanel frame = new ChartPanel(graficoBarras);
-//        Grafica Graf = new Grafica(dataset, graficoBarras, new Date());
-//        jPanel1.setLayout(new java.awt.BorderLayout());
-//        jPanel1.add(Graf.getPanel());
-//        jPanel1.validate();
+        ListAll(); 
+    }
+
+    private View1() {
+        initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
+        IconosPanel();
+        ListAll(); 
     }
 
     @SuppressWarnings("unchecked")
@@ -1881,7 +1866,7 @@ public class View1 extends javax.swing.JFrame {
     public void IconosPanel() {//ICONOS 
 
         // Titulo + Icono del programa
-        setTitle("Panapa 1.6.215");
+        setTitle("Panapa 2.0.0");
         setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Icons/bread.png")));
 
         //Productos
@@ -1975,7 +1960,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProveedoresActualizar_panel
 
     private void consultProvEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEliminar_btnActionPerformed
-       
+
     }//GEN-LAST:event_consultProvEliminar_btnActionPerformed
 
     private void listaProvEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblKeyPressed
@@ -1987,7 +1972,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaProvEliminar_tblMouseClicked
 
     private void EliminarProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProv_btnActionPerformed
-            
+
     }//GEN-LAST:event_EliminarProv_btnActionPerformed
 
     private void nombreEliminarProv_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreEliminarProv_txtKeyPressed
@@ -2270,7 +2255,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_selecEliminarProv_chbxActionPerformed
 
     private void selecConsultProv_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecConsultProv_chbxActionPerformed
-       
+
     }//GEN-LAST:event_selecConsultProv_chbxActionPerformed
 
     private void selecEditProv_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecEditProv_chbxActionPerformed
