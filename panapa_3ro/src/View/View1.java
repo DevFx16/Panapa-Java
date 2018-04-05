@@ -1185,6 +1185,11 @@ public class View1 extends javax.swing.JFrame {
 
         selecEliminarProv_chbx.setText("Seleccionado");
         selecEliminarProv_chbx.setEnabled(false);
+        selecEliminarProv_chbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecEliminarProv_chbxActionPerformed(evt);
+            }
+        });
 
         EliminarProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
         EliminarProv_btn.setText("Eliminar");
@@ -1950,7 +1955,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_ProveedoresActualizar_panel
 
     private void consultProvEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEliminar_btnActionPerformed
-
+        FindProveedor(nombreEliminarProv_txt.getText().toUpperCase(), listaProvEliminar_tbl);
     }//GEN-LAST:event_consultProvEliminar_btnActionPerformed
 
     private void listaProvEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblKeyPressed
@@ -1962,7 +1967,16 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaProvEliminar_tblMouseClicked
 
     private void EliminarProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProv_btnActionPerformed
-
+            try {
+            if (ConfirmDialog("¿Estas seguro que desea eliminar este item?")) {
+                Proveeco.Delete(Integer.parseInt(IndexTable.toString()));
+                JOptionPane.showMessageDialog(null, "Se ha eliminado el item correctamente", "Eliminado", 1);
+            }
+            ListAll();
+            SelecTable(listaProvEliminar_tbl, selecEliminarProv_chbx, EliminarProv_btn, false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar", "Error", 0);
+        }
     }//GEN-LAST:event_EliminarProv_btnActionPerformed
 
     private void nombreEliminarProv_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreEliminarProv_txtKeyPressed
@@ -1974,7 +1988,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaProvConsult_tblMouseClicked
 
     private void consultProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProv_btnActionPerformed
-
+        FindProveedor(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl);
 
     }//GEN-LAST:event_consultProv_btnActionPerformed
 
@@ -2239,6 +2253,10 @@ public class View1 extends javax.swing.JFrame {
     private void nombrePanEliminar_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrePanEliminar_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombrePanEliminar_txtActionPerformed
+
+    private void selecEliminarProv_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecEliminarProv_chbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selecEliminarProv_chbxActionPerformed
 
     //Este Metodo Sirve Para Validar Los Productos
     private boolean ValProducto(String Nombre, String Precio) {
