@@ -25,11 +25,11 @@ public class View1 extends javax.swing.JFrame {
     //instacio controladores
     private ProductoController Proco = new ProductoController();
     private ProveedorController Proveeco = new ProveedorController();
-
+    
     private Object IndexTable = null;
     public static String FileName = "";
     String Nombre_Panaderia = "";
-
+    
     public View1(String FileName, String Nombre_Panaderia) {
         this.FileName = FileName;
         this.Nombre_Panaderia = Nombre_Panaderia;
@@ -41,7 +41,7 @@ public class View1 extends javax.swing.JFrame {
         mbar_nameUser.setText("Usuario: " + FileName);
         ListAll();
     }
-
+    
     public View1() {
         initComponents();
         setResizable(false);
@@ -49,19 +49,19 @@ public class View1 extends javax.swing.JFrame {
         IconosPanel();
         ListAll();
     }
-
+    
     public String getFileName() {
         return FileName;
     }
-
+    
     public String getNombre_Panaderia() {
         return Nombre_Panaderia;
     }
-
+    
     public void cargar_datos(String nameFile) {
         String path = ".\\PanaderiasData\\" + nameFile + ".dat";
         File fichero = new File(path);
-
+        
         if (fichero.exists()) {
             try {
                 FileInputStream archivo = new FileInputStream(path);
@@ -70,14 +70,14 @@ public class View1 extends javax.swing.JFrame {
                 //poner las demas instancias aquí
                 Proco.setLista_producto(u1.getLista_Producto());
                 Proveeco.setLista_proovedor(u1.getLista_Proovedor());
-
+                
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
             }
         }
-
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1952,11 +1952,11 @@ public class View1 extends javax.swing.JFrame {
         Contenedor_Stast.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Icons/receipt.png")));
         //Datos del Producto
         Contenedor_Stast.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
-
+        
         listaProdVenta_tbl.getColumnModel().getColumn(0).setPreferredWidth(150);
-
+        
     }
-
+    
 
     private void Panel_GeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_GeneralMouseClicked
 
@@ -1995,7 +1995,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaProdConsultVentas_tblMouseClicked
 
     private void consultPanVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanVenta_btnActionPerformed
-
+        
 
     }//GEN-LAST:event_consultPanVenta_btnActionPerformed
 
@@ -2011,10 +2011,9 @@ public class View1 extends javax.swing.JFrame {
         ListAll();
     }//GEN-LAST:event_ProveedoresActualizar_panel
 
+    //Buscar en el eliminar proveedores
     private void consultProvEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEliminar_btnActionPerformed
-
-        FindProveedor(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl);
-
+        BuscarAll(nombreEliminarProv_txt.getText().toUpperCase(), listaProvEliminar_tbl, Proveeco.Read(nombreEliminarProv_txt.getText().toUpperCase()));
     }//GEN-LAST:event_consultProvEliminar_btnActionPerformed
 
     private void listaProvEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblKeyPressed
@@ -2038,21 +2037,23 @@ public class View1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_EliminarProv_btnActionPerformed
 
+    //Evento del enter en el eliminar proveedro para buscar
     private void nombreEliminarProv_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreEliminarProv_txtKeyPressed
-
+        EventoEnter(evt, consultProvEliminar_btn);
     }//GEN-LAST:event_nombreEliminarProv_txtKeyPressed
 
     private void listaProvConsult_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProvConsult_tblMouseClicked
 
     }//GEN-LAST:event_listaProvConsult_tblMouseClicked
 
+    //Buscar en el consultar Proveedores
     private void consultProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProv_btnActionPerformed
-        FindProveedor(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl);
-
+        BuscarAll(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl, Proveeco.Read(nombreProvConsult_txt.getText().toUpperCase()));
     }//GEN-LAST:event_consultProv_btnActionPerformed
 
+    //Evento del enter en el consultar proveedor
     private void nombreProvConsult_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreProvConsult_txtKeyPressed
-
+        EventoEnter(evt, consultProv_btn);
     }//GEN-LAST:event_nombreProvConsult_txtKeyPressed
 
     private void nombreProvConsult_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreProvConsult_txtActionPerformed
@@ -2094,7 +2095,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Metodo para consular en el modificar proveedor
     private void consultProvEdit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEdit_btnActionPerformed
-        FindProveedor(nombreProvConsultEdit_txt.getText().toUpperCase(), listaProveedoresEdit_tbl);
+        BuscarAll(nombreProvConsultEdit_txt.getText().toUpperCase(), listaProveedoresEdit_tbl, Proveeco.Read(nombreProvConsultEdit_txt.getText().toUpperCase()));
         nombreProvConsultEdit_txt.setText(null);
     }//GEN-LAST:event_consultProvEdit_btnActionPerformed
 
@@ -2117,8 +2118,9 @@ public class View1 extends javax.swing.JFrame {
         nitProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 5).toString());
     }//GEN-LAST:event_listaProveedoresEdit_tblMouseClicked
 
+    //Evento del enter en el consultar proveedor en el modificar
     private void nombreProvConsultEdit_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreProvConsultEdit_txtKeyPressed
-
+        EventoEnter(evt, consultProvEdit_btn);
     }//GEN-LAST:event_nombreProvConsultEdit_txtKeyPressed
 
     private void direcProvReg_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_direcProvReg_txtKeyPressed
@@ -2146,7 +2148,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Boton de consultar en el consultar producto
     private void consultPanEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEliminar_btnActionPerformed
-        FindProducto(nombrePanEliminar_txt.getText().toUpperCase(), listaPanesEliminar_tbl);
+        BuscarAll(nombrePanEliminar_txt.getText().toUpperCase(), listaPanesEliminar_tbl, Proco.Read(nombrePanEliminar_txt.getText().toUpperCase()));
     }//GEN-LAST:event_consultPanEliminar_btnActionPerformed
 
     //Boton de Eliminar producto
@@ -2163,8 +2165,9 @@ public class View1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_eliminarPan_btnActionPerformed
 
+    //Evento enter del buscar  producto eliminar
     private void nombrePanEliminar_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePanEliminar_txtKeyPressed
-
+        EventoEnter(evt, consultPanEliminar_btn);
     }//GEN-LAST:event_nombrePanEliminar_txtKeyPressed
 
     private void listaPanesEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEliminar_tblKeyPressed
@@ -2182,11 +2185,12 @@ public class View1 extends javax.swing.JFrame {
 
     //Consultar Productos Eventos
     private void consultPan_btn(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPan_btn
-        FindProducto(nombrePanConsult_txt.getText().toUpperCase(), listaPanesConsult_tbl);
+        BuscarAll(nombrePanConsult_txt.getText().toUpperCase(), listaPanesConsult_tbl, Proco.Read(nombrePanConsult_txt.getText().toUpperCase()));
     }//GEN-LAST:event_consultPan_btn
 
+    //Evento del enter consultar productos
     private void nombrePanConsult_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePanConsult_txtKeyPressed
-
+        EventoEnter(evt, consultPan_btn);
     }//GEN-LAST:event_nombrePanConsult_txtKeyPressed
 
     private void nombrePanConsult_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrePanConsult_txtActionPerformed
@@ -2209,7 +2213,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento para buscar en el modificar en el producto
     private void consultPanEdit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEdit_btnActionPerformed
-        FindProducto(nombrePanConsultEdit_txt.getText().toUpperCase(), listaPanesEdit_tbl);
+        BuscarAll(nombrePanConsultEdit_txt.getText().toUpperCase(), listaPanesEdit_tbl, Proco.Read(nombrePanConsultEdit_txt.getText().toUpperCase()));
         nombrePanConsultEdit_txt.setText(null);
     }//GEN-LAST:event_consultPanEdit_btnActionPerformed
 
@@ -2354,7 +2358,7 @@ public class View1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Hubo un error, rellene todos los campos.", "Error", 0);
                 return false;
             } else {
-
+                
                 return true;
             }
         } catch (Exception e) {
@@ -2413,30 +2417,16 @@ public class View1 extends javax.swing.JFrame {
         }
     }
 
-    //Metodo para buscar en los productos
-    private void FindProducto(String Filter, JTable Tabla) {
+    //Metodo para buscar en todos las tablas
+    private void BuscarAll(String Filter, JTable Tabla, ArrayList Array) {
         //Valido la entrada del buscar
         if (Filter.isEmpty() || Filter == null) {
             JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
         } else {
-            if (Proco.Read(Filter).size() <= 0 || Proco.Read(Filter) == null) {
+            if (Array.size() <= 0 || Array == null) {
                 JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "No se han encontrado", 1);
             } else {
-                Listar((DefaultTableModel) Tabla.getModel(), Proco.Read(Filter));
-            }
-        }
-    }
-
-    //Metodo para buscar en  los proveedores
-    private void FindProveedor(String Filter, JTable Tabla) {
-        //Valido la entrada del buscar
-        if (Filter.isEmpty() || Filter == null) {
-            JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
-        } else {
-            if (Proveeco.Read(Filter).size() <= 0 || Proveeco.Read(Filter) == null) {
-                JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "No se han encontrado", 1);
-            } else {
-                Listar((DefaultTableModel) Tabla.getModel(), Proveeco.Read(Filter));
+                Listar((DefaultTableModel) Tabla.getModel(), Array);
             }
         }
     }
@@ -2501,24 +2491,24 @@ public class View1 extends javax.swing.JFrame {
         Producto.setText(t);
         Direccion.setText(t);
     }
-
+    
     public static void main(String args[]) {
-
+        
         JOptionPane.showMessageDialog(null, "Debes iniciar desde el login");
-
+        
         String s = "de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel";
-
+        
         try {
             javax.swing.UIManager.setLookAndFeel(s);
-
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
-
+            
         } catch (InstantiationException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
-
+            
         } catch (IllegalAccessException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);

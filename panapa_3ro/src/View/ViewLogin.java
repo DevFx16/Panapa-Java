@@ -5,6 +5,7 @@
  */
 package View;
 
+import static java.awt.Event.ENTER;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -67,6 +68,12 @@ public class ViewLogin extends javax.swing.JFrame {
 
         jLabel3.setText("© Panapa 2018");
 
+        txt_contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_contraseñaKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,7 +123,7 @@ public class ViewLogin extends javax.swing.JFrame {
         }
 
         if (usuario_existente) {
-            if (Lista_panaderias.get(index_user).getPass_usuario().equals(txt_contraseña.getText())) {                
+            if (Lista_panaderias.get(index_user).getPass_usuario().equals(txt_contraseña.getText())) {
                 View1 panapa1 = new View1(Lista_panaderias.get(index_user).getNom_usuario(), Lista_panaderias.get(index_user).getNombre());
                 panapa1.setVisible(true);
                 this.setVisible(false);
@@ -128,6 +135,13 @@ public class ViewLogin extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btn_loginActionPerformed
+
+    //Evento del enter
+    private void txt_contraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_contraseñaKeyPressed
+        if (evt.getKeyChar() == ENTER) {
+            btn_login.doClick();
+        }
+    }//GEN-LAST:event_txt_contraseñaKeyPressed
 
     String nameFile = "..\\panaderias_pa_crud\\panaderias_lista1.dat";
     ArrayList<panaderia> Lista_panaderias = new ArrayList();
