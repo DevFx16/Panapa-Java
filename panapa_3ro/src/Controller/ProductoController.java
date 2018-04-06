@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class ProductoController {
 
     public static ArrayList<Producto> lista_producto = new ArrayList();
-    UsuarioController us = new UsuarioController();
+    UsuarioController userco = new UsuarioController();
 
     public void Create(Producto Model) {
         lista_producto.add(Model);
-        us.salvar_datos();
+        userco.salvar_datos();
     }
 
     public ArrayList<String[]> Read(String Filter) {
@@ -36,12 +36,12 @@ public class ProductoController {
 
     public void Delete(int Index) {
         lista_producto.remove(Index);
-        us.salvar_datos();
+        userco.salvar_datos();
     }
 
     public void Update(int Index, Producto Model) {
         lista_producto.set(Index, Model);
-        us.salvar_datos();
+        userco.salvar_datos();
     }
 
     public ArrayList<Producto> getLista_producto() {

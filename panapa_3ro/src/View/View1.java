@@ -67,6 +67,7 @@ public class View1 extends javax.swing.JFrame {
                 FileInputStream archivo = new FileInputStream(path);
                 ObjectInputStream obj_archivo = new ObjectInputStream(archivo);
                 Usuario u1 = ((Usuario) obj_archivo.readObject());
+                //poner las demas instancias aquí
                 Proco.setLista_producto(u1.getLista_Producto());
                 Proveeco.setLista_proovedor(u1.getLista_Proovedor());
 

@@ -24,7 +24,13 @@ public class UsuarioController {
         String path = ".\\PanaderiasData\\" + nameFile + ".dat";
         
         try {
-            Usuario u1 = new Usuario(ProductoController.lista_producto, null, ProveedorController.lista_proovedor, null, null, null);
+            Usuario u1 = new Usuario(
+                    ProductoController.lista_producto,
+                    InsumoController.Lista_Insumos,
+                    ProveedorController.lista_proovedor,
+                    ProductoFacturaController.Lista_Factura,
+                    ProveedorFacturaController.Lista_Factura,
+                    GraficoController.Lista_Graficas);
             FileOutputStream archivo = new FileOutputStream(path);
             ObjectOutputStream obj_archivo = new ObjectOutputStream(archivo);
             obj_archivo.writeObject(u1);

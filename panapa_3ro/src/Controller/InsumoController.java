@@ -5,10 +5,12 @@ import java.util.ArrayList;
 
 public class InsumoController {
 
-    private ArrayList<Insumo> Lista_Insumos = new ArrayList<>();
-
+    public static ArrayList<Insumo> Lista_Insumos = new ArrayList<>();
+    UsuarioController userco = new UsuarioController();
+    
     public void Create(Insumo Factura) {
         Lista_Insumos.add(Factura);
+        userco.salvar_datos();
     }
 
     public ArrayList<Insumo> Read(String Filter) {
@@ -23,10 +25,12 @@ public class InsumoController {
 
     public void Update(int Index, Insumo Factura) {
         Lista_Insumos.set(Index, Factura);
+        userco.salvar_datos();
     }
 
     public void Delete(int Index) {
         Lista_Insumos.remove(Index);
+        userco.salvar_datos();
     }    
 
     public ArrayList<Insumo> getLista_Insumos() {

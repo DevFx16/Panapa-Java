@@ -44,12 +44,12 @@ public class ProveedorController implements Serializable{
 
     public void Delete(int Index) {
         lista_proovedor.remove(Index);
-        //userco.salvar_datos();
+        userco.salvar_datos();
     }
 
     public void Update(int Index, Proveedor Model) {
         lista_proovedor.set(Index, Model);
-        //userco.salvar_datos();
+        userco.salvar_datos();
     }
 
     public ArrayList<Proveedor> getLista_proovedor() {

@@ -6,10 +6,12 @@ import java.util.Date;
 
 public class GraficoController {
 
-    private ArrayList<Grafica> Lista_Graficas = new ArrayList<Grafica>();
+    public static ArrayList<Grafica> Lista_Graficas = new ArrayList<Grafica>();
+    UsuarioController userco = new UsuarioController();
 
     public void Create(Grafica Graf) {
         Lista_Graficas.add(Graf);
+        userco.salvar_datos();
     }
 
     public ArrayList<Grafica> Read(Date Fecha) {
@@ -24,6 +26,7 @@ public class GraficoController {
 
     public void Remove(int Index){
         Lista_Graficas.remove(Index);
+        userco.salvar_datos();
     }
     
     public ArrayList<Grafica> getLista_Graficas() {
