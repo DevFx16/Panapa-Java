@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.util.*;
 import java.util.logging.*;
@@ -25,9 +26,8 @@ public class View1 extends javax.swing.JFrame {
     private ProductoController Proco = new ProductoController();
     private ProveedorController Proveeco = new ProveedorController();
 
-            
     private Object IndexTable = null;
-    String FileName = "";
+    public static String FileName = "";
     String Nombre_Panaderia = "";
 
     public View1(String FileName, String Nombre_Panaderia) {
@@ -36,9 +36,9 @@ public class View1 extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        IconosPanel();         
+        IconosPanel();
         cargar_datos(FileName);
-        mbar_nameUser.setText("Usuario: "+FileName);
+        mbar_nameUser.setText("Usuario: " + FileName);
         ListAll();
     }
 
@@ -47,39 +47,34 @@ public class View1 extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         IconosPanel();
-        ListAll(); 
+        ListAll();
     }
-    
+
+    public String getFileName() {
+        return FileName;
+    }
+
+    public String getNombre_Panaderia() {
+        return Nombre_Panaderia;
+    }
+
     public void cargar_datos(String nameFile) {
-        String path = ".\\PanaderiasData\\"+nameFile+".dat";
+        String path = ".\\PanaderiasData\\" + nameFile + ".dat";
         File fichero = new File(path);
-        
+
         if (fichero.exists()) {
             try {
                 FileInputStream archivo = new FileInputStream(path);
                 ObjectInputStream obj_archivo = new ObjectInputStream(archivo);
-               Usuario u1 = ((Usuario) obj_archivo.readObject());
-               Proco.setLista_producto(u1.getLista_Producto());
-               Proveeco.setLista_proovedor(u1.getLista_Proovedor());
-               
+                Usuario u1 = ((Usuario) obj_archivo.readObject());
+                Proco.setLista_producto(u1.getLista_Producto());
+                Proveeco.setLista_proovedor(u1.getLista_Proovedor());
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
             }
         }
 
-    }
-
-    public void salvar_datos(String nameFile) {
-        String path = ".\\PanaderiasData\\"+nameFile+".dat";
-        try {
-            Usuario u1 = new Usuario(Proco.getLista_producto(), null, Proveeco.getLista_proovedor(), null, null, null);
-            FileOutputStream archivo = new FileOutputStream(path);
-            ObjectOutputStream obj_archivo = new ObjectOutputStream(archivo);
-            obj_archivo.writeObject(u1);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
-            System.out.println(e);
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -1241,6 +1236,7 @@ public class View1 extends javax.swing.JFrame {
 
         EliminarProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
         EliminarProv_btn.setText("Eliminar");
+        EliminarProv_btn.setEnabled(false);
         EliminarProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarProv_btnActionPerformed(evt);
@@ -2025,11 +2021,20 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_listaProvEliminar_tblKeyPressed
 
     private void listaProvEliminar_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblMouseClicked
-
+        SelecTable(listaProvEliminar_tbl, selecEliminarProv_chbx, EliminarProv_btn, true);
     }//GEN-LAST:event_listaProvEliminar_tblMouseClicked
 
     private void EliminarProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProv_btnActionPerformed
-
+        try {
+            if (ConfirmDialog("¿Esta seguro que deasea eliminar este proveedor?")) {
+                Proveeco.Delete(Integer.parseInt(IndexTable.toString()));
+                JOptionPane.showMessageDialog(null, "Se ha eliminado el item correctamente", "Eliminado", 1);
+            }
+            ListAll();
+            SelecTable(listaProvEliminar_tbl, selecEliminarProv_chbx, EliminarProv_btn, false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar", "Error", 0);
+        }
     }//GEN-LAST:event_EliminarProv_btnActionPerformed
 
     private void nombreEliminarProv_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreEliminarProv_txtKeyPressed
@@ -2254,7 +2259,6 @@ public class View1 extends javax.swing.JFrame {
                 ListAll();
                 BorrarProducto_txt(nombrePanReg_txt, precioPanReg_txt, provePanReg_cmbx);
                 nombrePanReg_txt.requestFocus();
-                salvar_datos(FileName);
                 JOptionPane.showMessageDialog(null, "El producto ha sido registrado", "Registrado", 1);
             } else {
                 //si los datos no son validos
@@ -2461,7 +2465,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Metodo para cuando seleccione un elemento de una tabla y asi mismo cuando termina el proceso
     private void SelecTable(JTable Tabla, JCheckBox Check, JButton Boton, boolean Cond) {
-        if (IndexTable == null) {
+        if (IndexTable == null || Cond == false) {
             Check.setSelected(Cond);
             Boton.setEnabled(Cond);
         }
@@ -2500,7 +2504,7 @@ public class View1 extends javax.swing.JFrame {
     public static void main(String args[]) {
 
         JOptionPane.showMessageDialog(null, "Debes iniciar desde el login");
-        
+
         String s = "de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel";
 
         try {

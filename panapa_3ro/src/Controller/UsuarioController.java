@@ -6,21 +6,32 @@
 package Controller;
 
 import Model.Usuario;
-import java.util.ArrayList;
+import View.View1;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Juan Manuel
+ * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public class UsuarioController {
-    
-    Usuario user1 = new Usuario();
-    
-    
-    public void createLoad(
-    
-    ){
+
+    public void salvar_datos() {
+        String nameFile = View1.FileName;
+        System.out.println(nameFile);
+        String path = ".\\PanaderiasData\\" + nameFile + ".dat";
         
+        try {
+            Usuario u1 = new Usuario(ProductoController.lista_producto, null, ProveedorController.lista_proovedor, null, null, null);
+            FileOutputStream archivo = new FileOutputStream(path);
+            ObjectOutputStream obj_archivo = new ObjectOutputStream(archivo);
+            obj_archivo.writeObject(u1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
+            System.out.println(e);
+        }
     }
-    
+
 }
