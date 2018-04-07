@@ -34,6 +34,27 @@ public class ProductoController {
         return Get;
     }
 
+    public ArrayList<String[]> ReadVenta(String Filter) {
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < getLista_producto().size(); i++) {
+            if (getLista_producto().get(i).getNombre().contains(Filter)) {
+                Get.add(new String[]{i + "", getLista_producto().get(i).getNombre(), getLista_producto().get(i).getCantidad() + "",
+                    getLista_producto().get(i).getPrecio() + ""});
+            }
+        }
+        return Get;
+    }
+
+    public ArrayList<String[]> ReadVenta() {
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < getLista_producto().size(); i++) {
+            Get.add(new String[]{i + "", getLista_producto().get(i).getNombre(), getLista_producto().get(i).getCantidad() + "",
+                getLista_producto().get(i).getPrecio() + ""});
+
+        }
+        return Get;
+    }
+
     public void Delete(int Index) {
         lista_producto.remove(Index);
         userco.salvar_datos();
