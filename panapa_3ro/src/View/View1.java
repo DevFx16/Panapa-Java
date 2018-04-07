@@ -115,12 +115,12 @@ public class View1 extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         provePanEdit_cmbx = new javax.swing.JComboBox<>();
         Consultar_Producto = new javax.swing.JPanel();
-        selecConsultPan_chbx = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
         nombrePanConsult_txt = new javax.swing.JTextField();
         consultPan_btn = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         listaPanesConsult_tbl = new javax.swing.JTable();
+        cancelarBusquedaProd_btn = new javax.swing.JButton();
         Eliminar_Producto = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         listaPanesEliminar_tbl = new javax.swing.JTable();
@@ -129,6 +129,7 @@ public class View1 extends javax.swing.JFrame {
         selecPanEliminar_chbx = new javax.swing.JCheckBox();
         eliminarPan_btn = new javax.swing.JButton();
         consultPanEliminar_btn = new javax.swing.JButton();
+        cancelarElimProd_btn = new javax.swing.JButton();
         Proveedores = new javax.swing.JTabbedPane();
         Registrar_Proveedores = new javax.swing.JPanel();
         nombreProvReg_txt = new javax.swing.JTextField();
@@ -165,12 +166,12 @@ public class View1 extends javax.swing.JFrame {
         GuardarEditProv_btn = new javax.swing.JButton();
         cancelarEditProv_btn = new javax.swing.JButton();
         Consultar_Proveedores = new javax.swing.JPanel();
-        selecConsultProv_chbx = new javax.swing.JCheckBox();
         jLabel17 = new javax.swing.JLabel();
         nombreProvConsult_txt = new javax.swing.JTextField();
         consultProv_btn = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         listaProvConsult_tbl = new javax.swing.JTable();
+        cancelarBusquedaProv_btn = new javax.swing.JButton();
         Eliminar_Proveedores = new javax.swing.JPanel();
         nombreEliminarProv_txt = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -179,6 +180,7 @@ public class View1 extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         listaProvEliminar_tbl = new javax.swing.JTable();
         consultProvEliminar_btn = new javax.swing.JButton();
+        cancelarElimProv_btn = new javax.swing.JButton();
         Insumos = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -205,6 +207,7 @@ public class View1 extends javax.swing.JFrame {
         pagoClientVenta_txt = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         totalProdVenta = new javax.swing.JTextField();
+        cancelarBusquedaPan_btn = new javax.swing.JButton();
         Estadisticas = new javax.swing.JPanel();
         Contenedor_Stast = new javax.swing.JTabbedPane();
         Historial_ventas = new javax.swing.JPanel();
@@ -551,9 +554,6 @@ public class View1 extends javax.swing.JFrame {
 
         Productos.addTab("Modificar Producto", Modificar_Producto);
 
-        selecConsultPan_chbx.setText("Seleccionado");
-        selecConsultPan_chbx.setEnabled(false);
-
         jLabel8.setText("Buscar :");
 
         nombrePanConsult_txt.addActionListener(new java.awt.event.ActionListener() {
@@ -592,11 +592,6 @@ public class View1 extends javax.swing.JFrame {
             }
         });
         listaPanesConsult_tbl.getTableHeader().setReorderingAllowed(false);
-        listaPanesConsult_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listaPanesConsult_tblMouseClicked(evt);
-            }
-        });
         jScrollPane3.setViewportView(listaPanesConsult_tbl);
         if (listaPanesConsult_tbl.getColumnModel().getColumnCount() > 0) {
             listaPanesConsult_tbl.getColumnModel().getColumn(0).setMinWidth(80);
@@ -607,6 +602,15 @@ public class View1 extends javax.swing.JFrame {
             listaPanesConsult_tbl.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        cancelarBusquedaProd_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        cancelarBusquedaProd_btn.setText("Cancelar Búsqueda");
+        cancelarBusquedaProd_btn.setEnabled(false);
+        cancelarBusquedaProd_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarBusquedaProd_btnmodificarPan(evt);
+            }
+        });
+
         javax.swing.GroupLayout Consultar_ProductoLayout = new javax.swing.GroupLayout(Consultar_Producto);
         Consultar_Producto.setLayout(Consultar_ProductoLayout);
         Consultar_ProductoLayout.setHorizontalGroup(
@@ -614,14 +618,14 @@ public class View1 extends javax.swing.JFrame {
             .addGroup(Consultar_ProductoLayout.createSequentialGroup()
                 .addGroup(Consultar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Consultar_ProductoLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(selecConsultPan_chbx)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(129, 129, 129)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nombrePanConsult_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(consultPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cancelarBusquedaProd_btn)
+                        .addGap(26, 26, 26)
+                        .addComponent(consultPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Consultar_ProductoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1061, Short.MAX_VALUE)))
@@ -635,9 +639,9 @@ public class View1 extends javax.swing.JFrame {
                     .addComponent(consultPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombrePanConsult_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(selecConsultPan_chbx))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                    .addComponent(cancelarBusquedaProd_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 12, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -717,6 +721,16 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
+        cancelarElimProd_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        cancelarElimProd_btn.setText("Cancelar");
+        cancelarElimProd_btn.setActionCommand("Cancelar");
+        cancelarElimProd_btn.setEnabled(false);
+        cancelarElimProd_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarElimProd_btnmodificarPan(evt);
+            }
+        });
+
         javax.swing.GroupLayout Eliminar_ProductoLayout = new javax.swing.GroupLayout(Eliminar_Producto);
         Eliminar_Producto.setLayout(Eliminar_ProductoLayout);
         Eliminar_ProductoLayout.setHorizontalGroup(
@@ -737,7 +751,9 @@ public class View1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(consultPanEliminar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(eliminarPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cancelarElimProd_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(eliminarPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         Eliminar_ProductoLayout.setVerticalGroup(
@@ -745,7 +761,9 @@ public class View1 extends javax.swing.JFrame {
             .addGroup(Eliminar_ProductoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Eliminar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(eliminarPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(Eliminar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(eliminarPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cancelarElimProd_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(consultPanEliminar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(Eliminar_ProductoLayout.createSequentialGroup()
                         .addGroup(Eliminar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -754,7 +772,7 @@ public class View1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(selecPanEliminar_chbx)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1173,14 +1191,6 @@ public class View1 extends javax.swing.JFrame {
 
         Proveedores.addTab("Modificar Prooverdor", Modificar_Proveedores);
 
-        selecConsultProv_chbx.setText("Seleccionado");
-        selecConsultProv_chbx.setEnabled(false);
-        selecConsultProv_chbx.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selecConsultProv_chbxActionPerformed(evt);
-            }
-        });
-
         jLabel17.setText("Buscar :");
 
         nombreProvConsult_txt.addActionListener(new java.awt.event.ActionListener() {
@@ -1219,11 +1229,6 @@ public class View1 extends javax.swing.JFrame {
             }
         });
         listaProvConsult_tbl.getTableHeader().setReorderingAllowed(false);
-        listaProvConsult_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listaProvConsult_tblMouseClicked(evt);
-            }
-        });
         jScrollPane7.setViewportView(listaProvConsult_tbl);
         if (listaProvConsult_tbl.getColumnModel().getColumnCount() > 0) {
             listaProvConsult_tbl.getColumnModel().getColumn(0).setMinWidth(80);
@@ -1236,6 +1241,15 @@ public class View1 extends javax.swing.JFrame {
             listaProvConsult_tbl.getColumnModel().getColumn(5).setResizable(false);
         }
 
+        cancelarBusquedaProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        cancelarBusquedaProv_btn.setText("Cancelar Búsqueda");
+        cancelarBusquedaProv_btn.setEnabled(false);
+        cancelarBusquedaProv_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarBusquedaProv_btnmodificarPan(evt);
+            }
+        });
+
         javax.swing.GroupLayout Consultar_ProveedoresLayout = new javax.swing.GroupLayout(Consultar_Proveedores);
         Consultar_Proveedores.setLayout(Consultar_ProveedoresLayout);
         Consultar_ProveedoresLayout.setHorizontalGroup(
@@ -1243,14 +1257,14 @@ public class View1 extends javax.swing.JFrame {
             .addGroup(Consultar_ProveedoresLayout.createSequentialGroup()
                 .addGroup(Consultar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Consultar_ProveedoresLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(selecConsultProv_chbx)
-                        .addGap(28, 28, 28)
+                        .addGap(128, 128, 128)
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nombreProvConsult_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nombreProvConsult_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(consultProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cancelarBusquedaProv_btn)
+                        .addGap(26, 26, 26)
+                        .addComponent(consultProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Consultar_ProveedoresLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1061, Short.MAX_VALUE)))
@@ -1261,16 +1275,17 @@ public class View1 extends javax.swing.JFrame {
             .addGroup(Consultar_ProveedoresLayout.createSequentialGroup()
                 .addGroup(Consultar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Consultar_ProveedoresLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(consultProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Consultar_ProveedoresLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addGap(24, 24, 24)
                         .addGroup(Consultar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(selecConsultProv_chbx)
                             .addComponent(jLabel17)
-                            .addComponent(nombreProvConsult_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+                            .addComponent(nombreProvConsult_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(Consultar_ProveedoresLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(Consultar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(consultProv_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                            .addComponent(cancelarBusquedaProv_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1344,6 +1359,15 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
+        cancelarElimProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        cancelarElimProv_btn.setText("Cancelar");
+        cancelarElimProv_btn.setEnabled(false);
+        cancelarElimProv_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarElimProv_btnmodificarPan(evt);
+            }
+        });
+
         javax.swing.GroupLayout Eliminar_ProveedoresLayout = new javax.swing.GroupLayout(Eliminar_Proveedores);
         Eliminar_Proveedores.setLayout(Eliminar_ProveedoresLayout);
         Eliminar_ProveedoresLayout.setHorizontalGroup(
@@ -1364,7 +1388,9 @@ public class View1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(consultProvEliminar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EliminarProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cancelarElimProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(EliminarProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1061, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1375,8 +1401,10 @@ public class View1 extends javax.swing.JFrame {
                 .addGroup(Eliminar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Eliminar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(Eliminar_ProveedoresLayout.createSequentialGroup()
-                            .addComponent(EliminarProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20))
+                            .addGroup(Eliminar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(EliminarProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cancelarElimProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(19, 19, 19))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Eliminar_ProveedoresLayout.createSequentialGroup()
                             .addGroup(Eliminar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(nombreEliminarProv_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1386,14 +1414,14 @@ public class View1 extends javax.swing.JFrame {
                             .addGap(11, 11, 11)))
                     .addGroup(Eliminar_ProveedoresLayout.createSequentialGroup()
                         .addComponent(consultProvEliminar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+                        .addGap(13, 13, 13)))
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         Proveedores.addTab("Eliminar Prooverdor", Eliminar_Proveedores);
 
-        Panel_General.addTab("Proveedores", Proveedores);
+        Panel_General.addTab("Proveedores", null, Proveedores, "");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1600,6 +1628,15 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
+        cancelarBusquedaPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        cancelarBusquedaPan_btn.setText("Cancelar Búsqueda");
+        cancelarBusquedaPan_btn.setEnabled(false);
+        cancelarBusquedaPan_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarBusquedaPan_btnmodificarPan(evt);
+            }
+        });
+
         javax.swing.GroupLayout VentasLayout = new javax.swing.GroupLayout(Ventas);
         Ventas.setLayout(VentasLayout);
         VentasLayout.setHorizontalGroup(
@@ -1611,12 +1648,14 @@ public class View1 extends javax.swing.JFrame {
                         .addGroup(VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(VentasLayout.createSequentialGroup()
                                 .addComponent(selecProdConsultVenta_chbx)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(consultPanVenta_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addComponent(cancelarBusquedaPan_btn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(consultPanVenta_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(VentasLayout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addGap(18, 18, 18)
-                                .addComponent(nombrePanConsultVenta_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(nombrePanConsultVenta_txt))))
                     .addGroup(VentasLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1698,7 +1737,7 @@ public class View1 extends javax.swing.JFrame {
                                 .addComponent(comprarVenta_btn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cancelarVenta_btn)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 39, Short.MAX_VALUE))
                             .addGroup(VentasLayout.createSequentialGroup()
                                 .addGroup(VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(pagoClientVenta_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1711,12 +1750,13 @@ public class View1 extends javax.swing.JFrame {
                             .addComponent(nombrePanConsultVenta_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(consultPanVenta_btn)
-                            .addComponent(selecProdConsultVenta_chbx))
+                            .addComponent(selecProdConsultVenta_chbx)
+                            .addComponent(cancelarBusquedaPan_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         Panel_General.addTab("Ventas", Ventas);
@@ -2019,12 +2059,13 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_cantidadProdVenta_txtKeyPressed
 
     private void listaProdConsultVentas_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProdConsultVentas_tblMouseClicked
-
+        SelecTable(listaProdConsultVentas_tbl, selecEditPan_chbx, EditPan_btn, true);
+        cancelarBusquedaPan_btn.setEnabled(true);
+        nombreProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_listaProdConsultVentas_tblMouseClicked
 
     private void consultPanVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanVenta_btnActionPerformed
-
-
+        BuscarAll(nombrePanConsultVenta_txt.getText().toUpperCase(), listaProdConsultVentas_tbl, Proco.ReadVenta(nombrePanConsultVenta_txt.getText().toUpperCase()), cancelarBusquedaPan_btn);
     }//GEN-LAST:event_consultPanVenta_btnActionPerformed
 
     private void nombrePanConsultVenta_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePanConsultVenta_txtKeyPressed
@@ -2037,7 +2078,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Buscar en el eliminar proveedores
     private void consultProvEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEliminar_btnActionPerformed
-        BuscarAll(nombreEliminarProv_txt.getText().toUpperCase(), listaProvEliminar_tbl, Proveeco.Read(nombreEliminarProv_txt.getText().toUpperCase()));
+        BuscarAll(nombreEliminarProv_txt.getText().toUpperCase(), listaProvEliminar_tbl, Proveeco.Read(nombreEliminarProv_txt.getText().toUpperCase()), cancelarElimProv_btn);
     }//GEN-LAST:event_consultProvEliminar_btnActionPerformed
 
     //Evento del enter para eliminar proveedor
@@ -2047,6 +2088,7 @@ public class View1 extends javax.swing.JFrame {
 
     private void listaProvEliminar_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblMouseClicked
         SelecTable(listaProvEliminar_tbl, selecEliminarProv_chbx, EliminarProv_btn, true);
+        cancelarElimProv_btn.setEnabled(true);
     }//GEN-LAST:event_listaProvEliminar_tblMouseClicked
 
     private void EliminarProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProv_btnActionPerformed
@@ -2067,13 +2109,10 @@ public class View1 extends javax.swing.JFrame {
         EventoEnter(evt, consultProvEliminar_btn);
     }//GEN-LAST:event_nombreEliminarProv_txtKeyPressed
 
-    private void listaProvConsult_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProvConsult_tblMouseClicked
-
-    }//GEN-LAST:event_listaProvConsult_tblMouseClicked
-
     //Buscar en el consultar Proveedores
     private void consultProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProv_btnActionPerformed
-        BuscarAll(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl, Proveeco.Read(nombreProvConsult_txt.getText().toUpperCase()));
+
+        BuscarAll(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl, Proveeco.Read(nombreProvConsult_txt.getText().toUpperCase()), cancelarBusquedaProv_btn);
     }//GEN-LAST:event_consultProv_btnActionPerformed
 
     //Evento del enter en el consultar proveedor
@@ -2120,7 +2159,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Metodo para consular en el modificar proveedor
     private void consultProvEdit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEdit_btnActionPerformed
-        BuscarAll(nombreProvConsultEdit_txt.getText().toUpperCase(), listaProveedoresEdit_tbl, Proveeco.Read(nombreProvConsultEdit_txt.getText().toUpperCase()));
+        BuscarAll(nombreProvConsultEdit_txt.getText().toUpperCase(), listaProveedoresEdit_tbl, Proveeco.Read(nombreProvConsultEdit_txt.getText().toUpperCase()), null);
         nombreProvConsultEdit_txt.setText(null);
     }//GEN-LAST:event_consultProvEdit_btnActionPerformed
 
@@ -2172,7 +2211,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Boton de consultar en el consultar producto
     private void consultPanEliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEliminar_btnActionPerformed
-        BuscarAll(nombrePanEliminar_txt.getText().toUpperCase(), listaPanesEliminar_tbl, Proco.Read(nombrePanEliminar_txt.getText().toUpperCase()));
+        BuscarAll(nombrePanEliminar_txt.getText().toUpperCase(), listaPanesEliminar_tbl, Proco.Read(nombrePanEliminar_txt.getText().toUpperCase()), cancelarElimProd_btn);
     }//GEN-LAST:event_consultPanEliminar_btnActionPerformed
 
     //Boton de Eliminar producto
@@ -2202,15 +2241,12 @@ public class View1 extends javax.swing.JFrame {
     //Evento para seleccionar un producto del eliminar
     private void listaPanesEliminar_tblselecProdEliminar_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEliminar_tblselecProdEliminar_tbl
         SelecTable(listaPanesEliminar_tbl, selecPanEliminar_chbx, eliminarPan_btn, true);
+        cancelarElimProd_btn.setEnabled(true);
     }//GEN-LAST:event_listaPanesEliminar_tblselecProdEliminar_tbl
-
-    private void listaPanesConsult_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesConsult_tblMouseClicked
-
-    }//GEN-LAST:event_listaPanesConsult_tblMouseClicked
 
     //Consultar Productos Eventos
     private void consultPan_btn(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPan_btn
-        BuscarAll(nombrePanConsult_txt.getText().toUpperCase(), listaPanesConsult_tbl, Proco.Read(nombrePanConsult_txt.getText().toUpperCase()));
+        BuscarAll(nombrePanConsult_txt.getText().toUpperCase(), listaPanesConsult_tbl, Proco.Read(nombrePanConsult_txt.getText().toUpperCase()), cancelarBusquedaProd_btn);
     }//GEN-LAST:event_consultPan_btn
 
     //Evento del enter consultar productos
@@ -2238,7 +2274,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento para buscar en el modificar en el producto
     private void consultPanEdit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEdit_btnActionPerformed
-        BuscarAll(nombrePanConsultEdit_txt.getText().toUpperCase(), listaPanesEdit_tbl, Proco.Read(nombrePanConsultEdit_txt.getText().toUpperCase()));
+        BuscarAll(nombrePanConsultEdit_txt.getText().toUpperCase(), listaPanesEdit_tbl, Proco.Read(nombrePanConsultEdit_txt.getText().toUpperCase()), null);
         nombrePanConsultEdit_txt.setText(null);
     }//GEN-LAST:event_consultPanEdit_btnActionPerformed
 
@@ -2339,10 +2375,6 @@ public class View1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_selecEliminarProv_chbxActionPerformed
 
-    private void selecConsultProv_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecConsultProv_chbxActionPerformed
-
-    }//GEN-LAST:event_selecConsultProv_chbxActionPerformed
-
     private void selecEditProv_chbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecEditProv_chbxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_selecEditProv_chbxActionPerformed
@@ -2430,13 +2462,13 @@ public class View1 extends javax.swing.JFrame {
                 ActualizarPanelCrud(nombreProvReg_txt, nombreProvConsultEdit_txt, nombreProvConsult_txt, nombreEliminarProv_txt, Proveedores);
                 break;
             case 2:
-              
+
                 break;
             case 3:
-                
+
                 break;
             case 4:
-                
+
                 break;
         }
         ListAll();
@@ -2445,6 +2477,35 @@ public class View1 extends javax.swing.JFrame {
     private void nombreProdVenta_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreProdVenta_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreProdVenta_txtActionPerformed
+
+    private void cancelarBusquedaPan_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBusquedaPan_btnmodificarPan
+        Listar((DefaultTableModel) listaProdConsultVentas_tbl.getModel(), Proco.ReadVenta());
+        nombreProdVenta_txt.setText(null);
+        nombrePanConsultVenta_txt.setText(null);
+        cancelarBusquedaPan_btn.setEnabled(false);
+    }//GEN-LAST:event_cancelarBusquedaPan_btnmodificarPan
+
+    private void cancelarBusquedaProv_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBusquedaProv_btnmodificarPan
+        Listar((DefaultTableModel) listaProvConsult_tbl.getModel(), Proveeco.ReadAll());
+        cancelarBusquedaProv_btn.setEnabled(false);
+    }//GEN-LAST:event_cancelarBusquedaProv_btnmodificarPan
+
+    private void cancelarBusquedaProd_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBusquedaProd_btnmodificarPan
+        Listar((DefaultTableModel) listaPanesConsult_tbl.getModel(), Proco.ReadAll());
+        cancelarBusquedaProd_btn.setEnabled(false);
+    }//GEN-LAST:event_cancelarBusquedaProd_btnmodificarPan
+
+    private void cancelarElimProd_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarElimProd_btnmodificarPan
+        Listar((DefaultTableModel) listaProvEliminar_tbl.getModel(), Proveeco.ReadAll());
+        SelecTable(listaPanesEliminar_tbl, selecPanEliminar_chbx, cancelarElimProd_btn, false);
+        eliminarPan_btn.setEnabled(false);
+    }//GEN-LAST:event_cancelarElimProd_btnmodificarPan
+
+    private void cancelarElimProv_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarElimProv_btnmodificarPan
+        Listar((DefaultTableModel) listaPanesEliminar_tbl.getModel(), Proco.ReadAll());
+        SelecTable(listaProvEliminar_tbl, selecEliminarProv_chbx, cancelarElimProv_btn, false);
+        EliminarProv_btn.setEnabled(false);
+    }//GEN-LAST:event_cancelarElimProv_btnmodificarPan
 
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
@@ -2547,7 +2608,7 @@ public class View1 extends javax.swing.JFrame {
     }
 
     //Metodo para buscar en todos las tablas
-    private void BuscarAll(String Filter, JTable Tabla, ArrayList Array) {
+    private void BuscarAll(String Filter, JTable Tabla, ArrayList Array, JButton Cancelar) {
         //Valido la entrada del buscar
         if (Filter.isEmpty() || Filter == null) {
             JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
@@ -2556,6 +2617,7 @@ public class View1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "No se han encontrado", 1);
             } else {
                 Listar((DefaultTableModel) Tabla.getModel(), Array);
+                Cancelar.setEnabled(true);
             }
         }
     }
@@ -2677,8 +2739,13 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JPanel Ventas;
     private javax.swing.JButton agregarProdVenta_btn;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton cancelarBusquedaPan_btn;
+    private javax.swing.JButton cancelarBusquedaProd_btn;
+    private javax.swing.JButton cancelarBusquedaProv_btn;
     private javax.swing.JButton cancelarEditPan_btn;
     private javax.swing.JButton cancelarEditProv_btn;
+    private javax.swing.JButton cancelarElimProd_btn;
+    private javax.swing.JButton cancelarElimProv_btn;
     private javax.swing.JButton cancelarVenta_btn;
     private javax.swing.JTextField cantidadProdVenta_txt;
     private javax.swing.JButton comprarVenta_btn;
@@ -2779,8 +2846,6 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JButton registrarPan_btn;
     private javax.swing.JButton registrarProv_btn;
     private javax.swing.JButton retirarProdVenta_btn;
-    private javax.swing.JCheckBox selecConsultPan_chbx;
-    private javax.swing.JCheckBox selecConsultProv_chbx;
     private javax.swing.JCheckBox selecEditPan_chbx;
     private javax.swing.JCheckBox selecEditProv_chbx;
     private javax.swing.JCheckBox selecEliminarProv_chbx;
