@@ -114,6 +114,7 @@ public class View1 extends javax.swing.JFrame {
         cancelarEditPan_btn = new javax.swing.JButton();
         jLabel42 = new javax.swing.JLabel();
         provePanEdit_cmbx = new javax.swing.JComboBox<>();
+        cancelarBusqProd_btn = new javax.swing.JButton();
         Consultar_Producto = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         nombrePanConsult_txt = new javax.swing.JTextField();
@@ -165,6 +166,7 @@ public class View1 extends javax.swing.JFrame {
         EditProv_btn = new javax.swing.JButton();
         GuardarEditProv_btn = new javax.swing.JButton();
         cancelarEditProv_btn = new javax.swing.JButton();
+        cancelarBusqPov_btn = new javax.swing.JButton();
         Consultar_Proveedores = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         nombreProvConsult_txt = new javax.swing.JTextField();
@@ -356,6 +358,8 @@ public class View1 extends javax.swing.JFrame {
 
         Productos.addTab("Registrar Producto", Registrar_Producto);
 
+        Modificar_Producto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         GuardarEditPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         GuardarEditPan_btn.setText("Guardar");
         GuardarEditPan_btn.setEnabled(false);
@@ -364,6 +368,7 @@ public class View1 extends javax.swing.JFrame {
                 GuardarEditPan_btnmodificarPan(evt);
             }
         });
+        Modificar_Producto.add(GuardarEditPan_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 80, 149, -1));
 
         listaPanesEdit_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -402,12 +407,15 @@ public class View1 extends javax.swing.JFrame {
             listaPanesEdit_tbl.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        Modificar_Producto.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 169, 1061, 403));
+
         precioPanEdit_txt.setEnabled(false);
         precioPanEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 precioPanEdit_txtKeyPressed(evt);
             }
         });
+        Modificar_Producto.add(precioPanEdit_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 44, 118, -1));
 
         nombrePanEdit_txt.setEnabled(false);
         nombrePanEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -415,10 +423,13 @@ public class View1 extends javax.swing.JFrame {
                 nombrePanEdit_txtKeyPressed(evt);
             }
         });
+        Modificar_Producto.add(nombrePanEdit_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 44, 130, -1));
 
         jLabel4.setText("Nuevo Nombre :  ");
+        Modificar_Producto.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 23, -1, -1));
 
         jLabel5.setText("Nuevo Precio : ");
+        Modificar_Producto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 23, -1, -1));
 
         selecEditPan_chbx.setText("Seleccionado");
         selecEditPan_chbx.setEnabled(false);
@@ -427,14 +438,17 @@ public class View1 extends javax.swing.JFrame {
                 selecEditPan_chbxActionPerformed(evt);
             }
         });
+        Modificar_Producto.add(selecEditPan_chbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 64, -1, -1));
 
         nombrePanConsultEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 nombrePanConsultEdit_txtKeyPressed(evt);
             }
         });
+        Modificar_Producto.add(nombrePanConsultEdit_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(822, 43, 113, -1));
 
         jLabel7.setText("Buscar :");
+        Modificar_Producto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 45, -1, -1));
 
         consultPanEdit_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
         consultPanEdit_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -442,6 +456,7 @@ public class View1 extends javax.swing.JFrame {
                 consultPanEdit_btnActionPerformed(evt);
             }
         });
+        Modificar_Producto.add(consultPanEdit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(941, 35, 78, -1));
 
         EditPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
         EditPan_btn.setText("Modificar");
@@ -451,6 +466,7 @@ public class View1 extends javax.swing.JFrame {
                 EditPan_btnActionPerformed(evt);
             }
         });
+        Modificar_Producto.add(EditPan_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 35, 149, 76));
 
         cancelarEditPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarEditPan_btn.setText("Cancelar");
@@ -460,97 +476,24 @@ public class View1 extends javax.swing.JFrame {
                 cancelarEditPan_btnmodificarPan(evt);
             }
         });
+        Modificar_Producto.add(cancelarEditPan_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 35, 149, -1));
 
         jLabel42.setText("Nuevo Proveedor:");
+        Modificar_Producto.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 69, -1, -1));
 
         provePanEdit_cmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         provePanEdit_cmbx.setEnabled(false);
+        Modificar_Producto.add(provePanEdit_cmbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 90, 118, -1));
 
-        javax.swing.GroupLayout Modificar_ProductoLayout = new javax.swing.GroupLayout(Modificar_Producto);
-        Modificar_Producto.setLayout(Modificar_ProductoLayout);
-        Modificar_ProductoLayout.setHorizontalGroup(
-            Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addContainerGap())
-                    .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                        .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(jLabel4))
-                                    .addComponent(nombrePanEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(25, 25, 25)
-                                .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                                        .addGap(23, 23, 23)
-                                        .addComponent(jLabel5))
-                                    .addComponent(precioPanEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                                .addGap(105, 105, 105)
-                                .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(provePanEdit_cmbx, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Modificar_ProductoLayout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addComponent(jLabel42)))))
-                        .addGap(56, 56, 56)
-                        .addComponent(EditPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GuardarEditPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cancelarEditPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                        .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(selecEditPan_chbx)
-                            .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nombrePanConsultEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(consultPanEdit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66))))
-        );
-        Modificar_ProductoLayout.setVerticalGroup(
-            Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                        .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nombrePanEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(precioPanEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel42)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(provePanEdit_cmbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(EditPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(Modificar_ProductoLayout.createSequentialGroup()
-                            .addComponent(cancelarEditPan_btn)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(GuardarEditPan_btn))
-                        .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(consultPanEdit_btn)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Modificar_ProductoLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(Modificar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(nombrePanConsultEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(selecEditPan_chbx)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        cancelarBusqProd_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        cancelarBusqProd_btn.setText("Cancelar Consulta");
+        cancelarBusqProd_btn.setEnabled(false);
+        cancelarBusqProd_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarBusqProd_btnActionPerformed(evt);
+            }
+        });
+        Modificar_Producto.add(cancelarBusqProd_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, 160, -1));
 
         Productos.addTab("Modificar Producto", Modificar_Producto);
 
@@ -723,7 +666,6 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarElimProd_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarElimProd_btn.setText("Cancelar");
-        cancelarElimProd_btn.setActionCommand("Cancelar");
         cancelarElimProd_btn.setEnabled(false);
         cancelarElimProd_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1077,6 +1019,15 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
+        cancelarBusqPov_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        cancelarBusqPov_btn.setText("Cancelar Consulta");
+        cancelarBusqPov_btn.setEnabled(false);
+        cancelarBusqPov_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarBusqPov_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Modificar_ProveedoresLayout = new javax.swing.GroupLayout(Modificar_Proveedores);
         Modificar_Proveedores.setLayout(Modificar_ProveedoresLayout);
         Modificar_ProveedoresLayout.setHorizontalGroup(
@@ -1119,7 +1070,7 @@ public class View1 extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addComponent(EditProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
                                 .addComponent(GuardarEditProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(50, 50, 50)
@@ -1131,8 +1082,11 @@ public class View1 extends javax.swing.JFrame {
                                     .addComponent(selecEditProv_chbx))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(consultProvEdit_btn))
-                            .addComponent(cancelarEditProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
+                                .addComponent(cancelarEditProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cancelarBusqPov_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(12, Short.MAX_VALUE))
                     .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1059, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(16, Short.MAX_VALUE))))
@@ -1141,6 +1095,40 @@ public class View1 extends javax.swing.JFrame {
             Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
                 .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
+                            .addGap(38, 38, 38)
+                            .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
+                                    .addComponent(GuardarEditProv_btn)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cancelarEditProv_btn))
+                                .addComponent(EditProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Modificar_ProveedoresLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel26)
+                                    .addGap(41, 41, 41)
+                                    .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel25)
+                                        .addComponent(jLabel24))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(serviProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(direcProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
+                                        .addComponent(jLabel27)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(telefonoProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(nitProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Modificar_ProveedoresLayout.createSequentialGroup()
+                                        .addComponent(jLabel23)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(nombreProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1150,41 +1138,10 @@ public class View1 extends javax.swing.JFrame {
                                     .addComponent(jLabel16))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(selecEditProv_chbx, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(consultProvEdit_btn)))
-                    .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
-                                .addComponent(GuardarEditProv_btn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cancelarEditProv_btn))
-                            .addComponent(EditProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Modificar_ProveedoresLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel26)
-                                .addGap(41, 41, 41)
-                                .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel25)
-                                    .addComponent(jLabel24))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(serviProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(direcProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
-                                    .addComponent(jLabel27)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(telefonoProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(nitProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Modificar_ProveedoresLayout.createSequentialGroup()
-                                    .addComponent(jLabel23)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(nombreProvEdit_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                            .addComponent(consultProvEdit_btn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cancelarBusqPov_btn)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -2159,7 +2116,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Metodo para consular en el modificar proveedor
     private void consultProvEdit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProvEdit_btnActionPerformed
-        BuscarAll(nombreProvConsultEdit_txt.getText().toUpperCase(), listaProveedoresEdit_tbl, Proveeco.Read(nombreProvConsultEdit_txt.getText().toUpperCase()), null);
+        BuscarAll(nombreProvConsultEdit_txt.getText().toUpperCase(), listaProveedoresEdit_tbl, Proveeco.Read(nombreProvConsultEdit_txt.getText().toUpperCase()), cancelarBusqPov_btn);
         nombreProvConsultEdit_txt.setText(null);
     }//GEN-LAST:event_consultProvEdit_btnActionPerformed
 
@@ -2274,7 +2231,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento para buscar en el modificar en el producto
     private void consultPanEdit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEdit_btnActionPerformed
-        BuscarAll(nombrePanConsultEdit_txt.getText().toUpperCase(), listaPanesEdit_tbl, Proco.Read(nombrePanConsultEdit_txt.getText().toUpperCase()), null);
+        BuscarAll(nombrePanConsultEdit_txt.getText().toUpperCase(), listaPanesEdit_tbl, Proco.Read(nombrePanConsultEdit_txt.getText().toUpperCase()), cancelarBusqProd_btn);
         nombrePanConsultEdit_txt.setText(null);
     }//GEN-LAST:event_consultPanEdit_btnActionPerformed
 
@@ -2506,6 +2463,16 @@ public class View1 extends javax.swing.JFrame {
         SelecTable(listaProvEliminar_tbl, selecEliminarProv_chbx, cancelarElimProv_btn, false);
         EliminarProv_btn.setEnabled(false);
     }//GEN-LAST:event_cancelarElimProv_btnmodificarPan
+
+    private void cancelarBusqProd_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBusqProd_btnActionPerformed
+        Listar((DefaultTableModel) listaPanesEdit_tbl.getModel(), Proco.ReadAll());
+        cancelarBusqProd_btn.setEnabled(false);
+    }//GEN-LAST:event_cancelarBusqProd_btnActionPerformed
+
+    private void cancelarBusqPov_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBusqPov_btnActionPerformed
+        Listar((DefaultTableModel) listaProveedoresEdit_tbl.getModel(), Proveeco.ReadAll());
+        cancelarBusqPov_btn.setEnabled(false);
+    }//GEN-LAST:event_cancelarBusqPov_btnActionPerformed
 
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
@@ -2739,6 +2706,8 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JPanel Ventas;
     private javax.swing.JButton agregarProdVenta_btn;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton cancelarBusqPov_btn;
+    private javax.swing.JButton cancelarBusqProd_btn;
     private javax.swing.JButton cancelarBusquedaPan_btn;
     private javax.swing.JButton cancelarBusquedaProd_btn;
     private javax.swing.JButton cancelarBusquedaProv_btn;
