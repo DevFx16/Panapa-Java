@@ -2030,7 +2030,7 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_nombrePanConsultVenta_txtKeyPressed
 
     private void listaProdVenta_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProdVenta_tblMouseClicked
-
+        SelecTable(listaProdVenta_tbl, selecProdVenta_chbx, EditProv_btn, true);
     }//GEN-LAST:event_listaProdVenta_tblMouseClicked
 
     //Buscar en el eliminar proveedores
