@@ -1737,7 +1737,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel28.setText("Unidad:");
 
-        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G(GRAMOS)", "KG(KILOGRAGRAMOS)", "ML(MILÍGRAMOS)", "L(LITRO)", "KL(KILOLITRO)", "ML(MILÍLITRO)" }));
 
         javax.swing.GroupLayout Registrar_InsumoLayout = new javax.swing.GroupLayout(Registrar_Insumo);
         Registrar_Insumo.setLayout(Registrar_InsumoLayout);
@@ -3660,6 +3660,7 @@ public class View1 extends javax.swing.JFrame {
         Listar((DefaultTableModel) tbl_listaProdCantidad.getModel(), Proco.ReadVenta());
         ComboBoxList(provePanReg_cmbx, Proveeco.getLista_proovedor());
         ComboBoxList(provePanEdit_cmbx, Proveeco.getLista_proovedor());
+        ComboBoxList(cmbx_proveInsumoReg, Proveeco.getLista_proovedor());
     }
 
     //Este Metodo Sirve Para Listar las Tablas

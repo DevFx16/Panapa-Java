@@ -2387,11 +2387,13 @@
                             <Component class="javax.swing.JComboBox" name="cmbx_unidadInsumoReg">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="6">
+                                    <StringItem index="0" value="G(GRAMOS)"/>
+                                    <StringItem index="1" value="KG(KILOGRAGRAMOS)"/>
+                                    <StringItem index="2" value="ML(MIL&#xcd;GRAMOS)"/>
+                                    <StringItem index="3" value="L(LITRO)"/>
+                                    <StringItem index="4" value="KL(KILOLITRO)"/>
+                                    <StringItem index="5" value="ML(MIL&#xcd;LITRO)"/>
                                   </StringArray>
                                 </Property>
                               </Properties>
