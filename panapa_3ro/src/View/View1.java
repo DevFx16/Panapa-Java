@@ -25,11 +25,11 @@ public class View1 extends javax.swing.JFrame {
     //instacio controladores
     private ProductoController Proco = new ProductoController();
     private ProveedorController Proveeco = new ProveedorController();
-
+    
     private Object IndexTable = null;
     public static String FileName = "";
     String Nombre_Panaderia = "";
-
+    
     public View1(String FileName, String Nombre_Panaderia) {
         this.FileName = FileName;
         this.Nombre_Panaderia = Nombre_Panaderia;
@@ -42,7 +42,7 @@ public class View1 extends javax.swing.JFrame {
         ListAll();
         nombrePanReg_txt.requestFocus();
     }
-
+    
     public View1() {
         initComponents();
         setResizable(false);
@@ -51,19 +51,19 @@ public class View1 extends javax.swing.JFrame {
         ListAll();
         nombrePanReg_txt.requestFocus();
     }
-
+    
     public String getFileName() {
         return FileName;
     }
-
+    
     public String getNombre_Panaderia() {
         return Nombre_Panaderia;
     }
-
+    
     public void cargar_datos(String nameFile) {
         String path = ".\\PanaderiasData\\" + nameFile + ".dat";
         File fichero = new File(path);
-
+        
         if (fichero.exists()) {
             try {
                 FileInputStream archivo = new FileInputStream(path);
@@ -72,14 +72,14 @@ public class View1 extends javax.swing.JFrame {
                 //poner las demas instancias aquí
                 Proco.setLista_producto(u1.getLista_Producto());
                 Proveeco.setLista_proovedor(u1.getLista_Proovedor());
-
+                
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
             }
         }
-
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -2869,7 +2869,7 @@ public class View1 extends javax.swing.JFrame {
         Panel_General.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png")));
         //Estadisticas
         Panel_General.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/estadisticas.png")));
-
+        
         Panel_General.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/groceries_1.png")));
 
         //Prod_Registrar
@@ -2880,7 +2880,7 @@ public class View1 extends javax.swing.JFrame {
         Productos.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png")));
         //Prod_Eliminar
         Productos.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png")));
-
+        
         Productos.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
 
         //Prod_Registrar
@@ -2903,11 +2903,11 @@ public class View1 extends javax.swing.JFrame {
         Contenedor_Stast.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Icons/receipt.png")));
         //Datos del Producto
         Contenedor_Stast.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
-
+        
         listaProdVenta_tbl.getColumnModel().getColumn(0).setPreferredWidth(150);
-
+        
     }
-
+    
 
     private void totalProdVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalProdVentaActionPerformed
 
@@ -2990,7 +2990,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Buscar en el consultar Proveedores
     private void consultProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProv_btnActionPerformed
-
+        
         BuscarAll(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl, Proveeco.Read(nombreProvConsult_txt.getText().toUpperCase()), cancelarBusquedaProv_btn);
     }//GEN-LAST:event_consultProv_btnActionPerformed
 
@@ -3342,13 +3342,13 @@ public class View1 extends javax.swing.JFrame {
                 ActualizarPanelCrud(nombreProvReg_txt, nombreProvConsultEdit_txt, nombreProvConsult_txt, nombreEliminarProv_txt, Proveedores);
                 break;
             case 2:
-
+                
                 break;
             case 3:
-
+                
                 break;
             case 4:
-
+                
                 break;
         }
         ListAll();
@@ -3517,18 +3517,34 @@ public class View1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_cancelarBusquedaInsumoVentamodificarPan
 
+    //Guardar Cantidades Producto
     private void btn_GuardarEditCantidadmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuardarEditCantidadmodificarPan
-        // TODO add your handling code here:
+        try{
+            if(Integer.parseInt(txt_CantidadProd.getText()) <= 0){
+                JOptionPane.showMessageDialog(null, "Por digite numeros mayores a 0", "Error", 0);
+            }else{
+                int[] Index = new int[tbl_listaProdSelectCantidad.getRowCount()];
+                for(int i = 0; i < Index.length; i++){
+                    Index[i] = Integer.parseInt(listaPanesEdit_tbl.getValueAt(i, 0).toString());
+                }
+                Proco.UpateCantidad(Index, Integer.parseInt(txt_CantidadProd.getText()));
+                btn_cancelarEditProdCantidad.doClick();
+                Listar((DefaultTableModel) tbl_listaProdCantidad.getModel(), Proco.ReadVenta());
+                JOptionPane.showMessageDialog(null, "Se han modificado la cantidad", "Error", 1);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Por favor digite solo valores numericos", "Error", 0);
+        }
     }//GEN-LAST:event_btn_GuardarEditCantidadmodificarPan
 
     //Evento para cuando se selecciona un producto de las cantidades
     private void tbl_listaProdCantidadselecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaProdCantidadselecProdModif_tbl
         ArrayList<String[]> Get = new ArrayList<String[]>();
         for (int i = 0; i < tbl_listaProdCantidad.getSelectedRows().length; i++) {
-            Get.add(new String[]{listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 0).toString(), 
-            listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 1).toString(), 
-            listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 2).toString()});
-            System.out.println(listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 3).toString());
+            Get.add(new String[]{listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 0).toString(),
+                listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 1).toString(),
+                listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 2).toString()});
+            System.out.println(listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 0).toString());
         }
         Listar((DefaultTableModel) tbl_listaProdSelectCantidad.getModel(), Get);
         EnabledBtn(btn_EditProdCantidad, btn_GuardarEditCantidad, btn_cancelarEditProdCantidad, true);
@@ -3559,7 +3575,8 @@ public class View1 extends javax.swing.JFrame {
 
     //Cancelar Modificar CANTIDAD PRODUCTO
     private void btn_cancelarEditProdCantidadmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarEditProdCantidadmodificarPan
-       txt_CantidadProd.setText(null);
+        txt_CantidadProd.setText(null);
+        txt_CantidadProd.setEnabled(false);
         Listar((DefaultTableModel) tbl_listaProdSelectCantidad.getModel(), new ArrayList());
         EnabledBtn(btn_EditProdCantidad, btn_GuardarEditCantidad, btn_cancelarEditProdCantidad, false);
     }//GEN-LAST:event_btn_cancelarEditProdCantidadmodificarPan
@@ -3620,7 +3637,7 @@ public class View1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Hubo un error, rellene todos los campos.", "Error", 0);
                 return false;
             } else {
-
+                
                 return true;
             }
         } catch (Exception e) {
@@ -3756,24 +3773,24 @@ public class View1 extends javax.swing.JFrame {
         Producto.setText(t);
         Direccion.setText(t);
     }
-
+    
     public static void main(String args[]) {
-
+        
         JOptionPane.showMessageDialog(null, "Debes iniciar desde el login");
-
+        
         String s = "de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel";
-
+        
         try {
             javax.swing.UIManager.setLookAndFeel(s);
-
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
-
+            
         } catch (InstantiationException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
-
+            
         } catch (IllegalAccessException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
