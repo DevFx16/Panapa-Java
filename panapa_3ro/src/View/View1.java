@@ -186,7 +186,65 @@ public class View1 extends javax.swing.JFrame {
         Insumos = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
+        Registrar_Insumo = new javax.swing.JPanel();
+        txt_nombreInsumoReg = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txt_precioInsumoReg = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tbl_listaInsumosReg = new javax.swing.JTable();
+        btn_registrarInsumo = new javax.swing.JButton();
+        cmbx_proveInsumoReg = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        cmbx_unidadInsumoReg = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
+        Modificar_Insumo = new javax.swing.JPanel();
+        btn_GuardarEditInsumo = new javax.swing.JButton();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        listaPanesEdit_tbl1 = new javax.swing.JTable();
+        txt_precioInsumoEdit = new javax.swing.JTextField();
+        txt_nombreInsumosEdit = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        chbx_selecEditInsumo = new javax.swing.JCheckBox();
+        txt_nombreInsumoConsultEdit = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        btn_consultInsumoEdit = new javax.swing.JButton();
+        btn_EditInsumo = new javax.swing.JButton();
+        btn_EliminarEditInsumo = new javax.swing.JButton();
+        jLabel43 = new javax.swing.JLabel();
+        cmbx_proveInsumoEdit = new javax.swing.JComboBox<>();
+        btn_cancelBusqInsumoEdit = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        cmbx_unidadInsumoEdit = new javax.swing.JComboBox<>();
+        btn_cancelarEditInsumo1 = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        PreCompra = new javax.swing.JPanel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        tbl_listaInsumoVenta = new javax.swing.JTable();
+        chbx_selecInsumoConsultVenta = new javax.swing.JCheckBox();
+        jLabel36 = new javax.swing.JLabel();
+        txt_nombreInsumoConsultVenta = new javax.swing.JTextField();
+        btn_consultInsumoVenta = new javax.swing.JButton();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        tbl_listaInsumoConsultVentas = new javax.swing.JTable();
+        jLabel37 = new javax.swing.JLabel();
+        txt_nombreInsumoVenta = new javax.swing.JTextField();
+        txt_cantidadInsumoVenta = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        btn_agregarInsumoVenta = new javax.swing.JButton();
+        retirarInsumoVenta_btn = new javax.swing.JButton();
+        chbx_selecInsumoVenta = new javax.swing.JCheckBox();
+        comprarInsumoVenta_btn = new javax.swing.JButton();
+        cancelarInsumoVenta_btn = new javax.swing.JButton();
+        jLabel39 = new javax.swing.JLabel();
+        txt_pagoClientInsumoVenta = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
+        txt_totalProdInsumoVenta = new javax.swing.JTextField();
+        btn_cancelarBusquedaInsumoVenta = new javax.swing.JButton();
+        cmbx_unidadInsumoVenta = new javax.swing.JComboBox<>();
+        jLabel41 = new javax.swing.JLabel();
         Ventas = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
         listaProdVenta_tbl = new javax.swing.JTable();
@@ -329,7 +387,7 @@ public class View1 extends javax.swing.JFrame {
                         .addGroup(Registrar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(provePanReg_cmbx, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 325, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
                         .addComponent(registrarPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))))
         );
@@ -351,8 +409,8 @@ public class View1 extends javax.swing.JFrame {
                     .addGroup(Registrar_ProductoLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(registrarPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
@@ -407,7 +465,7 @@ public class View1 extends javax.swing.JFrame {
             listaPanesEdit_tbl.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        Modificar_Producto.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 169, 1061, 403));
+        Modificar_Producto.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 169, 1061, 380));
 
         precioPanEdit_txt.setEnabled(false);
         precioPanEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -583,8 +641,8 @@ public class View1 extends javax.swing.JFrame {
                     .addComponent(nombrePanConsult_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(cancelarBusquedaProd_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 12, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -714,7 +772,7 @@ public class View1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(selecPanEliminar_chbx)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -879,7 +937,7 @@ public class View1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(direcProvReg_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(22, 22, 22)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
 
@@ -1141,7 +1199,7 @@ public class View1 extends javax.swing.JFrame {
                             .addComponent(consultProvEdit_btn))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cancelarBusqPov_btn)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1242,7 +1300,7 @@ public class View1 extends javax.swing.JFrame {
                             .addComponent(consultProv_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                             .addComponent(cancelarBusquedaProv_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1372,7 +1430,7 @@ public class View1 extends javax.swing.JFrame {
                     .addGroup(Eliminar_ProveedoresLayout.createSequentialGroup()
                         .addComponent(consultProvEliminar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)))
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1380,31 +1438,652 @@ public class View1 extends javax.swing.JFrame {
 
         Panel_General.addTab("Proveedores", null, Proveedores, "");
 
+        txt_nombreInsumoReg.setText("brazo");
+        txt_nombreInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_nombreInsumoRegKeyPressed(evt);
+            }
+        });
+
+        jLabel2.setText("Nombre del Tipo de Producto : ");
+
+        txt_precioInsumoReg.setText("500");
+        txt_precioInsumoReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_precioInsumoRegActionPerformed(evt);
+            }
+        });
+        txt_precioInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_precioInsumoRegKeyPressed(evt);
+            }
+        });
+
+        jLabel6.setText("Precio : ");
+
+        tbl_listaInsumosReg.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Index", "Nombre", "Precio", "Proveedor"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbl_listaInsumosReg.getTableHeader().setReorderingAllowed(false);
+        jScrollPane9.setViewportView(tbl_listaInsumosReg);
+        if (tbl_listaInsumosReg.getColumnModel().getColumnCount() > 0) {
+            tbl_listaInsumosReg.getColumnModel().getColumn(0).setMinWidth(80);
+            tbl_listaInsumosReg.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tbl_listaInsumosReg.getColumnModel().getColumn(0).setMaxWidth(80);
+            tbl_listaInsumosReg.getColumnModel().getColumn(1).setResizable(false);
+            tbl_listaInsumosReg.getColumnModel().getColumn(2).setResizable(false);
+            tbl_listaInsumosReg.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        btn_registrarInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
+        btn_registrarInsumo.setText("Registrar");
+        btn_registrarInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_registrarInsumoregistrarPan(evt);
+            }
+        });
+
+        cmbx_proveInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel15.setText("Proveedor:");
+
+        jLabel28.setText("Unidad:");
+
+        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout Registrar_InsumoLayout = new javax.swing.GroupLayout(Registrar_Insumo);
+        Registrar_Insumo.setLayout(Registrar_InsumoLayout);
+        Registrar_InsumoLayout.setHorizontalGroup(
+            Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Registrar_InsumoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Registrar_InsumoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane9)
+                        .addContainerGap())
+                    .addGroup(Registrar_InsumoLayout.createSequentialGroup()
+                        .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_nombreInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70)
+                        .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(txt_precioInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(110, 110, 110)
+                        .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbx_proveInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbx_unidadInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel28))
+                        .addGap(145, 145, 145)
+                        .addComponent(btn_registrarInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
+        );
+        Registrar_InsumoLayout.setVerticalGroup(
+            Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Registrar_InsumoLayout.createSequentialGroup()
+                .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Registrar_InsumoLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(btn_registrarInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Registrar_InsumoLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(Registrar_InsumoLayout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbx_unidadInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Registrar_InsumoLayout.createSequentialGroup()
+                                .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel15))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_nombreInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_precioInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbx_proveInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1085, Short.MAX_VALUE)
+            .addGap(0, 1094, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addComponent(Registrar_Insumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
+            .addGap(0, 608, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addComponent(Registrar_Insumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 13, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("tab1", jPanel2);
+        jTabbedPane1.addTab("Registrar", jPanel2);
+
+        Modificar_Insumo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_GuardarEditInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
+        btn_GuardarEditInsumo.setText("Guardar");
+        btn_GuardarEditInsumo.setEnabled(false);
+        btn_GuardarEditInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_GuardarEditInsumomodificarPan(evt);
+            }
+        });
+        Modificar_Insumo.add(btn_GuardarEditInsumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 149, -1));
+
+        listaPanesEdit_tbl1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Index", "Nombre", "Precio", "Proveedor"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        listaPanesEdit_tbl1.getTableHeader().setReorderingAllowed(false);
+        listaPanesEdit_tbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaPanesEdit_tbl1selecProdModif_tbl(evt);
+            }
+        });
+        listaPanesEdit_tbl1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                listaPanesEdit_tbl1KeyPressed(evt);
+            }
+        });
+        jScrollPane14.setViewportView(listaPanesEdit_tbl1);
+        if (listaPanesEdit_tbl1.getColumnModel().getColumnCount() > 0) {
+            listaPanesEdit_tbl1.getColumnModel().getColumn(0).setMinWidth(80);
+            listaPanesEdit_tbl1.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaPanesEdit_tbl1.getColumnModel().getColumn(0).setMaxWidth(80);
+            listaPanesEdit_tbl1.getColumnModel().getColumn(1).setResizable(false);
+            listaPanesEdit_tbl1.getColumnModel().getColumn(2).setResizable(false);
+            listaPanesEdit_tbl1.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        Modificar_Insumo.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 152, 1061, 400));
+
+        txt_precioInsumoEdit.setEnabled(false);
+        txt_precioInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_precioInsumoEditKeyPressed(evt);
+            }
+        });
+        Modificar_Insumo.add(txt_precioInsumoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 118, -1));
+
+        txt_nombreInsumosEdit.setEnabled(false);
+        txt_nombreInsumosEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_nombreInsumosEditKeyPressed(evt);
+            }
+        });
+        Modificar_Insumo.add(txt_nombreInsumosEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 130, -1));
+
+        jLabel32.setText("Nuevo Nombre :  ");
+        Modificar_Insumo.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
+        jLabel33.setText("Nuevo Precio : ");
+        Modificar_Insumo.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+
+        chbx_selecEditInsumo.setText("Seleccionado");
+        chbx_selecEditInsumo.setEnabled(false);
+        chbx_selecEditInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbx_selecEditInsumoActionPerformed(evt);
+            }
+        });
+        Modificar_Insumo.add(chbx_selecEditInsumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, -1, -1));
+
+        txt_nombreInsumoConsultEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_nombreInsumoConsultEditKeyPressed(evt);
+            }
+        });
+        Modificar_Insumo.add(txt_nombreInsumoConsultEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 30, 113, -1));
+
+        jLabel34.setText("Buscar :");
+        Modificar_Insumo.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, -1, -1));
+
+        btn_consultInsumoEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        btn_consultInsumoEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultInsumoEditActionPerformed(evt);
+            }
+        });
+        Modificar_Insumo.add(btn_consultInsumoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 30, 78, -1));
+
+        btn_EditInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
+        btn_EditInsumo.setText("Modificar");
+        btn_EditInsumo.setEnabled(false);
+        btn_EditInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EditInsumoActionPerformed(evt);
+            }
+        });
+        Modificar_Insumo.add(btn_EditInsumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 149, 90));
+
+        btn_EliminarEditInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
+        btn_EliminarEditInsumo.setText("Eliminar");
+        btn_EliminarEditInsumo.setEnabled(false);
+        btn_EliminarEditInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EliminarEditInsumomodificarPan(evt);
+            }
+        });
+        Modificar_Insumo.add(btn_EliminarEditInsumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 149, -1));
+
+        jLabel43.setText("Nuevo Proveedor:");
+        Modificar_Insumo.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+
+        cmbx_proveInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_proveInsumoEdit.setEnabled(false);
+        Modificar_Insumo.add(cmbx_proveInsumoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 130, -1));
+
+        btn_cancelBusqInsumoEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        btn_cancelBusqInsumoEdit.setText("Cancelar Consulta");
+        btn_cancelBusqInsumoEdit.setEnabled(false);
+        btn_cancelBusqInsumoEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelBusqInsumoEditActionPerformed(evt);
+            }
+        });
+        Modificar_Insumo.add(btn_cancelBusqInsumoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 80, 160, -1));
+
+        jLabel35.setText("Unidad:");
+        Modificar_Insumo.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
+
+        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_unidadInsumoEdit.setEnabled(false);
+        Modificar_Insumo.add(cmbx_unidadInsumoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 110, -1));
+
+        btn_cancelarEditInsumo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        btn_cancelarEditInsumo1.setText("Cancelar");
+        btn_cancelarEditInsumo1.setEnabled(false);
+        btn_cancelarEditInsumo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarEditInsumo1modificarPan(evt);
+            }
+        });
+        Modificar_Insumo.add(btn_cancelarEditInsumo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 149, -1));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1085, Short.MAX_VALUE)
+            .addComponent(Modificar_Insumo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1094, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(Modificar_Insumo, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab2", jPanel3);
+        jTabbedPane1.addTab("Modificar", jPanel3);
+
+        tbl_listaInsumoVenta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Index", "Producto", "Cantidad", "SubTotal"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbl_listaInsumoVenta.getTableHeader().setReorderingAllowed(false);
+        tbl_listaInsumoVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_listaInsumoVentaMouseClicked(evt);
+            }
+        });
+        jScrollPane15.setViewportView(tbl_listaInsumoVenta);
+        if (tbl_listaInsumoVenta.getColumnModel().getColumnCount() > 0) {
+            tbl_listaInsumoVenta.getColumnModel().getColumn(0).setMinWidth(55);
+            tbl_listaInsumoVenta.getColumnModel().getColumn(0).setPreferredWidth(55);
+            tbl_listaInsumoVenta.getColumnModel().getColumn(0).setMaxWidth(55);
+            tbl_listaInsumoVenta.getColumnModel().getColumn(1).setResizable(false);
+            tbl_listaInsumoVenta.getColumnModel().getColumn(2).setResizable(false);
+            tbl_listaInsumoVenta.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        chbx_selecInsumoConsultVenta.setText("Seleccionado");
+        chbx_selecInsumoConsultVenta.setEnabled(false);
+
+        jLabel36.setText("Buscar :");
+
+        txt_nombreInsumoConsultVenta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_nombreInsumoConsultVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreInsumoConsultVentaActionPerformed(evt);
+            }
+        });
+        txt_nombreInsumoConsultVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_nombreInsumoConsultVentaKeyPressed(evt);
+            }
+        });
+
+        btn_consultInsumoVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        btn_consultInsumoVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultInsumoVentaActionPerformed(evt);
+            }
+        });
+
+        tbl_listaInsumoConsultVentas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Index", "Producto", "Cant. Disp.", "Precio"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbl_listaInsumoConsultVentas.getTableHeader().setReorderingAllowed(false);
+        tbl_listaInsumoConsultVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_listaInsumoConsultVentasMouseClicked(evt);
+            }
+        });
+        jScrollPane16.setViewportView(tbl_listaInsumoConsultVentas);
+        if (tbl_listaInsumoConsultVentas.getColumnModel().getColumnCount() > 0) {
+            tbl_listaInsumoConsultVentas.getColumnModel().getColumn(0).setMinWidth(50);
+            tbl_listaInsumoConsultVentas.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tbl_listaInsumoConsultVentas.getColumnModel().getColumn(0).setMaxWidth(50);
+            tbl_listaInsumoConsultVentas.getColumnModel().getColumn(1).setResizable(false);
+            tbl_listaInsumoConsultVentas.getColumnModel().getColumn(2).setResizable(false);
+            tbl_listaInsumoConsultVentas.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        jLabel37.setText("Producto :");
+
+        txt_nombreInsumoVenta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_nombreInsumoVenta.setEnabled(false);
+        txt_nombreInsumoVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreInsumoVentaActionPerformed(evt);
+            }
+        });
+
+        txt_cantidadInsumoVenta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_cantidadInsumoVenta.setEnabled(false);
+        txt_cantidadInsumoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_cantidadInsumoVentaKeyPressed(evt);
+            }
+        });
+
+        jLabel38.setText("Cantidad :");
+
+        btn_agregarInsumoVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png"))); // NOI18N
+        btn_agregarInsumoVenta.setText("Agregar");
+        btn_agregarInsumoVenta.setEnabled(false);
+        btn_agregarInsumoVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarInsumoVentaActionPerformed(evt);
+            }
+        });
+
+        retirarInsumoVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/box.png"))); // NOI18N
+        retirarInsumoVenta_btn.setText("Retirar");
+        retirarInsumoVenta_btn.setEnabled(false);
+        retirarInsumoVenta_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retirarInsumoVenta_btnActionPerformed(evt);
+            }
+        });
+
+        chbx_selecInsumoVenta.setText("Seleccionado");
+        chbx_selecInsumoVenta.setEnabled(false);
+
+        comprarInsumoVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cash-register_2.png"))); // NOI18N
+        comprarInsumoVenta_btn.setText("Presupuestar");
+        comprarInsumoVenta_btn.setEnabled(false);
+        comprarInsumoVenta_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comprarInsumoVenta_btnActionPerformed(evt);
+            }
+        });
+
+        cancelarInsumoVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        cancelarInsumoVenta_btn.setText("Cancelar Pre-Compra");
+        cancelarInsumoVenta_btn.setEnabled(false);
+        cancelarInsumoVenta_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarInsumoVenta_btnActionPerformed(evt);
+            }
+        });
+
+        txt_pagoClientInsumoVenta.setEnabled(false);
+        txt_pagoClientInsumoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_pagoClientInsumoVentaKeyPressed(evt);
+            }
+        });
+
+        jLabel40.setText("Dinero Recibido :");
+
+        txt_totalProdInsumoVenta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_totalProdInsumoVenta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_totalProdInsumoVenta.setText("Total de la venta: 0.0");
+        txt_totalProdInsumoVenta.setEnabled(false);
+        txt_totalProdInsumoVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_totalProdInsumoVentaActionPerformed(evt);
+            }
+        });
+
+        btn_cancelarBusquedaInsumoVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        btn_cancelarBusquedaInsumoVenta.setText("Cancelar Búsqueda");
+        btn_cancelarBusquedaInsumoVenta.setEnabled(false);
+        btn_cancelarBusquedaInsumoVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarBusquedaInsumoVentamodificarPan(evt);
+            }
+        });
+
+        cmbx_unidadInsumoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_unidadInsumoVenta.setEnabled(false);
+
+        jLabel41.setText("Unidad:");
+
+        javax.swing.GroupLayout PreCompraLayout = new javax.swing.GroupLayout(PreCompra);
+        PreCompra.setLayout(PreCompraLayout);
+        PreCompraLayout.setHorizontalGroup(
+            PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PreCompraLayout.createSequentialGroup()
+                .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PreCompraLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(PreCompraLayout.createSequentialGroup()
+                                .addComponent(chbx_selecInsumoConsultVenta)
+                                .addGap(32, 32, 32)
+                                .addComponent(btn_cancelarBusquedaInsumoVenta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_consultInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PreCompraLayout.createSequentialGroup()
+                                .addComponent(jLabel36)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_nombreInsumoConsultVenta))))
+                    .addGroup(PreCompraLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PreCompraLayout.createSequentialGroup()
+                            .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(PreCompraLayout.createSequentialGroup()
+                                    .addGap(43, 43, 43)
+                                    .addComponent(jLabel38))
+                                .addGroup(PreCompraLayout.createSequentialGroup()
+                                    .addComponent(txt_cantidadInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(28, 28, 28)
+                                    .addComponent(chbx_selecInsumoVenta))
+                                .addGroup(PreCompraLayout.createSequentialGroup()
+                                    .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txt_nombreInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(PreCompraLayout.createSequentialGroup()
+                                            .addGap(40, 40, 40)
+                                            .addComponent(jLabel37)))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(PreCompraLayout.createSequentialGroup()
+                                            .addGap(40, 40, 40)
+                                            .addComponent(jLabel41))
+                                        .addComponent(cmbx_unidadInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                            .addComponent(jLabel39)
+                            .addGap(113, 113, 113)
+                            .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(retirarInsumoVenta_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_agregarInsumoVenta)))
+                        .addGroup(PreCompraLayout.createSequentialGroup()
+                            .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(comprarInsumoVenta_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cancelarInsumoVenta_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PreCompraLayout.createSequentialGroup()
+                                    .addComponent(jLabel40)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_pagoClientInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_totalProdInsumoVenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
+        );
+        PreCompraLayout.setVerticalGroup(
+            PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PreCompraLayout.createSequentialGroup()
+                .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PreCompraLayout.createSequentialGroup()
+                        .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PreCompraLayout.createSequentialGroup()
+                                .addGap(0, 41, Short.MAX_VALUE)
+                                .addComponent(jLabel39)
+                                .addGap(81, 81, 81))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PreCompraLayout.createSequentialGroup()
+                                .addContainerGap(25, Short.MAX_VALUE)
+                                .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PreCompraLayout.createSequentialGroup()
+                                        .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txt_nombreInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(PreCompraLayout.createSequentialGroup()
+                                                .addComponent(jLabel37)
+                                                .addGap(25, 25, 25))
+                                            .addGroup(PreCompraLayout.createSequentialGroup()
+                                                .addComponent(jLabel41)
+                                                .addGap(6, 6, 6)
+                                                .addComponent(cmbx_unidadInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel38)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_cantidadInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(chbx_selecInsumoVenta, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PreCompraLayout.createSequentialGroup()
+                                        .addComponent(btn_agregarInsumoVenta)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(retirarInsumoVenta_btn)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PreCompraLayout.createSequentialGroup()
+                                .addComponent(comprarInsumoVenta_btn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cancelarInsumoVenta_btn))
+                            .addGroup(PreCompraLayout.createSequentialGroup()
+                                .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_pagoClientInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel40))
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_totalProdInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 60, Short.MAX_VALUE))
+                    .addGroup(PreCompraLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_nombreInsumoConsultVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel36))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PreCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_consultInsumoVenta)
+                            .addComponent(chbx_selecInsumoConsultVenta)
+                            .addComponent(btn_cancelarBusquedaInsumoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1094, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addComponent(PreCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 10, Short.MAX_VALUE)))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 608, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PreCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Pre-Compra", jPanel8);
 
         javax.swing.GroupLayout InsumosLayout = new javax.swing.GroupLayout(Insumos);
         Insumos.setLayout(InsumosLayout);
@@ -1693,14 +2372,14 @@ public class View1 extends javax.swing.JFrame {
                             .addGroup(VentasLayout.createSequentialGroup()
                                 .addComponent(comprarVenta_btn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cancelarVenta_btn)
-                                .addGap(0, 39, Short.MAX_VALUE))
+                                .addComponent(cancelarVenta_btn))
                             .addGroup(VentasLayout.createSequentialGroup()
                                 .addGroup(VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(pagoClientVenta_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel30))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(totalProdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(totalProdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentasLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1712,8 +2391,9 @@ public class View1 extends javax.swing.JFrame {
                             .addComponent(selecProdConsultVenta_chbx)
                             .addComponent(cancelarBusquedaPan_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addContainerGap(6, Short.MAX_VALUE))
         );
 
         Panel_General.addTab("Ventas", Ventas);
@@ -1830,7 +2510,7 @@ public class View1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(selecEliminarVentas_chbx))
                             .addComponent(consultVentas_btn))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                         .addComponent(EliminarVentas_btn)
                         .addGap(27, 27, 27))))
         );
@@ -1845,7 +2525,7 @@ public class View1 extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
+            .addGap(0, 562, Short.MAX_VALUE)
         );
 
         Contenedor_Stast.addTab("tab3", jPanel4);
@@ -1858,7 +2538,7 @@ public class View1 extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
+            .addGap(0, 562, Short.MAX_VALUE)
         );
 
         Contenedor_Stast.addTab("tab4", jPanel5);
@@ -1871,7 +2551,7 @@ public class View1 extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
+            .addGap(0, 562, Short.MAX_VALUE)
         );
 
         Contenedor_Stast.addTab("tab5", jPanel6);
@@ -1884,7 +2564,7 @@ public class View1 extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
+            .addGap(0, 562, Short.MAX_VALUE)
         );
 
         Contenedor_Stast.addTab("tab6", jPanel7);
@@ -1912,7 +2592,7 @@ public class View1 extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_General)
+            .addComponent(Panel_General, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jMenu3.setText("Inicio");
@@ -1937,7 +2617,7 @@ public class View1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -1955,9 +2635,11 @@ public class View1 extends javax.swing.JFrame {
         //Proveedores
         Panel_General.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Icons/packing.png")));
         //Ventas
-        Panel_General.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png")));
+        Panel_General.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png")));
         //Estadisticas
         Panel_General.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/estadisticas.png")));
+        
+        Panel_General.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/groceries_1.png")));
 
         //Prod_Registrar
         Productos.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Icons/cash-register_2.png")));
@@ -2474,6 +3156,126 @@ public class View1 extends javax.swing.JFrame {
         cancelarBusqPov_btn.setEnabled(false);
     }//GEN-LAST:event_cancelarBusqPov_btnActionPerformed
 
+    private void txt_nombreInsumoRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreInsumoRegKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreInsumoRegKeyPressed
+
+    private void txt_precioInsumoRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_precioInsumoRegActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_precioInsumoRegActionPerformed
+
+    private void txt_precioInsumoRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precioInsumoRegKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_precioInsumoRegKeyPressed
+
+    private void btn_registrarInsumoregistrarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarInsumoregistrarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_registrarInsumoregistrarPan
+
+    private void btn_GuardarEditInsumomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuardarEditInsumomodificarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_GuardarEditInsumomodificarPan
+
+    private void listaPanesEdit_tbl1selecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEdit_tbl1selecProdModif_tbl
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaPanesEdit_tbl1selecProdModif_tbl
+
+    private void listaPanesEdit_tbl1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEdit_tbl1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaPanesEdit_tbl1KeyPressed
+
+    private void txt_precioInsumoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precioInsumoEditKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_precioInsumoEditKeyPressed
+
+    private void txt_nombreInsumosEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreInsumosEditKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreInsumosEditKeyPressed
+
+    private void chbx_selecEditInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbx_selecEditInsumoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chbx_selecEditInsumoActionPerformed
+
+    private void txt_nombreInsumoConsultEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreInsumoConsultEditKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreInsumoConsultEditKeyPressed
+
+    private void btn_consultInsumoEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultInsumoEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_consultInsumoEditActionPerformed
+
+    private void btn_EditInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditInsumoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EditInsumoActionPerformed
+
+    private void btn_EliminarEditInsumomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarEditInsumomodificarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EliminarEditInsumomodificarPan
+
+    private void btn_cancelBusqInsumoEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelBusqInsumoEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelBusqInsumoEditActionPerformed
+
+    private void btn_cancelarEditInsumo1modificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarEditInsumo1modificarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarEditInsumo1modificarPan
+
+    private void tbl_listaInsumoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoVentaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_listaInsumoVentaMouseClicked
+
+    private void txt_nombreInsumoConsultVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreInsumoConsultVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreInsumoConsultVentaActionPerformed
+
+    private void txt_nombreInsumoConsultVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreInsumoConsultVentaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreInsumoConsultVentaKeyPressed
+
+    private void btn_consultInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultInsumoVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_consultInsumoVentaActionPerformed
+
+    private void tbl_listaInsumoConsultVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoConsultVentasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_listaInsumoConsultVentasMouseClicked
+
+    private void txt_nombreInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreInsumoVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreInsumoVentaActionPerformed
+
+    private void txt_cantidadInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cantidadInsumoVentaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_cantidadInsumoVentaKeyPressed
+
+    private void btn_agregarInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarInsumoVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_agregarInsumoVentaActionPerformed
+
+    private void retirarInsumoVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarInsumoVenta_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_retirarInsumoVenta_btnActionPerformed
+
+    private void comprarInsumoVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarInsumoVenta_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comprarInsumoVenta_btnActionPerformed
+
+    private void cancelarInsumoVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarInsumoVenta_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelarInsumoVenta_btnActionPerformed
+
+    private void txt_pagoClientInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pagoClientInsumoVentaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_pagoClientInsumoVentaKeyPressed
+
+    private void txt_totalProdInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_totalProdInsumoVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_totalProdInsumoVentaActionPerformed
+
+    private void btn_cancelarBusquedaInsumoVentamodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaInsumoVentamodificarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarBusquedaInsumoVentamodificarPan
+
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
         switch (Panel.getSelectedIndex()) {
@@ -2696,15 +3498,28 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JButton GuardarEditProv_btn;
     private javax.swing.JPanel Historial_ventas;
     private javax.swing.JPanel Insumos;
+    private javax.swing.JPanel Modificar_Insumo;
     private javax.swing.JPanel Modificar_Producto;
     private javax.swing.JPanel Modificar_Proveedores;
     private javax.swing.JTabbedPane Panel_General;
+    private javax.swing.JPanel PreCompra;
     private javax.swing.JTabbedPane Productos;
     private javax.swing.JTabbedPane Proveedores;
+    private javax.swing.JPanel Registrar_Insumo;
     private javax.swing.JPanel Registrar_Producto;
     private javax.swing.JPanel Registrar_Proveedores;
     private javax.swing.JPanel Ventas;
     private javax.swing.JButton agregarProdVenta_btn;
+    private javax.swing.JButton btn_EditInsumo;
+    private javax.swing.JButton btn_EliminarEditInsumo;
+    private javax.swing.JButton btn_GuardarEditInsumo;
+    private javax.swing.JButton btn_agregarInsumoVenta;
+    private javax.swing.JButton btn_cancelBusqInsumoEdit;
+    private javax.swing.JButton btn_cancelarBusquedaInsumoVenta;
+    private javax.swing.JButton btn_cancelarEditInsumo1;
+    private javax.swing.JButton btn_consultInsumoEdit;
+    private javax.swing.JButton btn_consultInsumoVenta;
+    private javax.swing.JButton btn_registrarInsumo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton cancelarBusqPov_btn;
     private javax.swing.JButton cancelarBusqProd_btn;
@@ -2715,8 +3530,18 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JButton cancelarEditProv_btn;
     private javax.swing.JButton cancelarElimProd_btn;
     private javax.swing.JButton cancelarElimProv_btn;
+    private javax.swing.JButton cancelarInsumoVenta_btn;
     private javax.swing.JButton cancelarVenta_btn;
     private javax.swing.JTextField cantidadProdVenta_txt;
+    private javax.swing.JCheckBox chbx_selecEditInsumo;
+    private javax.swing.JCheckBox chbx_selecInsumoConsultVenta;
+    private javax.swing.JCheckBox chbx_selecInsumoVenta;
+    private javax.swing.JComboBox<String> cmbx_proveInsumoEdit;
+    private javax.swing.JComboBox<String> cmbx_proveInsumoReg;
+    private javax.swing.JComboBox<String> cmbx_unidadInsumoEdit;
+    private javax.swing.JComboBox<String> cmbx_unidadInsumoReg;
+    private javax.swing.JComboBox<String> cmbx_unidadInsumoVenta;
+    private javax.swing.JButton comprarInsumoVenta_btn;
     private javax.swing.JButton comprarVenta_btn;
     private javax.swing.JButton consultPanEdit_btn;
     private javax.swing.JButton consultPanEliminar_btn;
@@ -2735,10 +3560,12 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -2747,13 +3574,26 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2767,11 +3607,15 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2779,9 +3623,11 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable listaPanesConsult_tbl;
     private javax.swing.JTable listaPanesEdit_tbl;
+    private javax.swing.JTable listaPanesEdit_tbl1;
     private javax.swing.JTable listaPanesEliminar_tbl;
     private javax.swing.JTable listaPanesReg_tbl;
     private javax.swing.JTable listaProdConsultVentas_tbl;
@@ -2814,6 +3660,7 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> provePanReg_cmbx;
     private javax.swing.JButton registrarPan_btn;
     private javax.swing.JButton registrarProv_btn;
+    private javax.swing.JButton retirarInsumoVenta_btn;
     private javax.swing.JButton retirarProdVenta_btn;
     private javax.swing.JCheckBox selecEditPan_chbx;
     private javax.swing.JCheckBox selecEditProv_chbx;
@@ -2824,9 +3671,22 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JCheckBox selecProdVenta_chbx;
     private javax.swing.JTextField serviProvEdit_txt;
     private javax.swing.JTextField serviProvReg_txt;
+    private javax.swing.JTable tbl_listaInsumoConsultVentas;
+    private javax.swing.JTable tbl_listaInsumoVenta;
+    private javax.swing.JTable tbl_listaInsumosReg;
     private javax.swing.JTextField telefonoProvEdit_txt;
     private javax.swing.JTextField telefonoProvReg_txt;
     private javax.swing.JTextField totalProdVenta;
+    private javax.swing.JTextField txt_cantidadInsumoVenta;
+    private javax.swing.JTextField txt_nombreInsumoConsultEdit;
+    private javax.swing.JTextField txt_nombreInsumoConsultVenta;
+    private javax.swing.JTextField txt_nombreInsumoReg;
+    private javax.swing.JTextField txt_nombreInsumoVenta;
+    private javax.swing.JTextField txt_nombreInsumosEdit;
+    private javax.swing.JTextField txt_pagoClientInsumoVenta;
+    private javax.swing.JTextField txt_precioInsumoEdit;
+    private javax.swing.JTextField txt_precioInsumoReg;
+    private javax.swing.JTextField txt_totalProdInsumoVenta;
     // End of variables declaration//GEN-END:variables
 
 }
