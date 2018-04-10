@@ -132,7 +132,20 @@ public class View1 extends javax.swing.JFrame {
         eliminarPan_btn = new javax.swing.JButton();
         consultPanEliminar_btn = new javax.swing.JButton();
         cancelarElimProd_btn = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
+        Cantidades = new javax.swing.JPanel();
+        GuardarEditPan_btn2 = new javax.swing.JButton();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        listaPanesEdit_tbl3 = new javax.swing.JTable();
+        precioPanEdit_txt2 = new javax.swing.JTextField();
+        jLabel49 = new javax.swing.JLabel();
+        nombrePanConsultEdit_txt2 = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
+        consultPanEdit_btn2 = new javax.swing.JButton();
+        EditPan_btn2 = new javax.swing.JButton();
+        cancelarEditPan_btn2 = new javax.swing.JButton();
+        cancelarBusqProd_btn2 = new javax.swing.JButton();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        listaPanesEdit_tbl4 = new javax.swing.JTable();
         Proveedores = new javax.swing.JTabbedPane();
         Registrar_Proveedores = new javax.swing.JPanel();
         nombreProvReg_txt = new javax.swing.JTextField();
@@ -186,7 +199,7 @@ public class View1 extends javax.swing.JFrame {
         consultProvEliminar_btn = new javax.swing.JButton();
         cancelarElimProv_btn = new javax.swing.JButton();
         Insumos = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        InsumosCont = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         Registrar_Insumo = new javax.swing.JPanel();
         txt_nombreInsumoReg = new javax.swing.JTextField();
@@ -459,12 +472,11 @@ public class View1 extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(listaPanesEdit_tbl);
         if (listaPanesEdit_tbl.getColumnModel().getColumnCount() > 0) {
-            listaPanesEdit_tbl.getColumnModel().getColumn(0).setMinWidth(80);
             listaPanesEdit_tbl.getColumnModel().getColumn(0).setPreferredWidth(80);
-            listaPanesEdit_tbl.getColumnModel().getColumn(0).setMaxWidth(80);
             listaPanesEdit_tbl.getColumnModel().getColumn(1).setResizable(false);
             listaPanesEdit_tbl.getColumnModel().getColumn(2).setResizable(false);
             listaPanesEdit_tbl.getColumnModel().getColumn(3).setResizable(false);
+            listaPanesEdit_tbl.getColumnModel().getColumn(3).setHeaderValue("Proveedor");
         }
 
         Modificar_Producto.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 169, 1061, 380));
@@ -788,18 +800,207 @@ public class View1 extends javax.swing.JFrame {
 
         Productos.addTab("Eliminar Producto", Eliminar_Producto);
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1085, Short.MAX_VALUE)
+        GuardarEditPan_btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
+        GuardarEditPan_btn2.setText("Guardar");
+        GuardarEditPan_btn2.setEnabled(false);
+        GuardarEditPan_btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarEditPan_btn2modificarPan(evt);
+            }
+        });
+
+        listaPanesEdit_tbl3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Index", "Nombre", "Precio"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        listaPanesEdit_tbl3.getTableHeader().setReorderingAllowed(false);
+        listaPanesEdit_tbl3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaPanesEdit_tbl3selecProdModif_tbl(evt);
+            }
+        });
+        listaPanesEdit_tbl3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                listaPanesEdit_tbl3KeyPressed(evt);
+            }
+        });
+        jScrollPane18.setViewportView(listaPanesEdit_tbl3);
+        if (listaPanesEdit_tbl3.getColumnModel().getColumnCount() > 0) {
+            listaPanesEdit_tbl3.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaPanesEdit_tbl3.getColumnModel().getColumn(1).setResizable(false);
+            listaPanesEdit_tbl3.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        precioPanEdit_txt2.setEnabled(false);
+        precioPanEdit_txt2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                precioPanEdit_txt2KeyPressed(evt);
+            }
+        });
+
+        jLabel49.setText("Cantidad");
+
+        nombrePanConsultEdit_txt2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nombrePanConsultEdit_txt2KeyPressed(evt);
+            }
+        });
+
+        jLabel50.setText("Buscar :");
+
+        consultPanEdit_btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        consultPanEdit_btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultPanEdit_btn2ActionPerformed(evt);
+            }
+        });
+
+        EditPan_btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
+        EditPan_btn2.setText("Modificar");
+        EditPan_btn2.setEnabled(false);
+        EditPan_btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditPan_btn2ActionPerformed(evt);
+            }
+        });
+
+        cancelarEditPan_btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        cancelarEditPan_btn2.setText("Cancelar");
+        cancelarEditPan_btn2.setEnabled(false);
+        cancelarEditPan_btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarEditPan_btn2modificarPan(evt);
+            }
+        });
+
+        cancelarBusqProd_btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        cancelarBusqProd_btn2.setText("Cancelar Consulta");
+        cancelarBusqProd_btn2.setEnabled(false);
+        cancelarBusqProd_btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarBusqProd_btn2ActionPerformed(evt);
+            }
+        });
+
+        listaPanesEdit_tbl4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Index", "Nombre", "Precio"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        listaPanesEdit_tbl4.getTableHeader().setReorderingAllowed(false);
+        listaPanesEdit_tbl4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaPanesEdit_tbl4selecProdModif_tbl(evt);
+            }
+        });
+        listaPanesEdit_tbl4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                listaPanesEdit_tbl4KeyPressed(evt);
+            }
+        });
+        jScrollPane19.setViewportView(listaPanesEdit_tbl4);
+        if (listaPanesEdit_tbl4.getColumnModel().getColumnCount() > 0) {
+            listaPanesEdit_tbl4.getColumnModel().getColumn(0).setPreferredWidth(80);
+            listaPanesEdit_tbl4.getColumnModel().getColumn(1).setResizable(false);
+            listaPanesEdit_tbl4.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        javax.swing.GroupLayout CantidadesLayout = new javax.swing.GroupLayout(Cantidades);
+        Cantidades.setLayout(CantidadesLayout);
+        CantidadesLayout.setHorizontalGroup(
+            CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CantidadesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CantidadesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cancelarBusqProd_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(CantidadesLayout.createSequentialGroup()
+                                .addComponent(jLabel50)
+                                .addGap(14, 14, 14)
+                                .addComponent(nombrePanConsultEdit_txt2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(consultPanEdit_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(CantidadesLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(EditPan_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addGroup(CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cancelarEditPan_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(GuardarEditPan_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CantidadesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel49)
+                        .addGap(26, 26, 26)
+                        .addComponent(precioPanEdit_txt2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(121, 121, 121))
+                    .addGroup(CantidadesLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(52, Short.MAX_VALUE))))
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+        CantidadesLayout.setVerticalGroup(
+            CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CantidadesLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(CantidadesLayout.createSequentialGroup()
+                        .addGroup(CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CantidadesLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(CantidadesLayout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addComponent(jLabel50))
+                                    .addComponent(nombrePanConsultEdit_txt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(consultPanEdit_btn2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cancelarBusqProd_btn2)
+                        .addGap(27, 27, 27)
+                        .addGroup(CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EditPan_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(CantidadesLayout.createSequentialGroup()
+                                .addComponent(cancelarEditPan_btn2)
+                                .addGap(12, 12, 12)
+                                .addComponent(GuardarEditPan_btn2)))
+                        .addGap(27, 27, 27)
+                        .addGroup(CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel49)
+                            .addComponent(precioPanEdit_txt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        Productos.addTab("Cantidades", jPanel9);
+        Productos.addTab("Cantidades", Cantidades);
 
         Panel_General.addTab("Productos", Productos);
 
@@ -1605,7 +1806,7 @@ public class View1 extends javax.swing.JFrame {
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Registrar", jPanel2);
+        InsumosCont.addTab("Registrar", jPanel2);
 
         Modificar_Insumo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1648,12 +1849,11 @@ public class View1 extends javax.swing.JFrame {
         });
         jScrollPane14.setViewportView(listaPanesEdit_tbl1);
         if (listaPanesEdit_tbl1.getColumnModel().getColumnCount() > 0) {
-            listaPanesEdit_tbl1.getColumnModel().getColumn(0).setMinWidth(80);
             listaPanesEdit_tbl1.getColumnModel().getColumn(0).setPreferredWidth(80);
-            listaPanesEdit_tbl1.getColumnModel().getColumn(0).setMaxWidth(80);
             listaPanesEdit_tbl1.getColumnModel().getColumn(1).setResizable(false);
             listaPanesEdit_tbl1.getColumnModel().getColumn(2).setResizable(false);
             listaPanesEdit_tbl1.getColumnModel().getColumn(3).setResizable(false);
+            listaPanesEdit_tbl1.getColumnModel().getColumn(3).setHeaderValue("Proveedor");
         }
 
         Modificar_Insumo.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 152, 1061, 400));
@@ -1774,7 +1974,7 @@ public class View1 extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Modificar", jPanel3);
+        InsumosCont.addTab("Modificar", jPanel3);
 
         tbl_listaInsumoVenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2106,17 +2306,17 @@ public class View1 extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Pre-Compra", jPanel8);
+        InsumosCont.addTab("Pre-Compra", jPanel8);
 
         javax.swing.GroupLayout InsumosLayout = new javax.swing.GroupLayout(Insumos);
         Insumos.setLayout(InsumosLayout);
         InsumosLayout.setHorizontalGroup(
             InsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(InsumosCont)
         );
         InsumosLayout.setVerticalGroup(
             InsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(InsumosCont)
         );
 
         Panel_General.addTab("Insumos", Insumos);
@@ -2672,6 +2872,16 @@ public class View1 extends javax.swing.JFrame {
         Productos.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png")));
         //Prod_Eliminar
         Productos.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png")));
+        
+        Productos.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
+        
+        //Prod_Registrar
+        InsumosCont.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Icons/groceries.png")));
+        //Prod_Modificar
+        InsumosCont.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png")));
+        //Prod_Consultar
+        InsumosCont.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/cash-register_2.png")));
+        
 
         //Prov_Registrar
         Proveedores.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Icons/cash-register_2.png")));
@@ -3306,6 +3516,50 @@ public class View1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void GuardarEditPan_btn2modificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarEditPan_btn2modificarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GuardarEditPan_btn2modificarPan
+
+    private void listaPanesEdit_tbl3selecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEdit_tbl3selecProdModif_tbl
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaPanesEdit_tbl3selecProdModif_tbl
+
+    private void listaPanesEdit_tbl3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEdit_tbl3KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaPanesEdit_tbl3KeyPressed
+
+    private void precioPanEdit_txt2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioPanEdit_txt2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precioPanEdit_txt2KeyPressed
+
+    private void nombrePanConsultEdit_txt2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePanConsultEdit_txt2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombrePanConsultEdit_txt2KeyPressed
+
+    private void consultPanEdit_btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanEdit_btn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultPanEdit_btn2ActionPerformed
+
+    private void EditPan_btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPan_btn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EditPan_btn2ActionPerformed
+
+    private void cancelarEditPan_btn2modificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEditPan_btn2modificarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelarEditPan_btn2modificarPan
+
+    private void cancelarBusqProd_btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBusqProd_btn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelarBusqProd_btn2ActionPerformed
+
+    private void listaPanesEdit_tbl4selecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEdit_tbl4selecProdModif_tbl
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaPanesEdit_tbl4selecProdModif_tbl
+
+    private void listaPanesEdit_tbl4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEdit_tbl4KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaPanesEdit_tbl4KeyPressed
+
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
         switch (Panel.getSelectedIndex()) {
@@ -3513,11 +3767,13 @@ public class View1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Cantidades;
     private javax.swing.JTextField ConsultVentas_txt;
     private javax.swing.JPanel Consultar_Producto;
     private javax.swing.JPanel Consultar_Proveedores;
     private javax.swing.JTabbedPane Contenedor_Stast;
     private javax.swing.JButton EditPan_btn;
+    private javax.swing.JButton EditPan_btn2;
     private javax.swing.JButton EditProv_btn;
     private javax.swing.JButton EliminarProv_btn;
     private javax.swing.JButton EliminarVentas_btn;
@@ -3525,9 +3781,11 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JPanel Eliminar_Proveedores;
     private javax.swing.JPanel Estadisticas;
     private javax.swing.JButton GuardarEditPan_btn;
+    private javax.swing.JButton GuardarEditPan_btn2;
     private javax.swing.JButton GuardarEditProv_btn;
     private javax.swing.JPanel Historial_ventas;
     private javax.swing.JPanel Insumos;
+    private javax.swing.JTabbedPane InsumosCont;
     private javax.swing.JPanel Modificar_Insumo;
     private javax.swing.JPanel Modificar_Producto;
     private javax.swing.JPanel Modificar_Proveedores;
@@ -3553,10 +3811,12 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton cancelarBusqPov_btn;
     private javax.swing.JButton cancelarBusqProd_btn;
+    private javax.swing.JButton cancelarBusqProd_btn2;
     private javax.swing.JButton cancelarBusquedaPan_btn;
     private javax.swing.JButton cancelarBusquedaProd_btn;
     private javax.swing.JButton cancelarBusquedaProv_btn;
     private javax.swing.JButton cancelarEditPan_btn;
+    private javax.swing.JButton cancelarEditPan_btn2;
     private javax.swing.JButton cancelarEditProv_btn;
     private javax.swing.JButton cancelarElimProd_btn;
     private javax.swing.JButton cancelarElimProv_btn;
@@ -3574,6 +3834,7 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JButton comprarInsumoVenta_btn;
     private javax.swing.JButton comprarVenta_btn;
     private javax.swing.JButton consultPanEdit_btn;
+    private javax.swing.JButton consultPanEdit_btn2;
     private javax.swing.JButton consultPanEliminar_btn;
     private javax.swing.JButton consultPanVenta_btn;
     private javax.swing.JButton consultPan_btn;
@@ -3623,7 +3884,9 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -3639,7 +3902,6 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -3648,6 +3910,8 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3656,10 +3920,11 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable listaPanesConsult_tbl;
     private javax.swing.JTable listaPanesEdit_tbl;
     private javax.swing.JTable listaPanesEdit_tbl1;
+    private javax.swing.JTable listaPanesEdit_tbl3;
+    private javax.swing.JTable listaPanesEdit_tbl4;
     private javax.swing.JTable listaPanesEliminar_tbl;
     private javax.swing.JTable listaPanesReg_tbl;
     private javax.swing.JTable listaProdConsultVentas_tbl;
@@ -3675,6 +3940,7 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JTextField nitProvReg_txt;
     private javax.swing.JTextField nombreEliminarProv_txt;
     private javax.swing.JTextField nombrePanConsultEdit_txt;
+    private javax.swing.JTextField nombrePanConsultEdit_txt2;
     private javax.swing.JTextField nombrePanConsultVenta_txt;
     private javax.swing.JTextField nombrePanConsult_txt;
     private javax.swing.JTextField nombrePanEdit_txt;
@@ -3687,6 +3953,7 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JTextField nombreProvReg_txt;
     private javax.swing.JTextField pagoClientVenta_txt;
     private javax.swing.JTextField precioPanEdit_txt;
+    private javax.swing.JTextField precioPanEdit_txt2;
     private javax.swing.JTextField precioPanReg_txt;
     private javax.swing.JComboBox<String> provePanEdit_cmbx;
     private javax.swing.JComboBox<String> provePanReg_cmbx;
