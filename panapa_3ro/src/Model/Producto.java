@@ -38,4 +38,8 @@ public class Producto implements Serializable{
         return Cantidad;
     }
 
+    public void setCantidad(int Cantidad) {
+        this.Cantidad = Cantidad;
+    }
+    
 }

@@ -1,13 +1,15 @@
 package Controller;
 
 import Model.Proveedor;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class ProveedorController {
+public class ProveedorController implements Serializable{
 
-    private ArrayList<Proveedor> lista_proovedor = new ArrayList();
-
+    public static ArrayList<Proveedor> lista_proovedor = new ArrayList();
+    UsuarioController userco = new UsuarioController();
+    
     public ProveedorController() {
         Create(new Proveedor(UUID.randomUUID().toString(), "DELICIAS LAS 51", "PANADERIA", "ALGUNO", "ALGUNO", "", 0));
         Create(new Proveedor(UUID.randomUUID().toString(), "COCA", "PANADERIA", "ALGUNO", "ALGUNO", "", 0));
@@ -15,6 +17,7 @@ public class ProveedorController {
 
     public void Create(Proveedor Model) {
         lista_proovedor.add(Model);
+        userco.salvar_datos();
     }
 
     public ArrayList<String[]> Read(String Filter) {
@@ -41,10 +44,12 @@ public class ProveedorController {
 
     public void Delete(int Index) {
         lista_proovedor.remove(Index);
+        userco.salvar_datos();
     }
 
     public void Update(int Index, Proveedor Model) {
         lista_proovedor.set(Index, Model);
+        userco.salvar_datos();
     }
 
     public ArrayList<Proveedor> getLista_proovedor() {
