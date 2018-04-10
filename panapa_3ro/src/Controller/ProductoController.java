@@ -64,6 +64,13 @@ public class ProductoController {
         lista_producto.set(Index, Model);
         userco.salvar_datos();
     }
+    
+    public void UpateCantidad(int[] Index, int Cantidad){
+        for(int i = 0; i < Index.length; i++){
+            getLista_producto().get(Index[i]).setCantidad(Cantidad);
+        }
+        userco.salvar_datos();
+    }
 
     public ArrayList<Producto> getLista_producto() {
         return lista_producto;
