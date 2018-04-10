@@ -115,6 +115,7 @@ public class View1 extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         provePanEdit_cmbx = new javax.swing.JComboBox<>();
         cancelarBusqProd_btn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         Consultar_Producto = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         nombrePanConsult_txt = new javax.swing.JTextField();
@@ -131,6 +132,7 @@ public class View1 extends javax.swing.JFrame {
         eliminarPan_btn = new javax.swing.JButton();
         consultPanEliminar_btn = new javax.swing.JButton();
         cancelarElimProd_btn = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
         Proveedores = new javax.swing.JTabbedPane();
         Registrar_Proveedores = new javax.swing.JPanel();
         nombreProvReg_txt = new javax.swing.JTextField();
@@ -553,6 +555,14 @@ public class View1 extends javax.swing.JFrame {
         });
         Modificar_Producto.add(cancelarBusqProd_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, 160, -1));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        Modificar_Producto.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
+
         Productos.addTab("Modificar Producto", Modificar_Producto);
 
         jLabel8.setText("Buscar :");
@@ -777,6 +787,19 @@ public class View1 extends javax.swing.JFrame {
         );
 
         Productos.addTab("Eliminar Producto", Eliminar_Producto);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1085, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 562, Short.MAX_VALUE)
+        );
+
+        Productos.addTab("Cantidades", jPanel9);
 
         Panel_General.addTab("Productos", Productos);
 
@@ -2638,7 +2661,7 @@ public class View1 extends javax.swing.JFrame {
         Panel_General.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png")));
         //Estadisticas
         Panel_General.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/estadisticas.png")));
-        
+
         Panel_General.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/groceries_1.png")));
 
         //Prod_Registrar
@@ -2929,6 +2952,7 @@ public class View1 extends javax.swing.JFrame {
         nombrePanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 1).toString());
         precioPanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 2).toString());
         provePanEdit_cmbx.setSelectedItem(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 3).toString());
+        System.out.println(listaPanesEdit_tbl.getSelectedRows());
     }//GEN-LAST:event_listaPanesEdit_tblselecProdModif_tbl
 
     //Evento para Guardar La Modificación
@@ -3276,6 +3300,12 @@ public class View1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_cancelarBusquedaInsumoVentamodificarPan
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        for (int i = 0; i < listaPanesEdit_tbl.getSelectedRows().length; i++) {
+            System.out.println(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRows()[i], 0).toString());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
         switch (Panel.getSelectedIndex()) {
@@ -3554,6 +3584,7 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JTextField direcProvEdit_txt;
     private javax.swing.JTextField direcProvReg_txt;
     private javax.swing.JButton eliminarPan_btn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3608,6 +3639,7 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
