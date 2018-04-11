@@ -201,7 +201,7 @@ public class View1 extends javax.swing.JFrame {
         cancelarElimProv_btn = new javax.swing.JButton();
         Insumos = new javax.swing.JPanel();
         InsumosCont = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        Registrar = new javax.swing.JPanel();
         Registrar_Insumo = new javax.swing.JPanel();
         txt_nombreInsumoReg = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -214,10 +214,10 @@ public class View1 extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         cmbx_unidadInsumoReg = new javax.swing.JComboBox<>();
-        jPanel3 = new javax.swing.JPanel();
+        Modificar_Insumo = new javax.swing.JPanel();
         btn_GuardarEditInsumo = new javax.swing.JButton();
         jScrollPane14 = new javax.swing.JScrollPane();
-        listaPanesEdit_tbl1 = new javax.swing.JTable();
+        tbl_listaInsumoEdit = new javax.swing.JTable();
         txt_precioInsumoEdit = new javax.swing.JTextField();
         txt_nombreInsumosEdit = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
@@ -233,8 +233,8 @@ public class View1 extends javax.swing.JFrame {
         btn_cancelBusqInsumoEdit = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
         cmbx_unidadInsumoEdit = new javax.swing.JComboBox<>();
-        btn_cancelarEditInsumo1 = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
+        btn_cancelarEditInsumo = new javax.swing.JButton();
+        Pre_Compra_Insumo = new javax.swing.JPanel();
         jScrollPane15 = new javax.swing.JScrollPane();
         tbl_listaInsumoVenta = new javax.swing.JTable();
         chbx_selecInsumoConsultVenta = new javax.swing.JCheckBox();
@@ -356,6 +356,7 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaPanesReg_tbl.setFocusable(false);
         listaPanesReg_tbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(listaPanesReg_tbl);
         if (listaPanesReg_tbl.getColumnModel().getColumnCount() > 0) {
@@ -496,7 +497,7 @@ public class View1 extends javax.swing.JFrame {
             listaPanesEdit_tbl.getColumnModel().getColumn(3).setHeaderValue("Proveedor");
         }
 
-        Modificar_Producto.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 169, 1061, 380));
+        Modificar_Producto.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1061, 390));
 
         precioPanEdit_txt.setEnabled(false);
         precioPanEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -653,6 +654,7 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaPanesConsult_tbl.setFocusable(false);
         listaPanesConsult_tbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(listaPanesConsult_tbl);
         if (listaPanesConsult_tbl.getColumnModel().getColumnCount() > 0) {
@@ -1133,6 +1135,7 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaProveedorReg_tbl.setFocusable(false);
         listaProveedorReg_tbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(listaProveedorReg_tbl);
         if (listaProveedorReg_tbl.getColumnModel().getColumnCount() > 0) {
@@ -1602,6 +1605,7 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaProvConsult_tbl.setFocusable(false);
         listaProvConsult_tbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane7.setViewportView(listaProvConsult_tbl);
         if (listaProvConsult_tbl.getColumnModel().getColumnCount() > 0) {
@@ -1818,6 +1822,12 @@ public class View1 extends javax.swing.JFrame {
 
         Panel_General.addTab("Proveedores", null, Proveedores, "");
 
+        InsumosCont.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                InsumosContStateChanged(evt);
+            }
+        });
+
         txt_nombreInsumoReg.setText("brazo");
         txt_nombreInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1857,6 +1867,7 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_listaInsumosReg.setFocusable(false);
         tbl_listaInsumosReg.getTableHeader().setReorderingAllowed(false);
         jScrollPane9.setViewportView(tbl_listaInsumosReg);
         if (tbl_listaInsumosReg.getColumnModel().getColumnCount() > 0) {
@@ -1953,26 +1964,26 @@ public class View1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout RegistrarLayout = new javax.swing.GroupLayout(Registrar);
+        Registrar.setLayout(RegistrarLayout);
+        RegistrarLayout.setHorizontalGroup(
+            RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1089, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistrarLayout.createSequentialGroup()
                     .addComponent(Registrar_Insumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 19, Short.MAX_VALUE)))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        RegistrarLayout.setVerticalGroup(
+            RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 558, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistrarLayout.createSequentialGroup()
                     .addComponent(Registrar_Insumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        InsumosCont.addTab("Registrar", jPanel2);
+        InsumosCont.addTab("Registrar", Registrar);
 
         btn_GuardarEditInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         btn_GuardarEditInsumo.setText("Guardar");
@@ -1982,44 +1993,49 @@ public class View1 extends javax.swing.JFrame {
                 btn_GuardarEditInsumomodificarPan(evt);
             }
         });
+        btn_GuardarEditInsumo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_GuardarEditInsumoKeyPressed(evt);
+            }
+        });
 
-        listaPanesEdit_tbl1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_listaInsumoEdit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Index", "Nombre", "Precio", "Proveedor"
+                "Index", "Nombre", "Precio", "Proveedor", "Unidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        listaPanesEdit_tbl1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        listaPanesEdit_tbl1.getTableHeader().setReorderingAllowed(false);
-        listaPanesEdit_tbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbl_listaInsumoEdit.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tbl_listaInsumoEdit.getTableHeader().setReorderingAllowed(false);
+        tbl_listaInsumoEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listaPanesEdit_tbl1selecProdModif_tbl(evt);
+                tbl_listaInsumoEditselecProdModif_tbl(evt);
             }
         });
-        listaPanesEdit_tbl1.addKeyListener(new java.awt.event.KeyAdapter() {
+        tbl_listaInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                listaPanesEdit_tbl1KeyPressed(evt);
+                tbl_listaInsumoEditKeyPressed(evt);
             }
         });
-        jScrollPane14.setViewportView(listaPanesEdit_tbl1);
-        if (listaPanesEdit_tbl1.getColumnModel().getColumnCount() > 0) {
-            listaPanesEdit_tbl1.getColumnModel().getColumn(0).setMinWidth(80);
-            listaPanesEdit_tbl1.getColumnModel().getColumn(0).setPreferredWidth(80);
-            listaPanesEdit_tbl1.getColumnModel().getColumn(0).setMaxWidth(80);
-            listaPanesEdit_tbl1.getColumnModel().getColumn(1).setResizable(false);
-            listaPanesEdit_tbl1.getColumnModel().getColumn(2).setResizable(false);
-            listaPanesEdit_tbl1.getColumnModel().getColumn(3).setResizable(false);
-            listaPanesEdit_tbl1.getColumnModel().getColumn(3).setHeaderValue("Proveedor");
+        jScrollPane14.setViewportView(tbl_listaInsumoEdit);
+        if (tbl_listaInsumoEdit.getColumnModel().getColumnCount() > 0) {
+            tbl_listaInsumoEdit.getColumnModel().getColumn(0).setMinWidth(80);
+            tbl_listaInsumoEdit.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tbl_listaInsumoEdit.getColumnModel().getColumn(0).setMaxWidth(80);
+            tbl_listaInsumoEdit.getColumnModel().getColumn(1).setResizable(false);
+            tbl_listaInsumoEdit.getColumnModel().getColumn(2).setResizable(false);
+            tbl_listaInsumoEdit.getColumnModel().getColumn(3).setResizable(false);
+            tbl_listaInsumoEdit.getColumnModel().getColumn(4).setResizable(false);
         }
 
         txt_precioInsumoEdit.setEnabled(false);
@@ -2038,7 +2054,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel32.setText("Nuevo Nombre :  ");
 
-        jLabel33.setText("Nuevo Precio : ");
+        jLabel33.setText("Nuevo Precio por Unidad : ");
 
         chbx_selecEditInsumo.setText("Seleccionado");
         chbx_selecEditInsumo.setEnabled(false);
@@ -2062,6 +2078,11 @@ public class View1 extends javax.swing.JFrame {
                 btn_consultInsumoEditActionPerformed(evt);
             }
         });
+        btn_consultInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_consultInsumoEditKeyPressed(evt);
+            }
+        });
 
         btn_EditInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
         btn_EditInsumo.setText("Modificar");
@@ -2069,6 +2090,11 @@ public class View1 extends javax.swing.JFrame {
         btn_EditInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_EditInsumoActionPerformed(evt);
+            }
+        });
+        btn_EditInsumo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_EditInsumoKeyPressed(evt);
             }
         });
 
@@ -2080,11 +2106,21 @@ public class View1 extends javax.swing.JFrame {
                 btn_EliminarEditInsumomodificarPan(evt);
             }
         });
+        btn_EliminarEditInsumo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_EliminarEditInsumoKeyPressed(evt);
+            }
+        });
 
         jLabel43.setText("Nuevo Proveedor:");
 
         cmbx_proveInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbx_proveInsumoEdit.setEnabled(false);
+        cmbx_proveInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbx_proveInsumoEditKeyPressed(evt);
+            }
+        });
 
         btn_cancelBusqInsumoEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         btn_cancelBusqInsumoEdit.setText("Cancelar Consulta");
@@ -2094,121 +2130,142 @@ public class View1 extends javax.swing.JFrame {
                 btn_cancelBusqInsumoEditActionPerformed(evt);
             }
         });
-
-        jLabel35.setText("Unidad:");
-
-        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G(GRAMOS)", "KG(KILOGRAGRAMOS)", "ML(MILÍGRAMOS)", "L(LITRO)", "KL(KILOLITRO)", "ML(MILÍLITRO)" }));
-        cmbx_unidadInsumoEdit.setEnabled(false);
-
-        btn_cancelarEditInsumo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
-        btn_cancelarEditInsumo1.setText("Cancelar");
-        btn_cancelarEditInsumo1.setEnabled(false);
-        btn_cancelarEditInsumo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelarEditInsumo1modificarPan(evt);
+        btn_cancelBusqInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_cancelBusqInsumoEditKeyPressed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+        jLabel35.setText("Unidad de Medida:");
+
+        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G(GRAMOS)", "KG(KILOGRAGRAMOS)", "ML(MILÍGRAMOS)", "L(LITRO)", "KL(KILOLITRO)", "ML(MILÍLITRO)" }));
+        cmbx_unidadInsumoEdit.setEnabled(false);
+        cmbx_unidadInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbx_unidadInsumoEditKeyPressed(evt);
+            }
+        });
+
+        btn_cancelarEditInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        btn_cancelarEditInsumo.setText("Cancelar");
+        btn_cancelarEditInsumo.setEnabled(false);
+        btn_cancelarEditInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarEditInsumomodificarPan(evt);
+            }
+        });
+        btn_cancelarEditInsumo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_cancelarEditInsumoKeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Modificar_InsumoLayout = new javax.swing.GroupLayout(Modificar_Insumo);
+        Modificar_Insumo.setLayout(Modificar_InsumoLayout);
+        Modificar_InsumoLayout.setHorizontalGroup(
+            Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_nombreInsumosEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbx_proveInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel43))))
+                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel35))
+                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_nombreInsumosEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbx_proveInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel32)
-                                    .addComponent(jLabel43))))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel33))
-                            .addComponent(txt_precioInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel35))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(cmbx_unidadInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel33)
+                            .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(cmbx_unidadInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_precioInsumoEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(66, 66, 66)
+                .addComponent(btn_EditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_cancelarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_GuardarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_EliminarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(101, 101, 101)
+                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(btn_consultInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(btn_cancelBusqInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel34)
+                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(btn_EditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_cancelarEditInsumo1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_GuardarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_EliminarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(101, 101, 101)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(170, 170, 170)
-                                .addComponent(btn_consultInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(btn_cancelBusqInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel34)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(chbx_selecEditInsumo)))
-                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 1061, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chbx_selecEditInsumo))
+                .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel32)
-                        .addGap(6, 6, 6)
-                        .addComponent(txt_nombreInsumosEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel43)
-                        .addGap(6, 6, 6)
-                        .addComponent(cmbx_proveInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel33)
-                        .addGap(6, 6, 6)
-                        .addComponent(txt_precioInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel35)
-                        .addGap(6, 6, 6)
-                        .addComponent(cmbx_unidadInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btn_cancelarEditInsumo1)
+                .addComponent(jScrollPane14)
+                .addContainerGap())
+        );
+        Modificar_InsumoLayout.setVerticalGroup(
+            Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                        .addComponent(btn_cancelarEditInsumo)
                         .addGap(7, 7, 7)
                         .addComponent(btn_GuardarEditInsumo)
                         .addGap(7, 7, 7)
                         .addComponent(btn_EliminarEditInsumo))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_EditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                                 .addComponent(btn_consultInsumoEdit)
                                 .addGap(17, 17, 17)
                                 .addComponent(btn_cancelBusqInsumoEdit))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel34))
                             .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                                 .addGap(30, 30, 30)
-                                .addComponent(chbx_selecEditInsumo)))))
+                                .addComponent(chbx_selecEditInsumo))))
+                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                        .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                                    .addComponent(jLabel33)
+                                    .addGap(25, 25, 25))
+                                .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                                    .addGap(21, 21, 21)
+                                    .addComponent(txt_precioInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addGap(6, 6, 6)
+                                .addComponent(txt_nombreInsumosEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20)
+                        .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                                .addComponent(jLabel43)
+                                .addGap(6, 6, 6)
+                                .addComponent(cmbx_proveInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Modificar_InsumoLayout.createSequentialGroup()
+                                .addComponent(jLabel35)
+                                .addGap(6, 6, 6)
+                                .addComponent(cmbx_unidadInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        InsumosCont.addTab("Modificar", jPanel3);
+        InsumosCont.addTab("Modificar", Modificar_Insumo);
 
         tbl_listaInsumoVenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2390,66 +2447,66 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel41.setText("Unidad:");
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout Pre_Compra_InsumoLayout = new javax.swing.GroupLayout(Pre_Compra_Insumo);
+        Pre_Compra_Insumo.setLayout(Pre_Compra_InsumoLayout);
+        Pre_Compra_InsumoLayout.setHorizontalGroup(
+            Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel39)
                 .addGap(88, 88, 88))
-            .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                 .addComponent(chbx_selecInsumoConsultVenta)
                                 .addGap(32, 32, 32)
                                 .addComponent(btn_cancelarBusquedaInsumoVenta)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btn_consultInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                 .addComponent(jLabel36)
                                 .addGap(18, 18, 18)
                                 .addComponent(txt_nombreInsumoConsultVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
+                        .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                 .addGap(43, 43, 43)
                                 .addComponent(jLabel38))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                 .addComponent(txt_cantidadInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
                                 .addComponent(chbx_selecInsumoVenta))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
+                                .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_nombreInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                    .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                         .addGap(40, 40, 40)
                                         .addComponent(jLabel37)))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                         .addGap(40, 40, 40)
                                         .addComponent(jLabel41))
                                     .addComponent(cmbx_unidadInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(234, 234, 234)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(retirarInsumoVenta_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_agregarInsumoVenta)))
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
+                            .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(comprarInsumoVenta_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(cancelarInsumoVenta_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                            .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pre_Compra_InsumoLayout.createSequentialGroup()
                                     .addComponent(jLabel40)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txt_pagoClientInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2457,20 +2514,20 @@ public class View1 extends javax.swing.JFrame {
                         .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+        Pre_Compra_InsumoLayout.setVerticalGroup(
+            Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pre_Compra_InsumoLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Pre_Compra_InsumoLayout.createSequentialGroup()
+                        .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pre_Compra_InsumoLayout.createSequentialGroup()
+                                .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txt_nombreInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                    .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                         .addComponent(jLabel37)
                                         .addGap(25, 25, 25))
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                    .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                         .addComponent(jLabel41)
                                         .addGap(6, 6, 6)
                                         .addComponent(cmbx_unidadInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2479,32 +2536,32 @@ public class View1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txt_cantidadInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(chbx_selecInsumoVenta, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pre_Compra_InsumoLayout.createSequentialGroup()
                                 .addComponent(btn_agregarInsumoVenta)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(retirarInsumoVenta_btn)
                                 .addGap(5, 5, 5)))
                         .addGap(11, 11, 11)
                         .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(comprarInsumoVenta_btn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cancelarInsumoVenta_btn))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txt_pagoClientInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel40))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txt_totalProdInsumoVenta))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Pre_Compra_InsumoLayout.createSequentialGroup()
+                        .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_nombreInsumoConsultVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel36))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_consultInsumoVenta)
                             .addComponent(chbx_selecInsumoConsultVenta)
                             .addComponent(btn_cancelarBusquedaInsumoVenta))
@@ -2515,7 +2572,7 @@ public class View1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        InsumosCont.addTab("Pre-Compra", jPanel8);
+        InsumosCont.addTab("Pre-Compra", Pre_Compra_Insumo);
 
         javax.swing.GroupLayout InsumosLayout = new javax.swing.GroupLayout(Insumos);
         Insumos.setLayout(InsumosLayout);
@@ -3141,7 +3198,6 @@ public class View1 extends javax.swing.JFrame {
         cancelarBusquedaPan_btn.setEnabled(true);
         agregarProdVenta_btn.setEnabled(true);
         nombreProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 1).toString());
-
     }//GEN-LAST:event_listaProdConsultVentas_tblMouseClicked
 
     private void consultPanVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanVenta_btnActionPerformed
@@ -3545,7 +3601,7 @@ public class View1 extends javax.swing.JFrame {
                 ActualizarPanelCrud(nombreProvReg_txt, nombreProvConsultEdit_txt, nombreProvConsult_txt, nombreEliminarProv_txt, Proveedores);
                 break;
             case 2:
-
+                ActualizarPanelCrud(txt_nombreInsumoReg, txt_nombreInsumoConsultEdit, txt_nombreInsumoConsultVenta, txt_nombreInsumoReg, InsumosCont);
                 break;
             case 3:
 
@@ -3624,6 +3680,7 @@ public class View1 extends javax.swing.JFrame {
                         Double.parseDouble(txt_precioInsumoReg.getText()), Proveeco.getLista_proovedor().get(cmbx_proveInsumoReg.getSelectedIndex()), 0, cmbx_unidadInsumoReg.getSelectedItem().toString()));
                 ListAll();
                 BorrarInsumo_txt(txt_nombreInsumoReg, txt_precioInsumoReg, cmbx_proveInsumoReg, cmbx_unidadInsumoReg);
+                txt_nombreInsumoReg.requestFocus();
             } else {
                 //Si los datos no son validos
                 JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
@@ -3638,28 +3695,38 @@ public class View1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_GuardarEditInsumomodificarPan
 
-    private void listaPanesEdit_tbl1selecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEdit_tbl1selecProdModif_tbl
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaPanesEdit_tbl1selecProdModif_tbl
+    //Evento para las tablas del eliminar insumos
+    private void tbl_listaInsumoEditselecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoEditselecProdModif_tbl
+        txt_nombreInsumosEdit.setText(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 1).toString());
+        txt_precioInsumoEdit.setText(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 2).toString());
+        cmbx_proveInsumoEdit.setSelectedItem(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 3).toString());
+        cmbx_unidadInsumoEdit.setSelectedItem(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 4).toString());
+    }//GEN-LAST:event_tbl_listaInsumoEditselecProdModif_tbl
 
-    private void listaPanesEdit_tbl1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEdit_tbl1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaPanesEdit_tbl1KeyPressed
+    //Evento del enter en las tablas del editar insumos
+    private void tbl_listaInsumoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_listaInsumoEditKeyPressed
+        if (evt.getKeyChar() == ENTER) {
+            tbl_listaInsumoEditselecProdModif_tbl(new java.awt.event.MouseEvent(tbl_listaInsumoEdit.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+        }
+    }//GEN-LAST:event_tbl_listaInsumoEditKeyPressed
 
+    //Evento del enter en el modificar los insumos
     private void txt_precioInsumoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precioInsumoEditKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, btn_GuardarEditInsumo);
     }//GEN-LAST:event_txt_precioInsumoEditKeyPressed
 
+    //Evento del enter para el modificar insumos
     private void txt_nombreInsumosEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreInsumosEditKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, btn_GuardarEditInsumo);
     }//GEN-LAST:event_txt_nombreInsumosEditKeyPressed
 
     private void chbx_selecEditInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbx_selecEditInsumoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chbx_selecEditInsumoActionPerformed
 
+    //Evento del enter
     private void txt_nombreInsumoConsultEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreInsumoConsultEditKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, btn_consultInsumoEdit);
     }//GEN-LAST:event_txt_nombreInsumoConsultEditKeyPressed
 
     private void btn_consultInsumoEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultInsumoEditActionPerformed
@@ -3678,9 +3745,9 @@ public class View1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_cancelBusqInsumoEditActionPerformed
 
-    private void btn_cancelarEditInsumo1modificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarEditInsumo1modificarPan
+    private void btn_cancelarEditInsumomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarEditInsumomodificarPan
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelarEditInsumo1modificarPan
+    }//GEN-LAST:event_btn_cancelarEditInsumomodificarPan
 
     private void tbl_listaInsumoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoVentaMouseClicked
         // TODO add your handling code here:
@@ -3746,7 +3813,7 @@ public class View1 extends javax.swing.JFrame {
             } else {
                 int[] Index = new int[tbl_listaProdSelectCantidad.getRowCount()];
                 for (int i = 0; i < Index.length; i++) {
-                    Index[i] = Integer.parseInt(listaPanesEdit_tbl.getValueAt(i, 0).toString());
+                    Index[i] = Integer.parseInt(tbl_listaProdSelectCantidad.getValueAt(i, 0).toString());
                 }
                 Proco.UpateCantidad(Index, Integer.parseInt(txt_CantidadProd.getText()));
                 btn_cancelarEditProdCantidad.doClick();
@@ -3993,6 +4060,50 @@ public class View1 extends javax.swing.JFrame {
         EventoEnter(evt, btn_registrarInsumo);
     }//GEN-LAST:event_btn_registrarInsumoKeyPressed
 
+    //Evento para actualizar el panel de los insumos
+    private void InsumosContStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_InsumosContStateChanged
+        ActualizarPanelCrud(txt_nombreInsumoReg, txt_nombreInsumoConsultEdit, txt_nombreInsumoConsultVenta, txt_nombreInsumoReg, InsumosCont);
+    }//GEN-LAST:event_InsumosContStateChanged
+
+    //Evento del enter para el modificar insumos
+    private void cmbx_proveInsumoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbx_proveInsumoEditKeyPressed
+        EventoEnter(evt, btn_GuardarEditInsumo);
+    }//GEN-LAST:event_cmbx_proveInsumoEditKeyPressed
+
+    //Evento del enter insumos modificar
+    private void cmbx_unidadInsumoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbx_unidadInsumoEditKeyPressed
+        EventoEnter(evt, btn_GuardarEditInsumo);
+    }//GEN-LAST:event_cmbx_unidadInsumoEditKeyPressed
+
+    //Evento del enter
+    private void btn_EditInsumoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EditInsumoKeyPressed
+        EventoEnter(evt, btn_EditInsumo);
+    }//GEN-LAST:event_btn_EditInsumoKeyPressed
+    //Evento del enter
+    private void btn_cancelarEditInsumoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarEditInsumoKeyPressed
+        EventoEnter(evt, btn_cancelarEditInsumo);
+    }//GEN-LAST:event_btn_cancelarEditInsumoKeyPressed
+
+    //EVENTO DEL ENTER
+    private void btn_GuardarEditInsumoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_GuardarEditInsumoKeyPressed
+        EventoEnter(evt, btn_GuardarEditInsumo);
+    }//GEN-LAST:event_btn_GuardarEditInsumoKeyPressed
+
+    //Evento del enter
+    private void btn_EliminarEditInsumoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EliminarEditInsumoKeyPressed
+       EventoEnter(evt, btn_EliminarEditInsumo);
+    }//GEN-LAST:event_btn_EliminarEditInsumoKeyPressed
+
+    //Evento del enter
+    private void btn_cancelBusqInsumoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelBusqInsumoEditKeyPressed
+        EventoEnter(evt, btn_cancelBusqInsumoEdit);
+    }//GEN-LAST:event_btn_cancelBusqInsumoEditKeyPressed
+
+    //Evento del enter
+    private void btn_consultInsumoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_consultInsumoEditKeyPressed
+        EventoEnter(evt, btn_consultInsumoEdit);
+    }//GEN-LAST:event_btn_consultInsumoEditKeyPressed
+
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
         switch (Panel.getSelectedIndex()) {
@@ -4045,19 +4156,21 @@ public class View1 extends javax.swing.JFrame {
     //Este Metodo Sirve para listar todo
     private void ListAll() {
         Listar((DefaultTableModel) tbl_listaInsumosReg.getModel(), Insumco.ReadAll());
+        Listar((DefaultTableModel) tbl_listaInsumoEdit.getModel(), Insumco.ReadAll());
         Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
         Listar((DefaultTableModel) listaPanesEdit_tbl.getModel(), Proco.ReadAll());
         Listar((DefaultTableModel) listaPanesEliminar_tbl.getModel(), Proco.ReadAll());
         Listar((DefaultTableModel) listaPanesConsult_tbl.getModel(), Proco.ReadAll());
+        Listar((DefaultTableModel) listaProdConsultVentas_tbl.getModel(), Proco.ReadVenta());
+        Listar((DefaultTableModel) tbl_listaProdCantidad.getModel(), Proco.ReadVenta());
         Listar((DefaultTableModel) listaProveedorReg_tbl.getModel(), Proveeco.ReadAll());
         Listar((DefaultTableModel) listaProveedoresEdit_tbl.getModel(), Proveeco.ReadAll());
         Listar((DefaultTableModel) listaProvConsult_tbl.getModel(), Proveeco.ReadAll());
         Listar((DefaultTableModel) listaProvEliminar_tbl.getModel(), Proveeco.ReadAll());
-        Listar((DefaultTableModel) listaProdConsultVentas_tbl.getModel(), Proco.ReadVenta());
-        Listar((DefaultTableModel) tbl_listaProdCantidad.getModel(), Proco.ReadVenta());
         ComboBoxList(provePanReg_cmbx, Proveeco.getLista_proovedor());
         ComboBoxList(provePanEdit_cmbx, Proveeco.getLista_proovedor());
         ComboBoxList(cmbx_proveInsumoReg, Proveeco.getLista_proovedor());
+        ComboBoxList(cmbx_proveInsumoEdit, Proveeco.getLista_proovedor());
     }
 
     //Este Metodo Sirve Para Listar las Tablas
@@ -4228,11 +4341,14 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JPanel Historial_ventas;
     private javax.swing.JPanel Insumos;
     private javax.swing.JTabbedPane InsumosCont;
+    private javax.swing.JPanel Modificar_Insumo;
     private javax.swing.JPanel Modificar_Producto;
     private javax.swing.JPanel Modificar_Proveedores;
     private javax.swing.JTabbedPane Panel_General;
+    private javax.swing.JPanel Pre_Compra_Insumo;
     private javax.swing.JTabbedPane Productos;
     private javax.swing.JTabbedPane Proveedores;
+    private javax.swing.JPanel Registrar;
     private javax.swing.JPanel Registrar_Insumo;
     private javax.swing.JPanel Registrar_Producto;
     private javax.swing.JPanel Registrar_Proveedores;
@@ -4247,7 +4363,7 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_cancelBusqInsumoEdit;
     private javax.swing.JButton btn_cancelarBusqProdCantidad;
     private javax.swing.JButton btn_cancelarBusquedaInsumoVenta;
-    private javax.swing.JButton btn_cancelarEditInsumo1;
+    private javax.swing.JButton btn_cancelarEditInsumo;
     private javax.swing.JButton btn_cancelarEditProdCantidad;
     private javax.swing.JButton btn_consultInsumoEdit;
     private javax.swing.JButton btn_consultInsumoVenta;
@@ -4336,13 +4452,10 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -4363,7 +4476,6 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable listaPanesConsult_tbl;
     private javax.swing.JTable listaPanesEdit_tbl;
-    private javax.swing.JTable listaPanesEdit_tbl1;
     private javax.swing.JTable listaPanesEliminar_tbl;
     private javax.swing.JTable listaPanesReg_tbl;
     private javax.swing.JTable listaProdConsultVentas_tbl;
@@ -4408,6 +4520,7 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JTextField serviProvEdit_txt;
     private javax.swing.JTextField serviProvReg_txt;
     private javax.swing.JTable tbl_listaInsumoConsultVentas;
+    private javax.swing.JTable tbl_listaInsumoEdit;
     private javax.swing.JTable tbl_listaInsumoVenta;
     private javax.swing.JTable tbl_listaInsumosReg;
     private javax.swing.JTable tbl_listaProdCantidad;
