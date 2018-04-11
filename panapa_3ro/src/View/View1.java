@@ -1876,14 +1876,29 @@ public class View1 extends javax.swing.JFrame {
                 btn_registrarInsumoregistrarPan(evt);
             }
         });
+        btn_registrarInsumo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_registrarInsumoKeyPressed(evt);
+            }
+        });
 
         cmbx_proveInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_proveInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbx_proveInsumoRegKeyPressed(evt);
+            }
+        });
 
         jLabel15.setText("Proveedor:");
 
         jLabel28.setText("Unidad:");
 
         cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G(GRAMOS)", "KG(KILOGRAGRAMOS)", "ML(MILÍGRAMOS)", "L(LITRO)", "KL(KILOLITRO)", "ML(MILÍLITRO)" }));
+        cmbx_unidadInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbx_unidadInsumoRegKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Registrar_InsumoLayout = new javax.swing.GroupLayout(Registrar_Insumo);
         Registrar_Insumo.setLayout(Registrar_InsumoLayout);
@@ -2082,7 +2097,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel35.setText("Unidad:");
 
-        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G(GRAMOS)", "KG(KILOGRAGRAMOS)", "ML(MILÍGRAMOS)", "L(LITRO)", "KL(KILOLITRO)", "ML(MILÍLITRO)" }));
         cmbx_unidadInsumoEdit.setEnabled(false);
 
         btn_cancelarEditInsumo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
@@ -3585,16 +3600,18 @@ public class View1 extends javax.swing.JFrame {
         cancelarBusqPov_btn.setEnabled(false);
     }//GEN-LAST:event_cancelarBusqPov_btnActionPerformed
 
+    //Evento del enter para los insumos registrar
     private void txt_nombreInsumoRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreInsumoRegKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, btn_registrarInsumo);
     }//GEN-LAST:event_txt_nombreInsumoRegKeyPressed
 
     private void txt_precioInsumoRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_precioInsumoRegActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_precioInsumoRegActionPerformed
 
+    //evento del enter en el registrar insumo
     private void txt_precioInsumoRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precioInsumoRegKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, btn_registrarInsumo);
     }//GEN-LAST:event_txt_precioInsumoRegKeyPressed
 
     private void btn_registrarInsumoregistrarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarInsumoregistrarPan
@@ -3960,6 +3977,21 @@ public class View1 extends javax.swing.JFrame {
     private void consultProvEliminar_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultProvEliminar_btnKeyPressed
         EventoEnter(evt, consultProvEliminar_btn);
     }//GEN-LAST:event_consultProvEliminar_btnKeyPressed
+
+    //Evento del enter para registrar insumo
+    private void cmbx_proveInsumoRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbx_proveInsumoRegKeyPressed
+        EventoEnter(evt, btn_registrarInsumo);
+    }//GEN-LAST:event_cmbx_proveInsumoRegKeyPressed
+
+    //Evento del enter registrar insumo
+    private void cmbx_unidadInsumoRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbx_unidadInsumoRegKeyPressed
+        EventoEnter(evt, btn_registrarInsumo);
+    }//GEN-LAST:event_cmbx_unidadInsumoRegKeyPressed
+
+    //Evento del enter registrar insumos
+    private void btn_registrarInsumoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_registrarInsumoKeyPressed
+        EventoEnter(evt, btn_registrarInsumo);
+    }//GEN-LAST:event_btn_registrarInsumoKeyPressed
 
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {

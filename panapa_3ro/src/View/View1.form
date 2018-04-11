@@ -2393,6 +2393,7 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_registrarInsumoregistrarPan"/>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btn_registrarInsumoKeyPressed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="cmbx_proveInsumoReg">
@@ -2406,6 +2407,9 @@
                                   </StringArray>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cmbx_proveInsumoRegKeyPressed"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
@@ -2433,6 +2437,9 @@
                                   </StringArray>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cmbx_unidadInsumoRegKeyPressed"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
@@ -2763,11 +2770,13 @@
                         <Component class="javax.swing.JComboBox" name="cmbx_unidadInsumoEdit">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="4">
-                                <StringItem index="0" value="Item 1"/>
-                                <StringItem index="1" value="Item 2"/>
-                                <StringItem index="2" value="Item 3"/>
-                                <StringItem index="3" value="Item 4"/>
+                              <StringArray count="6">
+                                <StringItem index="0" value="G(GRAMOS)"/>
+                                <StringItem index="1" value="KG(KILOGRAGRAMOS)"/>
+                                <StringItem index="2" value="ML(MIL&#xcd;GRAMOS)"/>
+                                <StringItem index="3" value="L(LITRO)"/>
+                                <StringItem index="4" value="KL(KILOLITRO)"/>
+                                <StringItem index="5" value="ML(MIL&#xcd;LITRO)"/>
                               </StringArray>
                             </Property>
                             <Property name="enabled" type="boolean" value="false"/>
