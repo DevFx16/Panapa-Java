@@ -25,11 +25,12 @@ public class View1 extends javax.swing.JFrame {
     //instacio controladores
     private ProductoController Proco = new ProductoController();
     private ProveedorController Proveeco = new ProveedorController();
-    
+    private InsumoController Insumco = new InsumoController();
+
     private Object IndexTable = null;
     public static String FileName = "";
     String Nombre_Panaderia = "";
-    
+
     public View1(String FileName, String Nombre_Panaderia) {
         this.FileName = FileName;
         this.Nombre_Panaderia = Nombre_Panaderia;
@@ -42,7 +43,7 @@ public class View1 extends javax.swing.JFrame {
         ListAll();
         nombrePanReg_txt.requestFocus();
     }
-    
+
     public View1() {
         initComponents();
         setResizable(false);
@@ -51,19 +52,19 @@ public class View1 extends javax.swing.JFrame {
         ListAll();
         nombrePanReg_txt.requestFocus();
     }
-    
+
     public String getFileName() {
         return FileName;
     }
-    
+
     public String getNombre_Panaderia() {
         return Nombre_Panaderia;
     }
-    
+
     public void cargar_datos(String nameFile) {
         String path = ".\\PanaderiasData\\" + nameFile + ".dat";
         File fichero = new File(path);
-        
+
         if (fichero.exists()) {
             try {
                 FileInputStream archivo = new FileInputStream(path);
@@ -72,14 +73,14 @@ public class View1 extends javax.swing.JFrame {
                 //poner las demas instancias aquí
                 Proco.setLista_producto(u1.getLista_Producto());
                 Proveeco.setLista_proovedor(u1.getLista_Proovedor());
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
             }
         }
-        
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -96,7 +97,7 @@ public class View1 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPanesReg_tbl = new javax.swing.JTable();
         registrarPan_btn = new javax.swing.JButton();
-        provePanReg_cmbx = new javax.swing.JComboBox<String>();
+        provePanReg_cmbx = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         Modificar_Producto = new javax.swing.JPanel();
         GuardarEditPan_btn = new javax.swing.JButton();
@@ -113,7 +114,7 @@ public class View1 extends javax.swing.JFrame {
         EditPan_btn = new javax.swing.JButton();
         cancelarEditPan_btn = new javax.swing.JButton();
         jLabel42 = new javax.swing.JLabel();
-        provePanEdit_cmbx = new javax.swing.JComboBox<String>();
+        provePanEdit_cmbx = new javax.swing.JComboBox<>();
         cancelarBusqProd_btn = new javax.swing.JButton();
         Consultar_Producto = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -208,10 +209,10 @@ public class View1 extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         tbl_listaInsumosReg = new javax.swing.JTable();
         btn_registrarInsumo = new javax.swing.JButton();
-        cmbx_proveInsumoReg = new javax.swing.JComboBox<String>();
+        cmbx_proveInsumoReg = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        cmbx_unidadInsumoReg = new javax.swing.JComboBox<String>();
+        cmbx_unidadInsumoReg = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         btn_GuardarEditInsumo = new javax.swing.JButton();
         jScrollPane14 = new javax.swing.JScrollPane();
@@ -227,10 +228,10 @@ public class View1 extends javax.swing.JFrame {
         btn_EditInsumo = new javax.swing.JButton();
         btn_EliminarEditInsumo = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
-        cmbx_proveInsumoEdit = new javax.swing.JComboBox<String>();
+        cmbx_proveInsumoEdit = new javax.swing.JComboBox<>();
         btn_cancelBusqInsumoEdit = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
-        cmbx_unidadInsumoEdit = new javax.swing.JComboBox<String>();
+        cmbx_unidadInsumoEdit = new javax.swing.JComboBox<>();
         btn_cancelarEditInsumo1 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane15 = new javax.swing.JScrollPane();
@@ -255,7 +256,7 @@ public class View1 extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         txt_totalProdInsumoVenta = new javax.swing.JTextField();
         btn_cancelarBusquedaInsumoVenta = new javax.swing.JButton();
-        cmbx_unidadInsumoVenta = new javax.swing.JComboBox<String>();
+        cmbx_unidadInsumoVenta = new javax.swing.JComboBox<>();
         jLabel41 = new javax.swing.JLabel();
         Ventas = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -373,7 +374,7 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        provePanReg_cmbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        provePanReg_cmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setText("Proveedor:");
 
@@ -553,7 +554,7 @@ public class View1 extends javax.swing.JFrame {
         jLabel42.setText("Nuevo Proveedor:");
         Modificar_Producto.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 69, -1, -1));
 
-        provePanEdit_cmbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        provePanEdit_cmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         provePanEdit_cmbx.setEnabled(false);
         Modificar_Producto.add(provePanEdit_cmbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 90, 118, -1));
 
@@ -1729,13 +1730,13 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        cmbx_proveInsumoReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_proveInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel15.setText("Proveedor:");
 
         jLabel28.setText("Unidad:");
 
-        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "G(GRAMOS)", "KG(KILOGRAGRAMOS)", "ML(MILÍGRAMOS)", "L(LITRO)", "KL(KILOLITRO)", "ML(MILÍLITRO)" }));
+        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G(GRAMOS)", "KG(KILOGRAGRAMOS)", "ML(MILÍGRAMOS)", "L(LITRO)", "KL(KILOLITRO)", "ML(MILÍLITRO)" }));
 
         javax.swing.GroupLayout Registrar_InsumoLayout = new javax.swing.GroupLayout(Registrar_Insumo);
         Registrar_Insumo.setLayout(Registrar_InsumoLayout);
@@ -1920,7 +1921,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel43.setText("Nuevo Proveedor:");
 
-        cmbx_proveInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_proveInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbx_proveInsumoEdit.setEnabled(false);
 
         btn_cancelBusqInsumoEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
@@ -1934,7 +1935,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel35.setText("Unidad:");
 
-        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbx_unidadInsumoEdit.setEnabled(false);
 
         btn_cancelarEditInsumo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
@@ -2042,7 +2043,7 @@ public class View1 extends javax.swing.JFrame {
                                 .addComponent(chbx_selecEditInsumo)))))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         InsumosCont.addTab("Modificar", jPanel3);
@@ -2222,7 +2223,7 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        cmbx_unidadInsumoVenta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_unidadInsumoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbx_unidadInsumoVenta.setEnabled(false);
 
         jLabel41.setText("Unidad:");
@@ -2905,7 +2906,7 @@ public class View1 extends javax.swing.JFrame {
         Panel_General.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png")));
         //Estadisticas
         Panel_General.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/estadisticas.png")));
-        
+
         Panel_General.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/groceries_1.png")));
 
         //Prod_Registrar
@@ -2916,7 +2917,7 @@ public class View1 extends javax.swing.JFrame {
         Productos.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png")));
         //Prod_Eliminar
         Productos.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png")));
-        
+
         Productos.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
 
         //Prod_Registrar
@@ -2939,11 +2940,11 @@ public class View1 extends javax.swing.JFrame {
         Contenedor_Stast.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Icons/receipt.png")));
         //Datos del Producto
         Contenedor_Stast.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
-        
+
         listaProdVenta_tbl.getColumnModel().getColumn(0).setPreferredWidth(150);
-        
+
     }
-    
+
 
     private void totalProdVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalProdVentaActionPerformed
 
@@ -3026,7 +3027,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Buscar en el consultar Proveedores
     private void consultProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProv_btnActionPerformed
-        
+
         BuscarAll(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl, Proveeco.Read(nombreProvConsult_txt.getText().toUpperCase()), cancelarBusquedaProv_btn);
     }//GEN-LAST:event_consultProv_btnActionPerformed
 
@@ -3378,13 +3379,13 @@ public class View1 extends javax.swing.JFrame {
                 ActualizarPanelCrud(nombreProvReg_txt, nombreProvConsultEdit_txt, nombreProvConsult_txt, nombreEliminarProv_txt, Proveedores);
                 break;
             case 2:
-                
+
                 break;
             case 3:
-                
+
                 break;
             case 4:
-                
+
                 break;
         }
         ListAll();
@@ -3444,9 +3445,24 @@ public class View1 extends javax.swing.JFrame {
     private void txt_precioInsumoRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precioInsumoRegKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_precioInsumoRegKeyPressed
-
+    
     private void btn_registrarInsumoregistrarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarInsumoregistrarPan
-        // TODO add your handling code here:
+        //Valida la entrada
+        if (ValInsumo(txt_nombreInsumoReg.getText(), txt_precioInsumoReg.getText())) {
+            //Valida el combobox proveedor
+            if (cmbx_proveInsumoReg.getSelectedIndex() >= 0) {
+                //Se crea el insumo
+                Insumco.Create(new Insumo(UUID.randomUUID().toString(), txt_nombreInsumoReg.getText().toUpperCase(), Double.parseDouble(txt_precioInsumoReg.getText()), Proveeco.getLista_proovedor().get(cmbx_proveInsumoReg.getSelectedIndex()), 0, cmbx_unidadInsumoReg.getSelectedItem()+""));
+                ListAll();
+                BorrarInsumo_txt(txt_nombreInsumoReg, txt_precioInsumoReg, cmbx_proveInsumoReg, cmbx_unidadInsumoReg);
+            } else {
+                //Si los datos no son validos
+                JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+            }
+        } else {
+            //Si los datos no son validos
+            JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+        }
     }//GEN-LAST:event_btn_registrarInsumoregistrarPan
 
     private void btn_GuardarEditInsumomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuardarEditInsumomodificarPan
@@ -3555,12 +3571,12 @@ public class View1 extends javax.swing.JFrame {
 
     //Guardar Cantidades Producto
     private void btn_GuardarEditCantidadmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuardarEditCantidadmodificarPan
-        try{
-            if(Integer.parseInt(txt_CantidadProd.getText()) <= 0){
+        try {
+            if (Integer.parseInt(txt_CantidadProd.getText()) <= 0) {
                 JOptionPane.showMessageDialog(null, "Por digite numeros mayores a 0", "Error", 0);
-            }else{
+            } else {
                 int[] Index = new int[tbl_listaProdSelectCantidad.getRowCount()];
-                for(int i = 0; i < Index.length; i++){
+                for (int i = 0; i < Index.length; i++) {
                     Index[i] = Integer.parseInt(listaPanesEdit_tbl.getValueAt(i, 0).toString());
                 }
                 Proco.UpateCantidad(Index, Integer.parseInt(txt_CantidadProd.getText()));
@@ -3568,7 +3584,7 @@ public class View1 extends javax.swing.JFrame {
                 Listar((DefaultTableModel) tbl_listaProdCantidad.getModel(), Proco.ReadVenta());
                 JOptionPane.showMessageDialog(null, "Se han modificado la cantidad", "Error", 1);
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Por favor digite solo valores numericos", "Error", 0);
         }
     }//GEN-LAST:event_btn_GuardarEditCantidadmodificarPan
@@ -3666,6 +3682,20 @@ public class View1 extends javax.swing.JFrame {
         }
     }
 
+    //Este Metodo Sirve Para Validar Los Insumos
+    private boolean ValInsumo(String Nombre, String Precio) {
+        try {
+            //valido si no hay algun error y retorno si es verdadero o falso
+            if (Nombre.isEmpty() || Nombre == null || Double.parseDouble(Precio) == 0) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     //Metodo para validar los prveedores
     private boolean ValProveedor(String Nombre, String Telefono, String Nit, String Producto, String Direccion) {
         try {
@@ -3673,7 +3703,7 @@ public class View1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Hubo un error, rellene todos los campos.", "Error", 0);
                 return false;
             } else {
-                
+
                 return true;
             }
         } catch (Exception e) {
@@ -3684,6 +3714,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Este Metodo Sirve para listar todo
     private void ListAll() {
+        Listar((DefaultTableModel) tbl_listaInsumosReg.getModel(), Insumco.ReadAll());
         Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
         Listar((DefaultTableModel) listaPanesEdit_tbl.getModel(), Proco.ReadAll());
         Listar((DefaultTableModel) listaPanesEliminar_tbl.getModel(), Proco.ReadAll());
@@ -3726,6 +3757,14 @@ public class View1 extends javax.swing.JFrame {
         Nombre.setText(null);
         Precio.setText(null);
         Cb.setSelectedIndex(0);
+    }
+    
+    //Este metodo sirve para borrar el texto en los insumos y poner los combobox en el index 0
+    private void BorrarInsumo_txt(JTextField Nombre, JTextField Precio, JComboBox proveedor, JComboBox unidad) {
+        Nombre.setText(null);
+        Precio.setText(null);
+        proveedor.setSelectedIndex(0);
+        unidad.setSelectedIndex(0);
     }
 
     //envento del enter
@@ -3810,24 +3849,24 @@ public class View1 extends javax.swing.JFrame {
         Producto.setText(t);
         Direccion.setText(t);
     }
-    
+
     public static void main(String args[]) {
-        
+
         JOptionPane.showMessageDialog(null, "Debes iniciar desde el login");
-        
+
         String s = "de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel";
-        
+
         try {
             javax.swing.UIManager.setLookAndFeel(s);
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
-            
+
         } catch (InstantiationException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
-            
+
         } catch (IllegalAccessException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
