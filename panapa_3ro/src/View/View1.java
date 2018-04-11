@@ -1153,6 +1153,11 @@ public class View1 extends javax.swing.JFrame {
                 registrarProv_btnregistrarPan(evt);
             }
         });
+        registrarProv_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                registrarProv_btnKeyPressed(evt);
+            }
+        });
 
         serviProvReg_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1373,6 +1378,11 @@ public class View1 extends javax.swing.JFrame {
                 consultProvEdit_btnActionPerformed(evt);
             }
         });
+        consultProvEdit_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                consultProvEdit_btnKeyPressed(evt);
+            }
+        });
 
         EditProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
         EditProv_btn.setText("Modificar");
@@ -1380,6 +1390,11 @@ public class View1 extends javax.swing.JFrame {
         EditProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditProv_btnActionPerformed(evt);
+            }
+        });
+        EditProv_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                EditProv_btnKeyPressed(evt);
             }
         });
 
@@ -1391,6 +1406,11 @@ public class View1 extends javax.swing.JFrame {
                 GuardarEditProv_btnmodificarPan(evt);
             }
         });
+        GuardarEditProv_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GuardarEditProv_btnKeyPressed(evt);
+            }
+        });
 
         cancelarEditProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarEditProv_btn.setText("Cancelar");
@@ -1400,6 +1420,11 @@ public class View1 extends javax.swing.JFrame {
                 cancelarEditProv_btnmodificarPan(evt);
             }
         });
+        cancelarEditProv_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarEditProv_btnKeyPressed(evt);
+            }
+        });
 
         cancelarBusqPov_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarBusqPov_btn.setText("Cancelar Consulta");
@@ -1407,6 +1432,11 @@ public class View1 extends javax.swing.JFrame {
         cancelarBusqPov_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarBusqPov_btnActionPerformed(evt);
+            }
+        });
+        cancelarBusqPov_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarBusqPov_btnKeyPressed(evt);
             }
         });
 
@@ -1550,6 +1580,11 @@ public class View1 extends javax.swing.JFrame {
                 consultProv_btnActionPerformed(evt);
             }
         });
+        consultProv_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                consultProv_btnKeyPressed(evt);
+            }
+        });
 
         listaProvConsult_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1586,6 +1621,11 @@ public class View1 extends javax.swing.JFrame {
         cancelarBusquedaProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarBusquedaProv_btnmodificarPan(evt);
+            }
+        });
+        cancelarBusquedaProv_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarBusquedaProv_btnKeyPressed(evt);
             }
         });
 
@@ -1654,6 +1694,11 @@ public class View1 extends javax.swing.JFrame {
                 EliminarProv_btnActionPerformed(evt);
             }
         });
+        EliminarProv_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                EliminarProv_btnKeyPressed(evt);
+            }
+        });
 
         listaProvEliminar_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1698,6 +1743,11 @@ public class View1 extends javax.swing.JFrame {
                 consultProvEliminar_btnActionPerformed(evt);
             }
         });
+        consultProvEliminar_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                consultProvEliminar_btnKeyPressed(evt);
+            }
+        });
 
         cancelarElimProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarElimProv_btn.setText("Cancelar");
@@ -1705,6 +1755,11 @@ public class View1 extends javax.swing.JFrame {
         cancelarElimProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarElimProv_btnmodificarPan(evt);
+            }
+        });
+        cancelarElimProv_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarElimProv_btnKeyPressed(evt);
             }
         });
 
@@ -3093,7 +3148,9 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento del enter para eliminar proveedor
     private void listaProvEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblKeyPressed
-        EventoEnter(evt, EliminarProv_btn);
+        if (evt.getKeyChar() == ENTER) {
+            listaProvEliminar_tblMouseClicked(new java.awt.event.MouseEvent(listaProvEliminar_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+        }
     }//GEN-LAST:event_listaProvEliminar_tblKeyPressed
 
     private void listaProvEliminar_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblMouseClicked
@@ -3180,7 +3237,9 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento del enter para el modificar proveedor tabla
     private void listaProveedoresEdit_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProveedoresEdit_tblKeyPressed
-        EventoEnter(evt, EditProv_btn);
+        if (evt.getKeyChar() == ENTER) {
+            listaProveedoresEdit_tblMouseClicked(new java.awt.event.MouseEvent(listaProveedoresEdit_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+        }
     }//GEN-LAST:event_listaProveedoresEdit_tblKeyPressed
 
     //Evento para seleccionar un proveedor del modificar
@@ -3687,9 +3746,10 @@ public class View1 extends javax.swing.JFrame {
         ArrayList<String[]> Get = new ArrayList<String[]>();
         for (int i = 0; i < tbl_listaProdCantidad.getSelectedRows().length; i++) {
             Get.add(new String[]{listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 0).toString(),
-                listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 1).toString(),
-                listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 2).toString()});
-            System.out.println(listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 0).toString());
+                tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 1).toString(),
+                tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 2).toString(),
+                tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 3).toString()});
+            System.out.println(tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 3).toString());
         }
         Listar((DefaultTableModel) tbl_listaProdSelectCantidad.getModel(), Get);
         EnabledBtn(btn_EditProdCantidad, btn_GuardarEditCantidad, btn_cancelarEditProdCantidad, true);
@@ -3846,6 +3906,61 @@ public class View1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_listaPanesEliminar_tblKeyPressed
 
+    //Evento del enter para el registrar proveedor
+    private void registrarProv_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_registrarProv_btnKeyPressed
+        EventoEnter(evt, registrarProv_btn);
+    }//GEN-LAST:event_registrarProv_btnKeyPressed
+
+    //Evento del enter para el eeditar proveedor
+    private void EditProv_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EditProv_btnKeyPressed
+        EventoEnter(evt, EditProv_btn);
+    }//GEN-LAST:event_EditProv_btnKeyPressed
+
+    //Evento del enter para el guardar proveedor edit
+    private void GuardarEditProv_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GuardarEditProv_btnKeyPressed
+        EventoEnter(evt, GuardarEditProv_btn);
+    }//GEN-LAST:event_GuardarEditProv_btnKeyPressed
+
+    //Evento del cancelar para el modificar proveedor
+    private void cancelarEditProv_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarEditProv_btnKeyPressed
+        EventoEnter(evt, cancelarEditProv_btn);
+    }//GEN-LAST:event_cancelarEditProv_btnKeyPressed
+
+    //Evento del cancelar consultar en el modifciar proveedor
+    private void cancelarBusqPov_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarBusqPov_btnKeyPressed
+        EventoEnter(evt, cancelarBusqPov_btn);
+    }//GEN-LAST:event_cancelarBusqPov_btnKeyPressed
+
+    //Evento de consulta en el modificar proveedor
+    private void consultProvEdit_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultProvEdit_btnKeyPressed
+        EventoEnter(evt, consultProvEdit_btn);
+    }//GEN-LAST:event_consultProvEdit_btnKeyPressed
+
+    //Evento dek consultar proveedor
+    private void consultProv_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultProv_btnKeyPressed
+        EventoEnter(evt, consultProv_btn);
+    }//GEN-LAST:event_consultProv_btnKeyPressed
+
+    //Evento del cancelar consulta proveedor
+    private void cancelarBusquedaProv_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarBusquedaProv_btnKeyPressed
+        EventoEnter(evt, cancelarBusquedaProv_btn);
+    }//GEN-LAST:event_cancelarBusquedaProv_btnKeyPressed
+
+    //Evento dle enter en el eliminar proveedor
+    private void EliminarProv_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EliminarProv_btnKeyPressed
+        EventoEnter(evt, EliminarProv_btn);
+    }//GEN-LAST:event_EliminarProv_btnKeyPressed
+
+    //Evento del enter en el cancelar proveedor
+    private void cancelarElimProv_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarElimProv_btnKeyPressed
+        EventoEnter(evt, cancelarElimProv_btn);
+    }//GEN-LAST:event_cancelarElimProv_btnKeyPressed
+
+    //Evento del enter en el consult proveedor
+    private void consultProvEliminar_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultProvEliminar_btnKeyPressed
+        EventoEnter(evt, consultProvEliminar_btn);
+    }//GEN-LAST:event_consultProvEliminar_btnKeyPressed
+
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
         switch (Panel.getSelectedIndex()) {
@@ -3964,13 +4079,11 @@ public class View1 extends javax.swing.JFrame {
         //Valido la entrada del buscar
         if (Filter.isEmpty() || Filter == null) {
             JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+        } else if (Array.size() <= 0 || Array == null) {
+            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "No se han encontrado", 1);
         } else {
-            if (Array.size() <= 0 || Array == null) {
-                JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "No se han encontrado", 1);
-            } else {
-                Listar((DefaultTableModel) Tabla.getModel(), Array);
-                Cancelar.setEnabled(true);
-            }
+            Listar((DefaultTableModel) Tabla.getModel(), Array);
+            Cancelar.setEnabled(true);
         }
     }
 

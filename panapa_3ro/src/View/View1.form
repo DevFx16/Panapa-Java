@@ -1379,6 +1379,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registrarProv_btnregistrarPan"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="registrarProv_btnKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="serviProvReg_txt">
@@ -1751,6 +1752,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultProvEdit_btnActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="consultProvEdit_btnKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="EditProv_btn">
@@ -1763,6 +1765,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EditProv_btnActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="EditProv_btnKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="GuardarEditProv_btn">
@@ -1775,6 +1778,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GuardarEditProv_btnmodificarPan"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="GuardarEditProv_btnKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="cancelarEditProv_btn">
@@ -1787,6 +1791,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarEditProv_btnmodificarPan"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cancelarEditProv_btnKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="cancelarBusqPov_btn">
@@ -1799,6 +1804,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarBusqPov_btnActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cancelarBusqPov_btnKeyPressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1883,6 +1889,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultProv_btnActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="consultProv_btnKeyPressed"/>
                       </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane7">
@@ -1955,6 +1962,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarBusquedaProv_btnmodificarPan"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cancelarBusquedaProv_btnKeyPressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -2064,6 +2072,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EliminarProv_btnActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="EliminarProv_btnKeyPressed"/>
                       </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane8">
@@ -2141,6 +2150,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultProvEliminar_btnActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="consultProvEliminar_btnKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="cancelarElimProv_btn">
@@ -2153,6 +2163,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarElimProv_btnmodificarPan"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cancelarElimProv_btnKeyPressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
