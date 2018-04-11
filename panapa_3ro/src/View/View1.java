@@ -2977,7 +2977,9 @@ public class View1 extends javax.swing.JFrame {
     private void listaProdConsultVentas_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProdConsultVentas_tblMouseClicked
         SelecTable(listaProdConsultVentas_tbl, selecEditPan_chbx, EditPan_btn, true);
         cancelarBusquedaPan_btn.setEnabled(true);
+        agregarProdVenta_btn.setEnabled(true);
         nombreProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 1).toString());
+        
     }//GEN-LAST:event_listaProdConsultVentas_tblMouseClicked
 
     private void consultPanVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanVenta_btnActionPerformed
@@ -3448,7 +3450,7 @@ public class View1 extends javax.swing.JFrame {
     
     private void btn_registrarInsumoregistrarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarInsumoregistrarPan
         //Valida la entrada
-        if (ValInsumo(txt_nombreInsumoReg.getText(), txt_precioInsumoReg.getText())) {
+        if (ValProducto(txt_nombreInsumoReg.getText(), txt_precioInsumoReg.getText())) {
             //Valida el combobox proveedor
             if (cmbx_proveInsumoReg.getSelectedIndex() >= 0) {
                 //Se crea el insumo
@@ -3670,20 +3672,6 @@ public class View1 extends javax.swing.JFrame {
 
     //Este Metodo Sirve Para Validar Los Productos
     private boolean ValProducto(String Nombre, String Precio) {
-        try {
-            //valido si no hay algun error y retorno si es verdadero o falso
-            if (Nombre.isEmpty() || Nombre == null || Double.parseDouble(Precio) == 0) {
-                return false;
-            } else {
-                return true;
-            }
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    //Este Metodo Sirve Para Validar Los Insumos
-    private boolean ValInsumo(String Nombre, String Precio) {
         try {
             //valido si no hay algun error y retorno si es verdadero o falso
             if (Nombre.isEmpty() || Nombre == null || Double.parseDouble(Precio) == 0) {
