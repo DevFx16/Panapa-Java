@@ -373,8 +373,18 @@ public class View1 extends javax.swing.JFrame {
                 registrarPan_btnregistrarPan(evt);
             }
         });
+        registrarPan_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                registrarPan_btnKeyPressed(evt);
+            }
+        });
 
         provePanReg_cmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        provePanReg_cmbx.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                provePanReg_cmbxKeyPressed(evt);
+            }
+        });
 
         jLabel11.setText("Proveedor:");
 
@@ -1700,11 +1710,11 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Index", "Nombre", "Precio", "Proveedor"
+                "Index", "Nombre", "Precio", "Proveedor", "Unidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1720,6 +1730,7 @@ public class View1 extends javax.swing.JFrame {
             tbl_listaInsumosReg.getColumnModel().getColumn(1).setResizable(false);
             tbl_listaInsumosReg.getColumnModel().getColumn(2).setResizable(false);
             tbl_listaInsumosReg.getColumnModel().getColumn(3).setResizable(false);
+            tbl_listaInsumosReg.getColumnModel().getColumn(4).setResizable(false);
         }
 
         btn_registrarInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
@@ -1742,9 +1753,9 @@ public class View1 extends javax.swing.JFrame {
         Registrar_Insumo.setLayout(Registrar_InsumoLayout);
         Registrar_InsumoLayout.setHorizontalGroup(
             Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Registrar_InsumoLayout.createSequentialGroup()
+            .addGroup(Registrar_InsumoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane9)
                     .addGroup(Registrar_InsumoLayout.createSequentialGroup()
                         .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1763,8 +1774,8 @@ public class View1 extends javax.swing.JFrame {
                             .addComponent(cmbx_unidadInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel28))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                        .addComponent(btn_registrarInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24))
+                        .addComponent(btn_registrarInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
         );
         Registrar_InsumoLayout.setVerticalGroup(
             Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1787,8 +1798,8 @@ public class View1 extends javax.swing.JFrame {
                             .addComponent(cmbx_proveInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btn_registrarInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1799,7 +1810,7 @@ public class View1 extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addComponent(Registrar_Insumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 19, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3452,7 +3463,8 @@ public class View1 extends javax.swing.JFrame {
             //Valida el combobox proveedor
             if (cmbx_proveInsumoReg.getSelectedIndex() >= 0) {
                 //Se crea el insumo
-                Insumco.Create(new Insumo(UUID.randomUUID().toString(), txt_nombreInsumoReg.getText().toUpperCase(), Double.parseDouble(txt_precioInsumoReg.getText()), Proveeco.getLista_proovedor().get(cmbx_proveInsumoReg.getSelectedIndex()), 0, cmbx_unidadInsumoReg.getSelectedItem()+""));
+                Insumco.Create(new Insumo(UUID.randomUUID().toString(), txt_nombreInsumoReg.getText().toUpperCase(), 
+                        Double.parseDouble(txt_precioInsumoReg.getText()), Proveeco.getLista_proovedor().get(cmbx_proveInsumoReg.getSelectedIndex()), 0, cmbx_unidadInsumoReg.getSelectedItem().toString()));
                 ListAll();
                 BorrarInsumo_txt(txt_nombreInsumoReg, txt_precioInsumoReg, cmbx_proveInsumoReg, cmbx_unidadInsumoReg);
             } else {
@@ -3648,6 +3660,16 @@ public class View1 extends javax.swing.JFrame {
     private void txt_nombreProdConsultCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreProdConsultCantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nombreProdConsultCantidadActionPerformed
+
+    //Evento Del Enter para el combobox registrar producto
+    private void provePanReg_cmbxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_provePanReg_cmbxKeyPressed
+        EventoEnter(evt, registrarPan_btn);
+    }//GEN-LAST:event_provePanReg_cmbxKeyPressed
+
+    //Evento Del Enter para el boton registrar producto
+    private void registrarPan_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_registrarPan_btnKeyPressed
+        EventoEnter(evt, registrarPan_btn);
+    }//GEN-LAST:event_registrarPan_btnKeyPressed
 
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {

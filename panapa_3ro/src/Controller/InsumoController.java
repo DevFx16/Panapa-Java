@@ -13,11 +13,13 @@ public class InsumoController {
         userco.salvar_datos();
     }
 
-    public ArrayList<Insumo> Read(String Filter) {
-        ArrayList<Insumo> Get = new ArrayList<>();
-        for (Insumo Fact : getLista_Insumos()) {
-            if (Fact.getId().contains(Filter)) {
-                Get.add(Fact);
+    public ArrayList<String[]> Read(String Filter) {
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < getLista_Insumos().size(); i++) {
+            if (getLista_Insumos().get(i).getId().contains(Filter)) {
+                Get.add(new String[]{i+"", getLista_Insumos().get(i).getNombre(), 
+                    getLista_Insumos().get(i).getPrecio()+"", getLista_Insumos().get(i).getProveedor().getNombre(), 
+                    getLista_Insumos().get(i).getUnidad()});
             }
         }
         return Get;
@@ -26,7 +28,9 @@ public class InsumoController {
     public ArrayList<String[]> ReadAll() {
         ArrayList<String[]> Get = new ArrayList<>();
         for (int i = 0; i < getLista_Insumos().size(); i++) {
-            Get.add(new String[]{i + "", getLista_Insumos().get(i).getNombre(), String.valueOf(getLista_Insumos().get(i).getPrecio()), getLista_Insumos().get(i).getProveedor().getNombre(),0+"", getLista_Insumos().get(i).getUnidad()});
+            Get.add(new String[]{i + "", getLista_Insumos().get(i).getNombre(), 
+                String.valueOf(getLista_Insumos().get(i).getPrecio()), getLista_Insumos().get(i).getProveedor().getNombre(), 
+                getLista_Insumos().get(i).getUnidad()});
 
         }
         return Get;
