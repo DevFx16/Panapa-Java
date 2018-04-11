@@ -30,7 +30,6 @@ public class ProductoController {
         for (int i = 0; i < getLista_producto().size(); i++) {
             Get.add(new String[]{i + "", getLista_producto().get(i).getNombre(), getLista_producto().get(i).getPrecio() + "", 
                 getLista_producto().get(i).getProveedor().getNombre()});
-
         }
         return Get;
     }

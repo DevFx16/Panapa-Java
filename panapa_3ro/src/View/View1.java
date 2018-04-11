@@ -5,6 +5,7 @@ import Model.*;
 import java.awt.*;
 import static java.awt.Event.ENTER;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -449,6 +450,11 @@ public class View1 extends javax.swing.JFrame {
                 GuardarEditPan_btnmodificarPan(evt);
             }
         });
+        GuardarEditPan_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GuardarEditPan_btnKeyPressed(evt);
+            }
+        });
         Modificar_Producto.add(GuardarEditPan_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 80, 149, -1));
 
         listaPanesEdit_tbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -539,6 +545,11 @@ public class View1 extends javax.swing.JFrame {
                 consultPanEdit_btnActionPerformed(evt);
             }
         });
+        consultPanEdit_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                consultPanEdit_btnKeyPressed(evt);
+            }
+        });
         Modificar_Producto.add(consultPanEdit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(941, 35, 78, -1));
 
         EditPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
@@ -547,6 +558,11 @@ public class View1 extends javax.swing.JFrame {
         EditPan_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditPan_btnActionPerformed(evt);
+            }
+        });
+        EditPan_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                EditPan_btnKeyPressed(evt);
             }
         });
         Modificar_Producto.add(EditPan_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 35, 149, 76));
@@ -559,6 +575,11 @@ public class View1 extends javax.swing.JFrame {
                 cancelarEditPan_btnmodificarPan(evt);
             }
         });
+        cancelarEditPan_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarEditPan_btnKeyPressed(evt);
+            }
+        });
         Modificar_Producto.add(cancelarEditPan_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 35, 149, -1));
 
         jLabel42.setText("Nuevo Proveedor:");
@@ -566,6 +587,11 @@ public class View1 extends javax.swing.JFrame {
 
         provePanEdit_cmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         provePanEdit_cmbx.setEnabled(false);
+        provePanEdit_cmbx.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                provePanEdit_cmbxKeyPressed(evt);
+            }
+        });
         Modificar_Producto.add(provePanEdit_cmbx, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 90, 118, -1));
 
         cancelarBusqProd_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
@@ -574,6 +600,11 @@ public class View1 extends javax.swing.JFrame {
         cancelarBusqProd_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarBusqProd_btnActionPerformed(evt);
+            }
+        });
+        cancelarBusqProd_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarBusqProd_btnKeyPressed(evt);
             }
         });
         Modificar_Producto.add(cancelarBusqProd_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, 160, -1));
@@ -598,6 +629,11 @@ public class View1 extends javax.swing.JFrame {
         consultPan_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultPan_btn(evt);
+            }
+        });
+        consultPan_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                consultPan_btnKeyPressed(evt);
             }
         });
 
@@ -634,6 +670,11 @@ public class View1 extends javax.swing.JFrame {
         cancelarBusquedaProd_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarBusquedaProd_btnmodificarPan(evt);
+            }
+        });
+        cancelarBusquedaProd_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarBusquedaProd_btnKeyPressed(evt);
             }
         });
 
@@ -740,11 +781,21 @@ public class View1 extends javax.swing.JFrame {
                 eliminarPan_btnActionPerformed(evt);
             }
         });
+        eliminarPan_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                eliminarPan_btnKeyPressed(evt);
+            }
+        });
 
         consultPanEliminar_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
         consultPanEliminar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultPanEliminar_btnActionPerformed(evt);
+            }
+        });
+        consultPanEliminar_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                consultPanEliminar_btnKeyPressed(evt);
             }
         });
 
@@ -754,6 +805,11 @@ public class View1 extends javax.swing.JFrame {
         cancelarElimProd_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarElimProd_btnmodificarPan(evt);
+            }
+        });
+        cancelarElimProd_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarElimProd_btnKeyPressed(evt);
             }
         });
 
@@ -810,6 +866,11 @@ public class View1 extends javax.swing.JFrame {
         btn_GuardarEditCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_GuardarEditCantidadmodificarPan(evt);
+            }
+        });
+        btn_GuardarEditCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_GuardarEditCantidadKeyPressed(evt);
             }
         });
 
@@ -881,6 +942,11 @@ public class View1 extends javax.swing.JFrame {
                 btn_consultProdCantidadActionPerformed(evt);
             }
         });
+        btn_consultProdCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_consultProdCantidadKeyPressed(evt);
+            }
+        });
 
         btn_EditProdCantidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
         btn_EditProdCantidad.setText("Modificar");
@@ -888,6 +954,11 @@ public class View1 extends javax.swing.JFrame {
         btn_EditProdCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_EditProdCantidadActionPerformed(evt);
+            }
+        });
+        btn_EditProdCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_EditProdCantidadKeyPressed(evt);
             }
         });
 
@@ -899,6 +970,11 @@ public class View1 extends javax.swing.JFrame {
                 btn_cancelarEditProdCantidadmodificarPan(evt);
             }
         });
+        btn_cancelarEditProdCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_cancelarEditProdCantidadKeyPressed(evt);
+            }
+        });
 
         btn_cancelarBusqProdCantidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         btn_cancelarBusqProdCantidad.setText("Cancelar Consulta");
@@ -906,6 +982,11 @@ public class View1 extends javax.swing.JFrame {
         btn_cancelarBusqProdCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarBusqProdCantidadActionPerformed(evt);
+            }
+        });
+        btn_cancelarBusqProdCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_cancelarBusqProdCantidadKeyPressed(evt);
             }
         });
 
@@ -2988,7 +3069,9 @@ public class View1 extends javax.swing.JFrame {
     private void listaProdConsultVentas_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProdConsultVentas_tblMouseClicked
         SelecTable(listaProdConsultVentas_tbl, selecEditPan_chbx, EditPan_btn, true);
         cancelarBusquedaPan_btn.setEnabled(true);
+        agregarProdVenta_btn.setEnabled(true);
         nombreProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 1).toString());
+
     }//GEN-LAST:event_listaProdConsultVentas_tblMouseClicked
 
     private void consultPanVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanVenta_btnActionPerformed
@@ -3160,11 +3243,6 @@ public class View1 extends javax.swing.JFrame {
         EventoEnter(evt, consultPanEliminar_btn);
     }//GEN-LAST:event_nombrePanEliminar_txtKeyPressed
 
-    //Evento del enter para el eliminar producto tabla
-    private void listaPanesEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEliminar_tblKeyPressed
-        EventoEnter(evt, eliminarPan_btn);
-    }//GEN-LAST:event_listaPanesEliminar_tblKeyPressed
-
     //Evento para seleccionar un producto del eliminar
     private void listaPanesEliminar_tblselecProdEliminar_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEliminar_tblselecProdEliminar_tbl
         SelecTable(listaPanesEliminar_tbl, selecPanEliminar_chbx, eliminarPan_btn, true);
@@ -3207,7 +3285,10 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento enter para la tabla del modificar producto
     private void listaPanesEdit_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEdit_tblKeyPressed
-        EventoEnter(evt, EditPan_btn);
+        if (evt.getKeyChar() == ENTER) {
+            listaPanesEdit_tblselecProdModif_tbl(new java.awt.event.MouseEvent(listaPanesEdit_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+            EditPan_btn.doClick();
+        }
     }//GEN-LAST:event_listaPanesEdit_tblKeyPressed
 
     //Evento para cuando se seleccione un pan de la tabla del modificar
@@ -3456,14 +3537,14 @@ public class View1 extends javax.swing.JFrame {
     private void txt_precioInsumoRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precioInsumoRegKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_precioInsumoRegKeyPressed
-    
+
     private void btn_registrarInsumoregistrarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarInsumoregistrarPan
         //Valida la entrada
-        if (ValInsumo(txt_nombreInsumoReg.getText(), txt_precioInsumoReg.getText())) {
+        if (ValProducto(txt_nombreInsumoReg.getText(), txt_precioInsumoReg.getText())) {
             //Valida el combobox proveedor
             if (cmbx_proveInsumoReg.getSelectedIndex() >= 0) {
                 //Se crea el insumo
-                Insumco.Create(new Insumo(UUID.randomUUID().toString(), txt_nombreInsumoReg.getText().toUpperCase(), 
+                Insumco.Create(new Insumo(UUID.randomUUID().toString(), txt_nombreInsumoReg.getText().toUpperCase(),
                         Double.parseDouble(txt_precioInsumoReg.getText()), Proveeco.getLista_proovedor().get(cmbx_proveInsumoReg.getSelectedIndex()), 0, cmbx_unidadInsumoReg.getSelectedItem().toString()));
                 ListAll();
                 BorrarInsumo_txt(txt_nombreInsumoReg, txt_precioInsumoReg, cmbx_proveInsumoReg, cmbx_unidadInsumoReg);
@@ -3615,12 +3696,19 @@ public class View1 extends javax.swing.JFrame {
         EnabledMod(btn_EditProdCantidad, btn_GuardarEditCantidad, false);
     }//GEN-LAST:event_tbl_listaProdCantidadselecProdModif_tbl
 
+    //Evento para la tabla de la cantidad
     private void tbl_listaProdCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_listaProdCantidadKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, btn_EditProdCantidad);
+        if (evt.getKeyChar() == ENTER) {
+            tbl_listaProdCantidadselecProdModif_tbl(new java.awt.event.MouseEvent(tbl_listaProdCantidad.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+            btn_EditProdCantidad.doClick();
+        }
+
     }//GEN-LAST:event_tbl_listaProdCantidadKeyPressed
 
+    //Evento del enter para guardar la cantidad del producto
     private void txt_CantidadProdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CantidadProdKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, btn_GuardarEditCantidad);
     }//GEN-LAST:event_txt_CantidadProdKeyPressed
 
     private void txt_nombreProdConsultCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreProdConsultCantidadKeyPressed
@@ -3671,6 +3759,93 @@ public class View1 extends javax.swing.JFrame {
         EventoEnter(evt, registrarPan_btn);
     }//GEN-LAST:event_registrarPan_btnKeyPressed
 
+    //Evento dele enter para el guardar modificar producto
+    private void provePanEdit_cmbxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_provePanEdit_cmbxKeyPressed
+        EventoEnter(evt, GuardarEditPan_btn);
+    }//GEN-LAST:event_provePanEdit_cmbxKeyPressed
+
+    //Evento del enter para el boton edit pan
+    private void EditPan_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EditPan_btnKeyPressed
+        EventoEnter(evt, EditPan_btn);
+    }//GEN-LAST:event_EditPan_btnKeyPressed
+
+    //Evento del enter para el boton del cancelar modificar producto
+    private void cancelarEditPan_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarEditPan_btnKeyPressed
+        EventoEnter(evt, cancelarEditPan_btn);
+    }//GEN-LAST:event_cancelarEditPan_btnKeyPressed
+
+    //evento del enter para el modificar el producto guardar
+    private void GuardarEditPan_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GuardarEditPan_btnKeyPressed
+        EventoEnter(evt, GuardarEditPan_btn);
+    }//GEN-LAST:event_GuardarEditPan_btnKeyPressed
+
+    //Evento del enter para el cancelar busqueda boton
+    private void cancelarBusqProd_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarBusqProd_btnKeyPressed
+        EventoEnter(evt, cancelarBusqProd_btn);
+    }//GEN-LAST:event_cancelarBusqProd_btnKeyPressed
+
+    //Evento del enter para el consultar en el modificar producto
+    private void consultPanEdit_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultPanEdit_btnKeyPressed
+        EventoEnter(evt, consultPanEdit_btn);
+    }//GEN-LAST:event_consultPanEdit_btnKeyPressed
+
+    //Evento del enter para el cancelar consultar  productos
+    private void cancelarBusquedaProd_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarBusquedaProd_btnKeyPressed
+        EventoEnter(evt, cancelarBusquedaProd_btn);
+    }//GEN-LAST:event_cancelarBusquedaProd_btnKeyPressed
+
+    //Evento del enter para el consultar producto
+    private void consultPan_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultPan_btnKeyPressed
+        EventoEnter(evt, consultPan_btn);
+    }//GEN-LAST:event_consultPan_btnKeyPressed
+
+    //Evento del enter para el eliminar producto
+    private void consultPanEliminar_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultPanEliminar_btnKeyPressed
+        EventoEnter(evt, consultPanEliminar_btn);
+    }//GEN-LAST:event_consultPanEliminar_btnKeyPressed
+
+    //Evento enter para cancelar eliminacion de los productos
+    private void cancelarElimProd_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarElimProd_btnKeyPressed
+        EventoEnter(evt, cancelarElimProd_btn);
+    }//GEN-LAST:event_cancelarElimProd_btnKeyPressed
+
+    //Evento para la eliminacion de los productos
+    private void eliminarPan_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminarPan_btnKeyPressed
+        EventoEnter(evt, eliminarPan_btn);
+    }//GEN-LAST:event_eliminarPan_btnKeyPressed
+
+    //Evento del enter para el editar cantidad
+    private void btn_EditProdCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EditProdCantidadKeyPressed
+        EventoEnter(evt, btn_EditProdCantidad);
+    }//GEN-LAST:event_btn_EditProdCantidadKeyPressed
+
+    //Evento del enter para el cancelar de la cantidad
+    private void btn_cancelarEditProdCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarEditProdCantidadKeyPressed
+        EventoEnter(evt, btn_cancelarEditProdCantidad);
+    }//GEN-LAST:event_btn_cancelarEditProdCantidadKeyPressed
+
+    //Evento del enter para el btn de la cantidad guardar
+    private void btn_GuardarEditCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_GuardarEditCantidadKeyPressed
+        EventoEnter(evt, btn_GuardarEditCantidad);
+    }//GEN-LAST:event_btn_GuardarEditCantidadKeyPressed
+
+    //Evento del eneter para el cancelar cantidad busqueda
+    private void btn_cancelarBusqProdCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusqProdCantidadKeyPressed
+        EventoEnter(evt, btn_cancelarBusqProdCantidad);
+    }//GEN-LAST:event_btn_cancelarBusqProdCantidadKeyPressed
+
+    //Evento del enter pata el busqueda de la cantidad
+    private void btn_consultProdCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_consultProdCantidadKeyPressed
+        EventoEnter(evt, btn_consultProdCantidad);
+    }//GEN-LAST:event_btn_consultProdCantidadKeyPressed
+
+    //Evento del enter para el eliminar productos
+    private void listaPanesEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEliminar_tblKeyPressed
+        if (evt.getKeyChar() == ENTER) {
+            listaPanesEliminar_tblselecProdEliminar_tbl(new java.awt.event.MouseEvent(listaPanesEliminar_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+        }
+    }//GEN-LAST:event_listaPanesEliminar_tblKeyPressed
+
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
         switch (Panel.getSelectedIndex()) {
@@ -3692,20 +3867,6 @@ public class View1 extends javax.swing.JFrame {
 
     //Este Metodo Sirve Para Validar Los Productos
     private boolean ValProducto(String Nombre, String Precio) {
-        try {
-            //valido si no hay algun error y retorno si es verdadero o falso
-            if (Nombre.isEmpty() || Nombre == null || Double.parseDouble(Precio) == 0) {
-                return false;
-            } else {
-                return true;
-            }
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    //Este Metodo Sirve Para Validar Los Insumos
-    private boolean ValInsumo(String Nombre, String Precio) {
         try {
             //valido si no hay algun error y retorno si es verdadero o falso
             if (Nombre.isEmpty() || Nombre == null || Double.parseDouble(Precio) == 0) {
@@ -3780,7 +3941,7 @@ public class View1 extends javax.swing.JFrame {
         Precio.setText(null);
         Cb.setSelectedIndex(0);
     }
-    
+
     //Este metodo sirve para borrar el texto en los insumos y poner los combobox en el index 0
     private void BorrarInsumo_txt(JTextField Nombre, JTextField Precio, JComboBox proveedor, JComboBox unidad) {
         Nombre.setText(null);
@@ -3790,10 +3951,12 @@ public class View1 extends javax.swing.JFrame {
     }
 
     //envento del enter
-    private void EventoEnter(java.awt.event.KeyEvent evt, JButton boton) {
+    private boolean EventoEnter(java.awt.event.KeyEvent evt, JButton boton) {
         if (evt.getKeyChar() == ENTER) {
             boton.doClick();
+            return true;
         }
+        return false;
     }
 
     //Metodo para buscar en todos las tablas
