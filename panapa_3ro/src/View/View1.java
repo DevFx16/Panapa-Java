@@ -74,6 +74,7 @@ public class View1 extends javax.swing.JFrame {
                 //poner las demas instancias aquí
                 Proco.setLista_producto(u1.getLista_Producto());
                 Proveeco.setLista_proovedor(u1.getLista_Proovedor());
+                Insumco.setLista_Insumos(u1.getLista_Insumos());
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
@@ -904,6 +905,9 @@ public class View1 extends javax.swing.JFrame {
         tbl_listaProdCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbl_listaProdCantidadKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbl_listaProdCantidadKeyReleased(evt);
             }
         });
         jScrollPane18.setViewportView(tbl_listaProdCantidad);
@@ -1849,14 +1853,14 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Precio : ");
+        jLabel6.setText("Precio por Unidad: ");
 
         tbl_listaInsumosReg.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Index", "Nombre", "Precio", "Proveedor", "Unidad"
+                "Index", "Nombre", "Precio por Unidad", "Proveedor", "Unidad de Medida"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1907,9 +1911,9 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel15.setText("Proveedor:");
 
-        jLabel28.setText("Unidad:");
+        jLabel28.setText("Unidad de Medida:");
 
-        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G(GRAMOS)", "KG(KILOGRAGRAMOS)", "ML(MILÍGRAMOS)", "L(LITRO)", "KL(KILOLITRO)", "ML(MILÍLITRO)" }));
+        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
         cmbx_unidadInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cmbx_unidadInsumoRegKeyPressed(evt);
@@ -1930,8 +1934,10 @@ public class View1 extends javax.swing.JFrame {
                             .addComponent(txt_nombreInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(70, 70, 70)
                         .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(txt_precioInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_precioInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Registrar_InsumoLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)))
                         .addGap(110, 110, 110)
                         .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbx_proveInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1939,7 +1945,9 @@ public class View1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                         .addGroup(Registrar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbx_unidadInsumoReg, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Registrar_InsumoLayout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addGap(21, 21, 21)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                         .addComponent(btn_registrarInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))))
@@ -2009,7 +2017,7 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Index", "Nombre", "Precio", "Proveedor", "Unidad"
+                "Index", "Nombre", "Precio por Unidad", "Proveedor", "Unidad de Medida"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -2143,7 +2151,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel35.setText("Unidad de Medida:");
 
-        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G(GRAMOS)", "KG(KILOGRAGRAMOS)", "ML(MILÍGRAMOS)", "L(LITRO)", "KL(KILOLITRO)", "ML(MILÍLITRO)" }));
+        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
         cmbx_unidadInsumoEdit.setEnabled(false);
         cmbx_unidadInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -2275,7 +2283,7 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Index", "Producto", "Cantidad", "SubTotal"
+                "Index", "Insumo", "Cantidad", "SubTotal"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -2331,11 +2339,11 @@ public class View1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Index", "Producto", "Cant. Disp.", "Precio"
+                "Index", "Insumo", "Precio por Unidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2355,10 +2363,9 @@ public class View1 extends javax.swing.JFrame {
             tbl_listaInsumoConsultVentas.getColumnModel().getColumn(0).setMaxWidth(50);
             tbl_listaInsumoConsultVentas.getColumnModel().getColumn(1).setResizable(false);
             tbl_listaInsumoConsultVentas.getColumnModel().getColumn(2).setResizable(false);
-            tbl_listaInsumoConsultVentas.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jLabel37.setText("Producto :");
+        jLabel37.setText("Insumo:");
 
         txt_nombreInsumoVenta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_nombreInsumoVenta.setEnabled(false);
@@ -2445,10 +2452,10 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        cmbx_unidadInsumoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_unidadInsumoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
         cmbx_unidadInsumoVenta.setEnabled(false);
 
-        jLabel41.setText("Unidad:");
+        jLabel41.setText("Medida:");
 
         javax.swing.GroupLayout Pre_Compra_InsumoLayout = new javax.swing.GroupLayout(Pre_Compra_Insumo);
         Pre_Compra_Insumo.setLayout(Pre_Compra_InsumoLayout);
@@ -2647,6 +2654,11 @@ public class View1 extends javax.swing.JFrame {
                 consultPanVenta_btnActionPerformed(evt);
             }
         });
+        consultPanVenta_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                consultPanVenta_btnKeyPressed(evt);
+            }
+        });
 
         listaProdConsultVentas_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2664,10 +2676,16 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaProdConsultVentas_tbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listaProdConsultVentas_tbl.getTableHeader().setReorderingAllowed(false);
         listaProdConsultVentas_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaProdConsultVentas_tblMouseClicked(evt);
+            }
+        });
+        listaProdConsultVentas_tbl.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                listaProdConsultVentas_tblKeyPressed(evt);
             }
         });
         jScrollPane11.setViewportView(listaProdConsultVentas_tbl);
@@ -2708,6 +2726,11 @@ public class View1 extends javax.swing.JFrame {
                 agregarProdVenta_btnActionPerformed(evt);
             }
         });
+        agregarProdVenta_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                agregarProdVenta_btnKeyPressed(evt);
+            }
+        });
 
         retirarProdVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/box.png"))); // NOI18N
         retirarProdVenta_btn.setText("Retirar");
@@ -2715,6 +2738,11 @@ public class View1 extends javax.swing.JFrame {
         retirarProdVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 retirarProdVenta_btnActionPerformed(evt);
+            }
+        });
+        retirarProdVenta_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                retirarProdVenta_btnKeyPressed(evt);
             }
         });
 
@@ -2729,6 +2757,11 @@ public class View1 extends javax.swing.JFrame {
                 comprarVenta_btnActionPerformed(evt);
             }
         });
+        comprarVenta_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                comprarVenta_btnKeyPressed(evt);
+            }
+        });
 
         cancelarVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarVenta_btn.setText("Cancelar Compra");
@@ -2736,6 +2769,11 @@ public class View1 extends javax.swing.JFrame {
         cancelarVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarVenta_btnActionPerformed(evt);
+            }
+        });
+        cancelarVenta_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarVenta_btnKeyPressed(evt);
             }
         });
 
@@ -2764,6 +2802,11 @@ public class View1 extends javax.swing.JFrame {
         cancelarBusquedaPan_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarBusquedaPan_btnmodificarPan(evt);
+            }
+        });
+        cancelarBusquedaPan_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarBusquedaPan_btnKeyPressed(evt);
             }
         });
 
@@ -3207,8 +3250,9 @@ public class View1 extends javax.swing.JFrame {
         BuscarAll(nombrePanConsultVenta_txt.getText().toUpperCase(), listaProdConsultVentas_tbl, Proco.ReadVenta(nombrePanConsultVenta_txt.getText().toUpperCase()), cancelarBusquedaPan_btn);
     }//GEN-LAST:event_consultPanVenta_btnActionPerformed
 
+    //Evento del enter venta
     private void nombrePanConsultVenta_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePanConsultVenta_txtKeyPressed
-
+        EventoEnter(evt, consultPanVenta_btn);
     }//GEN-LAST:event_nombrePanConsultVenta_txtKeyPressed
 
     private void listaProdVenta_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProdVenta_tblMouseClicked
@@ -3420,7 +3464,6 @@ public class View1 extends javax.swing.JFrame {
     private void listaPanesEdit_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEdit_tblKeyPressed
         if (evt.getKeyChar() == ENTER) {
             listaPanesEdit_tblselecProdModif_tbl(new java.awt.event.MouseEvent(listaPanesEdit_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
-            EditPan_btn.doClick();
         }
     }//GEN-LAST:event_listaPanesEdit_tblKeyPressed
 
@@ -3890,12 +3933,9 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento para la tabla de la cantidad
     private void tbl_listaProdCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_listaProdCantidadKeyPressed
-        EventoEnter(evt, btn_EditProdCantidad);
-        if (evt.getKeyChar() == ENTER) {
+        if (evt.getKeyChar() == ENTER || evt.getKeyCode() == KeyEvent.VK_SHIFT) {
             tbl_listaProdCantidadselecProdModif_tbl(new java.awt.event.MouseEvent(tbl_listaProdCantidad.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
-            btn_EditProdCantidad.doClick();
         }
-
     }//GEN-LAST:event_tbl_listaProdCantidadKeyPressed
 
     //Evento del enter para guardar la cantidad del producto
@@ -4155,6 +4195,50 @@ public class View1 extends javax.swing.JFrame {
     private void tbl_listaInsumosRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumosRegMouseClicked
 
     }//GEN-LAST:event_tbl_listaInsumosRegMouseClicked
+
+    //Evento del enter
+    private void consultPanVenta_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consultPanVenta_btnKeyPressed
+        EventoEnter(evt, consultPanVenta_btn);
+    }//GEN-LAST:event_consultPanVenta_btnKeyPressed
+
+    //Evento del enter
+    private void cancelarBusquedaPan_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarBusquedaPan_btnKeyPressed
+        EventoEnter(evt, cancelarBusquedaPan_btn);
+    }//GEN-LAST:event_cancelarBusquedaPan_btnKeyPressed
+
+    //Evento del enter ventas
+    private void listaProdConsultVentas_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProdConsultVentas_tblKeyPressed
+        if (evt.getKeyChar() == ENTER) {
+            listaProdConsultVentas_tblMouseClicked(new java.awt.event.MouseEvent(listaProdConsultVentas_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+        }
+    }//GEN-LAST:event_listaProdConsultVentas_tblKeyPressed
+
+    //Evento del enter
+    private void tbl_listaProdCantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_listaProdCantidadKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_SHIFT) {
+            tbl_listaProdCantidadselecProdModif_tbl(new java.awt.event.MouseEvent(tbl_listaProdCantidad.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+        }
+    }//GEN-LAST:event_tbl_listaProdCantidadKeyReleased
+
+    //Evento del enter
+    private void agregarProdVenta_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_agregarProdVenta_btnKeyPressed
+        EventoEnter(evt, agregarProdVenta_btn);
+    }//GEN-LAST:event_agregarProdVenta_btnKeyPressed
+
+    //Evento Del enter
+    private void retirarProdVenta_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_retirarProdVenta_btnKeyPressed
+        EventoEnter(evt, retirarProdVenta_btn);
+    }//GEN-LAST:event_retirarProdVenta_btnKeyPressed
+
+    //Evento del enter
+    private void comprarVenta_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_comprarVenta_btnKeyPressed
+        EventoEnter(evt, comprarVenta_btn);
+    }//GEN-LAST:event_comprarVenta_btnKeyPressed
+
+    //Evento enter
+    private void cancelarVenta_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarVenta_btnKeyPressed
+        EventoEnter(evt, cancelarVenta_btn);
+    }//GEN-LAST:event_cancelarVenta_btnKeyPressed
 
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {

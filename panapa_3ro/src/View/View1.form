@@ -1041,6 +1041,7 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbl_listaProdCantidadselecProdModif_tbl"/>
                             <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbl_listaProdCantidadselecProdModif_tbl"/>
                             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbl_listaProdCantidadKeyPressed"/>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbl_listaProdCantidadKeyReleased"/>
                           </Events>
                         </Component>
                       </SubComponents>
@@ -2256,8 +2257,11 @@
                                               </Group>
                                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txt_precioInsumoReg" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                                  <Component id="txt_precioInsumoReg" min="-2" pref="124" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -2266,8 +2270,11 @@
                                               </Group>
                                               <EmptySpace pref="100" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="cmbx_unidadInsumoReg" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                                  <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="cmbx_unidadInsumoReg" min="-2" pref="124" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                               <EmptySpace pref="106" max="32767" attributes="0"/>
                                               <Component id="btn_registrarInsumo" min="-2" pref="129" max="-2" attributes="0"/>
@@ -2334,7 +2341,7 @@
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel6">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="Precio : "/>
+                                <Property name="text" type="java.lang.String" value="Precio por Unidad: "/>
                               </Properties>
                             </Component>
                             <Container class="javax.swing.JScrollPane" name="jScrollPane9">
@@ -2350,9 +2357,9 @@
                                       <Table columnCount="5" rowCount="0">
                                         <Column editable="false" title="Index" type="java.lang.Object"/>
                                         <Column editable="false" title="Nombre" type="java.lang.Object"/>
-                                        <Column editable="false" title="Precio" type="java.lang.Object"/>
+                                        <Column editable="false" title="Precio por Unidad" type="java.lang.Object"/>
                                         <Column editable="false" title="Proveedor" type="java.lang.Object"/>
-                                        <Column editable="false" title="Unidad" type="java.lang.Object"/>
+                                        <Column editable="false" title="Unidad de Medida" type="java.lang.Object"/>
                                       </Table>
                                     </Property>
                                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -2432,19 +2439,21 @@
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel28">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="Unidad:"/>
+                                <Property name="text" type="java.lang.String" value="Unidad de Medida:"/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="cmbx_unidadInsumoReg">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="6">
-                                    <StringItem index="0" value="G(GRAMOS)"/>
-                                    <StringItem index="1" value="KG(KILOGRAGRAMOS)"/>
-                                    <StringItem index="2" value="ML(MIL&#xcd;GRAMOS)"/>
-                                    <StringItem index="3" value="L(LITRO)"/>
-                                    <StringItem index="4" value="KL(KILOLITRO)"/>
-                                    <StringItem index="5" value="ML(MIL&#xcd;LITRO)"/>
+                                  <StringArray count="8">
+                                    <StringItem index="0" value="UNIDAD"/>
+                                    <StringItem index="1" value="DOCENA"/>
+                                    <StringItem index="2" value="GRAMOS"/>
+                                    <StringItem index="3" value="KILOGRAGRAMOS"/>
+                                    <StringItem index="4" value="MIL&#xcd;GRAMOS"/>
+                                    <StringItem index="5" value="LITRO"/>
+                                    <StringItem index="6" value="KILOLITRO"/>
+                                    <StringItem index="7" value="MIL&#xcd;LITRO"/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -2630,9 +2639,9 @@
                                   <Table columnCount="5" rowCount="0">
                                     <Column editable="false" title="Index" type="java.lang.Object"/>
                                     <Column editable="false" title="Nombre" type="java.lang.Object"/>
-                                    <Column editable="false" title="Precio" type="java.lang.Object"/>
+                                    <Column editable="false" title="Precio por Unidad" type="java.lang.Object"/>
                                     <Column editable="false" title="Proveedor" type="java.lang.Object"/>
-                                    <Column editable="false" title="Unidad" type="java.lang.Object"/>
+                                    <Column editable="false" title="Unidad de Medida" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -2805,13 +2814,15 @@
                         <Component class="javax.swing.JComboBox" name="cmbx_unidadInsumoEdit">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="6">
-                                <StringItem index="0" value="G(GRAMOS)"/>
-                                <StringItem index="1" value="KG(KILOGRAGRAMOS)"/>
-                                <StringItem index="2" value="ML(MIL&#xcd;GRAMOS)"/>
-                                <StringItem index="3" value="L(LITRO)"/>
-                                <StringItem index="4" value="KL(KILOLITRO)"/>
-                                <StringItem index="5" value="ML(MIL&#xcd;LITRO)"/>
+                              <StringArray count="8">
+                                <StringItem index="0" value="UNIDAD"/>
+                                <StringItem index="1" value="DOCENA"/>
+                                <StringItem index="2" value="GRAMOS"/>
+                                <StringItem index="3" value="KILOGRAGRAMOS"/>
+                                <StringItem index="4" value="MIL&#xcd;GRAMOS"/>
+                                <StringItem index="5" value="LITRO"/>
+                                <StringItem index="6" value="KILOLITRO"/>
+                                <StringItem index="7" value="MIL&#xcd;LITRO"/>
                               </StringArray>
                             </Property>
                             <Property name="enabled" type="boolean" value="false"/>
@@ -3025,7 +3036,7 @@
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="0">
                                     <Column editable="false" title="Index" type="java.lang.Object"/>
-                                    <Column editable="false" title="Producto" type="java.lang.Object"/>
+                                    <Column editable="false" title="Insumo" type="java.lang.Object"/>
                                     <Column editable="false" title="Cantidad" type="java.lang.Object"/>
                                     <Column editable="false" title="SubTotal" type="java.lang.Object"/>
                                   </Table>
@@ -3104,21 +3115,15 @@
                             <Component class="javax.swing.JTable" name="tbl_listaInsumoConsultVentas">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="4" rowCount="0">
+                                  <Table columnCount="3" rowCount="0">
                                     <Column editable="false" title="Index" type="java.lang.Object"/>
-                                    <Column editable="false" title="Producto" type="java.lang.Object"/>
-                                    <Column editable="false" title="Cant. Disp." type="java.lang.Object"/>
-                                    <Column editable="false" title="Precio" type="java.lang.Object"/>
+                                    <Column editable="false" title="Insumo" type="java.lang.Object"/>
+                                    <Column editable="false" title="Precio por Unidad" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                   <TableColumnModel selectionModel="0">
                                     <Column maxWidth="50" minWidth="50" prefWidth="50" resizable="true">
-                                      <Title/>
-                                      <Editor/>
-                                      <Renderer/>
-                                    </Column>
-                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                       <Title/>
                                       <Editor/>
                                       <Renderer/>
@@ -3147,7 +3152,7 @@
                         </Container>
                         <Component class="javax.swing.JLabel" name="jLabel37">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Producto :"/>
+                            <Property name="text" type="java.lang.String" value="Insumo:"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txt_nombreInsumoVenta">
@@ -3270,11 +3275,15 @@
                         <Component class="javax.swing.JComboBox" name="cmbx_unidadInsumoVenta">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="4">
-                                <StringItem index="0" value="Item 1"/>
-                                <StringItem index="1" value="Item 2"/>
-                                <StringItem index="2" value="Item 3"/>
-                                <StringItem index="3" value="Item 4"/>
+                              <StringArray count="8">
+                                <StringItem index="0" value="UNIDAD"/>
+                                <StringItem index="1" value="DOCENA"/>
+                                <StringItem index="2" value="GRAMOS"/>
+                                <StringItem index="3" value="KILOGRAGRAMOS"/>
+                                <StringItem index="4" value="MIL&#xcd;GRAMOS"/>
+                                <StringItem index="5" value="LITRO"/>
+                                <StringItem index="6" value="KILOLITRO"/>
+                                <StringItem index="7" value="MIL&#xcd;LITRO"/>
                               </StringArray>
                             </Property>
                             <Property name="enabled" type="boolean" value="false"/>
@@ -3285,7 +3294,7 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel41">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Unidad:"/>
+                            <Property name="text" type="java.lang.String" value="Medida:"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -3547,6 +3556,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultPanVenta_btnActionPerformed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="consultPanVenta_btnKeyPressed"/>
                   </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane11">
@@ -3590,12 +3600,16 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+                          <JTableSelectionModel selectionMode="0"/>
+                        </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="listaProdConsultVentas_tblMouseClicked"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="listaProdConsultVentas_tblKeyPressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -3638,6 +3652,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agregarProdVenta_btnActionPerformed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="agregarProdVenta_btnKeyPressed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="retirarProdVenta_btn">
@@ -3650,6 +3665,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="retirarProdVenta_btnActionPerformed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="retirarProdVenta_btnKeyPressed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="selecProdVenta_chbx">
@@ -3668,6 +3684,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comprarVenta_btnActionPerformed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="comprarVenta_btnKeyPressed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="cancelarVenta_btn">
@@ -3680,6 +3697,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarVenta_btnActionPerformed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cancelarVenta_btnKeyPressed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel29">
@@ -3720,6 +3738,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarBusquedaPan_btnmodificarPan"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cancelarBusquedaPan_btnKeyPressed"/>
                   </Events>
                 </Component>
               </SubComponents>
