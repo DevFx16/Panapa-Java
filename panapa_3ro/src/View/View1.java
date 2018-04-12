@@ -3754,6 +3754,8 @@ public class View1 extends javax.swing.JFrame {
     private void btn_consultInsumoEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultInsumoEditActionPerformed
         BuscarAll(txt_nombreInsumoConsultEdit.getText().toUpperCase(), tbl_listaInsumoEdit, Insumco.Read(txt_nombreInsumoConsultEdit.getText().toUpperCase()), btn_cancelBusqInsumoEdit);
         txt_nombreInsumoConsultEdit.setText(null);
+        chbx_selecEditInsumo.setEnabled(false);
+        SelecTable(tbl_listaInsumoEdit, chbx_selecEditInsumo, btn_EditInsumo, false);
         BorrarInsumo_txt(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit);
         EnabledBtn(btn_EditInsumo, btn_GuardarEditInsumo, btn_cancelarEditInsumo, false);
         EnabledTxt_Insumo(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit, false);
