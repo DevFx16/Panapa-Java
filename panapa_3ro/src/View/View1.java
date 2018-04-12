@@ -3700,7 +3700,7 @@ public class View1 extends javax.swing.JFrame {
             if (ConfirmDialog("¿Esta seguro que desea modificar este Insumo?")) {
                 if (ValProducto(txt_nombreInsumosEdit.getText(), txt_precioInsumoEdit.getText())) {
                     Insumco.Update(Integer.parseInt(IndexTable.toString()),
-                            new Insumo(Insumco.getLista_Insumos().get(Integer.parseInt(IndexTable.toString())).getId(), txt_nombreInsumosEdit.getText(), Double.parseDouble(txt_precioInsumoEdit.getText()), Proveeco.getLista_proovedor().get(cmbx_proveInsumoEdit.getSelectedIndex()),0, cmbx_unidadInsumoEdit.getSelectedItem().toString()));
+                            new Insumo(Insumco.getLista_Insumos().get(Integer.parseInt(IndexTable.toString())).getId(), txt_nombreInsumosEdit.getText(), Double.parseDouble(txt_precioInsumoEdit.getText()), Proveeco.getLista_proovedor().get(cmbx_proveInsumoEdit.getSelectedIndex()), 0, cmbx_unidadInsumoEdit.getSelectedItem().toString()));
                     btn_cancelarEditInsumo.doClick();
                     ListAll();
                     JOptionPane.showMessageDialog(null, "El Insumo ha sido modificado", "modificado", 1);
@@ -3718,6 +3718,7 @@ public class View1 extends javax.swing.JFrame {
     private void tbl_listaInsumoEditselecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoEditselecProdModif_tbl
         SelecTable(tbl_listaInsumoEdit, chbx_selecEditInsumo, btn_EditInsumo, true);
         btn_cancelarEditInsumo.setEnabled(true);
+        btn_EliminarEditInsumo.setEnabled(true);
         txt_nombreInsumosEdit.setText(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 1).toString());
         txt_precioInsumoEdit.setText(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 2).toString());
         cmbx_proveInsumoEdit.setSelectedItem(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 3).toString());
@@ -3751,20 +3752,35 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nombreInsumoConsultEditKeyPressed
 
     private void btn_consultInsumoEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultInsumoEditActionPerformed
-        
+        BuscarAll(txt_nombreInsumoConsultEdit.getText().toUpperCase(), tbl_listaInsumoEdit, Insumco.Read(txt_nombreInsumoConsultEdit.getText().toUpperCase()), btn_cancelBusqInsumoEdit);
+        txt_nombreInsumoConsultEdit.setText(null);
     }//GEN-LAST:event_btn_consultInsumoEditActionPerformed
 
     private void btn_EditInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditInsumoActionPerformed
         EnabledTxt_Insumo(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit, true);
         EnabledMod(btn_EditInsumo, btn_GuardarEditInsumo, true);
+        btn_EliminarEditInsumo.setEnabled(false);
     }//GEN-LAST:event_btn_EditInsumoActionPerformed
 
     private void btn_EliminarEditInsumomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarEditInsumomodificarPan
-        // TODO add your handling code here:
+        try {
+            if (ConfirmDialog("¿Estas seguro que desea eliminar este item?")) {
+                Insumco.Delete(Integer.parseInt(IndexTable.toString()));
+                JOptionPane.showMessageDialog(null, "Se ha eliminado el item correctamente", "Eliminado", 1);
+            }
+            ListAll();
+            BorrarInsumo_txt(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit);
+            EnabledBtn(btn_EditInsumo, btn_GuardarEditInsumo, btn_cancelarEditInsumo, false);
+            EnabledTxt_Insumo(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit, false);
+            SelecTable(tbl_listaInsumoEdit, chbx_selecEditInsumo, btn_EliminarEditInsumo, false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar", "Error", 0);
+        }
     }//GEN-LAST:event_btn_EliminarEditInsumomodificarPan
 
     private void btn_cancelBusqInsumoEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelBusqInsumoEditActionPerformed
-        // TODO add your handling code here:
+        Listar((DefaultTableModel) tbl_listaInsumoEdit.getModel(), Insumco.ReadAll());
+        btn_cancelBusqInsumoEdit.setEnabled(false);
     }//GEN-LAST:event_btn_cancelBusqInsumoEditActionPerformed
 
     private void btn_cancelarEditInsumomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarEditInsumomodificarPan
@@ -3772,6 +3788,7 @@ public class View1 extends javax.swing.JFrame {
         EnabledBtn(btn_EditInsumo, btn_GuardarEditInsumo, btn_cancelarEditInsumo, false);
         EnabledTxt_Insumo(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit, false);
         SelecTable(tbl_listaInsumoEdit, chbx_selecEditInsumo, btn_EditInsumo, false);
+        btn_EliminarEditInsumo.setEnabled(false);
     }//GEN-LAST:event_btn_cancelarEditInsumomodificarPan
 
     private void tbl_listaInsumoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoVentaMouseClicked
@@ -4230,7 +4247,7 @@ public class View1 extends javax.swing.JFrame {
         Precio.setText(null);
         Cb.setSelectedIndex(0);
     }
-    
+
     //Este metodo sirve para borrar el texto en los insumos y poner los combobox en el index 0
     private void BorrarInsumo_txt(JTextField Nombre, JTextField Precio, JComboBox proveedor, JComboBox unidad) {
         Nombre.setText(null);

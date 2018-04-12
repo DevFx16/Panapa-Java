@@ -16,7 +16,7 @@ public class InsumoController {
     public ArrayList<String[]> Read(String Filter) {
         ArrayList<String[]> Get = new ArrayList<>();
         for (int i = 0; i < getLista_Insumos().size(); i++) {
-            if (getLista_Insumos().get(i).getId().contains(Filter)) {
+            if (getLista_Insumos().get(i).getNombre().contains(Filter)) {
                 Get.add(new String[]{i+"", getLista_Insumos().get(i).getNombre(), 
                     getLista_Insumos().get(i).getPrecio()+"", getLista_Insumos().get(i).getProveedor().getNombre(), 
                     getLista_Insumos().get(i).getUnidad()});
