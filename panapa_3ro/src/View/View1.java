@@ -1869,6 +1869,11 @@ public class View1 extends javax.swing.JFrame {
         });
         tbl_listaInsumosReg.setFocusable(false);
         tbl_listaInsumosReg.getTableHeader().setReorderingAllowed(false);
+        tbl_listaInsumosReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_listaInsumosRegMouseClicked(evt);
+            }
+        });
         jScrollPane9.setViewportView(tbl_listaInsumosReg);
         if (tbl_listaInsumosReg.getColumnModel().getColumnCount() > 0) {
             tbl_listaInsumosReg.getColumnModel().getColumn(0).setMinWidth(80);
@@ -2195,16 +2200,15 @@ public class View1 extends javax.swing.JFrame {
                 .addGap(101, 101, 101)
                 .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(btn_consultInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                         .addGap(90, 90, 90)
                         .addComponent(btn_cancelBusqInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel34)
+                    .addComponent(chbx_selecEditInsumo)
                     .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(chbx_selecEditInsumo))
+                        .addComponent(jLabel34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_consultInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(47, Short.MAX_VALUE))
             .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                 .addContainerGap()
@@ -2231,18 +2235,17 @@ public class View1 extends javax.swing.JFrame {
                                 .addGap(17, 17, 17)
                                 .addComponent(btn_cancelBusqInsumoEdit))
                             .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel34))
-                            .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel34)
+                                    .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                                 .addGap(30, 30, 30)
                                 .addComponent(chbx_selecEditInsumo))))
                     .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                         .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                                    .addComponent(jLabel33)
-                                    .addGap(25, 25, 25))
+                                .addComponent(jLabel33)
                                 .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                                     .addGap(21, 21, 21)
                                     .addComponent(txt_precioInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -3692,11 +3695,29 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_registrarInsumoregistrarPan
 
     private void btn_GuardarEditInsumomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuardarEditInsumomodificarPan
-        // TODO add your handling code here:
+        try {
+            //Confirmo el la petición
+            if (ConfirmDialog("¿Esta seguro que desea modificar este Insumo?")) {
+                if (ValProducto(txt_nombreInsumosEdit.getText(), txt_precioInsumoEdit.getText())) {
+                    Insumco.Update(Integer.parseInt(IndexTable.toString()),
+                            new Insumo(Insumco.getLista_Insumos().get(Integer.parseInt(IndexTable.toString())).getId(), txt_nombreInsumosEdit.getText(), Double.parseDouble(txt_precioInsumoEdit.getText()), Proveeco.getLista_proovedor().get(cmbx_proveInsumoEdit.getSelectedIndex()),0, cmbx_unidadInsumoEdit.getSelectedItem().toString()));
+                    btn_cancelarEditInsumo.doClick();
+                    ListAll();
+                    JOptionPane.showMessageDialog(null, "El Insumo ha sido modificado", "modificado", 1);
+                } else {
+                    //si los datos no son validos
+                    JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar", "Error", 0);
+        }
     }//GEN-LAST:event_btn_GuardarEditInsumomodificarPan
 
     //Evento para las tablas del eliminar insumos
     private void tbl_listaInsumoEditselecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoEditselecProdModif_tbl
+        SelecTable(tbl_listaInsumoEdit, chbx_selecEditInsumo, btn_EditInsumo, true);
+        btn_cancelarEditInsumo.setEnabled(true);
         txt_nombreInsumosEdit.setText(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 1).toString());
         txt_precioInsumoEdit.setText(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 2).toString());
         cmbx_proveInsumoEdit.setSelectedItem(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 3).toString());
@@ -3730,11 +3751,12 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nombreInsumoConsultEditKeyPressed
 
     private void btn_consultInsumoEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultInsumoEditActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_consultInsumoEditActionPerformed
 
     private void btn_EditInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditInsumoActionPerformed
-        // TODO add your handling code here:
+        EnabledTxt_Insumo(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit, true);
+        EnabledMod(btn_EditInsumo, btn_GuardarEditInsumo, true);
     }//GEN-LAST:event_btn_EditInsumoActionPerformed
 
     private void btn_EliminarEditInsumomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarEditInsumomodificarPan
@@ -3746,7 +3768,10 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelBusqInsumoEditActionPerformed
 
     private void btn_cancelarEditInsumomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarEditInsumomodificarPan
-        // TODO add your handling code here:
+        BorrarInsumo_txt(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit);
+        EnabledBtn(btn_EditInsumo, btn_GuardarEditInsumo, btn_cancelarEditInsumo, false);
+        EnabledTxt_Insumo(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit, false);
+        SelecTable(tbl_listaInsumoEdit, chbx_selecEditInsumo, btn_EditInsumo, false);
     }//GEN-LAST:event_btn_cancelarEditInsumomodificarPan
 
     private void tbl_listaInsumoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoVentaMouseClicked
@@ -4091,7 +4116,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento del enter
     private void btn_EliminarEditInsumoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EliminarEditInsumoKeyPressed
-       EventoEnter(evt, btn_EliminarEditInsumo);
+        EventoEnter(evt, btn_EliminarEditInsumo);
     }//GEN-LAST:event_btn_EliminarEditInsumoKeyPressed
 
     //Evento del enter
@@ -4103,6 +4128,10 @@ public class View1 extends javax.swing.JFrame {
     private void btn_consultInsumoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_consultInsumoEditKeyPressed
         EventoEnter(evt, btn_consultInsumoEdit);
     }//GEN-LAST:event_btn_consultInsumoEditKeyPressed
+
+    private void tbl_listaInsumosRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumosRegMouseClicked
+
+    }//GEN-LAST:event_tbl_listaInsumosRegMouseClicked
 
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
@@ -4201,7 +4230,7 @@ public class View1 extends javax.swing.JFrame {
         Precio.setText(null);
         Cb.setSelectedIndex(0);
     }
-
+    
     //Este metodo sirve para borrar el texto en los insumos y poner los combobox en el index 0
     private void BorrarInsumo_txt(JTextField Nombre, JTextField Precio, JComboBox proveedor, JComboBox unidad) {
         Nombre.setText(null);
@@ -4237,6 +4266,14 @@ public class View1 extends javax.swing.JFrame {
         Mod.setEnabled(Cond);
         Save.setEnabled(Cond);
         Cancel.setEnabled(Cond);
+    }
+
+    //Metodo para habilitar o deshabilitar los botones, Combobox y txtField del modificar
+    private void EnabledTxt_Insumo(JTextField txtNNombre, JTextField txtNPrecio, JComboBox cmbxNProveedor, JComboBox cmbxNUnidad, boolean Cond) {
+        txtNNombre.setEnabled(Cond);
+        txtNPrecio.setEnabled(Cond);
+        cmbxNProveedor.setEnabled(Cond);
+        cmbxNUnidad.setEnabled(Cond);
     }
 
     //Metodo para habilitar o deshabilitar los Jtextfield del modificar producto

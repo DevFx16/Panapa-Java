@@ -2389,6 +2389,9 @@
                                       <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbl_listaInsumosRegMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -2508,19 +2511,17 @@
                                   <EmptySpace min="101" pref="101" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="170" pref="170" max="-2" attributes="0"/>
-                                          <Component id="btn_consultInsumoEdit" min="-2" pref="78" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
                                           <Component id="btn_cancelBusqInsumoEdit" min="-2" pref="160" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                                          <Component id="txt_nombreInsumoConsultEdit" min="-2" pref="113" max="-2" attributes="0"/>
-                                      </Group>
                                       <Component id="chbx_selecEditInsumo" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="txt_nombreInsumoConsultEdit" min="-2" pref="113" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btn_consultInsumoEdit" min="-2" pref="78" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace pref="47" max="32767" attributes="0"/>
                               </Group>
@@ -2553,10 +2554,12 @@
                                                   <Component id="btn_cancelBusqInsumoEdit" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                                  <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txt_nombreInsumoConsultEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
-                                              <Component id="txt_nombreInsumoConsultEdit" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                                                   <Component id="chbx_selecEditInsumo" min="-2" max="-2" attributes="0"/>
@@ -2566,10 +2569,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                                       <Component id="txt_precioInsumoEdit" min="-2" max="-2" attributes="0"/>
