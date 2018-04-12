@@ -3201,6 +3201,7 @@ public class View1 extends javax.swing.JFrame {
         cancelarBusquedaPan_btn.setEnabled(true);
         agregarProdVenta_btn.setEnabled(true);
         nombreProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 1).toString());
+        cantidadProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 2).toString());
     }//GEN-LAST:event_listaProdConsultVentas_tblMouseClicked
 
     private void consultPanVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanVenta_btnActionPerformed
@@ -3318,6 +3319,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento para seleccionar un proveedor del modificar
     private void listaProveedoresEdit_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProveedoresEdit_tblMouseClicked
+        cancelarEditProv_btn.doClick();
         SelecTable(listaProveedoresEdit_tbl, selecEditProv_chbx, EditProv_btn, true);
         cancelarEditProv_btn.setEnabled(true);
         nombreProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 1).toString());
@@ -3426,6 +3428,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento para cuando se seleccione un pan de la tabla del modificar
     private void listaPanesEdit_tblselecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEdit_tblselecProdModif_tbl
+        cancelarEditPan_btn.doClick();
         SelecTable(listaPanesEdit_tbl, selecEditPan_chbx, EditPan_btn, true);
         cancelarEditPan_btn.setEnabled(true);
         nombrePanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 1).toString());
@@ -3716,6 +3719,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento para las tablas del eliminar insumos
     private void tbl_listaInsumoEditselecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoEditselecProdModif_tbl
+        btn_cancelarEditInsumo.doClick();
         SelecTable(tbl_listaInsumoEdit, chbx_selecEditInsumo, btn_EditInsumo, true);
         btn_cancelarEditInsumo.setEnabled(true);
         btn_EliminarEditInsumo.setEnabled(true);
