@@ -2,11 +2,10 @@ package Controller;
 
 import Model.Insumo;
 import java.util.ArrayList;
-import javax.swing.JTable;
 
 public class InsumoController {
 
-    public static ArrayList<Insumo> Lista_Insumos = new ArrayList<>();
+    public static ArrayList<Insumo> Lista_Insumos = new ArrayList<Insumo>();
     UsuarioController userco = new UsuarioController();
 
     public void Create(Insumo Factura) {
@@ -76,6 +75,10 @@ public class InsumoController {
 
     public void setLista_Insumos(ArrayList<Insumo> Lista_Insumos) {
         this.Lista_Insumos = Lista_Insumos;
+    }
+    
+    public Insumo Get_Insumo(int Index){
+        return this.Lista_Insumos.get(Index);
     }
 
 }

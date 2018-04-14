@@ -1,21 +1,21 @@
 package Controller;
 
-import Model.FacturaProveedor;
+import Model.FacturaInsumo;
 import java.util.ArrayList;
 
-public class ProveedorFacturaController {
+public class InsumoFacturaController {
 
-    public static ArrayList<FacturaProveedor> Lista_Factura = new ArrayList<>();
+    public static ArrayList<FacturaInsumo> Lista_Factura = new ArrayList<>();
     UsuarioController userco = new UsuarioController();
 
-    public void Create(FacturaProveedor Factura) {
+    public void Create(FacturaInsumo Factura) {
         Lista_Factura.add(Factura);
         userco.salvar_datos();
     }
 
-    public ArrayList<FacturaProveedor> Read(String Filter) {
-        ArrayList<FacturaProveedor> Get = new ArrayList<>();
-        for (FacturaProveedor Fact : getLista_Factura()) {
+    public ArrayList<FacturaInsumo> Read(String Filter) {
+        ArrayList<FacturaInsumo> Get = new ArrayList<>();
+        for (FacturaInsumo Fact : getLista_Factura()) {
             if (Fact.getId().contains(Filter)) {
                 Get.add(Fact);
             }
@@ -23,7 +23,7 @@ public class ProveedorFacturaController {
         return Get;
     }
 
-    public void Update(int Index, FacturaProveedor Factura) {
+    public void Update(int Index, FacturaInsumo Factura) {
         Lista_Factura.set(Index, Factura);
         userco.salvar_datos();
     }
@@ -33,11 +33,11 @@ public class ProveedorFacturaController {
         userco.salvar_datos();
     }
 
-    public ArrayList<FacturaProveedor> getLista_Factura() {
+    public ArrayList<FacturaInsumo> getLista_Factura() {
         return Lista_Factura;
     }
 
-    public void setLista_Factura(ArrayList<FacturaProveedor> Lista_Factura) {
+    public void setLista_Factura(ArrayList<FacturaInsumo> Lista_Factura) {
         this.Lista_Factura = Lista_Factura;
     }
 }

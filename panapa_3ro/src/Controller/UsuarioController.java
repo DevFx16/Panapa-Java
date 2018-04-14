@@ -29,7 +29,7 @@ public class UsuarioController {
                     InsumoController.Lista_Insumos,
                     ProveedorController.lista_proovedor,
                     ProductoFacturaController.Lista_Factura,
-                    ProveedorFacturaController.Lista_Factura,
+                    InsumoFacturaController.Lista_Factura,
                     GraficoController.Lista_Graficas);
             FileOutputStream archivo = new FileOutputStream(path);
             ObjectOutputStream obj_archivo = new ObjectOutputStream(archivo);

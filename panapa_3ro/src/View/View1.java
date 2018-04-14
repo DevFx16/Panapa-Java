@@ -27,6 +27,7 @@ public class View1 extends javax.swing.JFrame {
     private ProductoController Proco = new ProductoController();
     private ProveedorController Proveeco = new ProveedorController();
     private InsumoController Insumco = new InsumoController();
+    private InsumoFacturaController InsuFactCo = new InsumoFacturaController();
 
     private Object IndexTable = null;
     public static String FileName = "";
@@ -2360,6 +2361,7 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_listaInsumoConsultVentas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tbl_listaInsumoConsultVentas.getTableHeader().setReorderingAllowed(false);
         tbl_listaInsumoConsultVentas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -3933,12 +3935,13 @@ public class View1 extends javax.swing.JFrame {
                     Integer.parseInt(txt_cantidadInsumoVenta.getText()));
             ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).addRow(new String[]{(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString()),
                 txt_nombreInsumoVenta.getText(), txt_cantidadInsumoVenta.getText(), (Integer.parseInt(txt_cantidadInsumoVenta.getText()) * Insumco.getLista_Insumos().get(Integer.parseInt(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString())).getPrecio()) + ""});
-            BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, chbx_selecInsumoVenta);
+            BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, txt_pagoClientInsumoVenta, chbx_selecInsumoVenta);
             comprarInsumoVenta_btn.setEnabled(true);
             cancelarInsumoVenta_btn.setEnabled(true);
             txt_cantidadInsumoVenta.setEnabled(false);
             SelecTable(tbl_listaInsumoConsultVentas, chbx_selecInsumoConsultVenta, btn_agregarInsumoVenta, false);
             TotalPreCompra(tbl_listaInsumoVenta, 3, txt_totalProdInsumoVenta, "Total de la venta:");
+            txt_pagoClientInsumoVenta.setEnabled(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
         }
@@ -3950,32 +3953,51 @@ public class View1 extends javax.swing.JFrame {
             if (ConfirmDialog("¿Estas seguro que desea retirar este item?")) {
                 JOptionPane.showMessageDialog(null, "Se ha retirado el item correctamente", "Retirado", 1);
                 ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).removeRow(tbl_listaInsumoVenta.getSelectedRow());
-                retirarInsumoVenta_btn.setEnabled(false);
                 TotalPreCompra(tbl_listaInsumoVenta, 3, txt_totalProdInsumoVenta, "Total de la venta:");
-                BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, chbx_selecInsumoVenta);
+                BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, txt_pagoClientInsumoVenta, chbx_selecInsumoVenta);
+                if(tbl_listaInsumoVenta.getRowCount() <= 0){
+                    cancelarInsumoVenta_btn.doClick();
+                }
+                retirarInsumoVenta_btn.setEnabled(false);
             }
-            BorrarInsumo_txt(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar", "Error", 0);
         }
     }//GEN-LAST:event_retirarInsumoVenta_btnActionPerformed
 
+    //Metodo del boton de presupuestar los insumos
     private void comprarInsumoVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarInsumoVenta_btnActionPerformed
-        for (int i = 0; i < tbl_listaInsumoVenta.getRowCount(); i++) {
-            Insumco.UpdateCantidad(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString()), Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 2).toString()));
-        }
-
-        while (tbl_listaInsumoVenta.getRowCount() > 0) {
-            ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).removeRow(0);
+        try {
+            double Total = TotalPreCompra(tbl_listaInsumoVenta, 3, txt_totalProdInsumoVenta, "Total de la venta:");
+            if (Double.parseDouble(txt_pagoClientInsumoVenta.getText()) < Total) {
+                JOptionPane.showMessageDialog(null, "Verifique el pago ingresado", "Error", 0);
+            } else if (ConfirmDialog("¿Estas seguro que desea presupuestar estos items?")) {
+                ArrayList<Insumo> Get = new ArrayList<Insumo>();
+                for (int i = 0; i < tbl_listaInsumoVenta.getRowCount(); i++) {
+                    Get.add(Insumco.Get_Insumo(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString())));
+                    Insumco.UpdateCantidad(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString()), 0);
+                }
+                InsuFactCo.Create(new FacturaInsumo(UUID.randomUUID().toString(), new Date(), 
+                        Total, Double.parseDouble(txt_pagoClientInsumoVenta.getText()), Get));
+                Listar((DefaultTableModel) tbl_listaInsumoVenta.getModel(), new ArrayList());
+                cancelarInsumoVenta_btn.doClick();
+                JOptionPane.showMessageDialog(null, "Los items han sido presupuestado", "Presupuestado", 1);
+                System.err.println(InsuFactCo.getLista_Factura().size());
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar o verifique los datos", "Error", 0);
         }
     }//GEN-LAST:event_comprarInsumoVenta_btnActionPerformed
 
     private void cancelarInsumoVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarInsumoVenta_btnActionPerformed
         //Bucle para borrar datos de la lista "tbl_listaInsumoVenta"
-        Listar((DefaultTableModel) tbl_listaInsumoVenta.getModel(), new ArrayList<String[]>());
-        BorrarInsumo_txt(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit);
+        Listar((DefaultTableModel) tbl_listaInsumoVenta.getModel(), new ArrayList());
+        BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, txt_pagoClientInsumoVenta, chbx_selecInsumoVenta);
         EnabledBtn(btn_agregarInsumoVenta, retirarInsumoVenta_btn, cancelarInsumoVenta_btn, false);
+        txt_pagoClientInsumoVenta.setEnabled(false);
+        comprarInsumoVenta_btn.setEnabled(false);
+        txt_totalProdInsumoVenta.setText("Total de la venta: 0.0");
     }//GEN-LAST:event_cancelarInsumoVenta_btnActionPerformed
 
     private void txt_pagoClientInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pagoClientInsumoVentaKeyPressed
@@ -4489,9 +4511,10 @@ public class View1 extends javax.swing.JFrame {
         unidad.setSelectedIndex(0);
     }
 
-    private void BorrarInsumoPreCompra_txt(JTextField Nombre, JTextField Cantidad, JCheckBox chbx_selecionado) {
+    private void BorrarInsumoPreCompra_txt(JTextField Nombre, JTextField Cantidad, JTextField Pago, JCheckBox chbx_selecionado) {
         Nombre.setText(null);
         Cantidad.setText(null);
+        Pago.setText(null);
         chbx_selecionado.setSelected(false);
     }
 
@@ -4587,13 +4610,14 @@ public class View1 extends javax.swing.JFrame {
     }
 
     //Meotodo para sacar el total de la Pre-Compra
-    public void TotalPreCompra(JTable tabla, int NumColumna, JTextField JTextMensaje, String texto) {
+    public double TotalPreCompra(JTable tabla, int NumColumna, JTextField JTextMensaje, String texto) {
         double TotalVenta = 0;
         for (int i = 0; i < tabla.getRowCount(); i++) {
             TotalVenta += Double.parseDouble(tabla.getValueAt(i, NumColumna).toString());
         }
 
         JTextMensaje.setText(texto + " " + TotalVenta);
+        return TotalVenta;
     }
 
     public static void main(String args[]) {
