@@ -2300,6 +2300,11 @@ public class View1 extends javax.swing.JFrame {
                 tbl_listaInsumoVentaMouseClicked(evt);
             }
         });
+        tbl_listaInsumoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbl_listaInsumoVentaKeyPressed(evt);
+            }
+        });
         jScrollPane15.setViewportView(tbl_listaInsumoVenta);
         if (tbl_listaInsumoVenta.getColumnModel().getColumnCount() > 0) {
             tbl_listaInsumoVenta.getColumnModel().getColumn(0).setMinWidth(55);
@@ -2333,6 +2338,11 @@ public class View1 extends javax.swing.JFrame {
                 btn_consultInsumoVentaActionPerformed(evt);
             }
         });
+        btn_consultInsumoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_consultInsumoVentaKeyPressed(evt);
+            }
+        });
 
         tbl_listaInsumoConsultVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2354,6 +2364,11 @@ public class View1 extends javax.swing.JFrame {
         tbl_listaInsumoConsultVentas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbl_listaInsumoConsultVentasMouseClicked(evt);
+            }
+        });
+        tbl_listaInsumoConsultVentas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbl_listaInsumoConsultVentasKeyPressed(evt);
             }
         });
         jScrollPane16.setViewportView(tbl_listaInsumoConsultVentas);
@@ -2393,6 +2408,11 @@ public class View1 extends javax.swing.JFrame {
                 btn_agregarInsumoVentaActionPerformed(evt);
             }
         });
+        btn_agregarInsumoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_agregarInsumoVentaKeyPressed(evt);
+            }
+        });
 
         retirarInsumoVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/box.png"))); // NOI18N
         retirarInsumoVenta_btn.setText("Retirar");
@@ -2400,6 +2420,11 @@ public class View1 extends javax.swing.JFrame {
         retirarInsumoVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 retirarInsumoVenta_btnActionPerformed(evt);
+            }
+        });
+        retirarInsumoVenta_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                retirarInsumoVenta_btnKeyPressed(evt);
             }
         });
 
@@ -2414,6 +2439,11 @@ public class View1 extends javax.swing.JFrame {
                 comprarInsumoVenta_btnActionPerformed(evt);
             }
         });
+        comprarInsumoVenta_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                comprarInsumoVenta_btnKeyPressed(evt);
+            }
+        });
 
         cancelarInsumoVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarInsumoVenta_btn.setText("Cancelar Pre-Compra");
@@ -2421,6 +2451,11 @@ public class View1 extends javax.swing.JFrame {
         cancelarInsumoVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarInsumoVenta_btnActionPerformed(evt);
+            }
+        });
+        cancelarInsumoVenta_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cancelarInsumoVenta_btnKeyPressed(evt);
             }
         });
 
@@ -2449,6 +2484,11 @@ public class View1 extends javax.swing.JFrame {
         btn_cancelarBusquedaInsumoVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarBusquedaInsumoVentamodificarPan(evt);
+            }
+        });
+        btn_cancelarBusquedaInsumoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_cancelarBusquedaInsumoVentaKeyPressed(evt);
             }
         });
 
@@ -3124,7 +3164,7 @@ public class View1 extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_General, javax.swing.GroupLayout.DEFAULT_SIZE, 1099, Short.MAX_VALUE)
+            .addComponent(Panel_General)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3269,7 +3309,7 @@ public class View1 extends javax.swing.JFrame {
     //Evento del enter para eliminar proveedor
     private void listaProvEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblKeyPressed
         if (evt.getKeyChar() == ENTER) {
-            listaProvEliminar_tblMouseClicked(new java.awt.event.MouseEvent(listaProvEliminar_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+            listaProvEliminar_tblMouseClicked(null);
         }
     }//GEN-LAST:event_listaProvEliminar_tblKeyPressed
 
@@ -3357,7 +3397,7 @@ public class View1 extends javax.swing.JFrame {
     //Evento del enter para el modificar proveedor tabla
     private void listaProveedoresEdit_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProveedoresEdit_tblKeyPressed
         if (evt.getKeyChar() == ENTER) {
-            listaProveedoresEdit_tblMouseClicked(new java.awt.event.MouseEvent(listaProveedoresEdit_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+            listaProveedoresEdit_tblMouseClicked(null);
         }
     }//GEN-LAST:event_listaProveedoresEdit_tblKeyPressed
 
@@ -3464,7 +3504,7 @@ public class View1 extends javax.swing.JFrame {
     //Evento enter para la tabla del modificar producto
     private void listaPanesEdit_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEdit_tblKeyPressed
         if (evt.getKeyChar() == ENTER) {
-            listaPanesEdit_tblselecProdModif_tbl(new java.awt.event.MouseEvent(listaPanesEdit_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+            listaPanesEdit_tblselecProdModif_tbl(null);
         }
     }//GEN-LAST:event_listaPanesEdit_tblKeyPressed
 
@@ -3780,7 +3820,7 @@ public class View1 extends javax.swing.JFrame {
     //Evento del enter en las tablas del editar insumos
     private void tbl_listaInsumoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_listaInsumoEditKeyPressed
         if (evt.getKeyChar() == ENTER) {
-            tbl_listaInsumoEditselecProdModif_tbl(new java.awt.event.MouseEvent(tbl_listaInsumoEdit.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+            tbl_listaInsumoEditselecProdModif_tbl(null);
         }
     }//GEN-LAST:event_tbl_listaInsumoEditKeyPressed
 
@@ -3855,8 +3895,9 @@ public class View1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nombreInsumoConsultVentaActionPerformed
 
+    //Evento Enter
     private void txt_nombreInsumoConsultVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreInsumoConsultVentaKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, btn_consultInsumoVenta);
     }//GEN-LAST:event_txt_nombreInsumoConsultVentaKeyPressed
 
     private void btn_consultInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultInsumoVentaActionPerformed
@@ -3869,12 +3910,10 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento de click para para editar cantidad
     private void tbl_listaInsumoConsultVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoConsultVentasMouseClicked
-        SelecTable(tbl_listaInsumoConsultVentas, chbx_selecInsumoVenta, btn_agregarInsumoVenta, true);
-        txt_cantidadInsumoVenta.setText(String.valueOf(Insumco.getLista_Insumos().get(Integer.parseInt(IndexTable.toString())).getCantidad()));
-        EnabledTxt_Producto(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, cmbx_proveInsumoReg, true);
-        txt_nombreInsumoVenta.setEnabled(false);
+        IndexTable = null;
+        SelecTable(tbl_listaInsumoConsultVentas, chbx_selecInsumoConsultVenta, btn_agregarInsumoVenta, true);
+        txt_cantidadInsumoVenta.setEnabled(true);
         txt_nombreInsumoVenta.setText(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 1).toString());
-
         cmbx_unidadInsumoVenta.setSelectedItem(Insumco.getLista_Insumos().get(Integer.parseInt(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString())).getUnidad());
     }//GEN-LAST:event_tbl_listaInsumoConsultVentasMouseClicked
 
@@ -3882,8 +3921,9 @@ public class View1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nombreInsumoVentaActionPerformed
 
+    //Evento enter
     private void txt_cantidadInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cantidadInsumoVentaKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, btn_agregarInsumoVenta);
     }//GEN-LAST:event_txt_cantidadInsumoVentaKeyPressed
 
     //Evento para sacar subtotal en Pre-Compra
@@ -3896,6 +3936,8 @@ public class View1 extends javax.swing.JFrame {
             BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, chbx_selecInsumoVenta);
             comprarInsumoVenta_btn.setEnabled(true);
             cancelarInsumoVenta_btn.setEnabled(true);
+            txt_cantidadInsumoVenta.setEnabled(false);
+            SelecTable(tbl_listaInsumoConsultVentas, chbx_selecInsumoConsultVenta, btn_agregarInsumoVenta, false);
             TotalPreCompra(tbl_listaInsumoVenta, 3, txt_totalProdInsumoVenta, "Total de la venta:");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
@@ -3906,14 +3948,11 @@ public class View1 extends javax.swing.JFrame {
     private void retirarInsumoVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarInsumoVenta_btnActionPerformed
         try {
             if (ConfirmDialog("¿Estas seguro que desea retirar este item?")) {
-                //tbl_listaInsumoVenta.remove(Integer.parseInt(IndexTable.toString()));
                 JOptionPane.showMessageDialog(null, "Se ha retirado el item correctamente", "Retirado", 1);
                 ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).removeRow(tbl_listaInsumoVenta.getSelectedRow());
                 retirarInsumoVenta_btn.setEnabled(false);
-
                 TotalPreCompra(tbl_listaInsumoVenta, 3, txt_totalProdInsumoVenta, "Total de la venta:");
                 BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, chbx_selecInsumoVenta);
-
             }
             BorrarInsumo_txt(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit);
 
@@ -3934,13 +3973,9 @@ public class View1 extends javax.swing.JFrame {
 
     private void cancelarInsumoVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarInsumoVenta_btnActionPerformed
         //Bucle para borrar datos de la lista "tbl_listaInsumoVenta"
-        while (tbl_listaInsumoVenta.getRowCount() > 0) {
-            ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).removeRow(0);
-        }
+        Listar((DefaultTableModel) tbl_listaInsumoVenta.getModel(), new ArrayList<String[]>());
         BorrarInsumo_txt(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit);
-        btn_agregarInsumoVenta.setEnabled(false);
-        retirarInsumoVenta_btn.setEnabled(false);
-        cancelarInsumoVenta_btn.setEnabled(false);
+        EnabledBtn(btn_agregarInsumoVenta, retirarInsumoVenta_btn, cancelarInsumoVenta_btn, false);
     }//GEN-LAST:event_cancelarInsumoVenta_btnActionPerformed
 
     private void txt_pagoClientInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pagoClientInsumoVentaKeyPressed
@@ -3995,7 +4030,7 @@ public class View1 extends javax.swing.JFrame {
     //Evento para la tabla de la cantidad
     private void tbl_listaProdCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_listaProdCantidadKeyPressed
         if (evt.getKeyChar() == ENTER || evt.getKeyCode() == KeyEvent.VK_SHIFT) {
-            tbl_listaProdCantidadselecProdModif_tbl(new java.awt.event.MouseEvent(tbl_listaProdCantidad.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+            tbl_listaProdCantidadselecProdModif_tbl(null);
         }
     }//GEN-LAST:event_tbl_listaProdCantidadKeyPressed
 
@@ -4137,7 +4172,7 @@ public class View1 extends javax.swing.JFrame {
     //Evento del enter para el eliminar productos
     private void listaPanesEliminar_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaPanesEliminar_tblKeyPressed
         if (evt.getKeyChar() == ENTER) {
-            listaPanesEliminar_tblselecProdEliminar_tbl(new java.awt.event.MouseEvent(listaPanesEliminar_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+            listaPanesEliminar_tblselecProdEliminar_tbl(null);
         }
     }//GEN-LAST:event_listaPanesEliminar_tblKeyPressed
 
@@ -4272,14 +4307,14 @@ public class View1 extends javax.swing.JFrame {
     //Evento del enter ventas
     private void listaProdConsultVentas_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProdConsultVentas_tblKeyPressed
         if (evt.getKeyChar() == ENTER) {
-            listaProdConsultVentas_tblMouseClicked(new java.awt.event.MouseEvent(listaProdConsultVentas_tbl.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+            listaProdConsultVentas_tblMouseClicked(null);
         }
     }//GEN-LAST:event_listaProdConsultVentas_tblKeyPressed
 
     //Evento del enter
     private void tbl_listaProdCantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_listaProdCantidadKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_SHIFT) {
-            tbl_listaProdCantidadselecProdModif_tbl(new java.awt.event.MouseEvent(tbl_listaProdCantidad.getComponent(0), 0, (long) 0, 0, 0, 0, 0, true, 0));
+            tbl_listaProdCantidadselecProdModif_tbl(null);
         }
     }//GEN-LAST:event_tbl_listaProdCantidadKeyReleased
 
@@ -4302,6 +4337,50 @@ public class View1 extends javax.swing.JFrame {
     private void cancelarVenta_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarVenta_btnKeyPressed
         EventoEnter(evt, cancelarVenta_btn);
     }//GEN-LAST:event_cancelarVenta_btnKeyPressed
+
+    //Evento enter
+    private void tbl_listaInsumoConsultVentasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_listaInsumoConsultVentasKeyPressed
+        if (evt.getKeyChar() == ENTER) {
+            tbl_listaInsumoConsultVentasMouseClicked(null);
+        }
+    }//GEN-LAST:event_tbl_listaInsumoConsultVentasKeyPressed
+
+    //Evento enter
+    private void tbl_listaInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_listaInsumoVentaKeyPressed
+        if (evt.getKeyChar() == ENTER) {
+            tbl_listaInsumoVentaMouseClicked(null);
+        }
+    }//GEN-LAST:event_tbl_listaInsumoVentaKeyPressed
+
+    //Evento enter
+    private void btn_cancelarBusquedaInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaInsumoVentaKeyPressed
+        EventoEnter(evt, btn_cancelarBusquedaInsumoVenta);
+    }//GEN-LAST:event_btn_cancelarBusquedaInsumoVentaKeyPressed
+
+    //Evento Enter
+    private void btn_consultInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_consultInsumoVentaKeyPressed
+        EventoEnter(evt, btn_consultInsumoVenta);
+    }//GEN-LAST:event_btn_consultInsumoVentaKeyPressed
+
+    //Evento enter
+    private void btn_agregarInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_agregarInsumoVentaKeyPressed
+        EventoEnter(evt, btn_agregarInsumoVenta);
+    }//GEN-LAST:event_btn_agregarInsumoVentaKeyPressed
+
+    //Evento Enter
+    private void retirarInsumoVenta_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_retirarInsumoVenta_btnKeyPressed
+        EventoEnter(evt, retirarInsumoVenta_btn);
+    }//GEN-LAST:event_retirarInsumoVenta_btnKeyPressed
+
+    //Evento Enter
+    private void comprarInsumoVenta_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_comprarInsumoVenta_btnKeyPressed
+        EventoEnter(evt, comprarInsumoVenta_btn);
+    }//GEN-LAST:event_comprarInsumoVenta_btnKeyPressed
+
+    //Evento Enter
+    private void cancelarInsumoVenta_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cancelarInsumoVenta_btnKeyPressed
+        EventoEnter(evt, cancelarInsumoVenta_btn);
+    }//GEN-LAST:event_cancelarInsumoVenta_btnKeyPressed
 
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {

@@ -64,7 +64,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="Panel_General" pref="1099" max="32767" attributes="0"/>
+              <Component id="Panel_General" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -3073,6 +3073,7 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbl_listaInsumoVentaMouseClicked"/>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbl_listaInsumoVentaKeyPressed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -3105,6 +3106,7 @@
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_consultInsumoVentaActionPerformed"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btn_consultInsumoVentaKeyPressed"/>
                           </Events>
                         </Component>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane16">
@@ -3148,6 +3150,7 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbl_listaInsumoConsultVentasMouseClicked"/>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbl_listaInsumoConsultVentasKeyPressed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -3190,6 +3193,7 @@
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_agregarInsumoVentaActionPerformed"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btn_agregarInsumoVentaKeyPressed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="retirarInsumoVenta_btn">
@@ -3202,6 +3206,7 @@
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="retirarInsumoVenta_btnActionPerformed"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="retirarInsumoVenta_btnKeyPressed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chbx_selecInsumoVenta">
@@ -3220,6 +3225,7 @@
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comprarInsumoVenta_btnActionPerformed"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="comprarInsumoVenta_btnKeyPressed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="cancelarInsumoVenta_btn">
@@ -3232,6 +3238,7 @@
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarInsumoVenta_btnActionPerformed"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cancelarInsumoVenta_btnKeyPressed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel39">
@@ -3272,6 +3279,7 @@
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cancelarBusquedaInsumoVentamodificarPan"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btn_cancelarBusquedaInsumoVentaKeyPressed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cmbx_unidadInsumoVenta">
