@@ -60,9 +60,6 @@ public class InsumoController {
         Lista_Insumos.set(Index, Factura);
         userco.salvar_datos();
     }    
-    public void UpdateCantidad(int Index, int Cantidad) {
-        Lista_Insumos.get(Index).setCantidad(Cantidad);
-    }
 
     public void Delete(int Index) {
         Lista_Insumos.remove(Index);

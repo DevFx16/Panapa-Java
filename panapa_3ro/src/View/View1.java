@@ -88,7 +88,6 @@ public class View1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         Panel_General = new javax.swing.JTabbedPane();
         Productos = new javax.swing.JTabbedPane();
@@ -288,16 +287,31 @@ public class View1 extends javax.swing.JFrame {
         Contenedor_Stast = new javax.swing.JTabbedPane();
         Historial_ventas = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
-        listaProdVenta_tbl1 = new javax.swing.JTable();
+        tbl_HistoVenta = new javax.swing.JTable();
         jScrollPane13 = new javax.swing.JScrollPane();
-        listaProdVenta_tbl2 = new javax.swing.JTable();
-        EliminarVentas_btn = new javax.swing.JButton();
-        ConsultVentas_txt = new javax.swing.JTextField();
+        tbl_HistoVentasFact = new javax.swing.JTable();
+        btn_EliminarVenta = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
-        selecEliminarVentas_chbx = new javax.swing.JCheckBox();
-        consultVentas_btn = new javax.swing.JButton();
-        dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
+        chbx_selecHistoVenta = new javax.swing.JCheckBox();
+        btn_ConsultHistoVenta = new javax.swing.JButton();
+        Date_DesdeHistoVentas = new datechooser.beans.DateChooserCombo();
+        Date_HastaHistoVentas = new datechooser.beans.DateChooserCombo();
+        jLabel44 = new javax.swing.JLabel();
+        btn_cancelarBusquedaHistoVenta = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        Historial_ventas1 = new javax.swing.JPanel();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        tbl_HistoCompra = new javax.swing.JTable();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        tbl_HistoComprasFact = new javax.swing.JTable();
+        btn_EliminarCompra = new javax.swing.JButton();
+        jLabel45 = new javax.swing.JLabel();
+        chbx_selecHistoCompra = new javax.swing.JCheckBox();
+        btn_ConsultHistoCompra = new javax.swing.JButton();
+        Date_DesdeHistoCompra = new datechooser.beans.DateChooserCombo();
+        Date_HastaHistoCompra = new datechooser.beans.DateChooserCombo();
+        jLabel46 = new javax.swing.JLabel();
+        btn_cancelarBusquedaHistoCompra = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -2219,7 +2233,7 @@ public class View1 extends javax.swing.JFrame {
                         .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_consultInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
             .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane14)
@@ -2913,7 +2927,7 @@ public class View1 extends javax.swing.JFrame {
                                         .addComponent(jLabel30)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(pagoClientVenta_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(63, Short.MAX_VALUE))
+                        .addContainerGap(65, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentasLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2979,12 +2993,12 @@ public class View1 extends javax.swing.JFrame {
 
         Panel_General.addTab("Ventas", Ventas);
 
-        listaProdVenta_tbl1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_HistoVenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id", "Fecha", "N# de Productos", "Total Pagado", "Dinero Entregado", "Dinero Devuelto"
+                "Index", "Fecha", "N# de Productos", "Total Pagado", "Dinero Entregado", "Dinero Devuelto"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -2995,17 +3009,25 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        listaProdVenta_tbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbl_HistoVenta.getTableHeader().setReorderingAllowed(false);
+        tbl_HistoVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listaProdVenta_tbl1MouseClicked(evt);
+                tbl_HistoVentaMouseClicked(evt);
             }
         });
-        jScrollPane12.setViewportView(listaProdVenta_tbl1);
-        if (listaProdVenta_tbl1.getColumnModel().getColumnCount() > 0) {
-            listaProdVenta_tbl1.getColumnModel().getColumn(2).setResizable(false);
+        jScrollPane12.setViewportView(tbl_HistoVenta);
+        if (tbl_HistoVenta.getColumnModel().getColumnCount() > 0) {
+            tbl_HistoVenta.getColumnModel().getColumn(0).setMinWidth(80);
+            tbl_HistoVenta.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tbl_HistoVenta.getColumnModel().getColumn(0).setMaxWidth(80);
+            tbl_HistoVenta.getColumnModel().getColumn(1).setResizable(false);
+            tbl_HistoVenta.getColumnModel().getColumn(2).setResizable(false);
+            tbl_HistoVenta.getColumnModel().getColumn(3).setResizable(false);
+            tbl_HistoVenta.getColumnModel().getColumn(4).setResizable(false);
+            tbl_HistoVenta.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        listaProdVenta_tbl2.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_HistoVentasFact.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -3021,25 +3043,42 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane13.setViewportView(listaProdVenta_tbl2);
+        tbl_HistoVentasFact.getTableHeader().setReorderingAllowed(false);
+        jScrollPane13.setViewportView(tbl_HistoVentasFact);
 
-        EliminarVentas_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
-        EliminarVentas_btn.setText("Eliminar Compra");
-        EliminarVentas_btn.addActionListener(new java.awt.event.ActionListener() {
+        btn_EliminarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
+        btn_EliminarVenta.setText("Eliminar Venta");
+        btn_EliminarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarVentas_btnActionPerformed(evt);
+                btn_EliminarVentaActionPerformed(evt);
             }
         });
 
-        jLabel31.setText("Buscar :");
+        jLabel31.setText("Desde:");
 
-        selecEliminarVentas_chbx.setText("Seleccionado");
-        selecEliminarVentas_chbx.setEnabled(false);
+        chbx_selecHistoVenta.setText("Seleccionado");
+        chbx_selecHistoVenta.setEnabled(false);
 
-        consultVentas_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
-        consultVentas_btn.addActionListener(new java.awt.event.ActionListener() {
+        btn_ConsultHistoVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        btn_ConsultHistoVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultVentas_btnActionPerformed(evt);
+                btn_ConsultHistoVentaActionPerformed(evt);
+            }
+        });
+
+        jLabel44.setText("Hasta:");
+
+        btn_cancelarBusquedaHistoVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        btn_cancelarBusquedaHistoVenta.setText("Cancelar Búsqueda");
+        btn_cancelarBusquedaHistoVenta.setEnabled(false);
+        btn_cancelarBusquedaHistoVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarBusquedaHistoVentamodificarPan(evt);
+            }
+        });
+        btn_cancelarBusquedaHistoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_cancelarBusquedaHistoVentaKeyPressed(evt);
             }
         });
 
@@ -3055,25 +3094,30 @@ public class View1 extends javax.swing.JFrame {
                         .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(Historial_ventasLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(EliminarVentas_btn))
+                                .addComponent(btn_EliminarVenta))
                             .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                .addComponent(jScrollPane13)
+                                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
                                         .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(selecEliminarVentas_chbx)
                                             .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                                .addComponent(jLabel31)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(ConsultVentas_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(consultVentas_btn))
+                                                .addGap(44, 44, 44)
+                                                .addComponent(jLabel31))
+                                            .addComponent(Date_DesdeHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(Historial_ventasLayout.createSequentialGroup()
+                                                .addGap(44, 44, 44)
+                                                .addComponent(jLabel44))
+                                            .addComponent(Date_HastaHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(29, 29, 29)
+                                        .addComponent(btn_ConsultHistoVenta))
                                     .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                        .addGap(31, 31, 31)
-                                        .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(8, 8, 8)))
-                        .addGap(12, 12, 12)))
+                                        .addComponent(chbx_selecHistoVenta)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btn_cancelarBusquedaHistoVenta)))))
+                        .addGap(20, 20, 20)))
                 .addContainerGap())
         );
         Historial_ventasLayout.setVerticalGroup(
@@ -3087,46 +3131,216 @@ public class View1 extends javax.swing.JFrame {
                         .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(Historial_ventasLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
                         .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(ConsultVentas_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel31))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(selecEliminarVentas_chbx))
-                            .addComponent(consultVentas_btn))
-                        .addGap(43, 43, 43)
-                        .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                        .addComponent(EliminarVentas_btn)
-                        .addGap(27, 27, 27))))
+                                .addGap(13, 13, 13)
+                                .addComponent(btn_ConsultHistoVenta))
+                            .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(Historial_ventasLayout.createSequentialGroup()
+                                    .addComponent(jLabel44)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Date_HastaHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(Historial_ventasLayout.createSequentialGroup()
+                                    .addComponent(jLabel31)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Date_DesdeHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(14, 14, 14)
+                        .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(chbx_selecHistoVenta)
+                            .addComponent(btn_cancelarBusquedaHistoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addComponent(btn_EliminarVenta)
+                        .addGap(56, 56, 56))))
         );
 
         Contenedor_Stast.addTab("Historial de Ventas", Historial_ventas);
+
+        tbl_HistoCompra.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Index", "Fecha", "N# de Insumos", "Total Pagado", "Dinero Entregado", "Dinero Devuelto"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbl_HistoCompra.getTableHeader().setReorderingAllowed(false);
+        tbl_HistoCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_HistoCompraMouseClicked(evt);
+            }
+        });
+        jScrollPane17.setViewportView(tbl_HistoCompra);
+        if (tbl_HistoCompra.getColumnModel().getColumnCount() > 0) {
+            tbl_HistoCompra.getColumnModel().getColumn(0).setMinWidth(80);
+            tbl_HistoCompra.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tbl_HistoCompra.getColumnModel().getColumn(0).setMaxWidth(80);
+            tbl_HistoCompra.getColumnModel().getColumn(1).setResizable(false);
+            tbl_HistoCompra.getColumnModel().getColumn(2).setResizable(false);
+            tbl_HistoCompra.getColumnModel().getColumn(3).setResizable(false);
+            tbl_HistoCompra.getColumnModel().getColumn(4).setResizable(false);
+            tbl_HistoCompra.getColumnModel().getColumn(5).setResizable(false);
+        }
+
+        tbl_HistoComprasFact.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Insumo", "Cantidad", "SubTotal"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbl_HistoComprasFact.getTableHeader().setReorderingAllowed(false);
+        jScrollPane20.setViewportView(tbl_HistoComprasFact);
+
+        btn_EliminarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
+        btn_EliminarCompra.setText("Eliminar Compra");
+        btn_EliminarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EliminarCompraActionPerformed(evt);
+            }
+        });
+
+        jLabel45.setText("Desde:");
+
+        chbx_selecHistoCompra.setText("Seleccionado");
+        chbx_selecHistoCompra.setEnabled(false);
+
+        btn_ConsultHistoCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        btn_ConsultHistoCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ConsultHistoCompraActionPerformed(evt);
+            }
+        });
+
+        jLabel46.setText("Hasta:");
+
+        btn_cancelarBusquedaHistoCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+        btn_cancelarBusquedaHistoCompra.setText("Cancelar Búsqueda");
+        btn_cancelarBusquedaHistoCompra.setEnabled(false);
+        btn_cancelarBusquedaHistoCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarBusquedaHistoCompramodificarPan(evt);
+            }
+        });
+        btn_cancelarBusquedaHistoCompra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_cancelarBusquedaHistoCompraKeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Historial_ventas1Layout = new javax.swing.GroupLayout(Historial_ventas1);
+        Historial_ventas1.setLayout(Historial_ventas1Layout);
+        Historial_ventas1Layout.setHorizontalGroup(
+            Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane17)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Historial_ventas1Layout.createSequentialGroup()
+                        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btn_EliminarCompra))
+                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                                .addGap(44, 44, 44)
+                                                .addComponent(jLabel45))
+                                            .addComponent(Date_DesdeHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                                .addGap(44, 44, 44)
+                                                .addComponent(jLabel46))
+                                            .addComponent(Date_HastaHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(29, 29, 29)
+                                        .addComponent(btn_ConsultHistoCompra))
+                                    .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                        .addComponent(chbx_selecHistoCompra)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btn_cancelarBusquedaHistoCompra)))))
+                        .addGap(20, 20, 20)))
+                .addContainerGap())
+        );
+        Historial_ventas1Layout.setVerticalGroup(
+            Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(btn_ConsultHistoCompra))
+                            .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                    .addComponent(jLabel46)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Date_HastaHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                    .addComponent(jLabel45)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Date_DesdeHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(14, 14, 14)
+                        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(chbx_selecHistoCompra)
+                            .addComponent(btn_cancelarBusquedaHistoCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addComponent(btn_EliminarCompra)
+                        .addGap(56, 56, 56))))
+        );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1103, Short.MAX_VALUE)
+            .addGap(0, 510, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Historial_ventas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGap(0, 564, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Historial_ventas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Contenedor_Stast.addTab("tab3", jPanel4);
+        Contenedor_Stast.addTab("Historial de Compras", jPanel4);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1103, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         Contenedor_Stast.addTab("tab4", jPanel5);
@@ -3135,11 +3349,11 @@ public class View1 extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1103, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         Contenedor_Stast.addTab("tab5", jPanel6);
@@ -3148,11 +3362,11 @@ public class View1 extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1103, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         Contenedor_Stast.addTab("tab6", jPanel7);
@@ -3526,7 +3740,6 @@ public class View1 extends javax.swing.JFrame {
         nombrePanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 1).toString());
         precioPanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 2).toString());
         provePanEdit_cmbx.setSelectedItem(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 3).toString());
-        System.out.println(listaPanesEdit_tbl.getSelectedRows());
     }//GEN-LAST:event_listaPanesEdit_tblselecProdModif_tbl
 
     //Evento para Guardar La Modificación
@@ -3578,17 +3791,17 @@ public class View1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombrePanConsultVenta_txtActionPerformed
 
-    private void consultVentas_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultVentas_btnActionPerformed
+    private void btn_ConsultHistoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoVentaActionPerformed
 
-    }//GEN-LAST:event_consultVentas_btnActionPerformed
+    }//GEN-LAST:event_btn_ConsultHistoVentaActionPerformed
 
-    private void EliminarVentas_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarVentas_btnActionPerformed
+    private void btn_EliminarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarVentaActionPerformed
 
-    }//GEN-LAST:event_EliminarVentas_btnActionPerformed
+    }//GEN-LAST:event_btn_EliminarVentaActionPerformed
 
-    private void listaProdVenta_tbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProdVenta_tbl1MouseClicked
+    private void tbl_HistoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_HistoVentaMouseClicked
 
-    }//GEN-LAST:event_listaProdVenta_tbl1MouseClicked
+    }//GEN-LAST:event_tbl_HistoVentaMouseClicked
 
     //Evento del enter en buscar producto modificar
     private void nombrePanConsultEdit_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePanConsultEdit_txtKeyPressed
@@ -3939,8 +4152,6 @@ public class View1 extends javax.swing.JFrame {
     //Evento para sacar subtotal en Pre-Compra
     private void btn_agregarInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarInsumoVentaActionPerformed
         try {
-            Insumco.UpdateCantidad(Integer.parseInt(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString()),
-                    Integer.parseInt(txt_cantidadInsumoVenta.getText()));
             ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).addRow(new String[]{(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString()),
                 txt_nombreInsumoVenta.getText(), txt_cantidadInsumoVenta.getText(), (Integer.parseInt(txt_cantidadInsumoVenta.getText()) * Insumco.getLista_Insumos().get(Integer.parseInt(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString())).getPrecio()) + ""});
             BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, txt_pagoClientInsumoVenta, chbx_selecInsumoVenta);
@@ -3963,7 +4174,7 @@ public class View1 extends javax.swing.JFrame {
                 ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).removeRow(tbl_listaInsumoVenta.getSelectedRow());
                 TotalPreCompra(tbl_listaInsumoVenta, 3, txt_totalProdInsumoVenta, "Total de la venta:");
                 BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, txt_pagoClientInsumoVenta, chbx_selecInsumoVenta);
-                if(tbl_listaInsumoVenta.getRowCount() <= 0){
+                if (tbl_listaInsumoVenta.getRowCount() <= 0) {
                     cancelarInsumoVenta_btn.doClick();
                 }
                 retirarInsumoVenta_btn.setEnabled(false);
@@ -3980,18 +4191,17 @@ public class View1 extends javax.swing.JFrame {
             double Total = TotalPreCompra(tbl_listaInsumoVenta, 3, txt_totalProdInsumoVenta, "Total de la venta:");
             if (Double.parseDouble(txt_pagoClientInsumoVenta.getText()) < Total) {
                 JOptionPane.showMessageDialog(null, "Verifique el pago ingresado", "Error", 0);
-            } else if (ConfirmDialog("¿Estas seguro que desea presupuestar estos items?")) {
+            } else {
                 ArrayList<Insumo> Get = new ArrayList<Insumo>();
                 for (int i = 0; i < tbl_listaInsumoVenta.getRowCount(); i++) {
                     Get.add(Insumco.Get_Insumo(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString())));
-                    Insumco.UpdateCantidad(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString()), 0);
+                    Get.get(i).setCantidad(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 2).toString()));
                 }
-                InsuFactCo.Create(new FacturaInsumo(UUID.randomUUID().toString(), new Date(), 
+                InsuFactCo.Create(new FacturaInsumo(UUID.randomUUID().toString(), new Date(),
                         Total, Double.parseDouble(txt_pagoClientInsumoVenta.getText()), Get));
                 Listar((DefaultTableModel) tbl_listaInsumoVenta.getModel(), new ArrayList());
                 cancelarInsumoVenta_btn.doClick();
                 JOptionPane.showMessageDialog(null, "Los items han sido presupuestado", "Presupuestado", 1);
-                System.err.println(InsuFactCo.getLista_Factura().size());
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar o verifique los datos", "Error", 0);
@@ -4008,8 +4218,9 @@ public class View1 extends javax.swing.JFrame {
         txt_totalProdInsumoVenta.setText("Total de la venta: 0.0");
     }//GEN-LAST:event_cancelarInsumoVenta_btnActionPerformed
 
+    //Evento Enter
     private void txt_pagoClientInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pagoClientInsumoVentaKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, comprarInsumoVenta_btn);
     }//GEN-LAST:event_txt_pagoClientInsumoVentaKeyPressed
 
     private void txt_totalProdInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_totalProdInsumoVentaActionPerformed
@@ -4050,7 +4261,6 @@ public class View1 extends javax.swing.JFrame {
                 tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 1).toString(),
                 tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 2).toString(),
                 tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 3).toString()});
-            System.out.println(tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 3).toString());
         }
         Listar((DefaultTableModel) tbl_listaProdSelectCantidad.getModel(), Get);
         EnabledBtn(btn_EditProdCantidad, btn_GuardarEditCantidad, btn_cancelarEditProdCantidad, true);
@@ -4412,6 +4622,37 @@ public class View1 extends javax.swing.JFrame {
         EventoEnter(evt, cancelarInsumoVenta_btn);
     }//GEN-LAST:event_cancelarInsumoVenta_btnKeyPressed
 
+    private void btn_cancelarBusquedaHistoVentamodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoVentamodificarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarBusquedaHistoVentamodificarPan
+
+    private void btn_cancelarBusquedaHistoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoVentaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarBusquedaHistoVentaKeyPressed
+
+    //Evento mouse
+    private void tbl_HistoCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_HistoCompraMouseClicked
+        Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(),  
+                InsuFactCo.ReadSelect(Integer.parseInt(tbl_HistoCompra.getValueAt(tbl_HistoCompra.getSelectedRow(), 0).toString())));
+        btn_EliminarCompra.setEnabled(true);
+    }//GEN-LAST:event_tbl_HistoCompraMouseClicked
+
+    private void btn_EliminarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarCompraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EliminarCompraActionPerformed
+
+    private void btn_ConsultHistoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoCompraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ConsultHistoCompraActionPerformed
+
+    private void btn_cancelarBusquedaHistoCompramodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoCompramodificarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarBusquedaHistoCompramodificarPan
+
+    private void btn_cancelarBusquedaHistoCompraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoCompraKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarBusquedaHistoCompraKeyPressed
+
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
         switch (Panel.getSelectedIndex()) {
@@ -4476,6 +4717,7 @@ public class View1 extends javax.swing.JFrame {
         Listar((DefaultTableModel) listaProveedoresEdit_tbl.getModel(), Proveeco.ReadAll());
         Listar((DefaultTableModel) listaProvConsult_tbl.getModel(), Proveeco.ReadAll());
         Listar((DefaultTableModel) listaProvEliminar_tbl.getModel(), Proveeco.ReadAll());
+        Listar((DefaultTableModel) tbl_HistoCompra.getModel(), InsuFactCo.ReadAll());
         ComboBoxList(provePanReg_cmbx, Proveeco.getLista_proovedor());
         ComboBoxList(provePanEdit_cmbx, Proveeco.getLista_proovedor());
         ComboBoxList(cmbx_proveInsumoReg, Proveeco.getLista_proovedor());
@@ -4660,20 +4902,23 @@ public class View1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Cantidades;
-    private javax.swing.JTextField ConsultVentas_txt;
     private javax.swing.JPanel Consultar_Producto;
     private javax.swing.JPanel Consultar_Proveedores;
     private javax.swing.JTabbedPane Contenedor_Stast;
+    private datechooser.beans.DateChooserCombo Date_DesdeHistoCompra;
+    private datechooser.beans.DateChooserCombo Date_DesdeHistoVentas;
+    private datechooser.beans.DateChooserCombo Date_HastaHistoCompra;
+    private datechooser.beans.DateChooserCombo Date_HastaHistoVentas;
     private javax.swing.JButton EditPan_btn;
     private javax.swing.JButton EditProv_btn;
     private javax.swing.JButton EliminarProv_btn;
-    private javax.swing.JButton EliminarVentas_btn;
     private javax.swing.JPanel Eliminar_Producto;
     private javax.swing.JPanel Eliminar_Proveedores;
     private javax.swing.JPanel Estadisticas;
     private javax.swing.JButton GuardarEditPan_btn;
     private javax.swing.JButton GuardarEditProv_btn;
     private javax.swing.JPanel Historial_ventas;
+    private javax.swing.JPanel Historial_ventas1;
     private javax.swing.JPanel Insumos;
     private javax.swing.JTabbedPane InsumosCont;
     private javax.swing.JPanel Modificar_Insumo;
@@ -4689,14 +4934,20 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JPanel Registrar_Proveedores;
     private javax.swing.JPanel Ventas;
     private javax.swing.JButton agregarProdVenta_btn;
+    private javax.swing.JButton btn_ConsultHistoCompra;
+    private javax.swing.JButton btn_ConsultHistoVenta;
     private javax.swing.JButton btn_EditInsumo;
     private javax.swing.JButton btn_EditProdCantidad;
+    private javax.swing.JButton btn_EliminarCompra;
     private javax.swing.JButton btn_EliminarEditInsumo;
+    private javax.swing.JButton btn_EliminarVenta;
     private javax.swing.JButton btn_GuardarEditCantidad;
     private javax.swing.JButton btn_GuardarEditInsumo;
     private javax.swing.JButton btn_agregarInsumoVenta;
     private javax.swing.JButton btn_cancelBusqInsumoEdit;
     private javax.swing.JButton btn_cancelarBusqProdCantidad;
+    private javax.swing.JButton btn_cancelarBusquedaHistoCompra;
+    private javax.swing.JButton btn_cancelarBusquedaHistoVenta;
     private javax.swing.JButton btn_cancelarBusquedaInsumoVenta;
     private javax.swing.JButton btn_cancelarEditInsumo;
     private javax.swing.JButton btn_cancelarEditProdCantidad;
@@ -4704,7 +4955,6 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_consultInsumoVenta;
     private javax.swing.JButton btn_consultProdCantidad;
     private javax.swing.JButton btn_registrarInsumo;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton cancelarBusqPov_btn;
     private javax.swing.JButton cancelarBusqProd_btn;
     private javax.swing.JButton cancelarBusquedaPan_btn;
@@ -4718,6 +4968,8 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JButton cancelarVenta_btn;
     private javax.swing.JTextField cantidadProdVenta_txt;
     private javax.swing.JCheckBox chbx_selecEditInsumo;
+    private javax.swing.JCheckBox chbx_selecHistoCompra;
+    private javax.swing.JCheckBox chbx_selecHistoVenta;
     private javax.swing.JCheckBox chbx_selecInsumoConsultVenta;
     private javax.swing.JCheckBox chbx_selecInsumoVenta;
     private javax.swing.JComboBox<String> cmbx_proveInsumoEdit;
@@ -4734,8 +4986,6 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JButton consultProvEdit_btn;
     private javax.swing.JButton consultProvEliminar_btn;
     private javax.swing.JButton consultProv_btn;
-    private javax.swing.JButton consultVentas_btn;
-    private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private javax.swing.JTextField direcProvEdit_txt;
     private javax.swing.JTextField direcProvReg_txt;
     private javax.swing.JButton eliminarPan_btn;
@@ -4777,6 +5027,9 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
@@ -4800,9 +5053,11 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -4816,8 +5071,6 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JTable listaPanesReg_tbl;
     private javax.swing.JTable listaProdConsultVentas_tbl;
     private javax.swing.JTable listaProdVenta_tbl;
-    private javax.swing.JTable listaProdVenta_tbl1;
-    private javax.swing.JTable listaProdVenta_tbl2;
     private javax.swing.JTable listaProvConsult_tbl;
     private javax.swing.JTable listaProvEliminar_tbl;
     private javax.swing.JTable listaProveedorReg_tbl;
@@ -4849,12 +5102,15 @@ public class View1 extends javax.swing.JFrame {
     private javax.swing.JCheckBox selecEditPan_chbx;
     private javax.swing.JCheckBox selecEditProv_chbx;
     private javax.swing.JCheckBox selecEliminarProv_chbx;
-    private javax.swing.JCheckBox selecEliminarVentas_chbx;
     private javax.swing.JCheckBox selecPanEliminar_chbx;
     private javax.swing.JCheckBox selecProdConsultVenta_chbx;
     private javax.swing.JCheckBox selecProdVenta_chbx;
     private javax.swing.JTextField serviProvEdit_txt;
     private javax.swing.JTextField serviProvReg_txt;
+    private javax.swing.JTable tbl_HistoCompra;
+    private javax.swing.JTable tbl_HistoComprasFact;
+    private javax.swing.JTable tbl_HistoVenta;
+    private javax.swing.JTable tbl_HistoVentasFact;
     private javax.swing.JTable tbl_listaInsumoConsultVentas;
     private javax.swing.JTable tbl_listaInsumoEdit;
     private javax.swing.JTable tbl_listaInsumoVenta;

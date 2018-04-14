@@ -1,6 +1,8 @@
 package Controller;
 
 import Model.FacturaInsumo;
+import Model.Insumo;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class InsumoFacturaController {
@@ -13,12 +15,22 @@ public class InsumoFacturaController {
         userco.salvar_datos();
     }
 
-    public ArrayList<FacturaInsumo> Read(String Filter) {
-        ArrayList<FacturaInsumo> Get = new ArrayList<>();
-        for (FacturaInsumo Fact : getLista_Factura()) {
-            if (Fact.getId().contains(Filter)) {
-                Get.add(Fact);
-            }
+    public ArrayList<String[]> ReadAll() {
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < getLista_Factura().size(); i++) {
+            Get.add(new String[]{i + "", new SimpleDateFormat("dd/MM/yyyy").format(getLista_Factura().get(i).getFecha()),
+                getLista_Factura().get(i).getInsumo_Compra().size() + "", getLista_Factura().get(i).getTotal() + "",
+                getLista_Factura().get(i).getPago() + "", (getLista_Factura().get(i).getTotal() - getLista_Factura().get(i).getPago()) + ""});
+        }
+        return Get;
+    }
+
+    public ArrayList<String[]> ReadSelect(int Index) {
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < getLista_Factura().get(Index).getInsumo_Compra().size(); i++) {
+            Get.add(new String[]{getLista_Factura().get(Index).getInsumo_Compra().get(i).getNombre(),
+                getLista_Factura().get(Index).getInsumo_Compra().get(i).getCantidad() + "",
+                (getLista_Factura().get(Index).getInsumo_Compra().get(i).getPrecio() * getLista_Factura().get(Index).getInsumo_Compra().get(i).getCantidad())+""});
         }
         return Get;
     }
