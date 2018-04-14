@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Insumo;
 import java.util.ArrayList;
+import javax.swing.JTable;
 
 public class InsumoController {
 
@@ -17,8 +18,8 @@ public class InsumoController {
         ArrayList<String[]> Get = new ArrayList<>();
         for (int i = 0; i < getLista_Insumos().size(); i++) {
             if (getLista_Insumos().get(i).getNombre().contains(Filter)) {
-                Get.add(new String[]{i+"", getLista_Insumos().get(i).getNombre(), 
-                    getLista_Insumos().get(i).getPrecio()+"", getLista_Insumos().get(i).getProveedor().getNombre(), 
+                Get.add(new String[]{i + "", getLista_Insumos().get(i).getNombre(),
+                    getLista_Insumos().get(i).getPrecio() + "", getLista_Insumos().get(i).getProveedor().getNombre(),
                     getLista_Insumos().get(i).getUnidad()});
             }
         }
@@ -28,9 +29,29 @@ public class InsumoController {
     public ArrayList<String[]> ReadAll() {
         ArrayList<String[]> Get = new ArrayList<>();
         for (int i = 0; i < getLista_Insumos().size(); i++) {
-            Get.add(new String[]{i + "", getLista_Insumos().get(i).getNombre(), 
-                String.valueOf(getLista_Insumos().get(i).getPrecio()), getLista_Insumos().get(i).getProveedor().getNombre(), 
+            Get.add(new String[]{i + "", getLista_Insumos().get(i).getNombre(),
+                String.valueOf(getLista_Insumos().get(i).getPrecio()), getLista_Insumos().get(i).getProveedor().getNombre(),
                 getLista_Insumos().get(i).getUnidad()});
+
+        }
+        return Get;
+    }
+    
+    public ArrayList<String[]> ReadVenta(String readventa) {
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < getLista_Insumos().size(); i++) {
+            Get.add(new String[]{i + "", getLista_Insumos().get(i).getNombre(),
+                String.valueOf(getLista_Insumos().get(i).getPrecio())});
+
+        }
+        return Get;
+    }
+    
+        public ArrayList<String[]> ReadVenta() {
+        ArrayList<String[]> Get = new ArrayList<>();
+        for (int i = 0; i < getLista_Insumos().size(); i++) {
+            Get.add(new String[]{i + "", getLista_Insumos().get(i).getNombre(),
+                String.valueOf(getLista_Insumos().get(i).getPrecio())});
 
         }
         return Get;
@@ -39,6 +60,9 @@ public class InsumoController {
     public void Update(int Index, Insumo Factura) {
         Lista_Insumos.set(Index, Factura);
         userco.salvar_datos();
+    }    
+    public void UpdateCantidad(int Index, int Cantidad) {
+        Lista_Insumos.get(Index).setCantidad(Cantidad);
     }
 
     public void Delete(int Index) {

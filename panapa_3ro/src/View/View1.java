@@ -2499,13 +2499,14 @@ public class View1 extends javax.swing.JFrame {
                                     .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
                                         .addGap(40, 40, 40)
                                         .addComponent(jLabel37)))
-                                .addGap(18, 18, 18)
                                 .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
-                                        .addGap(40, 40, 40)
+                                        .addGap(58, 58, 58)
                                         .addComponent(jLabel41))
-                                    .addComponent(cmbx_unidadInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(234, 234, 234)
+                                    .addGroup(Pre_Compra_InsumoLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cmbx_unidadInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(186, 186, 186)
                         .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(retirarInsumoVenta_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_agregarInsumoVenta)))
@@ -2520,7 +2521,7 @@ public class View1 extends javax.swing.JFrame {
                                     .addComponent(jLabel40)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txt_pagoClientInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txt_totalProdInsumoVenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txt_totalProdInsumoVenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -2565,7 +2566,7 @@ public class View1 extends javax.swing.JFrame {
                                     .addComponent(txt_pagoClientInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel40))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_totalProdInsumoVenta))))
+                                .addComponent(txt_totalProdInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Pre_Compra_InsumoLayout.createSequentialGroup()
                         .addGroup(Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_nombreInsumoConsultVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3123,7 +3124,7 @@ public class View1 extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_General, javax.swing.GroupLayout.PREFERRED_SIZE, 1099, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Panel_General, javax.swing.GroupLayout.DEFAULT_SIZE, 1099, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3826,9 +3827,6 @@ public class View1 extends javax.swing.JFrame {
             }
             ListAll();
             BorrarInsumo_txt(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit);
-            EnabledBtn(btn_EditInsumo, btn_GuardarEditInsumo, btn_cancelarEditInsumo, false);
-            EnabledTxt_Insumo(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit, false);
-            SelecTable(tbl_listaInsumoEdit, chbx_selecEditInsumo, btn_EliminarEditInsumo, false);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar", "Error", 0);
         }
@@ -3849,7 +3847,8 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelarEditInsumomodificarPan
 
     private void tbl_listaInsumoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoVentaMouseClicked
-        // TODO add your handling code here:
+        retirarInsumoVenta_btn.setEnabled(true);
+        IndexTable = tbl_listaInsumoVenta.getSelectedRow();
     }//GEN-LAST:event_tbl_listaInsumoVentaMouseClicked
 
     private void txt_nombreInsumoConsultVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreInsumoConsultVentaActionPerformed
@@ -3861,11 +3860,22 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nombreInsumoConsultVentaKeyPressed
 
     private void btn_consultInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultInsumoVentaActionPerformed
-        // TODO add your handling code here:
+        try {
+            BuscarAll(txt_nombreInsumoConsultVenta.getText().toUpperCase(), tbl_listaInsumoConsultVentas, Insumco.Read(txt_nombreInsumoConsultVenta.getText().toUpperCase()), btn_cancelarBusquedaInsumoVenta);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "digite solo valores numericosPor favor digite solo valores numericos", "Error", 0);
+        }
     }//GEN-LAST:event_btn_consultInsumoVentaActionPerformed
 
+    //Evento de click para para editar cantidad
     private void tbl_listaInsumoConsultVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoConsultVentasMouseClicked
-        // TODO add your handling code here:
+        SelecTable(tbl_listaInsumoConsultVentas, chbx_selecInsumoVenta, btn_agregarInsumoVenta, true);
+        txt_cantidadInsumoVenta.setText(String.valueOf(Insumco.getLista_Insumos().get(Integer.parseInt(IndexTable.toString())).getCantidad()));
+        EnabledTxt_Producto(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, cmbx_proveInsumoReg, true);
+        txt_nombreInsumoVenta.setEnabled(false);
+        txt_nombreInsumoVenta.setText(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 1).toString());
+
+        cmbx_unidadInsumoVenta.setSelectedItem(Insumco.getLista_Insumos().get(Integer.parseInt(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString())).getUnidad());
     }//GEN-LAST:event_tbl_listaInsumoConsultVentasMouseClicked
 
     private void txt_nombreInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreInsumoVentaActionPerformed
@@ -3876,20 +3886,61 @@ public class View1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_cantidadInsumoVentaKeyPressed
 
+    //Evento para sacar subtotal en Pre-Compra
     private void btn_agregarInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarInsumoVentaActionPerformed
-        // TODO add your handling code here:
+        try {
+            Insumco.UpdateCantidad(Integer.parseInt(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString()),
+                    Integer.parseInt(txt_cantidadInsumoVenta.getText()));
+            ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).addRow(new String[]{(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString()),
+                txt_nombreInsumoVenta.getText(), txt_cantidadInsumoVenta.getText(), (Integer.parseInt(txt_cantidadInsumoVenta.getText()) * Insumco.getLista_Insumos().get(Integer.parseInt(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString())).getPrecio()) + ""});
+            BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, chbx_selecInsumoVenta);
+            comprarInsumoVenta_btn.setEnabled(true);
+            cancelarInsumoVenta_btn.setEnabled(true);
+            TotalPreCompra(tbl_listaInsumoVenta, 3, txt_totalProdInsumoVenta, "Total de la venta:");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
+        }
+
     }//GEN-LAST:event_btn_agregarInsumoVentaActionPerformed
 
     private void retirarInsumoVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarInsumoVenta_btnActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (ConfirmDialog("¿Estas seguro que desea retirar este item?")) {
+                //tbl_listaInsumoVenta.remove(Integer.parseInt(IndexTable.toString()));
+                JOptionPane.showMessageDialog(null, "Se ha retirado el item correctamente", "Retirado", 1);
+                ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).removeRow(tbl_listaInsumoVenta.getSelectedRow());
+                retirarInsumoVenta_btn.setEnabled(false);
+
+                TotalPreCompra(tbl_listaInsumoVenta, 3, txt_totalProdInsumoVenta, "Total de la venta:");
+                BorrarInsumoPreCompra_txt(txt_nombreInsumoVenta, txt_cantidadInsumoVenta, chbx_selecInsumoVenta);
+
+            }
+            BorrarInsumo_txt(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar", "Error", 0);
+        }
     }//GEN-LAST:event_retirarInsumoVenta_btnActionPerformed
 
     private void comprarInsumoVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarInsumoVenta_btnActionPerformed
-        // TODO add your handling code here:
+        for (int i = 0; i < tbl_listaInsumoVenta.getRowCount(); i++) {
+            Insumco.UpdateCantidad(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString()), Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 2).toString()));
+        }
+
+        while (tbl_listaInsumoVenta.getRowCount() > 0) {
+            ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).removeRow(0);
+        }
     }//GEN-LAST:event_comprarInsumoVenta_btnActionPerformed
 
     private void cancelarInsumoVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarInsumoVenta_btnActionPerformed
-        // TODO add your handling code here:
+        //Bucle para borrar datos de la lista "tbl_listaInsumoVenta"
+        while (tbl_listaInsumoVenta.getRowCount() > 0) {
+            ((DefaultTableModel) tbl_listaInsumoVenta.getModel()).removeRow(0);
+        }
+        BorrarInsumo_txt(txt_nombreInsumosEdit, txt_precioInsumoEdit, cmbx_proveInsumoEdit, cmbx_unidadInsumoEdit);
+        btn_agregarInsumoVenta.setEnabled(false);
+        retirarInsumoVenta_btn.setEnabled(false);
+        cancelarInsumoVenta_btn.setEnabled(false);
     }//GEN-LAST:event_cancelarInsumoVenta_btnActionPerformed
 
     private void txt_pagoClientInsumoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pagoClientInsumoVentaKeyPressed
@@ -3901,7 +3952,9 @@ public class View1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_totalProdInsumoVentaActionPerformed
 
     private void btn_cancelarBusquedaInsumoVentamodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaInsumoVentamodificarPan
-        // TODO add your handling code here:
+        Listar((DefaultTableModel) tbl_listaInsumoConsultVentas.getModel(), Insumco.ReadAll());
+        btn_cancelarBusquedaInsumoVenta.setEnabled(false);
+        txt_nombreInsumoConsultVenta.setText(null);
     }//GEN-LAST:event_btn_cancelarBusquedaInsumoVentamodificarPan
 
     //Guardar Cantidades Producto
@@ -4301,6 +4354,7 @@ public class View1 extends javax.swing.JFrame {
 
     //Este Metodo Sirve para listar todo
     private void ListAll() {
+        Listar((DefaultTableModel) tbl_listaInsumoConsultVentas.getModel(), Insumco.ReadVenta());
         Listar((DefaultTableModel) tbl_listaInsumosReg.getModel(), Insumco.ReadAll());
         Listar((DefaultTableModel) tbl_listaInsumoEdit.getModel(), Insumco.ReadAll());
         Listar((DefaultTableModel) listaPanesReg_tbl.getModel(), Proco.ReadAll());
@@ -4354,6 +4408,12 @@ public class View1 extends javax.swing.JFrame {
         Precio.setText(null);
         proveedor.setSelectedIndex(0);
         unidad.setSelectedIndex(0);
+    }
+
+    private void BorrarInsumoPreCompra_txt(JTextField Nombre, JTextField Cantidad, JCheckBox chbx_selecionado) {
+        Nombre.setText(null);
+        Cantidad.setText(null);
+        chbx_selecionado.setSelected(false);
     }
 
     //envento del enter
@@ -4445,6 +4505,16 @@ public class View1 extends javax.swing.JFrame {
         Nit.setText(t);
         Producto.setText(t);
         Direccion.setText(t);
+    }
+
+    //Meotodo para sacar el total de la Pre-Compra
+    public void TotalPreCompra(JTable tabla, int NumColumna, JTextField JTextMensaje, String texto) {
+        double TotalVenta = 0;
+        for (int i = 0; i < tabla.getRowCount(); i++) {
+            TotalVenta += Double.parseDouble(tabla.getValueAt(i, NumColumna).toString());
+        }
+
+        JTextMensaje.setText(texto + " " + TotalVenta);
     }
 
     public static void main(String args[]) {
