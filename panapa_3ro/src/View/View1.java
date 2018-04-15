@@ -3210,6 +3210,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_EliminarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
         btn_EliminarCompra.setText("Eliminar Compra");
+        btn_EliminarCompra.setEnabled(false);
         btn_EliminarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_EliminarCompraActionPerformed(evt);
@@ -3319,7 +3320,7 @@ public class View1 extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGap(0, 1103, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Historial_ventas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -4634,11 +4635,22 @@ public class View1 extends javax.swing.JFrame {
     private void tbl_HistoCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_HistoCompraMouseClicked
         Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(),  
                 InsuFactCo.ReadSelect(Integer.parseInt(tbl_HistoCompra.getValueAt(tbl_HistoCompra.getSelectedRow(), 0).toString())));
-        btn_EliminarCompra.setEnabled(true);
+        SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_EliminarCompra, true);
     }//GEN-LAST:event_tbl_HistoCompraMouseClicked
 
+    //Eliminar Compra
     private void btn_EliminarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarCompraActionPerformed
-        // TODO add your handling code here:
+        try{
+            if(ConfirmDialog("¿Esta seguro de querer eliminar este item?")){
+                 InsuFactCo.Delete(Integer.parseInt(IndexTable.toString()));
+                 SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_EliminarCompra, false);
+                 Listar((DefaultTableModel) tbl_HistoCompra.getModel(),  InsuFactCo.ReadAll());
+                 Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(),  new ArrayList());
+                 JOptionPane.showMessageDialog(null, "El item ha sido eliminado satisfactoriamente", "Eliminado", 0);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Hubo un error, digite de nuevo", "Error", 0);
+        }
     }//GEN-LAST:event_btn_EliminarCompraActionPerformed
 
     private void btn_ConsultHistoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoCompraActionPerformed
