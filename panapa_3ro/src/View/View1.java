@@ -2,6 +2,7 @@ package View;
 
 import Controller.*;
 import Model.*;
+import datechooser.beans.DateChooserCombo;
 import java.awt.*;
 import static java.awt.Event.ENTER;
 import java.awt.event.KeyEvent;
@@ -13,6 +14,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.*;
 import javax.swing.*;
@@ -294,10 +296,10 @@ public class View1 extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         chbx_selecHistoVenta = new javax.swing.JCheckBox();
         btn_ConsultHistoVenta = new javax.swing.JButton();
-        Date_DesdeHistoVentas = new datechooser.beans.DateChooserCombo();
-        Date_HastaHistoVentas = new datechooser.beans.DateChooserCombo();
         jLabel44 = new javax.swing.JLabel();
         btn_cancelarBusquedaHistoVenta = new javax.swing.JButton();
+        Date_DesdeHistoVentas = new datechooser.beans.DateChooserCombo();
+        Date_HastaHistoVentas = new datechooser.beans.DateChooserCombo();
         jPanel4 = new javax.swing.JPanel();
         Historial_ventas1 = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
@@ -308,10 +310,10 @@ public class View1 extends javax.swing.JFrame {
         jLabel45 = new javax.swing.JLabel();
         chbx_selecHistoCompra = new javax.swing.JCheckBox();
         btn_ConsultHistoCompra = new javax.swing.JButton();
-        Date_DesdeHistoCompra = new datechooser.beans.DateChooserCombo();
         Date_HastaHistoCompra = new datechooser.beans.DateChooserCombo();
         jLabel46 = new javax.swing.JLabel();
         btn_cancelarBusquedaHistoCompra = new javax.swing.JButton();
+        Date_DesdeHistoCompra = new datechooser.beans.DateChooserCombo();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -3082,344 +3084,517 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout Historial_ventasLayout = new javax.swing.GroupLayout(Historial_ventas);
-        Historial_ventas.setLayout(Historial_ventasLayout);
-        Historial_ventasLayout.setHorizontalGroup(
-            Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Historial_ventasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Historial_ventasLayout.createSequentialGroup()
-                        .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btn_EliminarVenta))
-                            .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                        .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                                .addGap(44, 44, 44)
-                                                .addComponent(jLabel31))
-                                            .addComponent(Date_DesdeHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(29, 29, 29)
-                                        .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                                .addGap(44, 44, 44)
-                                                .addComponent(jLabel44))
-                                            .addComponent(Date_HastaHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(29, 29, 29)
-                                        .addComponent(btn_ConsultHistoVenta))
-                                    .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                        .addComponent(chbx_selecHistoVenta)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btn_cancelarBusquedaHistoVenta)))))
-                        .addGap(20, 20, 20)))
-                .addContainerGap())
-        );
-        Historial_ventasLayout.setVerticalGroup(
-            Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Historial_ventasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Date_DesdeHistoVentas.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
+            new datechooser.view.appearance.ViewAppearance("custom",
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
+                    new java.awt.Color(0, 0, 255),
+                    true,
+                    true,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 255),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(128, 128, 128),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.LabelPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
+                    new java.awt.Color(0, 0, 255),
+                    false,
+                    true,
+                    new datechooser.view.appearance.swing.LabelPainter()),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
+                    new java.awt.Color(255, 0, 0),
+                    false,
+                    false,
+                    new datechooser.view.appearance.swing.ButtonPainter()),
+                (datechooser.view.BackRenderer)null,
+                false,
+                true)));
+    Date_DesdeHistoVentas.setAutoScroll(false);
+
+    Date_HastaHistoVentas.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
+        new datechooser.view.appearance.ViewAppearance("custom",
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                true,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 255),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(128, 128, 128),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(255, 0, 0),
+                false,
+                false,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            (datechooser.view.BackRenderer)null,
+            false,
+            true)));
+Date_HastaHistoVentas.setAutoScroll(false);
+
+javax.swing.GroupLayout Historial_ventasLayout = new javax.swing.GroupLayout(Historial_ventas);
+Historial_ventas.setLayout(Historial_ventasLayout);
+Historial_ventasLayout.setHorizontalGroup(
+    Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    .addGroup(Historial_ventasLayout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Historial_ventasLayout.createSequentialGroup()
+                .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(Historial_ventasLayout.createSequentialGroup()
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_EliminarVenta))
                     .addGroup(Historial_ventasLayout.createSequentialGroup()
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                .addGap(13, 13, 13)
+                                .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Historial_ventasLayout.createSequentialGroup()
+                                        .addGap(44, 44, 44)
+                                        .addComponent(jLabel31))
+                                    .addComponent(Date_DesdeHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Historial_ventasLayout.createSequentialGroup()
+                                        .addGap(73, 73, 73)
+                                        .addComponent(jLabel44))
+                                    .addGroup(Historial_ventasLayout.createSequentialGroup()
+                                        .addGap(26, 26, 26)
+                                        .addComponent(Date_HastaHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(32, 32, 32)
                                 .addComponent(btn_ConsultHistoVenta))
-                            .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                    .addComponent(jLabel44)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Date_HastaHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(Historial_ventasLayout.createSequentialGroup()
-                                    .addComponent(jLabel31)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Date_DesdeHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(14, 14, 14)
-                        .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(chbx_selecHistoVenta)
-                            .addComponent(btn_cancelarBusquedaHistoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addComponent(btn_EliminarVenta)
-                        .addGap(56, 56, 56))))
-        );
-
-        Contenedor_Stast.addTab("Historial de Ventas", Historial_ventas);
-
-        tbl_HistoCompra.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Index", "Fecha", "N# de Insumos", "Total Pagado", "Dinero Entregado", "Dinero Devuelto"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbl_HistoCompra.getTableHeader().setReorderingAllowed(false);
-        tbl_HistoCompra.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_HistoCompraMouseClicked(evt);
-            }
-        });
-        jScrollPane17.setViewportView(tbl_HistoCompra);
-        if (tbl_HistoCompra.getColumnModel().getColumnCount() > 0) {
-            tbl_HistoCompra.getColumnModel().getColumn(0).setMinWidth(80);
-            tbl_HistoCompra.getColumnModel().getColumn(0).setPreferredWidth(80);
-            tbl_HistoCompra.getColumnModel().getColumn(0).setMaxWidth(80);
-            tbl_HistoCompra.getColumnModel().getColumn(1).setResizable(false);
-            tbl_HistoCompra.getColumnModel().getColumn(2).setResizable(false);
-            tbl_HistoCompra.getColumnModel().getColumn(3).setResizable(false);
-            tbl_HistoCompra.getColumnModel().getColumn(4).setResizable(false);
-            tbl_HistoCompra.getColumnModel().getColumn(5).setResizable(false);
-        }
-
-        tbl_HistoComprasFact.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Insumo", "Cantidad", "SubTotal"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbl_HistoComprasFact.getTableHeader().setReorderingAllowed(false);
-        jScrollPane20.setViewportView(tbl_HistoComprasFact);
-
-        btn_EliminarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
-        btn_EliminarCompra.setText("Eliminar Compra");
-        btn_EliminarCompra.setEnabled(false);
-        btn_EliminarCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_EliminarCompraActionPerformed(evt);
-            }
-        });
-
-        jLabel45.setText("Desde:");
-
-        chbx_selecHistoCompra.setText("Seleccionado");
-        chbx_selecHistoCompra.setEnabled(false);
-
-        btn_ConsultHistoCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
-        btn_ConsultHistoCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ConsultHistoCompraActionPerformed(evt);
-            }
-        });
-
-        jLabel46.setText("Hasta:");
-
-        btn_cancelarBusquedaHistoCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
-        btn_cancelarBusquedaHistoCompra.setText("Cancelar Búsqueda");
-        btn_cancelarBusquedaHistoCompra.setEnabled(false);
-        btn_cancelarBusquedaHistoCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelarBusquedaHistoCompramodificarPan(evt);
-            }
-        });
-        btn_cancelarBusquedaHistoCompra.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btn_cancelarBusquedaHistoCompraKeyPressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Historial_ventas1Layout = new javax.swing.GroupLayout(Historial_ventas1);
-        Historial_ventas1.setLayout(Historial_ventas1Layout);
-        Historial_ventas1Layout.setHorizontalGroup(
-            Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane17)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Historial_ventas1Layout.createSequentialGroup()
-                        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btn_EliminarCompra))
-                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+                            .addGroup(Historial_ventasLayout.createSequentialGroup()
+                                .addComponent(chbx_selecHistoVenta)
                                 .addGap(18, 18, 18)
-                                .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                                        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                                                .addGap(44, 44, 44)
-                                                .addComponent(jLabel45))
-                                            .addComponent(Date_DesdeHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(29, 29, 29)
-                                        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                                                .addGap(44, 44, 44)
-                                                .addComponent(jLabel46))
-                                            .addComponent(Date_HastaHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(29, 29, 29)
-                                        .addComponent(btn_ConsultHistoCompra))
-                                    .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                                        .addComponent(chbx_selecHistoCompra)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btn_cancelarBusquedaHistoCompra)))))
-                        .addGap(20, 20, 20)))
-                .addContainerGap())
-        );
-        Historial_ventas1Layout.setVerticalGroup(
-            Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btn_cancelarBusquedaHistoVenta)))))
+                .addGap(20, 20, 20)))
+        .addContainerGap())
+    );
+    Historial_ventasLayout.setVerticalGroup(
+        Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(Historial_ventasLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Historial_ventasLayout.createSequentialGroup()
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addContainerGap())
+                .addGroup(Historial_ventasLayout.createSequentialGroup()
+                    .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Historial_ventasLayout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(btn_ConsultHistoVenta))
+                        .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(Historial_ventasLayout.createSequentialGroup()
+                                .addComponent(jLabel44)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Date_HastaHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Historial_ventasLayout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Date_DesdeHistoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(14, 14, 14)
+                    .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(chbx_selecHistoVenta)
+                        .addComponent(btn_cancelarBusquedaHistoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                    .addComponent(btn_EliminarVenta)
+                    .addGap(56, 56, 56))))
+    );
+
+    Contenedor_Stast.addTab("Historial de Ventas", Historial_ventas);
+
+    tbl_HistoCompra.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
+
+        },
+        new String [] {
+            "Index", "Fecha", "N# de Insumos", "Total Pagado", "Dinero Entregado", "Dinero Devuelto"
+        }
+    ) {
+        boolean[] canEdit = new boolean [] {
+            false, false, false, false, false, false
+        };
+
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+            return canEdit [columnIndex];
+        }
+    });
+    tbl_HistoCompra.getTableHeader().setReorderingAllowed(false);
+    tbl_HistoCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            tbl_HistoCompraMouseClicked(evt);
+        }
+    });
+    jScrollPane17.setViewportView(tbl_HistoCompra);
+    if (tbl_HistoCompra.getColumnModel().getColumnCount() > 0) {
+        tbl_HistoCompra.getColumnModel().getColumn(0).setMinWidth(80);
+        tbl_HistoCompra.getColumnModel().getColumn(0).setPreferredWidth(80);
+        tbl_HistoCompra.getColumnModel().getColumn(0).setMaxWidth(80);
+        tbl_HistoCompra.getColumnModel().getColumn(1).setResizable(false);
+        tbl_HistoCompra.getColumnModel().getColumn(2).setResizable(false);
+        tbl_HistoCompra.getColumnModel().getColumn(3).setResizable(false);
+        tbl_HistoCompra.getColumnModel().getColumn(4).setResizable(false);
+        tbl_HistoCompra.getColumnModel().getColumn(5).setResizable(false);
+    }
+
+    tbl_HistoComprasFact.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
+
+        },
+        new String [] {
+            "Insumo", "Cantidad", "SubTotal"
+        }
+    ) {
+        boolean[] canEdit = new boolean [] {
+            false, false, false
+        };
+
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+            return canEdit [columnIndex];
+        }
+    });
+    tbl_HistoComprasFact.getTableHeader().setReorderingAllowed(false);
+    jScrollPane20.setViewportView(tbl_HistoComprasFact);
+
+    btn_EliminarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
+    btn_EliminarCompra.setText("Eliminar Compra");
+    btn_EliminarCompra.setEnabled(false);
+    btn_EliminarCompra.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btn_EliminarCompraActionPerformed(evt);
+        }
+    });
+
+    jLabel45.setText("Desde:");
+
+    chbx_selecHistoCompra.setText("Seleccionado");
+    chbx_selecHistoCompra.setEnabled(false);
+
+    btn_ConsultHistoCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+    btn_ConsultHistoCompra.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btn_ConsultHistoCompraActionPerformed(evt);
+        }
+    });
+
+    Date_HastaHistoCompra.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
+        new datechooser.view.appearance.ViewAppearance("custom",
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                true,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 255),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(128, 128, 128),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(255, 0, 0),
+                false,
+                false,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            (datechooser.view.BackRenderer)null,
+            false,
+            true)));
+Date_HastaHistoCompra.setAutoScroll(false);
+
+jLabel46.setText("Hasta:");
+
+btn_cancelarBusquedaHistoCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+btn_cancelarBusquedaHistoCompra.setText("Cancelar Búsqueda");
+btn_cancelarBusquedaHistoCompra.setEnabled(false);
+btn_cancelarBusquedaHistoCompra.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_cancelarBusquedaHistoCompramodificarPan(evt);
+    }
+    });
+    btn_cancelarBusquedaHistoCompra.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            btn_cancelarBusquedaHistoCompraKeyPressed(evt);
+        }
+    });
+
+    Date_DesdeHistoCompra.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
+        new datechooser.view.appearance.ViewAppearance("custom",
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                true,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 255),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(128, 128, 128),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(255, 0, 0),
+                false,
+                false,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            (datechooser.view.BackRenderer)null,
+            false,
+            true)));
+Date_DesdeHistoCompra.setAutoScroll(false);
+
+javax.swing.GroupLayout Historial_ventas1Layout = new javax.swing.GroupLayout(Historial_ventas1);
+Historial_ventas1.setLayout(Historial_ventas1Layout);
+Historial_ventas1Layout.setHorizontalGroup(
+    Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    .addGroup(Historial_ventas1Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane17)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Historial_ventas1Layout.createSequentialGroup()
+                .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_EliminarCompra))
                     .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(btn_ConsultHistoCompra))
-                            .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                                    .addComponent(jLabel46)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                        .addGap(44, 44, 44)
+                                        .addComponent(jLabel45))
+                                    .addComponent(Date_DesdeHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29)
+                                .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                        .addGap(44, 44, 44)
+                                        .addComponent(jLabel46))
                                     .addComponent(Date_HastaHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                                    .addComponent(jLabel45)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Date_DesdeHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(14, 14, 14)
-                        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(chbx_selecHistoCompra)
-                            .addComponent(btn_cancelarBusquedaHistoCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addComponent(btn_EliminarCompra)
-                        .addGap(56, 56, 56))))
-        );
+                                .addGap(29, 29, 29)
+                                .addComponent(btn_ConsultHistoCompra))
+                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                .addComponent(chbx_selecHistoCompra)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_cancelarBusquedaHistoCompra)))))
+                .addGap(20, 20, 20)))
+        .addContainerGap())
+    );
+    Historial_ventas1Layout.setVerticalGroup(
+        Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(Historial_ventas1Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                    .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addContainerGap())
+                .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                    .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(btn_ConsultHistoCompra))
+                        .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                .addComponent(jLabel46)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Date_HastaHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Historial_ventas1Layout.createSequentialGroup()
+                                .addComponent(jLabel45)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Date_DesdeHistoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(14, 14, 14)
+                    .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(chbx_selecHistoCompra)
+                        .addComponent(btn_cancelarBusquedaHistoCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                    .addComponent(btn_EliminarCompra)
+                    .addGap(56, 56, 56))))
+    );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1103, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Historial_ventas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Historial_ventas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+    javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+    jPanel4.setLayout(jPanel4Layout);
+    jPanel4Layout.setHorizontalGroup(
+        jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 1103, Short.MAX_VALUE)
+        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Historial_ventas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    jPanel4Layout.setVerticalGroup(
+        jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 564, Short.MAX_VALUE)
+        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Historial_ventas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
 
-        Contenedor_Stast.addTab("Historial de Compras", jPanel4);
+    Contenedor_Stast.addTab("Historial de Compras", jPanel4);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+    javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+    jPanel5.setLayout(jPanel5Layout);
+    jPanel5Layout.setHorizontalGroup(
+        jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 0, Short.MAX_VALUE)
+    );
+    jPanel5Layout.setVerticalGroup(
+        jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 0, Short.MAX_VALUE)
+    );
 
-        Contenedor_Stast.addTab("tab4", jPanel5);
+    Contenedor_Stast.addTab("tab4", jPanel5);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+    javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+    jPanel6.setLayout(jPanel6Layout);
+    jPanel6Layout.setHorizontalGroup(
+        jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 0, Short.MAX_VALUE)
+    );
+    jPanel6Layout.setVerticalGroup(
+        jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 0, Short.MAX_VALUE)
+    );
 
-        Contenedor_Stast.addTab("tab5", jPanel6);
+    Contenedor_Stast.addTab("tab5", jPanel6);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+    javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+    jPanel7.setLayout(jPanel7Layout);
+    jPanel7Layout.setHorizontalGroup(
+        jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 0, Short.MAX_VALUE)
+    );
+    jPanel7Layout.setVerticalGroup(
+        jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 0, Short.MAX_VALUE)
+    );
 
-        Contenedor_Stast.addTab("tab6", jPanel7);
+    Contenedor_Stast.addTab("tab6", jPanel7);
 
-        javax.swing.GroupLayout EstadisticasLayout = new javax.swing.GroupLayout(Estadisticas);
-        Estadisticas.setLayout(EstadisticasLayout);
-        EstadisticasLayout.setHorizontalGroup(
-            EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Contenedor_Stast)
-        );
-        EstadisticasLayout.setVerticalGroup(
-            EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Contenedor_Stast)
-        );
+    javax.swing.GroupLayout EstadisticasLayout = new javax.swing.GroupLayout(Estadisticas);
+    Estadisticas.setLayout(EstadisticasLayout);
+    EstadisticasLayout.setHorizontalGroup(
+        EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(Contenedor_Stast)
+    );
+    EstadisticasLayout.setVerticalGroup(
+        EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(Contenedor_Stast)
+    );
 
-        Panel_General.addTab("Estadisticas", Estadisticas);
+    Panel_General.addTab("Estadisticas", Estadisticas);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_General)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_General, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(Panel_General)
+    );
+    jPanel1Layout.setVerticalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(Panel_General, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
+    );
 
-        jMenu3.setText("Inicio");
+    jMenu3.setText("Inicio");
 
-        jMenuItem1.setText("Salir");
-        jMenu3.add(jMenuItem1);
+    jMenuItem1.setText("Salir");
+    jMenu3.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu3);
+    jMenuBar1.add(jMenu3);
 
-        mbar_nameUser.setText("user");
-        jMenuBar1.add(mbar_nameUser);
+    mbar_nameUser.setText("user");
+    jMenuBar1.add(mbar_nameUser);
 
-        setJMenuBar(jMenuBar1);
+    setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+    );
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+    );
 
-        pack();
+    pack();
     }// </editor-fold>//GEN-END:initComponents
 
     //metodo para los iconos de la pantalla
@@ -4198,7 +4373,7 @@ public class View1 extends javax.swing.JFrame {
                     Get.add(Insumco.Get_Insumo(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString())));
                     Get.get(i).setCantidad(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 2).toString()));
                 }
-                InsuFactCo.Create(new FacturaInsumo(UUID.randomUUID().toString(), new Date(),
+                InsuFactCo.Create(new FacturaInsumo(UUID.randomUUID().toString(), Calendar.getInstance(),
                         Total, Double.parseDouble(txt_pagoClientInsumoVenta.getText()), Get));
                 Listar((DefaultTableModel) tbl_listaInsumoVenta.getModel(), new ArrayList());
                 cancelarInsumoVenta_btn.doClick();
@@ -4633,28 +4808,29 @@ public class View1 extends javax.swing.JFrame {
 
     //Evento mouse
     private void tbl_HistoCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_HistoCompraMouseClicked
-        Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(),  
+        Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(),
                 InsuFactCo.ReadSelect(Integer.parseInt(tbl_HistoCompra.getValueAt(tbl_HistoCompra.getSelectedRow(), 0).toString())));
         SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_EliminarCompra, true);
     }//GEN-LAST:event_tbl_HistoCompraMouseClicked
 
     //Eliminar Compra
     private void btn_EliminarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarCompraActionPerformed
-        try{
-            if(ConfirmDialog("¿Esta seguro de querer eliminar este item?")){
-                 InsuFactCo.Delete(Integer.parseInt(IndexTable.toString()));
-                 SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_EliminarCompra, false);
-                 Listar((DefaultTableModel) tbl_HistoCompra.getModel(),  InsuFactCo.ReadAll());
-                 Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(),  new ArrayList());
-                 JOptionPane.showMessageDialog(null, "El item ha sido eliminado satisfactoriamente", "Eliminado", 0);
+        try {
+            if (ConfirmDialog("¿Esta seguro de querer eliminar este item?")) {
+                InsuFactCo.Delete(Integer.parseInt(IndexTable.toString()));
+                SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_EliminarCompra, false);
+                Listar((DefaultTableModel) tbl_HistoCompra.getModel(), InsuFactCo.ReadAll());
+                Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(), new ArrayList());
+                JOptionPane.showMessageDialog(null, "El item ha sido eliminado satisfactoriamente", "Eliminado", 0);
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error, digite de nuevo", "Error", 0);
         }
     }//GEN-LAST:event_btn_EliminarCompraActionPerformed
 
+    //Buscar Historial de compras
     private void btn_ConsultHistoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoCompraActionPerformed
-        // TODO add your handling code here:
+        BuscarDate(tbl_HistoVenta, InsuFactCo.Read(Date_DesdeHistoCompra.getSelectedDate(), Date_HastaHistoCompra.getSelectedDate()), cancelarVenta_btn);
     }//GEN-LAST:event_btn_ConsultHistoCompraActionPerformed
 
     private void btn_cancelarBusquedaHistoCompramodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoCompramodificarPan
@@ -4795,6 +4971,16 @@ public class View1 extends javax.swing.JFrame {
         if (Filter.isEmpty() || Filter == null) {
             JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
         } else if (Array.size() <= 0 || Array == null) {
+            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "No se han encontrado", 1);
+        } else {
+            Listar((DefaultTableModel) Tabla.getModel(), Array);
+            Cancelar.setEnabled(true);
+        }
+    }
+
+    //Metodo para buscar con fechas
+    private void BuscarDate(JTable Tabla, ArrayList Array, JButton Cancelar) {
+        if (Array.size() <= 0 || Array == null) {
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "No se han encontrado", 1);
         } else {
             Listar((DefaultTableModel) Tabla.getModel(), Array);

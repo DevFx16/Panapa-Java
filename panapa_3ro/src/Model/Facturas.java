@@ -2,16 +2,16 @@
 package Model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 
 public class Facturas implements Serializable{
     
     protected String Id;
-    protected Date Fecha;
+    protected Calendar Fecha;
     protected double Total;
     protected double Pago;
 
-    public Facturas(String Id, Date Fecha, double Total, double Pago) {
+    public Facturas(String Id, Calendar Fecha, double Total, double Pago) {
         this.Id = Id;
         this.Fecha = Fecha;
         this.Total = Total;
@@ -22,7 +22,7 @@ public class Facturas implements Serializable{
         return Id;
     }
 
-    public Date getFecha() {
+    public Calendar getFecha() {
         return Fecha;
     }
 

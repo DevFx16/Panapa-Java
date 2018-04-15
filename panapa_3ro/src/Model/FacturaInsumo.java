@@ -3,13 +3,13 @@ package Model;
 import Model.Facturas;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 public class FacturaInsumo extends Facturas implements Serializable{
 
     private ArrayList<Insumo> Insumo_Compra = new ArrayList<>();
 
-    public FacturaInsumo(String Id, Date Fecha, double Total, double Pago,
+    public FacturaInsumo(String Id, Calendar Fecha, double Total, double Pago,
             ArrayList<Insumo> Insumo_Compra) {
         super(Id, Fecha, Total, Pago);
         this.Insumo_Compra = (ArrayList<Insumo>) Insumo_Compra.clone();
