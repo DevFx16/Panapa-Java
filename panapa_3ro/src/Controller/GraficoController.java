@@ -16,11 +16,11 @@ public class GraficoController {
 
     public ArrayList<Grafica> Read(Date Fecha) {
         ArrayList<Grafica> Get = new ArrayList<>();
-        for (Grafica Pro : getLista_Graficas()) {
-            if (Pro.getFecha().getDay() == Fecha.getDate()) {
-                Get.add(Pro);
-            }
-        }
+//        for (Grafica Pro : getLista_Graficas()) {
+//            if (Pro.getFecha().getDay() == Fecha.getDate()) {
+//                Get.add(Pro);
+//            }
+//        }
         return Get;
     }
 

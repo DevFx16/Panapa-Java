@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.FacturaInsumo;
+import Model.Insumo;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -58,6 +59,22 @@ public class InsumoFacturaController {
     public void Delete(int Index) {
         Lista_Factura.remove(Index);
         userco.salvar_datos();
+    }
+
+    public void MayoresVendidos () {
+
+    }
+
+    public void MenoresVendidos() {
+
+    }
+
+    public void MayoresGanancias() {
+
+    }
+
+    public void MenoresGanancias() {
+
     }
 
     public ArrayList<FacturaInsumo> getLista_Factura() {

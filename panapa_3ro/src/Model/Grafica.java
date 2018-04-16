@@ -1,7 +1,7 @@
 package Model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -11,9 +11,9 @@ public class Grafica implements Serializable{
     private DefaultCategoryDataset Datos;
     private JFreeChart Grafico;
     private ChartPanel Panel;
-    private Date Fecha;
+    private Calendar Fecha;
 
-    public Grafica(DefaultCategoryDataset Datos, JFreeChart Grafico, Date Fecha) {
+    public Grafica(DefaultCategoryDataset Datos, JFreeChart Grafico, Calendar Fecha) {
         this.Datos = Datos;
         this.Grafico = Grafico;
         this.Fecha = Fecha;
@@ -32,7 +32,7 @@ public class Grafica implements Serializable{
         return Panel;
     }
 
-    public Date getFecha() {
+    public Calendar getFecha() {
         return Fecha;
     }
     

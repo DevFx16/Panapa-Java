@@ -315,8 +315,22 @@ public class View1 extends javax.swing.JFrame {
         btn_cancelarBusquedaHistoCompra = new javax.swing.JButton();
         Date_DesdeHistoCompra = new datechooser.beans.DateChooserCombo();
         jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        pn_MasVendidoIProducto = new javax.swing.JPanel();
+        pn_MasGananciaProducto = new javax.swing.JPanel();
+        pn_MenosVendidoProducto = new javax.swing.JPanel();
+        pn_MenosGananciaProducto = new javax.swing.JPanel();
+        Date_ConsultProducto = new datechooser.beans.DateChooserCombo();
+        btn_ConsultProducto = new javax.swing.JButton();
+        btn_cancelarBusquedaProducto = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        pn_MasVendidosInsumo = new javax.swing.JPanel();
+        pn_MasGananciaInsumo = new javax.swing.JPanel();
+        pn_MenosVendidoInsumo = new javax.swing.JPanel();
+        pn_MenosGananciaInsumo = new javax.swing.JPanel();
+        Date_ConsultInsumo = new datechooser.beans.DateChooserCombo();
+        btn_ConsultInsumo = new javax.swing.JButton();
+        btn_cancelarBusquedaInsumo = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -417,7 +431,7 @@ public class View1 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(Registrar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Registrar_ProductoLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(Registrar_ProductoLayout.createSequentialGroup()
                         .addGroup(Registrar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -431,7 +445,7 @@ public class View1 extends javax.swing.JFrame {
                         .addGroup(Registrar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(provePanReg_cmbx, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 343, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
                         .addComponent(registrarPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))))
         );
@@ -716,7 +730,7 @@ public class View1 extends javax.swing.JFrame {
                         .addComponent(consultPan_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Consultar_ProductoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         Consultar_ProductoLayout.setVerticalGroup(
@@ -842,7 +856,7 @@ public class View1 extends javax.swing.JFrame {
                 .addGroup(Eliminar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(Eliminar_ProductoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE))
                     .addGroup(Eliminar_ProductoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(Eliminar_ProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1087,7 +1101,7 @@ public class View1 extends javax.swing.JFrame {
                     .addGroup(CantidadesLayout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(68, Short.MAX_VALUE))))
+                        .addContainerGap(77, Short.MAX_VALUE))))
         );
         CantidadesLayout.setVerticalGroup(
             CantidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1257,7 +1271,7 @@ public class View1 extends javax.swing.JFrame {
                                 .addComponent(telefonoProvReg_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(nitProvReg_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 426, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 435, Short.MAX_VALUE)
                         .addComponent(registrarProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42))))
         );
@@ -1523,10 +1537,10 @@ public class View1 extends javax.swing.JFrame {
                                 .addComponent(cancelarEditProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cancelarBusqPov_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(30, Short.MAX_VALUE))
+                        .addContainerGap(39, Short.MAX_VALUE))
                     .addGroup(Modificar_ProveedoresLayout.createSequentialGroup()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1059, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(32, Short.MAX_VALUE))))
+                        .addContainerGap(41, Short.MAX_VALUE))))
         );
         Modificar_ProveedoresLayout.setVerticalGroup(
             Modificar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1672,7 +1686,7 @@ public class View1 extends javax.swing.JFrame {
                         .addComponent(consultProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Consultar_ProveedoresLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         Consultar_ProveedoresLayout.setVerticalGroup(
@@ -1812,7 +1826,7 @@ public class View1 extends javax.swing.JFrame {
                         .addComponent(cancelarElimProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(EliminarProv_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE))
                 .addContainerGap())
         );
         Eliminar_ProveedoresLayout.setVerticalGroup(
@@ -1999,11 +2013,11 @@ public class View1 extends javax.swing.JFrame {
         Registrar.setLayout(RegistrarLayout);
         RegistrarLayout.setHorizontalGroup(
             RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1103, Short.MAX_VALUE)
+            .addGap(0, 1112, Short.MAX_VALUE)
             .addGroup(RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RegistrarLayout.createSequentialGroup()
                     .addComponent(Registrar_Insumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 33, Short.MAX_VALUE)))
+                    .addGap(0, 42, Short.MAX_VALUE)))
         );
         RegistrarLayout.setVerticalGroup(
             RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2235,7 +2249,7 @@ public class View1 extends javax.swing.JFrame {
                         .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_consultInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(Modificar_InsumoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane14)
@@ -2582,7 +2596,7 @@ public class View1 extends javax.swing.JFrame {
                                     .addComponent(txt_pagoClientInsumoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(txt_totalProdInsumoVenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         Pre_Compra_InsumoLayout.setVerticalGroup(
             Pre_Compra_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2929,7 +2943,7 @@ public class View1 extends javax.swing.JFrame {
                                         .addComponent(jLabel30)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(pagoClientVenta_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(65, Short.MAX_VALUE))
+                        .addContainerGap(74, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentasLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3177,14 +3191,14 @@ Historial_ventasLayout.setHorizontalGroup(
     .addGroup(Historial_ventasLayout.createSequentialGroup()
         .addContainerGap()
         .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
+            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Historial_ventasLayout.createSequentialGroup()
                 .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(Historial_ventasLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_EliminarVenta))
                     .addGroup(Historial_ventasLayout.createSequentialGroup()
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Historial_ventasLayout.createSequentialGroup()
@@ -3237,7 +3251,7 @@ Historial_ventasLayout.setHorizontalGroup(
                     .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(chbx_selecHistoVenta)
                         .addComponent(btn_cancelarBusquedaHistoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                     .addComponent(btn_EliminarVenta)
                     .addGap(56, 56, 56))))
     );
@@ -3264,6 +3278,11 @@ Historial_ventasLayout.setHorizontalGroup(
     tbl_HistoCompra.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             tbl_HistoCompraMouseClicked(evt);
+        }
+    });
+    tbl_HistoCompra.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            tbl_HistoCompraKeyPressed(evt);
         }
     });
     jScrollPane17.setViewportView(tbl_HistoCompra);
@@ -3305,6 +3324,11 @@ Historial_ventasLayout.setHorizontalGroup(
             btn_EliminarCompraActionPerformed(evt);
         }
     });
+    btn_EliminarCompra.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            btn_EliminarCompraKeyPressed(evt);
+        }
+    });
 
     jLabel45.setText("Desde:");
 
@@ -3315,6 +3339,11 @@ Historial_ventasLayout.setHorizontalGroup(
     btn_ConsultHistoCompra.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btn_ConsultHistoCompraActionPerformed(evt);
+        }
+    });
+    btn_ConsultHistoCompra.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            btn_ConsultHistoCompraKeyPressed(evt);
         }
     });
 
@@ -3434,7 +3463,7 @@ Historial_ventas1Layout.setHorizontalGroup(
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_EliminarCompra))
                     .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+                        .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Historial_ventas1Layout.createSequentialGroup()
@@ -3486,7 +3515,7 @@ Historial_ventas1Layout.setHorizontalGroup(
                     .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(chbx_selecHistoCompra)
                         .addComponent(btn_cancelarBusquedaHistoCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                     .addComponent(btn_EliminarCompra)
                     .addGap(56, 56, 56))))
     );
@@ -3495,67 +3524,389 @@ Historial_ventas1Layout.setHorizontalGroup(
     jPanel4.setLayout(jPanel4Layout);
     jPanel4Layout.setHorizontalGroup(
         jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 1103, Short.MAX_VALUE)
+        .addGap(0, 1112, Short.MAX_VALUE)
         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Historial_ventas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel4Layout.setVerticalGroup(
         jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 564, Short.MAX_VALUE)
+        .addGap(0, 568, Short.MAX_VALUE)
         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Historial_ventas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     Contenedor_Stast.addTab("Historial de Compras", jPanel4);
 
+    pn_MasVendidoIProducto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    pn_MasVendidoIProducto.setMaximumSize(new java.awt.Dimension(460, 265));
+    pn_MasVendidoIProducto.setMinimumSize(new java.awt.Dimension(460, 265));
+
+    javax.swing.GroupLayout pn_MasVendidoIProductoLayout = new javax.swing.GroupLayout(pn_MasVendidoIProducto);
+    pn_MasVendidoIProducto.setLayout(pn_MasVendidoIProductoLayout);
+    pn_MasVendidoIProductoLayout.setHorizontalGroup(
+        pn_MasVendidoIProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 456, Short.MAX_VALUE)
+    );
+    pn_MasVendidoIProductoLayout.setVerticalGroup(
+        pn_MasVendidoIProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 261, Short.MAX_VALUE)
+    );
+
+    pn_MasGananciaProducto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    pn_MasGananciaProducto.setMaximumSize(new java.awt.Dimension(460, 265));
+    pn_MasGananciaProducto.setMinimumSize(new java.awt.Dimension(460, 265));
+
+    javax.swing.GroupLayout pn_MasGananciaProductoLayout = new javax.swing.GroupLayout(pn_MasGananciaProducto);
+    pn_MasGananciaProducto.setLayout(pn_MasGananciaProductoLayout);
+    pn_MasGananciaProductoLayout.setHorizontalGroup(
+        pn_MasGananciaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 456, Short.MAX_VALUE)
+    );
+    pn_MasGananciaProductoLayout.setVerticalGroup(
+        pn_MasGananciaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 261, Short.MAX_VALUE)
+    );
+
+    pn_MenosVendidoProducto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    pn_MenosVendidoProducto.setMaximumSize(new java.awt.Dimension(460, 265));
+    pn_MenosVendidoProducto.setMinimumSize(new java.awt.Dimension(460, 265));
+
+    javax.swing.GroupLayout pn_MenosVendidoProductoLayout = new javax.swing.GroupLayout(pn_MenosVendidoProducto);
+    pn_MenosVendidoProducto.setLayout(pn_MenosVendidoProductoLayout);
+    pn_MenosVendidoProductoLayout.setHorizontalGroup(
+        pn_MenosVendidoProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 456, Short.MAX_VALUE)
+    );
+    pn_MenosVendidoProductoLayout.setVerticalGroup(
+        pn_MenosVendidoProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 261, Short.MAX_VALUE)
+    );
+
+    pn_MenosGananciaProducto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    pn_MenosGananciaProducto.setMaximumSize(new java.awt.Dimension(460, 265));
+    pn_MenosGananciaProducto.setMinimumSize(new java.awt.Dimension(460, 265));
+
+    javax.swing.GroupLayout pn_MenosGananciaProductoLayout = new javax.swing.GroupLayout(pn_MenosGananciaProducto);
+    pn_MenosGananciaProducto.setLayout(pn_MenosGananciaProductoLayout);
+    pn_MenosGananciaProductoLayout.setHorizontalGroup(
+        pn_MenosGananciaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 456, Short.MAX_VALUE)
+    );
+    pn_MenosGananciaProductoLayout.setVerticalGroup(
+        pn_MenosGananciaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 261, Short.MAX_VALUE)
+    );
+
+    Date_ConsultProducto.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
+        new datechooser.view.appearance.ViewAppearance("custom",
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                true,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 255),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(128, 128, 128),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(255, 0, 0),
+                false,
+                false,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            (datechooser.view.BackRenderer)null,
+            false,
+            true)));
+Date_ConsultProducto.setAutoScroll(false);
+
+btn_ConsultProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+btn_ConsultProducto.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_ConsultProductoActionPerformed(evt);
+    }
+    });
+
+    btn_cancelarBusquedaProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+    btn_cancelarBusquedaProducto.setText("Cancelar ");
+    btn_cancelarBusquedaProducto.setEnabled(false);
+    btn_cancelarBusquedaProducto.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btn_cancelarBusquedaProductomodificarPan(evt);
+        }
+    });
+    btn_cancelarBusquedaProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            btn_cancelarBusquedaProductoKeyPressed(evt);
+        }
+    });
+
+    javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+    jPanel8.setLayout(jPanel8Layout);
+    jPanel8Layout.setHorizontalGroup(
+        jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel8Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pn_MasVendidoIProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pn_MenosVendidoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(30, 30, 30)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(btn_cancelarBusquedaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_ConsultProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Date_ConsultProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+            .addGap(30, 30, 30)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pn_MasGananciaProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pn_MenosGananciaProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap())
+    );
+    jPanel8Layout.setVerticalGroup(
+        jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pn_MasVendidoIProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pn_MasGananciaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pn_MenosVendidoProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pn_MenosGananciaProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addGap(230, 230, 230)
+                    .addComponent(Date_ConsultProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(btn_ConsultProducto)
+                    .addGap(18, 18, 18)
+                    .addComponent(btn_cancelarBusquedaProducto)))
+            .addGap(16, 16, 16))
+    );
+
     javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
     jPanel5.setLayout(jPanel5Layout);
     jPanel5Layout.setHorizontalGroup(
         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGap(0, 0, Short.MAX_VALUE)
+        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)))
     );
     jPanel5Layout.setVerticalGroup(
         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGap(0, 0, Short.MAX_VALUE)
+        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)))
     );
 
-    Contenedor_Stast.addTab("tab4", jPanel5);
+    Contenedor_Stast.addTab("Graficas de Productos", jPanel5);
 
-    javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-    jPanel6.setLayout(jPanel6Layout);
-    jPanel6Layout.setHorizontalGroup(
-        jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 0, Short.MAX_VALUE)
-    );
-    jPanel6Layout.setVerticalGroup(
-        jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 0, Short.MAX_VALUE)
-    );
+    pn_MasVendidosInsumo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    pn_MasVendidosInsumo.setMaximumSize(new java.awt.Dimension(460, 265));
+    pn_MasVendidosInsumo.setMinimumSize(new java.awt.Dimension(460, 265));
 
-    Contenedor_Stast.addTab("tab5", jPanel6);
-
-    javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-    jPanel7.setLayout(jPanel7Layout);
-    jPanel7Layout.setHorizontalGroup(
-        jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 0, Short.MAX_VALUE)
+    javax.swing.GroupLayout pn_MasVendidosInsumoLayout = new javax.swing.GroupLayout(pn_MasVendidosInsumo);
+    pn_MasVendidosInsumo.setLayout(pn_MasVendidosInsumoLayout);
+    pn_MasVendidosInsumoLayout.setHorizontalGroup(
+        pn_MasVendidosInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 456, Short.MAX_VALUE)
     );
-    jPanel7Layout.setVerticalGroup(
-        jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 0, Short.MAX_VALUE)
+    pn_MasVendidosInsumoLayout.setVerticalGroup(
+        pn_MasVendidosInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 261, Short.MAX_VALUE)
     );
 
-    Contenedor_Stast.addTab("tab6", jPanel7);
+    pn_MasGananciaInsumo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    pn_MasGananciaInsumo.setMaximumSize(new java.awt.Dimension(460, 265));
+    pn_MasGananciaInsumo.setMinimumSize(new java.awt.Dimension(460, 265));
+
+    javax.swing.GroupLayout pn_MasGananciaInsumoLayout = new javax.swing.GroupLayout(pn_MasGananciaInsumo);
+    pn_MasGananciaInsumo.setLayout(pn_MasGananciaInsumoLayout);
+    pn_MasGananciaInsumoLayout.setHorizontalGroup(
+        pn_MasGananciaInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 456, Short.MAX_VALUE)
+    );
+    pn_MasGananciaInsumoLayout.setVerticalGroup(
+        pn_MasGananciaInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 261, Short.MAX_VALUE)
+    );
+
+    pn_MenosVendidoInsumo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    pn_MenosVendidoInsumo.setMaximumSize(new java.awt.Dimension(460, 265));
+    pn_MenosVendidoInsumo.setMinimumSize(new java.awt.Dimension(460, 265));
+
+    javax.swing.GroupLayout pn_MenosVendidoInsumoLayout = new javax.swing.GroupLayout(pn_MenosVendidoInsumo);
+    pn_MenosVendidoInsumo.setLayout(pn_MenosVendidoInsumoLayout);
+    pn_MenosVendidoInsumoLayout.setHorizontalGroup(
+        pn_MenosVendidoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 456, Short.MAX_VALUE)
+    );
+    pn_MenosVendidoInsumoLayout.setVerticalGroup(
+        pn_MenosVendidoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 261, Short.MAX_VALUE)
+    );
+
+    pn_MenosGananciaInsumo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    pn_MenosGananciaInsumo.setMaximumSize(new java.awt.Dimension(460, 265));
+    pn_MenosGananciaInsumo.setMinimumSize(new java.awt.Dimension(460, 265));
+
+    javax.swing.GroupLayout pn_MenosGananciaInsumoLayout = new javax.swing.GroupLayout(pn_MenosGananciaInsumo);
+    pn_MenosGananciaInsumo.setLayout(pn_MenosGananciaInsumoLayout);
+    pn_MenosGananciaInsumoLayout.setHorizontalGroup(
+        pn_MenosGananciaInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 456, Short.MAX_VALUE)
+    );
+    pn_MenosGananciaInsumoLayout.setVerticalGroup(
+        pn_MenosGananciaInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 261, Short.MAX_VALUE)
+    );
+
+    Date_ConsultInsumo.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
+        new datechooser.view.appearance.ViewAppearance("custom",
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                true,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 255),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(128, 128, 128),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
+                new java.awt.Color(255, 0, 0),
+                false,
+                false,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            (datechooser.view.BackRenderer)null,
+            false,
+            true)));
+Date_ConsultInsumo.setAutoScroll(false);
+
+btn_ConsultInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_ConsultInsumoActionPerformed(evt);
+    }
+    });
+
+    btn_cancelarBusquedaInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
+    btn_cancelarBusquedaInsumo.setText("Cancelar ");
+    btn_cancelarBusquedaInsumo.setEnabled(false);
+    btn_cancelarBusquedaInsumo.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btn_cancelarBusquedaInsumomodificarPan(evt);
+        }
+    });
+    btn_cancelarBusquedaInsumo.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            btn_cancelarBusquedaInsumoKeyPressed(evt);
+        }
+    });
+
+    javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+    jPanel9.setLayout(jPanel9Layout);
+    jPanel9Layout.setHorizontalGroup(
+        jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel9Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pn_MasVendidosInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pn_MenosVendidoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(30, 30, 30)
+            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addComponent(btn_ConsultInsumo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Date_ConsultInsumo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(btn_cancelarBusquedaInsumo))
+            .addGap(30, 30, 30)
+            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pn_MasGananciaInsumo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pn_MenosGananciaInsumo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap())
+    );
+    jPanel9Layout.setVerticalGroup(
+        jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel9Layout.createSequentialGroup()
+            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel9Layout.createSequentialGroup()
+                    .addContainerGap(16, Short.MAX_VALUE)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel9Layout.createSequentialGroup()
+                            .addComponent(pn_MasVendidosInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(pn_MenosVendidoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel9Layout.createSequentialGroup()
+                            .addComponent(pn_MasGananciaInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(pn_MenosGananciaInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel9Layout.createSequentialGroup()
+                    .addGap(230, 230, 230)
+                    .addComponent(Date_ConsultInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(btn_ConsultInsumo)
+                    .addGap(18, 18, 18)
+                    .addComponent(btn_cancelarBusquedaInsumo)))
+            .addContainerGap(16, Short.MAX_VALUE))
+    );
+
+    Contenedor_Stast.addTab("Graficas de Insumos", jPanel9);
 
     javax.swing.GroupLayout EstadisticasLayout = new javax.swing.GroupLayout(Estadisticas);
     Estadisticas.setLayout(EstadisticasLayout);
     EstadisticasLayout.setHorizontalGroup(
         EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(Contenedor_Stast)
+        .addComponent(Contenedor_Stast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
     );
     EstadisticasLayout.setVerticalGroup(
         EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(Contenedor_Stast)
+        .addComponent(Contenedor_Stast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
     );
 
     Panel_General.addTab("Estadisticas", Estadisticas);
@@ -3966,18 +4317,6 @@ Historial_ventas1Layout.setHorizontalGroup(
     private void nombrePanConsultVenta_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrePanConsultVenta_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombrePanConsultVenta_txtActionPerformed
-
-    private void btn_ConsultHistoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoVentaActionPerformed
-
-    }//GEN-LAST:event_btn_ConsultHistoVentaActionPerformed
-
-    private void btn_EliminarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarVentaActionPerformed
-
-    }//GEN-LAST:event_btn_EliminarVentaActionPerformed
-
-    private void tbl_HistoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_HistoVentaMouseClicked
-
-    }//GEN-LAST:event_tbl_HistoVentaMouseClicked
 
     //Evento del enter en buscar producto modificar
     private void nombrePanConsultEdit_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePanConsultEdit_txtKeyPressed
@@ -4798,20 +5137,31 @@ Historial_ventas1Layout.setHorizontalGroup(
         EventoEnter(evt, cancelarInsumoVenta_btn);
     }//GEN-LAST:event_cancelarInsumoVenta_btnKeyPressed
 
-    private void btn_cancelarBusquedaHistoVentamodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoVentamodificarPan
+    private void btn_cancelarBusquedaProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaProductoKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelarBusquedaHistoVentamodificarPan
+    }//GEN-LAST:event_btn_cancelarBusquedaProductoKeyPressed
 
-    private void btn_cancelarBusquedaHistoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoVentaKeyPressed
+    private void btn_cancelarBusquedaProductomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaProductomodificarPan
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelarBusquedaHistoVentaKeyPressed
+    }//GEN-LAST:event_btn_cancelarBusquedaProductomodificarPan
 
-    //Evento mouse
-    private void tbl_HistoCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_HistoCompraMouseClicked
-        Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(),
-                InsuFactCo.ReadSelect(Integer.parseInt(tbl_HistoCompra.getValueAt(tbl_HistoCompra.getSelectedRow(), 0).toString())));
-        SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_EliminarCompra, true);
-    }//GEN-LAST:event_tbl_HistoCompraMouseClicked
+    private void btn_ConsultProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ConsultProductoActionPerformed
+
+    //Evento enter
+    private void btn_cancelarBusquedaHistoCompraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoCompraKeyPressed
+        EventoEnter(evt, btn_cancelarBusquedaHistoCompra);
+    }//GEN-LAST:event_btn_cancelarBusquedaHistoCompraKeyPressed
+
+    private void btn_cancelarBusquedaHistoCompramodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoCompramodificarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarBusquedaHistoCompramodificarPan
+
+    //Buscar Historial de compras
+    private void btn_ConsultHistoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoCompraActionPerformed
+        BuscarDate(tbl_HistoVenta, InsuFactCo.Read(Date_DesdeHistoCompra.getSelectedDate(), Date_HastaHistoCompra.getSelectedDate()), cancelarVenta_btn);
+    }//GEN-LAST:event_btn_ConsultHistoCompraActionPerformed
 
     //Eliminar Compra
     private void btn_EliminarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarCompraActionPerformed
@@ -4828,18 +5178,61 @@ Historial_ventas1Layout.setHorizontalGroup(
         }
     }//GEN-LAST:event_btn_EliminarCompraActionPerformed
 
-    //Buscar Historial de compras
-    private void btn_ConsultHistoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoCompraActionPerformed
-        BuscarDate(tbl_HistoVenta, InsuFactCo.Read(Date_DesdeHistoCompra.getSelectedDate(), Date_HastaHistoCompra.getSelectedDate()), cancelarVenta_btn);
-    }//GEN-LAST:event_btn_ConsultHistoCompraActionPerformed
+    //Evento mouse
+    private void tbl_HistoCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_HistoCompraMouseClicked
+        Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(),
+                InsuFactCo.ReadSelect(Integer.parseInt(tbl_HistoCompra.getValueAt(tbl_HistoCompra.getSelectedRow(), 0).toString())));
+        SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_EliminarCompra, true);
+    }//GEN-LAST:event_tbl_HistoCompraMouseClicked
 
-    private void btn_cancelarBusquedaHistoCompramodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoCompramodificarPan
+    private void btn_cancelarBusquedaHistoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoVentaKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelarBusquedaHistoCompramodificarPan
+    }//GEN-LAST:event_btn_cancelarBusquedaHistoVentaKeyPressed
 
-    private void btn_cancelarBusquedaHistoCompraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoCompraKeyPressed
+    private void btn_cancelarBusquedaHistoVentamodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoVentamodificarPan
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelarBusquedaHistoCompraKeyPressed
+    }//GEN-LAST:event_btn_cancelarBusquedaHistoVentamodificarPan
+
+    private void btn_ConsultHistoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoVentaActionPerformed
+
+    }//GEN-LAST:event_btn_ConsultHistoVentaActionPerformed
+
+    private void btn_EliminarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarVentaActionPerformed
+
+    }//GEN-LAST:event_btn_EliminarVentaActionPerformed
+
+    private void tbl_HistoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_HistoVentaMouseClicked
+
+    }//GEN-LAST:event_tbl_HistoVentaMouseClicked
+
+    private void btn_ConsultInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultInsumoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ConsultInsumoActionPerformed
+
+    private void btn_cancelarBusquedaInsumomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaInsumomodificarPan
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarBusquedaInsumomodificarPan
+
+    private void btn_cancelarBusquedaInsumoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaInsumoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelarBusquedaInsumoKeyPressed
+
+    //Evento enter
+    private void tbl_HistoCompraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_HistoCompraKeyPressed
+        if (evt.getKeyChar() == ENTER) {
+            tbl_HistoCompraMouseClicked(null);
+        }
+    }//GEN-LAST:event_tbl_HistoCompraKeyPressed
+
+    //Evento enter
+    private void btn_EliminarCompraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_EliminarCompraKeyPressed
+        EventoEnter(evt, btn_EliminarCompra);
+    }//GEN-LAST:event_btn_EliminarCompraKeyPressed
+
+    //Evento enter
+    private void btn_ConsultHistoCompraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_ConsultHistoCompraKeyPressed
+        EventoEnter(evt, btn_ConsultHistoCompra);
+    }//GEN-LAST:event_btn_ConsultHistoCompraKeyPressed
 
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
@@ -5068,6 +5461,11 @@ Historial_ventas1Layout.setHorizontalGroup(
         return TotalVenta;
     }
 
+    //Metodo para graficar
+    private void Graficar(String Titulo, String Horizontal, String Vertical) {
+
+    }
+
     public static void main(String args[]) {
 
         JOptionPane.showMessageDialog(null, "Debes iniciar desde el login");
@@ -5103,6 +5501,8 @@ Historial_ventas1Layout.setHorizontalGroup(
     private javax.swing.JPanel Consultar_Producto;
     private javax.swing.JPanel Consultar_Proveedores;
     private javax.swing.JTabbedPane Contenedor_Stast;
+    private datechooser.beans.DateChooserCombo Date_ConsultInsumo;
+    private datechooser.beans.DateChooserCombo Date_ConsultProducto;
     private datechooser.beans.DateChooserCombo Date_DesdeHistoCompra;
     private datechooser.beans.DateChooserCombo Date_DesdeHistoVentas;
     private datechooser.beans.DateChooserCombo Date_HastaHistoCompra;
@@ -5134,6 +5534,8 @@ Historial_ventas1Layout.setHorizontalGroup(
     private javax.swing.JButton agregarProdVenta_btn;
     private javax.swing.JButton btn_ConsultHistoCompra;
     private javax.swing.JButton btn_ConsultHistoVenta;
+    private javax.swing.JButton btn_ConsultInsumo;
+    private javax.swing.JButton btn_ConsultProducto;
     private javax.swing.JButton btn_EditInsumo;
     private javax.swing.JButton btn_EditProdCantidad;
     private javax.swing.JButton btn_EliminarCompra;
@@ -5146,7 +5548,9 @@ Historial_ventas1Layout.setHorizontalGroup(
     private javax.swing.JButton btn_cancelarBusqProdCantidad;
     private javax.swing.JButton btn_cancelarBusquedaHistoCompra;
     private javax.swing.JButton btn_cancelarBusquedaHistoVenta;
+    private javax.swing.JButton btn_cancelarBusquedaInsumo;
     private javax.swing.JButton btn_cancelarBusquedaInsumoVenta;
+    private javax.swing.JButton btn_cancelarBusquedaProducto;
     private javax.swing.JButton btn_cancelarEditInsumo;
     private javax.swing.JButton btn_cancelarEditProdCantidad;
     private javax.swing.JButton btn_consultInsumoEdit;
@@ -5241,8 +5645,8 @@ Historial_ventas1Layout.setHorizontalGroup(
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -5289,6 +5693,14 @@ Historial_ventas1Layout.setHorizontalGroup(
     private javax.swing.JTextField nombreProvEdit_txt;
     private javax.swing.JTextField nombreProvReg_txt;
     private javax.swing.JTextField pagoClientVenta_txt;
+    private javax.swing.JPanel pn_MasGananciaInsumo;
+    private javax.swing.JPanel pn_MasGananciaProducto;
+    private javax.swing.JPanel pn_MasVendidoIProducto;
+    private javax.swing.JPanel pn_MasVendidosInsumo;
+    private javax.swing.JPanel pn_MenosGananciaInsumo;
+    private javax.swing.JPanel pn_MenosGananciaProducto;
+    private javax.swing.JPanel pn_MenosVendidoInsumo;
+    private javax.swing.JPanel pn_MenosVendidoProducto;
     private javax.swing.JTextField precioPanEdit_txt;
     private javax.swing.JTextField precioPanReg_txt;
     private javax.swing.JComboBox<String> provePanEdit_cmbx;

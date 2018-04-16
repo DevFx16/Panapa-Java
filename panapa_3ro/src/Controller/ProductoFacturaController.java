@@ -33,6 +33,22 @@ public class ProductoFacturaController {
         userco.salvar_datos();
     }
 
+    public void MayoresVendidos() {
+
+    }
+
+    public void MenoresVendidos() {
+
+    }
+
+    public void MayoresGanancias() {
+
+    }
+
+    public void MenoresGanancias() {
+
+    }
+
     public ArrayList<FacturaProducto> getLista_Factura() {
         return Lista_Factura;
     }
