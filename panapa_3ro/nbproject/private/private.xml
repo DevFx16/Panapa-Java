@@ -5,9 +5,10 @@
         <group>
             <file>file:/C:/Users/FernanPro18/Documents/NetBeansProjects/Panapa-Java/panapa_3ro/src/Model/FacturaInsumo.java</file>
             <file>file:/C:/Users/FernanPro18/Documents/NetBeansProjects/Panapa-Java/panapa_3ro/src/View/View1.java</file>
-            <file>file:/C:/Users/FernanPro18/Documents/NetBeansProjects/Panapa-Java/panapa_3ro/src/Model/FacturaProducto.java</file>
             <file>file:/C:/Users/FernanPro18/Documents/NetBeansProjects/Panapa-Java/panapa_3ro/src/Controller/InsumoFacturaController.java</file>
-            <file>file:/C:/Users/FernanPro18/Documents/NetBeansProjects/Panapa-Java/panapa_3ro/src/Model/Facturas.java</file>
+            <file>file:/C:/Users/FernanPro18/Documents/NetBeansProjects/Panapa-Java/panapa_3ro/src/Model/Grafica.java</file>
+            <file>file:/C:/Users/FernanPro18/Documents/NetBeansProjects/Panapa-Java/panapa_3ro/src/Controller/GraficoController.java</file>
+            <file>file:/C:/Users/FernanPro18/Documents/NetBeansProjects/Panapa-Java/panapa_3ro/src/View/ViewLogin.java</file>
         </group>
     </open-files>
 </project-private>

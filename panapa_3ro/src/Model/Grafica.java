@@ -12,11 +12,13 @@ public class Grafica implements Serializable{
     private JFreeChart Grafico;
     private ChartPanel Panel;
     private Calendar Fecha;
+    private int Tipo;
 
-    public Grafica(DefaultCategoryDataset Datos, JFreeChart Grafico, Calendar Fecha) {
+    public Grafica(DefaultCategoryDataset Datos, JFreeChart Grafico, Calendar Fecha, int Tipo) {
         this.Datos = Datos;
         this.Grafico = Grafico;
         this.Fecha = Fecha;
+        this.Tipo = Tipo;
         this.Panel = new ChartPanel(this.Grafico);
     }
 
@@ -34,6 +36,10 @@ public class Grafica implements Serializable{
 
     public Calendar getFecha() {
         return Fecha;
+    }
+
+    public int getTipo() {
+        return Tipo;
     }
     
 }

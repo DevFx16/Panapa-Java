@@ -2,29 +2,20 @@ package View;
 
 import Controller.*;
 import Model.*;
-import datechooser.beans.DateChooserCombo;
 import java.awt.*;
 import static java.awt.Event.ENTER;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import model.panaderia;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 public class View1 extends javax.swing.JFrame {
 
@@ -33,6 +24,7 @@ public class View1 extends javax.swing.JFrame {
     private ProveedorController Proveeco = new ProveedorController();
     private InsumoController Insumco = new InsumoController();
     private InsumoFacturaController InsuFactCo = new InsumoFacturaController();
+    private GraficoController GrafCo = new GraficoController();
 
     private Object IndexTable = null;
     public static String FileName = "";
@@ -4437,7 +4429,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
                 break;
             case 4:
-                Graficar("Insumos Mas Vendidos", "Insumos", "Cantidades", InsuFactCo.MayoresVendidos(Calendar.getInstance()), pn_MasVendidosInsumo);
+                Graficar(GrafCo.Read(Calendar.getInstance(), 0), pn_MasVendidosInsumo);
                 break;
         }
         ListAll();
@@ -4720,6 +4712,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                         Total, Double.parseDouble(txt_pagoClientInsumoVenta.getText()), Get));
                 Listar((DefaultTableModel) tbl_listaInsumoVenta.getModel(), new ArrayList());
                 cancelarInsumoVenta_btn.doClick();
+                GrafCo.Create(Graficar("Insumos Mas Vendidos", "Insumos", "Cantidades", InsuFactCo.MayoresVendidos(Calendar.getInstance()), 0));
                 JOptionPane.showMessageDialog(null, "Los items han sido presupuestado", "Presupuestado", 1);
             }
         } catch (Exception e) {
@@ -5466,7 +5459,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }
 
     //Metodo para graficar
-    private Grafica Graficar(String Titulo, String Horizontal, String Vertical, ArrayList<String[]> Array, JPanel Panel) {
+    private Grafica Graficar(String Titulo, String Horizontal, String Vertical, ArrayList<String[]> Array, int Tipo) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for (String[] valor : Array) {
             dataset.addValue(Integer.parseInt(valor[1]), valor[0], "");
@@ -5487,11 +5480,18 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         plot.setDomainGridlinesVisible(true);//lineas de rangos, visibles  
         plot.setRangeGridlinePaint(Color.BLACK);//color de las lineas de rangos  
         ChartPanel frame = new ChartPanel(graficoBarras);
-        Panel.setLayout(new BorderLayout());
-        Panel.add(frame);
-        Panel.setPreferredSize(new Dimension(460, 265));
-        Panel.validate();
-        return new Grafica(dataset, graficoBarras, Calendar.getInstance());
+        return new Grafica(dataset, graficoBarras, Calendar.getInstance(), Tipo);
+    }
+
+    //Metodo para graficar
+    private void Graficar(Grafica grafica, JPanel Panel) {
+        if (grafica != null) {
+            Panel.removeAll();
+            Panel.setLayout(new BorderLayout());
+            Panel.add(grafica.getPanel());
+            Panel.setPreferredSize(new Dimension(460, 265));
+            Panel.validate();
+        }
     }
 
     public static void main(String args[]) {
