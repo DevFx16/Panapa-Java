@@ -62,19 +62,37 @@ public class InsumoFacturaController {
         userco.salvar_datos();
     }
 
-    public void MayoresVendidos(Calendar Dia) {
+    public ArrayList<String[]> MayoresVendidos(Calendar Dia) {
         ArrayList<String[]> Array = ListaInsumos(Dia);
-        for (String[] Ar : Array) {
-            System.err.println(Ar[0] + "      " + Ar[1] + "       " + Ar[2]);
+        ArrayList<String[]> Mayores = new ArrayList<String[]>();
+        for (int i = 0; i < 5; i++) {
+            int mayor = 0, index = -1;
+            String Prod = "";
+            for (int b = 0; b < Array.size(); b++) {
+                if (Integer.parseInt(Array.get(b)[2]) >= mayor) {
+                    mayor = Integer.parseInt(Array.get(b)[2]);
+                    Prod = Array.get(b)[1];
+                    index = b;
+                }
+            }
+            if (Array.size() > 0) {
+                Array.remove(index);
+                Mayores.add(new String[]{Prod, mayor + ""});
+            }else{
+                break;
+            }
         }
-        System.err.println(Dia.getTime());
+        for(String[] ar : Mayores){
+            System.out.println(ar[0] +"     "+ar[1]);
+        }
+        return Mayores;
     }
 
     private ArrayList<String[]> ListaInsumos(Calendar Dia) {
         ArrayList<String[]> Array = new ArrayList<String[]>();
         for (FacturaInsumo Fact : getLista_Factura()) {
-            if (Fact.getFecha().get(Calendar.YEAR) == Dia.get(Calendar.YEAR) && Fact.getFecha().get(Calendar.MONTH) == Dia.get(Calendar.MONTH) &&
-                Fact.getFecha().get(Calendar.DAY_OF_YEAR) == Dia.get(Calendar.DAY_OF_YEAR) && Fact.getFecha().get(Calendar.ERA) == Dia.get(Calendar.ERA)) {
+            if (Fact.getFecha().get(Calendar.YEAR) == Dia.get(Calendar.YEAR) && Fact.getFecha().get(Calendar.MONTH) == Dia.get(Calendar.MONTH)
+                    && Fact.getFecha().get(Calendar.DAY_OF_YEAR) == Dia.get(Calendar.DAY_OF_YEAR) && Fact.getFecha().get(Calendar.ERA) == Dia.get(Calendar.ERA)) {
                 for (Insumo Insu : Fact.getInsumo_Compra()) {
                     if (Array.size() > 0) {
                         boolean Cond = true;

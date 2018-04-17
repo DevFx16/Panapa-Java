@@ -21,7 +21,10 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import model.panaderia;
 import org.jfree.chart.*;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 public class View1 extends javax.swing.JFrame {
 
@@ -4434,7 +4437,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
                 break;
             case 4:
-                InsuFactCo.MayoresVendidos(Calendar.getInstance());
+                Graficar("Insumos Mas Vendidos", "Insumos", "Cantidades", InsuFactCo.MayoresVendidos(Calendar.getInstance()), pn_MasVendidosInsumo);
                 break;
         }
         ListAll();
@@ -4511,7 +4514,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 //Se crea el insumo
                 Insumco.Create(new Insumo(UUID.randomUUID().toString(), txt_nombreInsumoReg.getText().toUpperCase(),
                         Double.parseDouble(txt_precioInsumoReg.getText()), Proveeco.getLista_proovedor().get(cmbx_proveInsumoReg.getSelectedIndex()), 0, cmbx_unidadInsumoReg.getSelectedItem().toString()));
-                Listar((DefaultTableModel) tbl_listaInsumosReg.getModel(),  Insumco.ReadAll());
+                Listar((DefaultTableModel) tbl_listaInsumosReg.getModel(), Insumco.ReadAll());
                 BorrarInsumo_txt(txt_nombreInsumoReg, txt_precioInsumoReg, cmbx_proveInsumoReg, cmbx_unidadInsumoReg);
                 txt_nombreInsumoReg.requestFocus();
             } else {
@@ -5463,8 +5466,32 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }
 
     //Metodo para graficar
-    private void Graficar(String Titulo, String Horizontal, String Vertical) {
-
+    private Grafica Graficar(String Titulo, String Horizontal, String Vertical, ArrayList<String[]> Array, JPanel Panel) {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        for (String[] valor : Array) {
+            dataset.addValue(Integer.parseInt(valor[1]), valor[0], "");
+        }
+        JFreeChart graficoBarras = ChartFactory.createBarChart3D(
+                Titulo, //Título de la gráfica  
+                Horizontal, //leyenda Eje horizontal  
+                Vertical, //leyenda Eje vertical  
+                dataset, //datos  
+                PlotOrientation.VERTICAL, //orientación  
+                true, //incluir leyendas  
+                true, //mostrar tooltips  
+                true);
+        graficoBarras.setBackgroundPaint(Color.LIGHT_GRAY);
+        CategoryPlot plot = (CategoryPlot) graficoBarras.getPlot();
+        plot.setBackgroundPaint(Color.CYAN); //fondo del grafico  
+        plot.setBackgroundPaint(Color.WHITE); //fondo del grafico  
+        plot.setDomainGridlinesVisible(true);//lineas de rangos, visibles  
+        plot.setRangeGridlinePaint(Color.BLACK);//color de las lineas de rangos  
+        ChartPanel frame = new ChartPanel(graficoBarras);
+        Panel.setLayout(new BorderLayout());
+        Panel.add(frame);
+        Panel.setPreferredSize(new Dimension(460, 265));
+        Panel.validate();
+        return new Grafica(dataset, graficoBarras, Calendar.getInstance());
     }
 
     public static void main(String args[]) {
