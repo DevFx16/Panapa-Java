@@ -36,10 +36,7 @@ public class Usuario implements Serializable{
         this.lista_Factura_insumo = lista_Factura_proveedor;
         this.lista_Graficas = lista_Graficas;
     }
-
-    public Usuario() {
-    }
-
+    
     public ArrayList<Producto> getLista_Producto() {
         return lista_Producto;
     }

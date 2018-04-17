@@ -74,6 +74,7 @@ public class View1 extends javax.swing.JFrame {
                 Proveeco.setLista_proovedor(u1.getLista_Proovedor());
                 Insumco.setLista_Insumos(u1.getLista_Insumos());
                 InsuFactCo.setLista_Factura(u1.getLista_Factura_insumo());
+                GrafCo.setLista_Graficas(u1.getLista_Graficas());
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
@@ -4430,6 +4431,9 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 break;
             case 4:
                 Graficar(GrafCo.Read(Calendar.getInstance(), 0), pn_MasVendidosInsumo);
+                Graficar(GrafCo.Read(Calendar.getInstance(), 1), pn_MenosVendidoInsumo);
+                Graficar(GrafCo.Read(Calendar.getInstance(), 2), pn_MasGananciaInsumo);
+                Graficar(GrafCo.Read(Calendar.getInstance(), 3), pn_MenosGananciaInsumo);
                 break;
         }
         ListAll();
@@ -4712,7 +4716,10 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                         Total, Double.parseDouble(txt_pagoClientInsumoVenta.getText()), Get));
                 Listar((DefaultTableModel) tbl_listaInsumoVenta.getModel(), new ArrayList());
                 cancelarInsumoVenta_btn.doClick();
-                GrafCo.Create(Graficar("Insumos Mas Vendidos", "Insumos", "Cantidades", InsuFactCo.MayoresVendidos(Calendar.getInstance()), 0));
+                GrafCo.Create(Graficar("Insumos Mas Vendidos", "Insumos", "Cantidades", InsuFactCo.MayoresVendidos(Calendar.getInstance()), 0, true));
+                GrafCo.Create(Graficar("Insumos Menos Vendidos", "Insumos", "Cantidades", InsuFactCo.MenoresVendidos(Calendar.getInstance()), 1, true));
+                GrafCo.Create(Graficar("Insumos Con Mas Ganancias", "Insumos", "Ganancia", InsuFactCo.MayoresGanancias(Calendar.getInstance()), 2, false));
+                GrafCo.Create(Graficar("Insumos Con Menos Ganancias", "Insumos", "Ganancia", InsuFactCo.MenoresGanancias(Calendar.getInstance()), 3, false));
                 JOptionPane.showMessageDialog(null, "Los items han sido presupuestado", "Presupuestado", 1);
             }
         } catch (Exception e) {
@@ -5459,10 +5466,14 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }
 
     //Metodo para graficar
-    private Grafica Graficar(String Titulo, String Horizontal, String Vertical, ArrayList<String[]> Array, int Tipo) {
+    private Grafica Graficar(String Titulo, String Horizontal, String Vertical, ArrayList<String[]> Array, int Tipo, boolean Cond) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for (String[] valor : Array) {
-            dataset.addValue(Integer.parseInt(valor[1]), valor[0], "");
+            if (Cond) {
+                dataset.addValue(Integer.parseInt(valor[1]), valor[0], "");
+            } else {
+                dataset.addValue(Double.parseDouble(valor[1]), valor[0], "");
+            }
         }
         JFreeChart graficoBarras = ChartFactory.createBarChart3D(
                 Titulo, //Título de la gráfica  
@@ -5473,25 +5484,44 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 true, //incluir leyendas  
                 true, //mostrar tooltips  
                 true);
-        graficoBarras.setBackgroundPaint(Color.LIGHT_GRAY);
-        CategoryPlot plot = (CategoryPlot) graficoBarras.getPlot();
-        plot.setBackgroundPaint(Color.CYAN); //fondo del grafico  
-        plot.setBackgroundPaint(Color.WHITE); //fondo del grafico  
-        plot.setDomainGridlinesVisible(true);//lineas de rangos, visibles  
-        plot.setRangeGridlinePaint(Color.BLACK);//color de las lineas de rangos  
+        graficoBarras.setBackgroundPaint(Color.WHITE);
+        CaregoryPlot(graficoBarras);
         ChartPanel frame = new ChartPanel(graficoBarras);
         return new Grafica(dataset, graficoBarras, Calendar.getInstance(), Tipo);
     }
 
     //Metodo para graficar
     private void Graficar(Grafica grafica, JPanel Panel) {
+        Panel.removeAll();
+        Panel.setLayout(new BorderLayout());
+        Panel.setPreferredSize(new Dimension(460, 265));
         if (grafica != null) {
-            Panel.removeAll();
-            Panel.setLayout(new BorderLayout());
             Panel.add(grafica.getPanel());
-            Panel.setPreferredSize(new Dimension(460, 265));
-            Panel.validate();
+        } else {
+            JFreeChart graficoBarras = ChartFactory.createBarChart3D(
+                    "Titulo", //Título de la gráfica  
+                    "Eje Horizontal", //leyenda Eje horizontal  
+                    "Eje Vertical", //leyenda Eje vertical  
+                    new DefaultCategoryDataset(), //datos  
+                    PlotOrientation.VERTICAL, //orientación  
+                    false, //incluir leyendas  
+                    false, //mostrar tooltips  
+                    false);
+            graficoBarras.setBackgroundPaint(Color.WHITE);
+            CaregoryPlot(graficoBarras);
+            ChartPanel frame = new ChartPanel(graficoBarras);
+            Panel.add(frame);
         }
+        Panel.validate();
+    }
+
+    //Metodo para el pot
+    private void CaregoryPlot(JFreeChart graf) {
+        CategoryPlot plot = (CategoryPlot) graf.getPlot();
+        plot.setBackgroundPaint(Color.CYAN); //fondo del grafico  
+        plot.setBackgroundPaint(Color.WHITE); //fondo del grafico  
+        plot.setDomainGridlinesVisible(true);//lineas de rangos, visibles  
+        plot.setRangeGridlinePaint(Color.BLACK);//color de las lineas de rangos  
     }
 
     public static void main(String args[]) {

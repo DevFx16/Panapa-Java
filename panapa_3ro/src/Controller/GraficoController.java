@@ -12,10 +12,8 @@ public class GraficoController {
     public void Create(Grafica Graf) {
         if (!GrafiaExiste(Graf) || Lista_Graficas.size() == 0) {
             Lista_Graficas.add(Graf);
-            System.err.println("Agrego");
         } else if (Index(Graf) >= 0) {
             Update(Index(Graf), Graf);
-            System.err.println(Lista_Graficas.size());
         }
         userco.salvar_datos();
     }
@@ -25,7 +23,6 @@ public class GraficoController {
             if (graf.getTipo() == Tipo && Fecha.get(Calendar.YEAR) == graf.getFecha().get(Calendar.YEAR) && Fecha.get(Calendar.MONTH)
                     == graf.getFecha().get(Calendar.MONTH) && Fecha.get(Calendar.DAY_OF_YEAR) == graf.getFecha().get(Calendar.DAY_OF_YEAR)
                     && Fecha.get(Calendar.ERA) == graf.getFecha().get(Calendar.ERA)) {
-                System.err.println("Encontrado");
                 return graf;
             }
         }
@@ -61,12 +58,15 @@ public class GraficoController {
     }
 
     public void Update(int Index, Grafica Graf) {
-        System.err.println("Index:  "+Index);
         Lista_Graficas.set(Index, Graf);
         userco.salvar_datos();
     }
 
     public ArrayList<Grafica> getLista_Graficas() {
         return Lista_Graficas;
+    }
+
+    public static void setLista_Graficas(ArrayList<Grafica> Lista_Graficas) {
+        GraficoController.Lista_Graficas = Lista_Graficas;
     }
 }

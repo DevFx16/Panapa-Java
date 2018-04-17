@@ -76,12 +76,9 @@ public class InsumoFacturaController {
             if (Array.size() > 0) {
                 Array.remove(index);
                 Mayores.add(new String[]{Prod, mayor + ""});
-            }else{
+            } else {
                 break;
             }
-        }
-        for(String[] ar : Mayores){
-            System.out.println(ar[0] +"     "+ar[1]);
         }
         return Mayores;
     }
@@ -98,14 +95,15 @@ public class InsumoFacturaController {
                             if (Insu.getId().equals(Ar[0])) {
                                 Cond = false;
                                 Ar[2] = (Integer.parseInt(Ar[2]) + Insu.getCantidad()) + "";
+                                Ar[3] = (Double.parseDouble(Ar[3]) + Insu.getCantidad() * Insu.getPrecio()) + "";
                                 break;
                             }
                         }
                         if (Cond) {
-                            Array.add(new String[]{Insu.getId(), Insu.getNombre(), Insu.getCantidad() + ""});
+                            Array.add(new String[]{Insu.getId(), Insu.getNombre(), Insu.getCantidad() + "", (Insu.getCantidad() * Insu.getPrecio()) + ""});
                         }
                     } else {
-                        Array.add(new String[]{Insu.getId(), Insu.getNombre(), Insu.getCantidad() + ""});
+                        Array.add(new String[]{Insu.getId(), Insu.getNombre(), Insu.getCantidad() + "", (Insu.getCantidad() * Insu.getPrecio()) + ""});
                     }
                 }
             }
@@ -113,16 +111,74 @@ public class InsumoFacturaController {
         return Array;
     }
 
-    public void MenoresVendidos() {
-
+    public ArrayList<String[]> MenoresVendidos(Calendar Dia) {
+        ArrayList<String[]> Array = ListaInsumos(Dia);
+        ArrayList<String[]> Menores = new ArrayList<String[]>();
+        for (int i = 0; i < 5; i++) {
+            int mayor = 999999999, index = -1;
+            String Prod = "";
+            for (int b = 0; b < Array.size(); b++) {
+                if (Integer.parseInt(Array.get(b)[2]) <= mayor) {
+                    mayor = Integer.parseInt(Array.get(b)[2]);
+                    Prod = Array.get(b)[1];
+                    index = b;
+                }
+            }
+            if (Array.size() > 0) {
+                Array.remove(index);
+                Menores.add(new String[]{Prod, mayor + ""});
+            } else {
+                break;
+            }
+        }
+        
+        return Menores;
     }
 
-    public void MayoresGanancias() {
-
+    public ArrayList<String[]> MayoresGanancias(Calendar Dia) {
+        ArrayList<String[]> Array = ListaInsumos(Dia);
+        ArrayList<String[]> Mayores = new ArrayList<String[]>();
+        for (int i = 0; i < 5; i++) {
+            double mayor = 0;
+            int index = -1;
+            String Prod = "";
+            for (int b = 0; b < Array.size(); b++) {
+                if (Double.parseDouble(Array.get(b)[3]) >= mayor) {
+                    mayor = Double.parseDouble(Array.get(b)[3]);
+                    Prod = Array.get(b)[1];
+                    index = b;
+                }
+            }
+            if (Array.size() > 0) {
+                Array.remove(index);
+                Mayores.add(new String[]{Prod, mayor + ""});
+            }
+        }
+        return Mayores;
     }
 
-    public void MenoresGanancias() {
-
+    public ArrayList<String[]> MenoresGanancias(Calendar Dia) {
+        ArrayList<String[]> Array = ListaInsumos(Dia);
+        ArrayList<String[]> Menores = new ArrayList<String[]>();
+        for (int i = 0; i < 5; i++) {
+            double mayor = 999999999;
+            int index = -1;
+            String Prod = "";
+            for (int b = 0; b < Array.size(); b++) {
+                if (Double.parseDouble(Array.get(b)[3]) <= mayor) {
+                    mayor = Double.parseDouble(Array.get(b)[3]);
+                    Prod = Array.get(b)[1];
+                    index = b;
+                }
+            }
+            if (Array.size() > 0) {
+                Array.remove(index);
+                Menores.add(new String[]{Prod, mayor + ""});
+            } else {
+                break;
+            }
+        }
+        return Menores;
     }
 
     public ArrayList<FacturaInsumo> getLista_Factura() {
