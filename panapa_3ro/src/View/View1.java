@@ -78,6 +78,7 @@ public class View1 extends javax.swing.JFrame {
                 Proco.setLista_producto(u1.getLista_Producto());
                 Proveeco.setLista_proovedor(u1.getLista_Proovedor());
                 Insumco.setLista_Insumos(u1.getLista_Insumos());
+                InsuFactCo.setLista_Factura(u1.getLista_Factura_insumo());
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
@@ -4433,7 +4434,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
                 break;
             case 4:
-
+                InsuFactCo.MayoresVendidos(Calendar.getInstance());
                 break;
         }
         ListAll();
@@ -4510,7 +4511,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 //Se crea el insumo
                 Insumco.Create(new Insumo(UUID.randomUUID().toString(), txt_nombreInsumoReg.getText().toUpperCase(),
                         Double.parseDouble(txt_precioInsumoReg.getText()), Proveeco.getLista_proovedor().get(cmbx_proveInsumoReg.getSelectedIndex()), 0, cmbx_unidadInsumoReg.getSelectedItem().toString()));
-                ListAll();
+                Listar((DefaultTableModel) tbl_listaInsumosReg.getModel(),  Insumco.ReadAll());
                 BorrarInsumo_txt(txt_nombreInsumoReg, txt_precioInsumoReg, cmbx_proveInsumoReg, cmbx_unidadInsumoReg);
                 txt_nombreInsumoReg.requestFocus();
             } else {

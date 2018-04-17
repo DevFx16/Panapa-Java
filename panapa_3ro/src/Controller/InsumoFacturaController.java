@@ -14,6 +14,7 @@ public class InsumoFacturaController {
 
     public void Create(FacturaInsumo Factura) {
         Lista_Factura.add(Factura);
+        Lista_Factura.get(Lista_Factura.size() - 1).setInsumo_Compra(Factura.getInsumo_Compra());
         userco.salvar_datos();
     }
 
@@ -61,8 +62,39 @@ public class InsumoFacturaController {
         userco.salvar_datos();
     }
 
-    public void MayoresVendidos () {
+    public void MayoresVendidos(Calendar Dia) {
+        ArrayList<String[]> Array = ListaInsumos(Dia);
+        for (String[] Ar : Array) {
+            System.err.println(Ar[0] + "      " + Ar[1] + "       " + Ar[2]);
+        }
+        System.err.println(Dia.getTime());
+    }
 
+    private ArrayList<String[]> ListaInsumos(Calendar Dia) {
+        ArrayList<String[]> Array = new ArrayList<String[]>();
+        for (FacturaInsumo Fact : getLista_Factura()) {
+            if (Fact.getFecha().get(Calendar.YEAR) == Dia.get(Calendar.YEAR) && Fact.getFecha().get(Calendar.MONTH) == Dia.get(Calendar.MONTH) &&
+                Fact.getFecha().get(Calendar.DAY_OF_YEAR) == Dia.get(Calendar.DAY_OF_YEAR) && Fact.getFecha().get(Calendar.ERA) == Dia.get(Calendar.ERA)) {
+                for (Insumo Insu : Fact.getInsumo_Compra()) {
+                    if (Array.size() > 0) {
+                        boolean Cond = true;
+                        for (String[] Ar : Array) {
+                            if (Insu.getId().equals(Ar[0])) {
+                                Cond = false;
+                                Ar[2] = (Integer.parseInt(Ar[2]) + Insu.getCantidad()) + "";
+                                break;
+                            }
+                        }
+                        if (Cond) {
+                            Array.add(new String[]{Insu.getId(), Insu.getNombre(), Insu.getCantidad() + ""});
+                        }
+                    } else {
+                        Array.add(new String[]{Insu.getId(), Insu.getNombre(), Insu.getCantidad() + ""});
+                    }
+                }
+            }
+        }
+        return Array;
     }
 
     public void MenoresVendidos() {

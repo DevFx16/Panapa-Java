@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class FacturaInsumo extends Facturas implements Serializable{
+public class FacturaInsumo extends Facturas implements Serializable {
 
     private ArrayList<Insumo> Insumo_Compra = new ArrayList<>();
 
@@ -13,10 +13,17 @@ public class FacturaInsumo extends Facturas implements Serializable{
             ArrayList<Insumo> Insumo_Compra) {
         super(Id, Fecha, Total, Pago);
         this.Insumo_Compra = (ArrayList<Insumo>) Insumo_Compra.clone();
+        for (Insumo Fact : getInsumo_Compra()) {
+            System.err.println(Fact.getNombre() + "      " + Fact.getCantidad());
+        }
     }
 
     public ArrayList<Insumo> getInsumo_Compra() {
         return Insumo_Compra;
     }
-    
+
+    public void setInsumo_Compra(ArrayList<Insumo> Insumo_Compra) {
+        this.Insumo_Compra = Insumo_Compra;
+    }
+
 }

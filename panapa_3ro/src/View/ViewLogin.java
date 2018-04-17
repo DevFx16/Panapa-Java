@@ -8,9 +8,7 @@ package View;
 import static java.awt.Event.ENTER;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import model.panaderia;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -52,6 +50,12 @@ public class ViewLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_usuarioKeyPressed(evt);
+            }
+        });
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/groceries.png"))); // NOI18N
         jLabel1.setText("Usuario");
 
@@ -60,6 +64,11 @@ public class ViewLogin extends javax.swing.JFrame {
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginActionPerformed(evt);
+            }
+        });
+        btn_login.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_loginKeyPressed(evt);
             }
         });
 
@@ -138,10 +147,22 @@ public class ViewLogin extends javax.swing.JFrame {
 
     //Evento del enter
     private void txt_contraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_contraseñaKeyPressed
+        Evento(evt);
+    }//GEN-LAST:event_txt_contraseñaKeyPressed
+
+    private void btn_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_loginKeyPressed
+        Evento(evt);
+    }//GEN-LAST:event_btn_loginKeyPressed
+
+    private void txt_usuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyPressed
+        Evento(evt);
+    }//GEN-LAST:event_txt_usuarioKeyPressed
+
+    private void Evento(java.awt.event.KeyEvent evt) {
         if (evt.getKeyChar() == ENTER) {
             btn_login.doClick();
         }
-    }//GEN-LAST:event_txt_contraseñaKeyPressed
+    }
 
     String nameFile = "..\\panaderias_pa_crud\\panaderias_lista1.dat";
     ArrayList<panaderia> Lista_panaderias = new ArrayList();

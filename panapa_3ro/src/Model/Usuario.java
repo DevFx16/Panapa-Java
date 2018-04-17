@@ -18,7 +18,7 @@ public class Usuario implements Serializable{
     private ArrayList<Insumo> lista_Insumos;
     private ArrayList<Proveedor> lista_Proovedor;
     private ArrayList<FacturaProducto> lista_Factura_producto;
-    private ArrayList<FacturaInsumo> lista_Factura_proveedor;
+    private ArrayList<FacturaInsumo> lista_Factura_insumo;
     private ArrayList<Grafica> lista_Graficas;
 
     public Usuario(
@@ -33,7 +33,7 @@ public class Usuario implements Serializable{
         this.lista_Insumos = lista_Insumos;
         this.lista_Proovedor = lista_Proovedor;
         this.lista_Factura_producto = lista_Factura_producto;
-        this.lista_Factura_proveedor = lista_Factura_proveedor;
+        this.lista_Factura_insumo = lista_Factura_proveedor;
         this.lista_Graficas = lista_Graficas;
     }
 
@@ -72,12 +72,12 @@ public class Usuario implements Serializable{
         this.lista_Factura_producto = lista_Factura_producto;
     }
 
-    public ArrayList<FacturaInsumo> getLista_Factura_proveedor() {
-        return lista_Factura_proveedor;
+    public ArrayList<FacturaInsumo> getLista_Factura_insumo() {
+        return lista_Factura_insumo;
     }
 
-    public void setLista_Factura_proveedor(ArrayList<FacturaInsumo> lista_Factura_proveedor) {
-        this.lista_Factura_proveedor = lista_Factura_proveedor;
+    public void setLista_Factura_insumo(ArrayList<FacturaInsumo> lista_Factura_proveedor) {
+        this.lista_Factura_insumo = lista_Factura_proveedor;
     }
 
     public ArrayList<Grafica> getLista_Graficas() {
