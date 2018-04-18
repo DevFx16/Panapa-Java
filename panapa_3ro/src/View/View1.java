@@ -25,11 +25,11 @@ public class View1 extends javax.swing.JFrame {
     private InsumoController Insumco = new InsumoController();
     private InsumoFacturaController InsuFactCo = new InsumoFacturaController();
     private GraficoController GrafCo = new GraficoController();
-    
+
     private Object IndexTable = null;
     public static String FileName = "";
     String Nombre_Panaderia = "";
-    
+
     public View1(String FileName, String Nombre_Panaderia) {
         this.FileName = FileName;
         this.Nombre_Panaderia = Nombre_Panaderia;
@@ -42,7 +42,7 @@ public class View1 extends javax.swing.JFrame {
         ListAll();
         nombrePanReg_txt.requestFocus();
     }
-    
+
     public View1() {
         initComponents();
         setResizable(false);
@@ -51,19 +51,19 @@ public class View1 extends javax.swing.JFrame {
         ListAll();
         nombrePanReg_txt.requestFocus();
     }
-    
+
     public String getFileName() {
         return FileName;
     }
-    
+
     public String getNombre_Panaderia() {
         return Nombre_Panaderia;
     }
-    
+
     public void cargar_datos(String nameFile) {
         String path = ".\\PanaderiasData\\" + nameFile + ".dat";
         File fichero = new File(path);
-        
+
         if (fichero.exists()) {
             try {
                 FileInputStream archivo = new FileInputStream(path);
@@ -75,14 +75,14 @@ public class View1 extends javax.swing.JFrame {
                 Insumco.setLista_Insumos(u1.getLista_Insumos());
                 InsuFactCo.setLista_Factura(u1.getLista_Factura_insumo());
                 GrafCo.setLista_Graficas(u1.getLista_Graficas());
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
             }
         }
-        
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -313,7 +313,7 @@ public class View1 extends javax.swing.JFrame {
         Date_DesdeHistoCompra = new datechooser.beans.DateChooserCombo();
         jPanel5 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        pn_MasVendidoIProducto = new javax.swing.JPanel();
+        pn_MasVendidosProducto = new javax.swing.JPanel();
         pn_MasGananciaProducto = new javax.swing.JPanel();
         pn_MenosVendidoProducto = new javax.swing.JPanel();
         pn_MenosGananciaProducto = new javax.swing.JPanel();
@@ -3540,18 +3540,18 @@ Historial_ventas1Layout.setHorizontalGroup(
 
     Contenedor_Stast.addTab("Historial de Compras", jPanel4);
 
-    pn_MasVendidoIProducto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-    pn_MasVendidoIProducto.setMaximumSize(new java.awt.Dimension(460, 265));
-    pn_MasVendidoIProducto.setMinimumSize(new java.awt.Dimension(460, 265));
+    pn_MasVendidosProducto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    pn_MasVendidosProducto.setMaximumSize(new java.awt.Dimension(460, 265));
+    pn_MasVendidosProducto.setMinimumSize(new java.awt.Dimension(460, 265));
 
-    javax.swing.GroupLayout pn_MasVendidoIProductoLayout = new javax.swing.GroupLayout(pn_MasVendidoIProducto);
-    pn_MasVendidoIProducto.setLayout(pn_MasVendidoIProductoLayout);
-    pn_MasVendidoIProductoLayout.setHorizontalGroup(
-        pn_MasVendidoIProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    javax.swing.GroupLayout pn_MasVendidosProductoLayout = new javax.swing.GroupLayout(pn_MasVendidosProducto);
+    pn_MasVendidosProducto.setLayout(pn_MasVendidosProductoLayout);
+    pn_MasVendidosProductoLayout.setHorizontalGroup(
+        pn_MasVendidosProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGap(0, 456, Short.MAX_VALUE)
     );
-    pn_MasVendidoIProductoLayout.setVerticalGroup(
-        pn_MasVendidoIProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    pn_MasVendidosProductoLayout.setVerticalGroup(
+        pn_MasVendidosProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGap(0, 261, Short.MAX_VALUE)
     );
 
@@ -3671,7 +3671,7 @@ btn_ConsultProducto.addActionListener(new java.awt.event.ActionListener() {
         .addGroup(jPanel8Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pn_MasVendidoIProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pn_MasVendidosProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(pn_MenosVendidoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(30, 30, 30)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -3691,7 +3691,7 @@ btn_ConsultProducto.addActionListener(new java.awt.event.ActionListener() {
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pn_MasVendidoIProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pn_MasVendidosProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(pn_MasGananciaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3966,7 +3966,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         Panel_General.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png")));
         //Estadisticas
         Panel_General.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/estadisticas.png")));
-        
+
         Panel_General.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/groceries_1.png")));
 
         //Prod_Registrar
@@ -3977,7 +3977,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         Productos.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png")));
         //Prod_Eliminar
         Productos.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png")));
-        
+
         Productos.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
 
         //Prod_Registrar
@@ -4000,11 +4000,11 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         Contenedor_Stast.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Icons/receipt.png")));
         //Datos del Producto
         Contenedor_Stast.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
-        
+
         listaProdVenta_tbl.getColumnModel().getColumn(0).setPreferredWidth(150);
-        
+
     }
-    
+
 
     private void totalProdVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalProdVentaActionPerformed
 
@@ -4092,7 +4092,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Buscar en el consultar Proveedores
     private void consultProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultProv_btnActionPerformed
-        
+
         BuscarAll(nombreProvConsult_txt.getText().toUpperCase(), listaProvConsult_tbl, Proveeco.Read(nombreProvConsult_txt.getText().toUpperCase()), cancelarBusquedaProv_btn);
     }//GEN-LAST:event_consultProv_btnActionPerformed
 
@@ -4433,7 +4433,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 ActualizarPanelCrud(txt_nombreInsumoReg, txt_nombreInsumoConsultEdit, txt_nombreInsumoConsultVenta, txt_nombreInsumoReg, InsumosCont);
                 break;
             case 3:
-                
+
                 break;
         }
         ListAll();
@@ -4694,7 +4694,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 }
                 retirarInsumoVenta_btn.setEnabled(false);
             }
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error vuelva a intentar", "Error", 0);
         }
@@ -5145,12 +5145,16 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_cancelarBusquedaProductoKeyPressed
 
+    //Cancelar buscar Producto
     private void btn_cancelarBusquedaProductomodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaProductomodificarPan
-        // TODO add your handling code here:
+        btn_cancelarBusquedaProducto.setEnabled(false);
+        Contenedor_StastStateChanged(null);
     }//GEN-LAST:event_btn_cancelarBusquedaProductomodificarPan
 
+    //Metodo buscar graficas
     private void btn_ConsultProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultProductoActionPerformed
-        // TODO add your handling code here:
+        GraficarInsumos(Date_ConsultProducto.getSelectedDate());
+        btn_cancelarBusquedaProducto.setEnabled(true);
     }//GEN-LAST:event_btn_ConsultProductoActionPerformed
 
     //Evento enter
@@ -5246,6 +5250,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     private void Contenedor_StastStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_Contenedor_StastStateChanged
         switch (Contenedor_Stast.getSelectedIndex()) {
             case 2:
+                GraficarProductos(Calendar.getInstance());
                 break;
             case 3:
                 GraficarInsumos(Calendar.getInstance());
@@ -5293,7 +5298,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 JOptionPane.showMessageDialog(null, "Hubo un error, rellene todos los campos.", "Error", 0);
                 return false;
             } else {
-                
+
                 return true;
             }
         } catch (Exception e) {
@@ -5360,7 +5365,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         proveedor.setSelectedIndex(0);
         unidad.setSelectedIndex(0);
     }
-    
+
     private void BorrarInsumoPreCompra_txt(JTextField Nombre, JTextField Cantidad, JTextField Pago, JCheckBox chbx_selecionado) {
         Nombre.setText(null);
         Cantidad.setText(null);
@@ -5475,7 +5480,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         for (int i = 0; i < tabla.getRowCount(); i++) {
             TotalVenta += Double.parseDouble(tabla.getValueAt(i, NumColumna).toString());
         }
-        
+
         JTextMensaje.setText(texto + " " + TotalVenta);
         return TotalVenta;
     }
@@ -5546,24 +5551,32 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         Graficar(GrafCo.Read(Dia, 2), pn_MasGananciaInsumo);
         Graficar(GrafCo.Read(Dia, 3), pn_MenosGananciaInsumo);
     }
-    
+
+    //Metodo para graficar Insumos
+    private void GraficarProductos(Calendar Dia) {
+        Graficar(GrafCo.Read(Dia, 4), pn_MasVendidosProducto);
+        Graficar(GrafCo.Read(Dia, 5), pn_MenosVendidoProducto);
+        Graficar(GrafCo.Read(Dia, 6), pn_MasGananciaProducto);
+        Graficar(GrafCo.Read(Dia, 7), pn_MenosGananciaProducto);
+    }
+
     public static void main(String args[]) {
-        
+
         JOptionPane.showMessageDialog(null, "Debes iniciar desde el login");
-        
+
         String s = "de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel";
-        
+
         try {
             javax.swing.UIManager.setLookAndFeel(s);
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
-            
+
         } catch (InstantiationException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
-            
+
         } catch (IllegalAccessException ex) {
             Logger.getLogger(View1.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -5776,8 +5789,8 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JTextField pagoClientVenta_txt;
     private javax.swing.JPanel pn_MasGananciaInsumo;
     private javax.swing.JPanel pn_MasGananciaProducto;
-    private javax.swing.JPanel pn_MasVendidoIProducto;
     private javax.swing.JPanel pn_MasVendidosInsumo;
+    private javax.swing.JPanel pn_MasVendidosProducto;
     private javax.swing.JPanel pn_MenosGananciaInsumo;
     private javax.swing.JPanel pn_MenosGananciaProducto;
     private javax.swing.JPanel pn_MenosVendidoInsumo;

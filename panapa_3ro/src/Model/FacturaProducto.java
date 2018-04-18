@@ -17,4 +17,8 @@ public class FacturaProducto extends Facturas implements Serializable{
     public ArrayList<Producto> getProductos() {
         return Productos;
     }
+
+    public void setProductos(ArrayList<Producto> Productos) {
+        this.Productos = Productos;
+    }
 }
