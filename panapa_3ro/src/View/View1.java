@@ -366,6 +366,9 @@ public class View1 extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 precioPanReg_txtKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                precioPanReg_txtKeyTyped(evt);
+            }
         });
 
         jLabel3.setText("Precio : ");
@@ -533,6 +536,9 @@ public class View1 extends javax.swing.JFrame {
         precioPanEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 precioPanEdit_txtKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                precioPanEdit_txtKeyTyped(evt);
             }
         });
         Modificar_Producto.add(precioPanEdit_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 44, 118, -1));
@@ -954,6 +960,9 @@ public class View1 extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_CantidadProdKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_CantidadProdKeyTyped(evt);
+            }
         });
 
         jLabel49.setText("Cantidad Nueva:");
@@ -1225,6 +1234,9 @@ public class View1 extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 nitProvReg_txtKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nitProvReg_txtKeyTyped(evt);
+            }
         });
 
         javax.swing.GroupLayout Registrar_ProveedoresLayout = new javax.swing.GroupLayout(Registrar_Proveedores);
@@ -1403,6 +1415,9 @@ public class View1 extends javax.swing.JFrame {
         nitProvEdit_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 nitProvEdit_txtKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nitProvEdit_txtKeyTyped(evt);
             }
         });
 
@@ -1880,6 +1895,9 @@ public class View1 extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_precioInsumoRegKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_precioInsumoRegKeyTyped(evt);
+            }
         });
 
         jLabel6.setText("Precio por Unidad: ");
@@ -2084,6 +2102,9 @@ public class View1 extends javax.swing.JFrame {
         txt_precioInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_precioInsumoEditKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_precioInsumoEditKeyTyped(evt);
             }
         });
 
@@ -2425,6 +2446,9 @@ public class View1 extends javax.swing.JFrame {
         txt_cantidadInsumoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_cantidadInsumoVentaKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_cantidadInsumoVentaKeyTyped(evt);
             }
         });
 
@@ -2784,6 +2808,9 @@ public class View1 extends javax.swing.JFrame {
         cantidadProdVenta_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cantidadProdVenta_txtKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cantidadProdVenta_txtKeyTyped(evt);
             }
         });
 
@@ -5258,6 +5285,42 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         }
     }//GEN-LAST:event_Contenedor_StastStateChanged
 
+    private void precioPanReg_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioPanReg_txtKeyTyped
+        ValTexfieldSNum(evt);
+    }//GEN-LAST:event_precioPanReg_txtKeyTyped
+
+    private void precioPanEdit_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioPanEdit_txtKeyTyped
+        ValTexfieldSNum(evt);
+    }//GEN-LAST:event_precioPanEdit_txtKeyTyped
+
+    private void txt_CantidadProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CantidadProdKeyTyped
+        ValTexfieldSNum(evt);
+    }//GEN-LAST:event_txt_CantidadProdKeyTyped
+
+    private void nitProvReg_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nitProvReg_txtKeyTyped
+        ValTexfieldSNum(evt);
+    }//GEN-LAST:event_nitProvReg_txtKeyTyped
+
+    private void nitProvEdit_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nitProvEdit_txtKeyTyped
+        ValTexfieldSNum(evt);
+    }//GEN-LAST:event_nitProvEdit_txtKeyTyped
+
+    private void txt_precioInsumoRegKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precioInsumoRegKeyTyped
+        ValTexfieldSNum(evt);
+    }//GEN-LAST:event_txt_precioInsumoRegKeyTyped
+
+    private void txt_precioInsumoEditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precioInsumoEditKeyTyped
+        ValTexfieldSNum(evt);
+    }//GEN-LAST:event_txt_precioInsumoEditKeyTyped
+
+    private void txt_cantidadInsumoVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cantidadInsumoVentaKeyTyped
+        ValTexfieldSNum(evt);
+    }//GEN-LAST:event_txt_cantidadInsumoVentaKeyTyped
+
+    private void cantidadProdVenta_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProdVenta_txtKeyTyped
+        ValTexfieldSNum(evt);
+    }//GEN-LAST:event_cantidadProdVenta_txtKeyTyped
+
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
         switch (Panel.getSelectedIndex()) {
@@ -5306,6 +5369,17 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
             return false;
         }
     }
+    
+    //Metodo para validar texfield como numero
+    private void ValTexfieldSNum(KeyEvent n){
+        char validar = n.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            n.consume();
+            
+            JOptionPane.showMessageDialog(null, "Solo se admiten numeros.", "Aviso", 1);
+        }
+    }    
 
     //Este Metodo Sirve para listar todo
     private void ListAll() {
