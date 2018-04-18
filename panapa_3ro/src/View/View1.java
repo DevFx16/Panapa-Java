@@ -41,6 +41,8 @@ public class View1 extends javax.swing.JFrame {
         mbar_nameUser.setText("Usuario: " + FileName);
         ListAll();
         nombrePanReg_txt.requestFocus();
+        
+        this.setVisible(true);
     }
 
     public View1() {
@@ -50,6 +52,8 @@ public class View1 extends javax.swing.JFrame {
         IconosPanel();
         ListAll();
         nombrePanReg_txt.requestFocus();
+        
+        this.setVisible(true);
     }
 
     public String getFileName() {
@@ -61,7 +65,7 @@ public class View1 extends javax.swing.JFrame {
     }
 
     public void cargar_datos(String nameFile) {
-        String path = ".\\PanaderiasData\\" + nameFile + ".dat";
+        String path = "PanaderiasData\\" + nameFile + ".dat";
         File fichero = new File(path);
 
         if (fichero.exists()) {
@@ -334,6 +338,8 @@ public class View1 extends javax.swing.JFrame {
         mbar_nameUser = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
 
         Panel_General.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -5284,39 +5290,39 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 break;
         }
     }//GEN-LAST:event_Contenedor_StastStateChanged
-
+    //Evento Solo numero en los txtfield
     private void precioPanReg_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioPanReg_txtKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_precioPanReg_txtKeyTyped
-
+    //Evento Solo numero en los txtfield
     private void precioPanEdit_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioPanEdit_txtKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_precioPanEdit_txtKeyTyped
-
+    //Evento Solo numero en los txtfield
     private void txt_CantidadProdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CantidadProdKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_txt_CantidadProdKeyTyped
-
+    //Evento Solo numero en los txtfield
     private void nitProvReg_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nitProvReg_txtKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_nitProvReg_txtKeyTyped
-
+    //Evento Solo numero en los txtfield
     private void nitProvEdit_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nitProvEdit_txtKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_nitProvEdit_txtKeyTyped
-
+    //Evento Solo numero en los txtfield
     private void txt_precioInsumoRegKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precioInsumoRegKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_txt_precioInsumoRegKeyTyped
-
+    //Evento Solo numero en los txtfield
     private void txt_precioInsumoEditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precioInsumoEditKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_txt_precioInsumoEditKeyTyped
-
+    //Evento Solo numero en los txtfield
     private void txt_cantidadInsumoVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cantidadInsumoVentaKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_txt_cantidadInsumoVentaKeyTyped
-
+    //Evento Solo numero en los txtfield
     private void cantidadProdVenta_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProdVenta_txtKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_cantidadProdVenta_txtKeyTyped

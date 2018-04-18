@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package Model;
 import java.io.Serializable;
 
-public class panaderia implements Serializable{
+public class Panaderia implements Serializable{
     
     private String nombre;
     private String direccion;
@@ -15,7 +15,7 @@ public class panaderia implements Serializable{
     private String nom_usuario;
     private String pass_usuario;
 
-    public panaderia(String nombre, String direccion, String nit, String contacto, String nom_usuario, String pass_usuario) {
+    public Panaderia(String nombre, String direccion, String nit, String contacto, String nom_usuario, String pass_usuario) {
         this.nombre = nombre.toUpperCase();
         this.direccion = direccion.toUpperCase();
         this.nit = nit;
@@ -24,7 +24,7 @@ public class panaderia implements Serializable{
         this.pass_usuario = pass_usuario;
     }
 
-    public panaderia() {
+    public Panaderia() {
     }
 
     public String getNombre() {

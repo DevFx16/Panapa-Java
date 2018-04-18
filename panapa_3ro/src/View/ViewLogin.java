@@ -9,7 +9,7 @@ import static java.awt.Event.ENTER;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
-import model.panaderia;
+//import Model.Panaderia;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -134,8 +134,8 @@ public class ViewLogin extends javax.swing.JFrame {
         if (usuario_existente) {
             if (Lista_panaderias.get(index_user).getPass_usuario().equals(txt_contraseña.getText())) {
                 View1 panapa1 = new View1(Lista_panaderias.get(index_user).getNom_usuario(), Lista_panaderias.get(index_user).getNombre());
-                panapa1.setVisible(true);
-                this.setVisible(false);
+                
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
             }
@@ -164,8 +164,8 @@ public class ViewLogin extends javax.swing.JFrame {
         }
     }
 
-    String nameFile = "..\\panaderias_pa_crud\\panaderias_lista1.dat";
-    ArrayList<panaderia> Lista_panaderias = new ArrayList();
+    String nameFile = "panaderias_lista1.dat";
+    ArrayList<Model.Panaderia> Lista_panaderias = new ArrayList<Model.Panaderia>();
 
     public void cargar_datos() {
         File fichero = new File(nameFile);
@@ -174,7 +174,7 @@ public class ViewLogin extends javax.swing.JFrame {
             try {
                 FileInputStream archivo = new FileInputStream(nameFile);
                 ObjectInputStream obj_archivo = new ObjectInputStream(archivo);
-                Lista_panaderias = ((ArrayList<panaderia>) obj_archivo.readObject());
+                Lista_panaderias = ((ArrayList<Model.Panaderia>) obj_archivo.readObject());
                 System.out.println("Leido");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
