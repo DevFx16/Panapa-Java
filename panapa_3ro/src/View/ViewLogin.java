@@ -45,6 +45,7 @@ public class ViewLogin extends javax.swing.JFrame {
 
         btn_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/packing.png"))); // NOI18N
         btn_login.setText("Iniciar Sesión");
+        btn_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginActionPerformed(evt);

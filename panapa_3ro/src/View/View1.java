@@ -409,6 +409,7 @@ public class View1 extends javax.swing.JFrame {
 
         registrarPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         registrarPan_btn.setText("Registrar");
+        registrarPan_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registrarPan_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarPan_btnregistrarPan(evt);
@@ -484,6 +485,7 @@ public class View1 extends javax.swing.JFrame {
 
         GuardarEditPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         GuardarEditPan_btn.setText("Guardar");
+        GuardarEditPan_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         GuardarEditPan_btn.setEnabled(false);
         GuardarEditPan_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -583,6 +585,7 @@ public class View1 extends javax.swing.JFrame {
         Modificar_Producto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 45, -1, -1));
 
         consultPanEdit_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        consultPanEdit_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consultPanEdit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultPanEdit_btnActionPerformed(evt);
@@ -597,6 +600,7 @@ public class View1 extends javax.swing.JFrame {
 
         EditPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
         EditPan_btn.setText("Modificar");
+        EditPan_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EditPan_btn.setEnabled(false);
         EditPan_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -612,6 +616,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarEditPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarEditPan_btn.setText("Cancelar");
+        cancelarEditPan_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarEditPan_btn.setEnabled(false);
         cancelarEditPan_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -639,6 +644,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarBusqProd_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarBusqProd_btn.setText("Cancelar Consulta");
+        cancelarBusqProd_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarBusqProd_btn.setEnabled(false);
         cancelarBusqProd_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -669,6 +675,7 @@ public class View1 extends javax.swing.JFrame {
 
         consultPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
         consultPan_btn.setText("Consultar");
+        consultPan_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consultPan_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultPan_btn(evt);
@@ -710,6 +717,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarBusquedaProd_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarBusquedaProd_btn.setText("Cancelar Búsqueda");
+        cancelarBusquedaProd_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarBusquedaProd_btn.setEnabled(false);
         cancelarBusquedaProd_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -819,6 +827,7 @@ public class View1 extends javax.swing.JFrame {
 
         eliminarPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
         eliminarPan_btn.setText("Eliminar");
+        eliminarPan_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         eliminarPan_btn.setEnabled(false);
         eliminarPan_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -832,6 +841,7 @@ public class View1 extends javax.swing.JFrame {
         });
 
         consultPanEliminar_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        consultPanEliminar_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consultPanEliminar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultPanEliminar_btnActionPerformed(evt);
@@ -845,6 +855,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarElimProd_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarElimProd_btn.setText("Cancelar");
+        cancelarElimProd_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarElimProd_btn.setEnabled(false);
         cancelarElimProd_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -906,6 +917,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_GuardarEditCantidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         btn_GuardarEditCantidad.setText("Guardar");
+        btn_GuardarEditCantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_GuardarEditCantidad.setEnabled(false);
         btn_GuardarEditCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -987,6 +999,7 @@ public class View1 extends javax.swing.JFrame {
         jLabel50.setText("Buscar :");
 
         btn_consultProdCantidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        btn_consultProdCantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_consultProdCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_consultProdCantidadActionPerformed(evt);
@@ -1000,6 +1013,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_EditProdCantidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
         btn_EditProdCantidad.setText("Modificar");
+        btn_EditProdCantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_EditProdCantidad.setEnabled(false);
         btn_EditProdCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1014,6 +1028,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_cancelarEditProdCantidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         btn_cancelarEditProdCantidad.setText("Cancelar");
+        btn_cancelarEditProdCantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancelarEditProdCantidad.setEnabled(false);
         btn_cancelarEditProdCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1028,6 +1043,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_cancelarBusqProdCantidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         btn_cancelarBusqProdCantidad.setText("Cancelar Consulta");
+        btn_cancelarBusqProdCantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancelarBusqProdCantidad.setEnabled(false);
         btn_cancelarBusqProdCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1199,6 +1215,7 @@ public class View1 extends javax.swing.JFrame {
 
         registrarProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         registrarProv_btn.setText("Registrar");
+        registrarProv_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registrarProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarProv_btnregistrarPan(evt);
@@ -1430,6 +1447,7 @@ public class View1 extends javax.swing.JFrame {
         jLabel27.setText("NIT :");
 
         consultProvEdit_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        consultProvEdit_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consultProvEdit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultProvEdit_btnActionPerformed(evt);
@@ -1443,6 +1461,7 @@ public class View1 extends javax.swing.JFrame {
 
         EditProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
         EditProv_btn.setText("Modificar");
+        EditProv_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EditProv_btn.setEnabled(false);
         EditProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1457,6 +1476,7 @@ public class View1 extends javax.swing.JFrame {
 
         GuardarEditProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         GuardarEditProv_btn.setText("Guardar");
+        GuardarEditProv_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         GuardarEditProv_btn.setEnabled(false);
         GuardarEditProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1471,6 +1491,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarEditProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarEditProv_btn.setText("Cancelar");
+        cancelarEditProv_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarEditProv_btn.setEnabled(false);
         cancelarEditProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1485,6 +1506,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarBusqPov_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarBusqPov_btn.setText("Cancelar Consulta");
+        cancelarBusqPov_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarBusqPov_btn.setEnabled(false);
         cancelarBusqPov_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1632,6 +1654,7 @@ public class View1 extends javax.swing.JFrame {
 
         consultProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
         consultProv_btn.setText("Consultar");
+        consultProv_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consultProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultProv_btnActionPerformed(evt);
@@ -1675,6 +1698,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarBusquedaProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarBusquedaProv_btn.setText("Cancelar Búsqueda");
+        cancelarBusquedaProv_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarBusquedaProv_btn.setEnabled(false);
         cancelarBusquedaProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1746,6 +1770,7 @@ public class View1 extends javax.swing.JFrame {
 
         EliminarProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
         EliminarProv_btn.setText("Eliminar");
+        EliminarProv_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EliminarProv_btn.setEnabled(false);
         EliminarProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1796,6 +1821,7 @@ public class View1 extends javax.swing.JFrame {
         }
 
         consultProvEliminar_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        consultProvEliminar_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consultProvEliminar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultProvEliminar_btnActionPerformed(evt);
@@ -1809,6 +1835,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarElimProv_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarElimProv_btn.setText("Cancelar");
+        cancelarElimProv_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarElimProv_btn.setEnabled(false);
         cancelarElimProv_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1944,6 +1971,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_registrarInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         btn_registrarInsumo.setText("Registrar");
+        btn_registrarInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_registrarInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_registrarInsumoregistrarPan(evt);
@@ -2051,8 +2079,11 @@ public class View1 extends javax.swing.JFrame {
 
         InsumosCont.addTab("Registrar", Registrar);
 
+        Modificar_Insumo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         btn_GuardarEditInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/guardar.png"))); // NOI18N
         btn_GuardarEditInsumo.setText("Guardar");
+        btn_GuardarEditInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_GuardarEditInsumo.setEnabled(false);
         btn_GuardarEditInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2142,6 +2173,7 @@ public class View1 extends javax.swing.JFrame {
         jLabel34.setText("Buscar :");
 
         btn_consultInsumoEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        btn_consultInsumoEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_consultInsumoEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_consultInsumoEditActionPerformed(evt);
@@ -2155,6 +2187,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_EditInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/editar.png"))); // NOI18N
         btn_EditInsumo.setText("Modificar");
+        btn_EditInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_EditInsumo.setEnabled(false);
         btn_EditInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2169,6 +2202,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_EliminarEditInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/eliminar.png"))); // NOI18N
         btn_EliminarEditInsumo.setText("Eliminar");
+        btn_EliminarEditInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_EliminarEditInsumo.setEnabled(false);
         btn_EliminarEditInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2193,6 +2227,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_cancelBusqInsumoEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         btn_cancelBusqInsumoEdit.setText("Cancelar Consulta");
+        btn_cancelBusqInsumoEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancelBusqInsumoEdit.setEnabled(false);
         btn_cancelBusqInsumoEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2217,6 +2252,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_cancelarEditInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         btn_cancelarEditInsumo.setText("Cancelar");
+        btn_cancelarEditInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancelarEditInsumo.setEnabled(false);
         btn_cancelarEditInsumo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2389,6 +2425,7 @@ public class View1 extends javax.swing.JFrame {
         });
 
         btn_consultInsumoVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        btn_consultInsumoVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_consultInsumoVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_consultInsumoVentaActionPerformed(evt);
@@ -2462,6 +2499,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_agregarInsumoVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png"))); // NOI18N
         btn_agregarInsumoVenta.setText("Agregar");
+        btn_agregarInsumoVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_agregarInsumoVenta.setEnabled(false);
         btn_agregarInsumoVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2476,6 +2514,7 @@ public class View1 extends javax.swing.JFrame {
 
         retirarInsumoVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/box.png"))); // NOI18N
         retirarInsumoVenta_btn.setText("Retirar");
+        retirarInsumoVenta_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         retirarInsumoVenta_btn.setEnabled(false);
         retirarInsumoVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2493,6 +2532,7 @@ public class View1 extends javax.swing.JFrame {
 
         comprarInsumoVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cash-register_2.png"))); // NOI18N
         comprarInsumoVenta_btn.setText("Presupuestar");
+        comprarInsumoVenta_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comprarInsumoVenta_btn.setEnabled(false);
         comprarInsumoVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2507,6 +2547,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarInsumoVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarInsumoVenta_btn.setText("Cancelar Pre-Compra");
+        cancelarInsumoVenta_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarInsumoVenta_btn.setEnabled(false);
         cancelarInsumoVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2540,6 +2581,7 @@ public class View1 extends javax.swing.JFrame {
 
         btn_cancelarBusquedaInsumoVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         btn_cancelarBusquedaInsumoVenta.setText("Cancelar Búsqueda");
+        btn_cancelarBusquedaInsumoVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancelarBusquedaInsumoVenta.setEnabled(false);
         btn_cancelarBusquedaInsumoVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2750,6 +2792,7 @@ public class View1 extends javax.swing.JFrame {
         });
 
         consultPanVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/buscar.png"))); // NOI18N
+        consultPanVenta_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consultPanVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultPanVenta_btnActionPerformed(evt);
@@ -2824,6 +2867,7 @@ public class View1 extends javax.swing.JFrame {
 
         agregarProdVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png"))); // NOI18N
         agregarProdVenta_btn.setText("Agregar");
+        agregarProdVenta_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         agregarProdVenta_btn.setEnabled(false);
         agregarProdVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2838,6 +2882,7 @@ public class View1 extends javax.swing.JFrame {
 
         retirarProdVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/box.png"))); // NOI18N
         retirarProdVenta_btn.setText("Retirar");
+        retirarProdVenta_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         retirarProdVenta_btn.setEnabled(false);
         retirarProdVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2855,6 +2900,7 @@ public class View1 extends javax.swing.JFrame {
 
         comprarVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cash-register_2.png"))); // NOI18N
         comprarVenta_btn.setText("Comprar");
+        comprarVenta_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comprarVenta_btn.setEnabled(false);
         comprarVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2869,6 +2915,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarVenta_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarVenta_btn.setText("Cancelar Compra");
+        cancelarVenta_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarVenta_btn.setEnabled(false);
         cancelarVenta_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2902,6 +2949,7 @@ public class View1 extends javax.swing.JFrame {
 
         cancelarBusquedaPan_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
         cancelarBusquedaPan_btn.setText("Cancelar Búsqueda");
+        cancelarBusquedaPan_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelarBusquedaPan_btn.setEnabled(false);
         cancelarBusquedaPan_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3959,8 +4007,15 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     );
 
     jMenu3.setText("Inicio");
+    jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+    jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelar.png"))); // NOI18N
     jMenuItem1.setText("Salir");
+    jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jMenuItem1ActionPerformed(evt);
+        }
+    });
     jMenu3.add(jMenuItem1);
 
     jMenuBar1.add(jMenu3);
@@ -5326,6 +5381,14 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     private void cantidadProdVenta_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProdVenta_txtKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_cantidadProdVenta_txtKeyTyped
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        int close = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null,"¿Desea Cerrar?", "Exit" , close);
+        if (result == 0) {
+          System.exit(0);
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
