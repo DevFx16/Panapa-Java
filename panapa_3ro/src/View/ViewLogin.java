@@ -149,7 +149,7 @@ public class ViewLogin extends javax.swing.JFrame {
         }
     }
 
-    String nameFile = ".\\PanaderiasData\\panaderias_lista1.dat";
+    String nameFile = "..\\pa_crud_Data\\panaderias_lista1.dat";
     ArrayList<Panaderia> Lista_panaderias = new ArrayList<Panaderia>();
 
     public void cargar_datos() {
@@ -157,6 +157,7 @@ public class ViewLogin extends javax.swing.JFrame {
 
         if (fichero.exists()) {
             try {
+                JOptionPane.showMessageDialog(null, "encontrado "+fichero.getAbsolutePath());
                 FileInputStream archivo = new FileInputStream(nameFile);
                 ObjectInputStream obj_archivo = new ObjectInputStream(archivo);
                 Lista_panaderias = ((ArrayList<Panaderia>) obj_archivo.readObject());

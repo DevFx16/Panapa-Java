@@ -65,7 +65,7 @@ public class View1 extends javax.swing.JFrame {
     }
 
     public void cargar_datos(String nameFile) {
-        String path = "PanaderiasData\\" + nameFile + ".dat";
+        String path = "..\\PanaderiasData\\" + nameFile + ".dat";
         File fichero = new File(path);
 
         if (fichero.exists()) {

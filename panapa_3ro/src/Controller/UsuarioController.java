@@ -21,7 +21,7 @@ public class UsuarioController {
     public void salvar_datos() {
         String nameFile = View1.FileName;
         System.out.println(nameFile);
-        String path = ".\\PanaderiasData\\" + nameFile + ".dat";
+        String path = "..\\PanaderiasData\\" + nameFile + ".dat";
         
         try {
             Usuario u1 = new Usuario(
