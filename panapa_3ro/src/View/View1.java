@@ -5381,7 +5381,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     private void cantidadProdVenta_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProdVenta_txtKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_cantidadProdVenta_txtKeyTyped
-
+    //evento para cerrar seccion
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         int close = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null,"¿Desea Cerrar?", "Exit" , close);
