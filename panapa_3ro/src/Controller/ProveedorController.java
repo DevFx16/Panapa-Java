@@ -3,7 +3,6 @@ package Controller;
 import Model.Proveedor;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class ProveedorController implements Serializable{
 
@@ -11,8 +10,6 @@ public class ProveedorController implements Serializable{
     UsuarioController userco = new UsuarioController();
     
     public ProveedorController() {
-        Create(new Proveedor(UUID.randomUUID().toString(), "DELICIAS LAS 51", "PANADERIA", "ALGUNO", "ALGUNO", "", 0));
-        Create(new Proveedor(UUID.randomUUID().toString(), "COCA", "PANADERIA", "ALGUNO", "ALGUNO", "", 0));
     }
 
     public void Create(Proveedor Model) {

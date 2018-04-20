@@ -28,11 +28,11 @@ public class View1 extends javax.swing.JFrame {
 
     private Object IndexTable = null;
     public static String FileName = "";
-    String Nombre_Panaderia = "";
+    Panaderia Panaderia;
 
-    public View1(String FileName, String Nombre_Panaderia) {
+    public View1(String FileName, Panaderia Panaderia) {
         this.FileName = FileName;
-        this.Nombre_Panaderia = Nombre_Panaderia;
+        this.Panaderia = Panaderia;
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -60,8 +60,8 @@ public class View1 extends javax.swing.JFrame {
         return FileName;
     }
 
-    public String getNombre_Panaderia() {
-        return Nombre_Panaderia;
+    public Panaderia getPanaderia() {
+        return Panaderia;
     }
 
     public void cargar_datos(String nameFile) {
@@ -79,6 +79,10 @@ public class View1 extends javax.swing.JFrame {
                 Insumco.setLista_Insumos(u1.getLista_Insumos());
                 InsuFactCo.setLista_Factura(u1.getLista_Factura_insumo());
                 GrafCo.setLista_Graficas(u1.getLista_Graficas());
+                if(Proveeco.getLista_proovedor().size() <= 0 && Panaderia != null){
+                     Proveeco.Create(new Proveedor(UUID.randomUUID().toString(), Panaderia.getNombre(), "PANADERIA", Panaderia.getContacto(), 
+                             Panaderia.getDireccion(), Panaderia.getNit(), 0));
+                }
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
@@ -102,7 +106,7 @@ public class View1 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPanesReg_tbl = new javax.swing.JTable();
         registrarPan_btn = new javax.swing.JButton();
-        provePanReg_cmbx = new javax.swing.JComboBox<String>();
+        provePanReg_cmbx = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         Modificar_Producto = new javax.swing.JPanel();
         GuardarEditPan_btn = new javax.swing.JButton();
@@ -119,7 +123,7 @@ public class View1 extends javax.swing.JFrame {
         EditPan_btn = new javax.swing.JButton();
         cancelarEditPan_btn = new javax.swing.JButton();
         jLabel42 = new javax.swing.JLabel();
-        provePanEdit_cmbx = new javax.swing.JComboBox<String>();
+        provePanEdit_cmbx = new javax.swing.JComboBox<>();
         cancelarBusqProd_btn = new javax.swing.JButton();
         Consultar_Producto = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -214,10 +218,10 @@ public class View1 extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         tbl_listaInsumosReg = new javax.swing.JTable();
         btn_registrarInsumo = new javax.swing.JButton();
-        cmbx_proveInsumoReg = new javax.swing.JComboBox<String>();
+        cmbx_proveInsumoReg = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        cmbx_unidadInsumoReg = new javax.swing.JComboBox<String>();
+        cmbx_unidadInsumoReg = new javax.swing.JComboBox<>();
         Modificar_Insumo = new javax.swing.JPanel();
         btn_GuardarEditInsumo = new javax.swing.JButton();
         jScrollPane14 = new javax.swing.JScrollPane();
@@ -233,10 +237,10 @@ public class View1 extends javax.swing.JFrame {
         btn_EditInsumo = new javax.swing.JButton();
         btn_EliminarEditInsumo = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
-        cmbx_proveInsumoEdit = new javax.swing.JComboBox<String>();
+        cmbx_proveInsumoEdit = new javax.swing.JComboBox<>();
         btn_cancelBusqInsumoEdit = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
-        cmbx_unidadInsumoEdit = new javax.swing.JComboBox<String>();
+        cmbx_unidadInsumoEdit = new javax.swing.JComboBox<>();
         btn_cancelarEditInsumo = new javax.swing.JButton();
         Pre_Compra_Insumo = new javax.swing.JPanel();
         jScrollPane15 = new javax.swing.JScrollPane();
@@ -261,7 +265,7 @@ public class View1 extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         txt_totalProdInsumoVenta = new javax.swing.JTextField();
         btn_cancelarBusquedaInsumoVenta = new javax.swing.JButton();
-        cmbx_unidadInsumoVenta = new javax.swing.JComboBox<String>();
+        cmbx_unidadInsumoVenta = new javax.swing.JComboBox<>();
         jLabel41 = new javax.swing.JLabel();
         Ventas = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -426,7 +430,7 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        provePanReg_cmbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        provePanReg_cmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         provePanReg_cmbx.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 provePanReg_cmbxKeyPressed(evt);
@@ -638,7 +642,7 @@ public class View1 extends javax.swing.JFrame {
         jLabel42.setText("Nuevo Proveedor:");
         Modificar_Producto.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 69, -1, -1));
 
-        provePanEdit_cmbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        provePanEdit_cmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         provePanEdit_cmbx.setEnabled(false);
         provePanEdit_cmbx.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1741,10 +1745,9 @@ public class View1 extends javax.swing.JFrame {
                 .addGroup(Consultar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(consultProv_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                     .addGroup(Consultar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cancelarBusquedaProv_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(Consultar_ProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(nombreProvConsult_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel17)
+                        .addComponent(nombreProvConsult_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cancelarBusquedaProv_btn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1983,7 +1986,7 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        cmbx_proveInsumoReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_proveInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbx_proveInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cmbx_proveInsumoRegKeyPressed(evt);
@@ -1994,7 +1997,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel28.setText("Unidad de Medida:");
 
-        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
+        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
         cmbx_unidadInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cmbx_unidadInsumoRegKeyPressed(evt);
@@ -2217,7 +2220,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel43.setText("Nuevo Proveedor:");
 
-        cmbx_proveInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_proveInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbx_proveInsumoEdit.setEnabled(false);
         cmbx_proveInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -2242,7 +2245,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel35.setText("Unidad de Medida:");
 
-        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
+        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
         cmbx_unidadInsumoEdit.setEnabled(false);
         cmbx_unidadInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -2594,7 +2597,7 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        cmbx_unidadInsumoVenta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
+        cmbx_unidadInsumoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
         cmbx_unidadInsumoVenta.setEnabled(false);
 
         jLabel41.setText("Medida:");
@@ -3109,6 +3112,7 @@ public class View1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_HistoVenta.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tbl_HistoVenta.getTableHeader().setReorderingAllowed(false);
         tbl_HistoVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -3184,38 +3188,38 @@ public class View1 extends javax.swing.JFrame {
 
         Date_DesdeHistoVentas.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
                     new java.awt.Color(255, 0, 0),
                     false,
                     false,
@@ -3227,38 +3231,38 @@ public class View1 extends javax.swing.JFrame {
 
     Date_HastaHistoVentas.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -3358,6 +3362,7 @@ Historial_ventasLayout.setHorizontalGroup(
             return canEdit [columnIndex];
         }
     });
+    tbl_HistoCompra.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
     tbl_HistoCompra.getTableHeader().setReorderingAllowed(false);
     tbl_HistoCompra.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -3433,38 +3438,38 @@ Historial_ventasLayout.setHorizontalGroup(
 
     Date_HastaHistoCompra.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -3492,38 +3497,38 @@ btn_cancelarBusquedaHistoCompra.addActionListener(new java.awt.event.ActionListe
 
     Date_DesdeHistoCompra.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -3683,38 +3688,38 @@ Historial_ventas1Layout.setHorizontalGroup(
 
     Date_ConsultProducto.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -3873,38 +3878,38 @@ btn_ConsultProducto.addActionListener(new java.awt.event.ActionListener() {
 
     Date_ConsultInsumo.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -5713,6 +5718,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
             Panel.add(frame);
         }
         Panel.validate();
+        Panel.paintAll(Panel.getGraphics());
     }
 
     //Metodo para el pot

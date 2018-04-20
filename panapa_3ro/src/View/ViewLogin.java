@@ -118,7 +118,7 @@ public class ViewLogin extends javax.swing.JFrame {
 
         if (usuario_existente) {
             if (Lista_panaderias.get(index_user).getPass_usuario().equals(txt_contraseña.getText())) {
-                View1 panapa1 = new View1(Lista_panaderias.get(index_user).getNom_usuario(), Lista_panaderias.get(index_user).getNombre());
+                View1 panapa1 = new View1(Lista_panaderias.get(index_user).getNom_usuario(), Lista_panaderias.get(index_user));
                 
                 this.dispose();
             } else {
@@ -150,14 +150,13 @@ public class ViewLogin extends javax.swing.JFrame {
     }
 
     String nameFile = "..\\pa_crud_Data\\panaderias_lista1.dat";
-    ArrayList<Panaderia> Lista_panaderias = new ArrayList<Panaderia>();
+    ArrayList<Panaderia> Lista_panaderias = new ArrayList<  >();
 
     public void cargar_datos() {
         File fichero = new File(nameFile);
 
         if (fichero.exists()) {
             try {
-                JOptionPane.showMessageDialog(null, "encontrado "+fichero.getAbsolutePath());
                 FileInputStream archivo = new FileInputStream(nameFile);
                 ObjectInputStream obj_archivo = new ObjectInputStream(archivo);
                 Lista_panaderias = ((ArrayList<Panaderia>) obj_archivo.readObject());
