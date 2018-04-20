@@ -4796,18 +4796,20 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 JOptionPane.showMessageDialog(null, "Verifique el pago ingresado", "Error", 0);
             } else {
                 ArrayList<Insumo> Get = new ArrayList<Insumo>();
+                System.err.println(Insumco.getLista_Insumos().get(0).getCantidad());
                 for (int i = 0; i < tbl_listaInsumoVenta.getRowCount(); i++) {
-                    Get.add(Insumco.Get_Insumo(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString())));
-                    Get.get(i).setCantidad(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 2).toString()));
+                    Insumo H = Insumco.Get_Insumo(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString()));
+                    Get.add(new Insumo(H.getId(),H.getNombre(),H.getPrecio(), H.getProveedor(), 
+                            Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 2).toString()), H.getUnidad()));
                 }
                 InsuFactCo.Create(new FacturaInsumo(UUID.randomUUID().toString(), Calendar.getInstance(),
                         Total, Double.parseDouble(txt_pagoClientInsumoVenta.getText()), Get));
                 Listar((DefaultTableModel) tbl_listaInsumoVenta.getModel(), new ArrayList());
                 cancelarInsumoVenta_btn.doClick();
-                GrafCo.Create(Graficar("Insumos Mas Vendidos", "Insumos", "Cantidades", InsuFactCo.MayoresVendidos(Calendar.getInstance()), 0, true));
-                GrafCo.Create(Graficar("Insumos Menos Vendidos", "Insumos", "Cantidades", InsuFactCo.MenoresVendidos(Calendar.getInstance()), 1, true));
-                GrafCo.Create(Graficar("Insumos Con Mas Ganancias", "Insumos", "Ganancia", InsuFactCo.MayoresGanancias(Calendar.getInstance()), 2, false));
-                GrafCo.Create(Graficar("Insumos Con Menos Ganancias", "Insumos", "Ganancia", InsuFactCo.MenoresGanancias(Calendar.getInstance()), 3, false));
+                GrafCo.Create(Graficar("Insumos Mas Comprados", "Insumos", "Cantidades", InsuFactCo.MayoresVendidos(Calendar.getInstance()), 0, true));
+                GrafCo.Create(Graficar("Insumos Menos Comprados", "Insumos", "Cantidades", InsuFactCo.MenoresVendidos(Calendar.getInstance()), 1, true));
+                GrafCo.Create(Graficar("Insumos Con Mayor Inversión", "Insumos", "Inversión", InsuFactCo.MayoresGanancias(Calendar.getInstance()), 2, false));
+                GrafCo.Create(Graficar("Insumos Con Menor Inversión", "Insumos", "Inversión", InsuFactCo.MenoresGanancias(Calendar.getInstance()), 3, false));
                 JOptionPane.showMessageDialog(null, "Los items han sido presupuestado", "Presupuestado", 1);
             }
         } catch (Exception e) {
@@ -5256,7 +5258,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Buscar Historial de compras
     private void btn_ConsultHistoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoCompraActionPerformed
-        BuscarDate(tbl_HistoVenta, InsuFactCo.Read(Date_DesdeHistoCompra.getSelectedDate(), Date_HastaHistoCompra.getSelectedDate()), cancelarVenta_btn);
+        BuscarDate(tbl_HistoCompra, InsuFactCo.Read(Date_DesdeHistoCompra.getSelectedDate(), Date_HastaHistoCompra.getSelectedDate()), cancelarVenta_btn);
     }//GEN-LAST:event_btn_ConsultHistoCompraActionPerformed
 
     //Eliminar Compra
