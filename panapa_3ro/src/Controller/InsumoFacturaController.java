@@ -32,6 +32,7 @@ public class InsumoFacturaController {
         ArrayList<String[]> Get = new ArrayList<>();
         for (int i = 0; i < getLista_Factura().size(); i++) {
             if (getLista_Factura().get(i).getFecha().after(Inicio) && getLista_Factura().get(i).getFecha().before(Fin)) {
+                System.out.println("Encontrado");
                 Get.add(new String[]{i + "", Format.format(getLista_Factura().get(i).getFecha().getTime()),
                     getLista_Factura().get(i).getInsumo_Compra().size() + "", getLista_Factura().get(i).getTotal() + "",
                     getLista_Factura().get(i).getPago() + "", (getLista_Factura().get(i).getTotal() - getLista_Factura().get(i).getPago()) + ""});

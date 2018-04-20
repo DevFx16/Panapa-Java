@@ -41,7 +41,7 @@ public class View1 extends javax.swing.JFrame {
         mbar_nameUser.setText("Usuario: " + FileName);
         ListAll();
         nombrePanReg_txt.requestFocus();
-        
+
         this.setVisible(true);
     }
 
@@ -52,7 +52,7 @@ public class View1 extends javax.swing.JFrame {
         IconosPanel();
         ListAll();
         nombrePanReg_txt.requestFocus();
-        
+
         this.setVisible(true);
     }
 
@@ -4206,11 +4206,16 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         try {
             if (ConfirmDialog("¿Esta seguro que desea modificar este proveedorq?")) {
                 if (ValProveedor(nombreProvEdit_txt.getText(), telefonoProvEdit_txt.getText(), nitProvEdit_txt.getText(), serviProvEdit_txt.getText(), direcProvEdit_txt.getText())) {
-                    Proveeco.Update(Integer.parseInt(IndexTable.toString()), new Proveedor(UUID.randomUUID().toString(), nombreProvEdit_txt.getText().toUpperCase(),
-                            serviProvEdit_txt.getText().toUpperCase(), telefonoProvEdit_txt.getText(), direcProvEdit_txt.getText().toUpperCase(), nitProvEdit_txt.getText().toUpperCase(), 0));
-                    ListAll();
-                    cancelarEditProv_btn.doClick();
-                    JOptionPane.showMessageDialog(null, "El proveedor ha sido modificado", "modoficado", 1);
+                    if (Val_Nit(nitProvEdit_txt.getText()) && nitProvEdit_txt.getText().length() == 10) {
+                        Proveeco.Update(Integer.parseInt(IndexTable.toString()), new Proveedor(UUID.randomUUID().toString(), nombreProvEdit_txt.getText().toUpperCase(),
+                                serviProvEdit_txt.getText().toUpperCase(), telefonoProvEdit_txt.getText(), direcProvEdit_txt.getText().toUpperCase(), nitProvEdit_txt.getText().toUpperCase(), 0));
+                        ListAll();
+                        cancelarEditProv_btn.doClick();
+                        JOptionPane.showMessageDialog(null, "El proveedor ha sido modificado", "modoficado", 1);
+                    } else if (nitProvEdit_txt.getText().length() > 10 || nitProvEdit_txt.getText().length() < 10) {
+                        JOptionPane.showMessageDialog(null, "El NIT es de 10 digitos", "Error", 0);
+                    }
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Los datos ingresados deben ser validos", "Error", 0);
                 }
@@ -4269,9 +4274,15 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     private void registrarProv_btnregistrarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarProv_btnregistrarPan
         try {
             if (ValProveedor(nombreProvReg_txt.getText(), telefonoProvReg_txt.getText(), nitProvReg_txt.getText(), serviProvReg_txt.getText(), direcProvReg_txt.getText())) {
-                Proveeco.Create(new Proveedor(UUID.randomUUID().toString(), nombreProvReg_txt.getText().toUpperCase(),
-                        serviProvReg_txt.getText().toUpperCase(), telefonoProvReg_txt.getText(), direcProvReg_txt.getText().toUpperCase(), nitProvReg_txt.getText().toUpperCase(), 0));
-                BorrarTextFieldProv(nombreProvReg_txt, telefonoProvReg_txt, nitProvReg_txt, serviProvReg_txt, direcProvReg_txt);
+                if (Val_Nit(nitProvReg_txt.getText()) && nitProvReg_txt.getText().length() == 10) {
+                    Proveeco.Create(new Proveedor(UUID.randomUUID().toString(), nombreProvReg_txt.getText().toUpperCase(),
+                            serviProvReg_txt.getText().toUpperCase(), telefonoProvReg_txt.getText(), direcProvReg_txt.getText().toUpperCase(), nitProvReg_txt.getText().toUpperCase(), 0));
+                    BorrarTextFieldProv(nombreProvReg_txt, telefonoProvReg_txt, nitProvReg_txt, serviProvReg_txt, direcProvReg_txt);
+                } else {
+                    if (nitProvEdit_txt.getText().length() > 10 || nitProvEdit_txt.getText().length() < 10) {
+                        JOptionPane.showMessageDialog(null, "El NIT es de 10 digitos", "Error", 0);
+                    }
+                }
             }
             ListAll();
         } catch (Exception e) {
@@ -4796,18 +4807,20 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 JOptionPane.showMessageDialog(null, "Verifique el pago ingresado", "Error", 0);
             } else {
                 ArrayList<Insumo> Get = new ArrayList<Insumo>();
+                System.err.println(Insumco.getLista_Insumos().get(0).getCantidad());
                 for (int i = 0; i < tbl_listaInsumoVenta.getRowCount(); i++) {
-                    Get.add(Insumco.Get_Insumo(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString())));
-                    Get.get(i).setCantidad(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 2).toString()));
+                    Insumo H = Insumco.Get_Insumo(Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 0).toString()));
+                    Get.add(new Insumo(H.getId(), H.getNombre(), H.getPrecio(), H.getProveedor(),
+                            Integer.parseInt(tbl_listaInsumoVenta.getValueAt(i, 2).toString()), H.getUnidad()));
                 }
                 InsuFactCo.Create(new FacturaInsumo(UUID.randomUUID().toString(), Calendar.getInstance(),
                         Total, Double.parseDouble(txt_pagoClientInsumoVenta.getText()), Get));
                 Listar((DefaultTableModel) tbl_listaInsumoVenta.getModel(), new ArrayList());
                 cancelarInsumoVenta_btn.doClick();
-                GrafCo.Create(Graficar("Insumos Mas Vendidos", "Insumos", "Cantidades", InsuFactCo.MayoresVendidos(Calendar.getInstance()), 0, true));
-                GrafCo.Create(Graficar("Insumos Menos Vendidos", "Insumos", "Cantidades", InsuFactCo.MenoresVendidos(Calendar.getInstance()), 1, true));
-                GrafCo.Create(Graficar("Insumos Con Mas Ganancias", "Insumos", "Ganancia", InsuFactCo.MayoresGanancias(Calendar.getInstance()), 2, false));
-                GrafCo.Create(Graficar("Insumos Con Menos Ganancias", "Insumos", "Ganancia", InsuFactCo.MenoresGanancias(Calendar.getInstance()), 3, false));
+                GrafCo.Create(Graficar("Insumos Mas Comprados", "Insumos", "Cantidades", InsuFactCo.MayoresVendidos(Calendar.getInstance()), 0, true));
+                GrafCo.Create(Graficar("Insumos Menos Comprados", "Insumos", "Cantidades", InsuFactCo.MenoresVendidos(Calendar.getInstance()), 1, true));
+                GrafCo.Create(Graficar("Insumos Con Mayor Inversión", "Insumos", "Inversión", InsuFactCo.MayoresGanancias(Calendar.getInstance()), 2, false));
+                GrafCo.Create(Graficar("Insumos Con Menor Inversión", "Insumos", "Inversión", InsuFactCo.MenoresGanancias(Calendar.getInstance()), 3, false));
                 JOptionPane.showMessageDialog(null, "Los items han sido presupuestado", "Presupuestado", 1);
             }
         } catch (Exception e) {
@@ -5256,7 +5269,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Buscar Historial de compras
     private void btn_ConsultHistoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoCompraActionPerformed
-        BuscarDate(tbl_HistoVenta, InsuFactCo.Read(Date_DesdeHistoCompra.getSelectedDate(), Date_HastaHistoCompra.getSelectedDate()), cancelarVenta_btn);
+        BuscarDate(tbl_HistoCompra, InsuFactCo.Read(Date_DesdeHistoCompra.getSelectedDate(), Date_HastaHistoCompra.getSelectedDate()), cancelarVenta_btn);
     }//GEN-LAST:event_btn_ConsultHistoCompraActionPerformed
 
     //Eliminar Compra
@@ -5384,9 +5397,9 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     //evento para cerrar seccion
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         int close = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"¿Desea Cerrar?", "Exit" , close);
+        int result = JOptionPane.showConfirmDialog(null, "¿Desea Cerrar?", "Exit", close);
         if (result == 0) {
-          System.exit(0);
+            System.exit(0);
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -5438,17 +5451,41 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
             return false;
         }
     }
-    
+
     //Metodo para validar texfield como numero
-    private void ValTexfieldSNum(KeyEvent n){
+    private void ValTexfieldSNum(KeyEvent n) {
         char validar = n.getKeyChar();
         if (Character.isLetter(validar)) {
             getToolkit().beep();
             n.consume();
-            
+
             JOptionPane.showMessageDialog(null, "Solo se admiten numeros.", "Aviso", 1);
         }
-    }    
+    }
+
+    public Boolean Val_Nit(String nit) {
+        boolean valid = true;
+        boolean valid1 = true;
+
+        for (int i = 0; i < nit.length(); i++) {
+            if (!Character.isDigit(nit.charAt(i))) {
+                valid1 = false;
+                valid = false;
+                JOptionPane.showMessageDialog(null, "Caracter no valido: " + nit.charAt(i));
+                break;
+            }
+        }
+        if (valid1) {
+            for (int i = 0; i < Proveeco.getLista_proovedor().size(); i++) {
+                if (nit.equals(Proveeco.getLista_proovedor().get(i).getNIT())) {
+                    valid = false;
+                    JOptionPane.showMessageDialog(null, "NIT Existente");
+                    break;
+                }
+            }
+        }
+        return valid;
+    }
 
     //Este Metodo Sirve para listar todo
     private void ListAll() {

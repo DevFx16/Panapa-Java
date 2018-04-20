@@ -75,7 +75,8 @@ public class InsumoController {
     }
     
     public Insumo Get_Insumo(int Index){
-        return this.Lista_Insumos.get(Index);
+        Insumo h = this.Lista_Insumos.get(Index);
+        return h;
     }
 
 }
