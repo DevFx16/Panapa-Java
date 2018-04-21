@@ -24,6 +24,7 @@ public class View1 extends javax.swing.JFrame {
     private ProveedorController Proveeco = new ProveedorController();
     private InsumoController Insumco = new InsumoController();
     private InsumoFacturaController InsuFactCo = new InsumoFacturaController();
+    private ProductoFacturaController ProduFactCo = new ProductoFacturaController();
     private GraficoController GrafCo = new GraficoController();
 
     private Object IndexTable = null;
@@ -285,7 +286,7 @@ public class View1 extends javax.swing.JFrame {
         comprarVenta_btn = new javax.swing.JButton();
         cancelarVenta_btn = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
-        pagoClientVenta_txt = new javax.swing.JTextField();
+        txt_PagoVenta = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         totalProdVenta = new javax.swing.JTextField();
         cancelarBusquedaPan_btn = new javax.swing.JButton();
@@ -2567,6 +2568,9 @@ public class View1 extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_pagoClientInsumoVentaKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_pagoClientInsumoVentaKeyTyped(evt);
+            }
         });
 
         jLabel40.setText("Dinero Recibido :");
@@ -2930,10 +2934,13 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        pagoClientVenta_txt.setEnabled(false);
-        pagoClientVenta_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+        txt_PagoVenta.setEnabled(false);
+        txt_PagoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                pagoClientVenta_txtKeyPressed(evt);
+                txt_PagoVentaKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_PagoVentaKeyTyped(evt);
             }
         });
 
@@ -3022,7 +3029,7 @@ public class View1 extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentasLayout.createSequentialGroup()
                                         .addComponent(jLabel30)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(pagoClientVenta_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(txt_PagoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(74, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentasLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3066,7 +3073,7 @@ public class View1 extends javax.swing.JFrame {
                                 .addComponent(cancelarVenta_btn))
                             .addGroup(VentasLayout.createSequentialGroup()
                                 .addGroup(VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(pagoClientVenta_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_PagoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel30))
                                 .addGap(18, 18, 18)
                                 .addComponent(totalProdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -3338,7 +3345,7 @@ Historial_ventasLayout.setHorizontalGroup(
                     .addGroup(Historial_ventasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(chbx_selecHistoVenta)
                         .addComponent(btn_cancelarBusquedaHistoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                     .addComponent(btn_EliminarVenta)
                     .addGap(56, 56, 56))))
     );
@@ -3547,9 +3554,7 @@ Historial_ventas1Layout.setHorizontalGroup(
             .addComponent(jScrollPane17)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Historial_ventas1Layout.createSequentialGroup()
                 .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_EliminarCompra))
+                    .addComponent(btn_EliminarCompra)
                     .addGroup(Historial_ventas1Layout.createSequentialGroup()
                         .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -3583,8 +3588,8 @@ Historial_ventas1Layout.setHorizontalGroup(
             .addGap(18, 18, 18)
             .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(Historial_ventas1Layout.createSequentialGroup()
-                    .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addContainerGap())
+                    .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(24, Short.MAX_VALUE))
                 .addGroup(Historial_ventas1Layout.createSequentialGroup()
                     .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(Historial_ventas1Layout.createSequentialGroup()
@@ -3603,7 +3608,7 @@ Historial_ventas1Layout.setHorizontalGroup(
                     .addGroup(Historial_ventas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(chbx_selecHistoCompra)
                         .addComponent(btn_cancelarBusquedaHistoCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                     .addComponent(btn_EliminarCompra)
                     .addGap(56, 56, 56))))
     );
@@ -3618,7 +3623,7 @@ Historial_ventas1Layout.setHorizontalGroup(
     );
     jPanel4Layout.setVerticalGroup(
         jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 568, Short.MAX_VALUE)
+        .addGap(0, 580, Short.MAX_VALUE)
         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Historial_ventas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -3633,11 +3638,11 @@ Historial_ventas1Layout.setHorizontalGroup(
     pn_MasVendidosProducto.setLayout(pn_MasVendidosProductoLayout);
     pn_MasVendidosProductoLayout.setHorizontalGroup(
         pn_MasVendidosProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 456, Short.MAX_VALUE)
+        .addGap(0, 0, Short.MAX_VALUE)
     );
     pn_MasVendidosProductoLayout.setVerticalGroup(
         pn_MasVendidosProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 261, Short.MAX_VALUE)
+        .addGap(0, 0, Short.MAX_VALUE)
     );
 
     pn_MasGananciaProducto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -3667,7 +3672,7 @@ Historial_ventas1Layout.setHorizontalGroup(
     );
     pn_MenosVendidoProductoLayout.setVerticalGroup(
         pn_MenosVendidoProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 261, Short.MAX_VALUE)
+        .addGap(0, 0, Short.MAX_VALUE)
     );
 
     pn_MenosGananciaProducto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -3678,7 +3683,7 @@ Historial_ventas1Layout.setHorizontalGroup(
     pn_MenosGananciaProducto.setLayout(pn_MenosGananciaProductoLayout);
     pn_MenosGananciaProductoLayout.setHorizontalGroup(
         pn_MenosGananciaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 456, Short.MAX_VALUE)
+        .addGap(0, 0, Short.MAX_VALUE)
     );
     pn_MenosGananciaProductoLayout.setVerticalGroup(
         pn_MenosGananciaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3756,8 +3761,8 @@ btn_ConsultProducto.addActionListener(new java.awt.event.ActionListener() {
         .addGroup(jPanel8Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pn_MasVendidosProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(pn_MenosVendidoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pn_MasVendidosProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pn_MenosVendidoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGap(30, 30, 30)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addComponent(btn_cancelarBusquedaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3765,8 +3770,8 @@ btn_ConsultProducto.addActionListener(new java.awt.event.ActionListener() {
                 .addComponent(Date_ConsultProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
             .addGap(30, 30, 30)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pn_MasGananciaProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(pn_MenosGananciaProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pn_MasGananciaProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pn_MenosGananciaProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
     jPanel8Layout.setVerticalGroup(
@@ -3776,12 +3781,12 @@ btn_ConsultProducto.addActionListener(new java.awt.event.ActionListener() {
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pn_MasVendidosProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pn_MasGananciaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pn_MasVendidosProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pn_MasGananciaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pn_MenosVendidoProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pn_MenosGananciaProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pn_MenosVendidoProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pn_MenosGananciaProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addGap(230, 230, 230)
                     .addComponent(Date_ConsultProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3964,7 +3969,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         .addGroup(jPanel9Layout.createSequentialGroup()
             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel9Layout.createSequentialGroup()
-                    .addContainerGap(16, Short.MAX_VALUE)
+                    .addContainerGap(22, Short.MAX_VALUE)
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel9Layout.createSequentialGroup()
                             .addComponent(pn_MasVendidosInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3981,7 +3986,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                     .addComponent(btn_ConsultInsumo)
                     .addGap(18, 18, 18)
                     .addComponent(btn_cancelarBusquedaInsumo)))
-            .addContainerGap(16, Short.MAX_VALUE))
+            .addContainerGap(22, Short.MAX_VALUE))
     );
 
     Contenedor_Stast.addTab("Graficas de Insumos", jPanel9);
@@ -4102,14 +4107,15 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     }//GEN-LAST:event_totalProdVentaActionPerformed
 
-    private void pagoClientVenta_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pagoClientVenta_txtKeyPressed
+    private void txt_PagoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_PagoVentaKeyPressed
 
-    }//GEN-LAST:event_pagoClientVenta_txtKeyPressed
+    }//GEN-LAST:event_txt_PagoVentaKeyPressed
 
     private void cancelarVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarVenta_btnActionPerformed
         BorrarTextFieldVentas(nombreProdVenta_txt, cantidadProdVenta_txt);
         HabilitarTXT_BTN_Agregar_Venta(cantidadProdVenta_txt, comprarVenta_btn, false);
         retirarProdVenta_btn.setEnabled(false);
+        txt_PagoVenta.setEnabled(false);
         cantidadProdVenta_txt.setEnabled(false);
         SelecTable(listaProdConsultVentas_tbl, selecProdConsultVenta_chbx, agregarProdVenta_btn, false);
         cancelarVenta_btn.setEnabled(false);
@@ -4121,8 +4127,32 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         Listar((DefaultTableModel) listaProdConsultVentas_tbl.getModel(), Proco.ReadVenta());
     }//GEN-LAST:event_cancelarVenta_btnActionPerformed
 
+    //Comprar Producto
     private void comprarVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarVenta_btnActionPerformed
-
+        try {
+            double Total = TotalPreCompra(listaProdVenta_tbl, 3, totalProdVenta, "Total de la venta:");
+            if (Double.parseDouble(txt_PagoVenta.getText()) < Total) {
+                JOptionPane.showMessageDialog(null, "Verifique el pago ingresado", "Error", 0);
+            } else {
+                ArrayList<Producto> Get = new ArrayList<Producto>();
+                for (int i = 0; i < listaProdVenta_tbl.getRowCount(); i++) {
+                    Producto H = Proco.GetProducto(Integer.parseInt(listaProdVenta_tbl.getValueAt(i, 0).toString()));
+                    Get.add(new Producto(H.getId(), H.getNombre(), H.getPrecio(), H.getProveedor(),
+                            Integer.parseInt(listaProdVenta_tbl.getValueAt(i, 2).toString())));
+                }
+                ProduFactCo.Create(new FacturaProducto(UUID.randomUUID().toString(), Calendar.getInstance(),
+                        Total, Get, Double.parseDouble(txt_PagoVenta.getText())));
+                Listar((DefaultTableModel) listaProdVenta_tbl.getModel(), new ArrayList());
+                cancelarVenta_btn.doClick();
+                GrafCo.Create(Graficar("Productos Mas Comprados", "Productos", "Cantidades", ProduFactCo.MayoresVendidos(Calendar.getInstance()), 4, true));
+                GrafCo.Create(Graficar("Productos Menos Comprados", "Productos", "Cantidades", ProduFactCo.MenoresVendidos(Calendar.getInstance()), 5, true));
+                GrafCo.Create(Graficar("Productos Con Mayores Ganancias", "Productos", "Ganancias", ProduFactCo.MayoresGanancias(Calendar.getInstance()), 6, false));
+                GrafCo.Create(Graficar("Productos Con Menores Ganancias", "Productos", "Ganancias", ProduFactCo.MenoresGanancias(Calendar.getInstance()), 7, false));
+                JOptionPane.showMessageDialog(null, "La compra ha sido efectuada", "Compra", 1);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e, "Error", 0);
+        }
     }//GEN-LAST:event_comprarVenta_btnActionPerformed
 
     private void retirarProdVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarProdVenta_btnActionPerformed
@@ -4155,6 +4185,8 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 BorrarTextFieldVentas(nombreProdVenta_txt, cantidadProdVenta_txt);
                 HabilitarTXT_BTN_Agregar_Venta(cantidadProdVenta_txt, comprarVenta_btn, true);
                 cancelarVenta_btn.setEnabled(true);
+                txt_PagoVenta.setEnabled(true);
+                SelecTable(listaProdConsultVentas_tbl, selecProdConsultVenta_chbx, agregarProdVenta_btn, false);
                 agregarProdVenta_btn.setEnabled(false);
                 TotalPreCompra(listaProdVenta_tbl, 3, totalProdVenta, "Total de la venta:");
                 Listar((DefaultTableModel) listaProdConsultVentas_tbl.getModel(), Proco.ReadVenta());
@@ -4580,7 +4612,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 ActualizarPanelCrud(txt_nombreInsumoReg, txt_nombreInsumoConsultEdit, txt_nombreInsumoConsultVenta, txt_nombreInsumoReg, InsumosCont);
                 break;
             case 3:
-
+                  nombrePanConsultVenta_txt.requestFocus();
                 break;
         }
         ListAll();
@@ -4868,8 +4900,8 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 cancelarInsumoVenta_btn.doClick();
                 GrafCo.Create(Graficar("Insumos Mas Comprados", "Insumos", "Cantidades", InsuFactCo.MayoresVendidos(Calendar.getInstance()), 0, true));
                 GrafCo.Create(Graficar("Insumos Menos Comprados", "Insumos", "Cantidades", InsuFactCo.MenoresVendidos(Calendar.getInstance()), 1, true));
-                GrafCo.Create(Graficar("Insumos Con Mayor Inversión", "Insumos", "Inversión", InsuFactCo.MayoresGanancias(Calendar.getInstance()), 2, false));
-                GrafCo.Create(Graficar("Insumos Con Menor Inversión", "Insumos", "Inversión", InsuFactCo.MenoresGanancias(Calendar.getInstance()), 3, false));
+                GrafCo.Create(Graficar("Insumos Con Mayores Inversiónes", "Insumos", "Inversiónes", InsuFactCo.MayoresGanancias(Calendar.getInstance()), 2, false));
+                GrafCo.Create(Graficar("Insumos Con Menores Inversiónes", "Insumos", "Inversiónes", InsuFactCo.MenoresGanancias(Calendar.getInstance()), 3, false));
                 JOptionPane.showMessageDialog(null, "Los items han sido presupuestado", "Presupuestado", 1);
             }
         } catch (Exception e) {
@@ -5303,7 +5335,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Metodo buscar graficas
     private void btn_ConsultProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultProductoActionPerformed
-        GraficarInsumos(Date_ConsultProducto.getSelectedDate());
+        GraficarProductos(Date_ConsultProducto.getSelectedDate());
         btn_cancelarBusquedaProducto.setEnabled(true);
     }//GEN-LAST:event_btn_ConsultProductoActionPerformed
 
@@ -5452,6 +5484,16 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    //Evento type
+    private void txt_pagoClientInsumoVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pagoClientInsumoVentaKeyTyped
+         ValTexfieldSNum(evt);
+    }//GEN-LAST:event_txt_pagoClientInsumoVentaKeyTyped
+
+    //Evento del type
+    private void txt_PagoVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_PagoVentaKeyTyped
+          ValTexfieldSNum(evt);
+    }//GEN-LAST:event_txt_PagoVentaKeyTyped
+
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
         switch (Panel.getSelectedIndex()) {
@@ -5553,6 +5595,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         Listar((DefaultTableModel) listaProvConsult_tbl.getModel(), Proveeco.ReadAll());
         Listar((DefaultTableModel) listaProvEliminar_tbl.getModel(), Proveeco.ReadAll());
         Listar((DefaultTableModel) tbl_HistoCompra.getModel(), InsuFactCo.ReadAll());
+        Listar((DefaultTableModel) tbl_HistoVenta.getModel(), ProduFactCo.ReadAll());
         ComboBoxList(provePanReg_cmbx, Proveeco.getLista_proovedor());
         ComboBoxList(provePanEdit_cmbx, Proveeco.getLista_proovedor());
         ComboBoxList(cmbx_proveInsumoReg, Proveeco.getLista_proovedor());
@@ -6029,7 +6072,6 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JTextField nombreProvConsult_txt;
     private javax.swing.JTextField nombreProvEdit_txt;
     private javax.swing.JTextField nombreProvReg_txt;
-    private javax.swing.JTextField pagoClientVenta_txt;
     private javax.swing.JPanel pn_MasGananciaInsumo;
     private javax.swing.JPanel pn_MasGananciaProducto;
     private javax.swing.JPanel pn_MasVendidosInsumo;
@@ -6068,6 +6110,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JTextField telefonoProvReg_txt;
     private javax.swing.JTextField totalProdVenta;
     private javax.swing.JTextField txt_CantidadProd;
+    private javax.swing.JTextField txt_PagoVenta;
     private javax.swing.JTextField txt_cantidadInsumoVenta;
     private javax.swing.JTextField txt_nombreInsumoConsultEdit;
     private javax.swing.JTextField txt_nombreInsumoConsultVenta;

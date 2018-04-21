@@ -3381,6 +3381,7 @@
                           </Properties>
                           <Events>
                             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_pagoClientInsumoVentaKeyPressed"/>
+                            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_pagoClientInsumoVentaKeyTyped"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel40">
@@ -3528,7 +3529,7 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="pagoClientVenta_txt" min="-2" pref="100" max="-2" attributes="0"/>
+                                                  <Component id="txt_PagoVenta" min="-2" pref="100" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -3590,7 +3591,7 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="pagoClientVenta_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txt_PagoVenta" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -3863,12 +3864,13 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel29">
                 </Component>
-                <Component class="javax.swing.JTextField" name="pagoClientVenta_txt">
+                <Component class="javax.swing.JTextField" name="txt_PagoVenta">
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pagoClientVenta_txtKeyPressed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_PagoVentaKeyPressed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_PagoVentaKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel30">
@@ -4033,7 +4035,7 @@
                                               <Component id="chbx_selecHistoVenta" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="btn_cancelarBusquedaHistoVenta" alignment="3" max="32767" attributes="0"/>
                                           </Group>
-                                          <EmptySpace pref="67" max="32767" attributes="0"/>
+                                          <EmptySpace pref="79" max="32767" attributes="0"/>
                                           <Component id="btn_EliminarVenta" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                       </Group>
@@ -4239,7 +4241,7 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="568" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="580" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                   <Component id="Historial_ventas1" alignment="1" max="32767" attributes="0"/>
                               </Group>
@@ -4253,18 +4255,15 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jScrollPane17" alignment="0" max="32767" attributes="0"/>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                      <Component id="btn_EliminarCompra" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="btn_EliminarCompra" alignment="1" min="-2" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Component id="jScrollPane20" pref="624" max="32767" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="102" attributes="0">
                                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -4296,20 +4295,20 @@
                                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
                                       <Component id="jScrollPane17" min="-2" pref="286" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jScrollPane20" pref="0" max="32767" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jScrollPane20" min="-2" pref="240" max="-2" attributes="0"/>
+                                              <EmptySpace pref="24" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -4335,7 +4334,7 @@
                                                   <Component id="chbx_selecHistoCompra" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="btn_cancelarBusquedaHistoCompra" alignment="3" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace pref="67" max="32767" attributes="0"/>
+                                              <EmptySpace pref="79" max="32767" attributes="0"/>
                                               <Component id="btn_EliminarCompra" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                           </Group>
@@ -4569,10 +4568,10 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="pn_MasVendidosProducto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="pn_MenosVendidoProducto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="pn_MasVendidosProducto" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="pn_MenosVendidoProducto" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -4582,10 +4581,10 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="pn_MasGananciaProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="pn_MenosGananciaProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="pn_MasGananciaProducto" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="pn_MenosGananciaProducto" alignment="1" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -4596,13 +4595,13 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="pn_MasVendidosProducto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="pn_MasGananciaProducto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="pn_MasVendidosProducto" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="pn_MasGananciaProducto" alignment="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="pn_MenosVendidoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="pn_MenosGananciaProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="pn_MenosVendidoProducto" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="pn_MenosGananciaProducto" alignment="1" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -4638,12 +4637,12 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="456" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="261" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
@@ -4699,7 +4698,7 @@
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="261" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
@@ -4722,7 +4721,7 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="456" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
@@ -4805,7 +4804,7 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                                          <EmptySpace pref="22" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <Component id="pn_MasVendidosInsumo" min="-2" max="-2" attributes="0"/>
@@ -4828,7 +4827,7 @@
                                           <Component id="btn_cancelarBusquedaInsumo" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                                  <EmptySpace pref="22" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
