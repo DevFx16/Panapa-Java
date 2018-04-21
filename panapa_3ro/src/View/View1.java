@@ -79,9 +79,9 @@ public class View1 extends javax.swing.JFrame {
                 Insumco.setLista_Insumos(u1.getLista_Insumos());
                 InsuFactCo.setLista_Factura(u1.getLista_Factura_insumo());
                 GrafCo.setLista_Graficas(u1.getLista_Graficas());
-                if(Proveeco.getLista_proovedor().size() <= 0 && Panaderia != null){
-                     Proveeco.Create(new Proveedor(UUID.randomUUID().toString(), Panaderia.getNombre(), "PANADERIA", Panaderia.getContacto(), 
-                             Panaderia.getDireccion(), Panaderia.getNit(), 0));
+                if (Proveeco.getLista_proovedor().size() <= 0 && Panaderia != null) {
+                    Proveeco.Create(new Proveedor(UUID.randomUUID().toString(), Panaderia.getNombre(), "PANADERIA", Panaderia.getContacto(),
+                            Panaderia.getDireccion(), Panaderia.getNit(), 0));
                 }
 
             } catch (Exception e) {
@@ -4108,7 +4108,14 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_pagoClientVenta_txtKeyPressed
 
     private void cancelarVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarVenta_btnActionPerformed
-
+        Listar((DefaultTableModel) listaProdVenta_tbl.getModel(), new ArrayList());
+        BorrarTextFieldVentas(nombreProdVenta_txt, cantidadProdVenta_txt);
+        HabilitarTXT_BTN_Agregar_Venta(cantidadProdVenta_txt, comprarVenta_btn, false);
+        retirarProdVenta_btn.setEnabled(false);
+        cantidadProdVenta_txt.setEnabled(false);
+        agregarProdVenta_btn.setEnabled(false);
+        selecProdVenta_chbx.setSelected(false);
+        cancelarVenta_btn.setEnabled(false);
     }//GEN-LAST:event_cancelarVenta_btnActionPerformed
 
     private void comprarVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarVenta_btnActionPerformed
@@ -4116,11 +4123,28 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_comprarVenta_btnActionPerformed
 
     private void retirarProdVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarProdVenta_btnActionPerformed
-
+        try {
+            if (rootPaneCheckingEnabled) {
+                JOptionPane.showMessageDialog(null, "Se ha retirado el item correctamente", "Retirado", 1);
+                ((DefaultTableModel) listaProdVenta_tbl.getModel()).removeRow(listaProdVenta_tbl.getSelectedRow());
+                selecProdVenta_chbx.setSelected(false);
+                if (listaProdVenta_tbl.getRowCount() <= 0) {
+                    cancelarVenta_btn.doClick();
+                }
+            }
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_retirarProdVenta_btnActionPerformed
 
     private void agregarProdVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarProdVenta_btnActionPerformed
-
+        try {
+            ((DefaultTableModel) listaProdVenta_tbl.getModel()).addRow(new String[]{(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 0).toString()), nombreProdVenta_txt.getText(), cantidadProdVenta_txt.getText()});
+            BorrarTextFieldVentas(nombreProdVenta_txt, cantidadProdVenta_txt);
+            HabilitarTXT_BTN_Agregar_Venta(cantidadProdVenta_txt, comprarVenta_btn, true);
+            cancelarVenta_btn.setEnabled(true);
+            agregarProdVenta_btn.setEnabled(false);
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_agregarProdVenta_btnActionPerformed
 
     private void cantidadProdVenta_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProdVenta_txtKeyPressed
@@ -4131,6 +4155,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         SelecTable(listaProdConsultVentas_tbl, selecEditPan_chbx, EditPan_btn, true);
         cancelarBusquedaPan_btn.setEnabled(true);
         agregarProdVenta_btn.setEnabled(true);
+        cantidadProdVenta_txt.setEnabled(true);
         nombreProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 1).toString());
         cantidadProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 2).toString());
     }//GEN-LAST:event_listaProdConsultVentas_tblMouseClicked
@@ -4145,7 +4170,9 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_nombrePanConsultVenta_txtKeyPressed
 
     private void listaProdVenta_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProdVenta_tblMouseClicked
-        SelecTable(listaProdVenta_tbl, selecProdVenta_chbx, EditProv_btn, true);
+        SelecTable(listaProdVenta_tbl, selecProdVenta_chbx, retirarProdVenta_btn, true);
+        retirarProdVenta_btn.setEnabled(true);
+        selecProdVenta_chbx.setSelected(true);
     }//GEN-LAST:event_listaProdVenta_tblMouseClicked
 
     //Buscar en el eliminar proveedores
@@ -4552,6 +4579,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         nombreProdVenta_txt.setText(null);
         nombrePanConsultVenta_txt.setText(null);
         cancelarBusquedaPan_btn.setEnabled(false);
+        totalProdVenta.setText("Total de la venta: 0.0");
     }//GEN-LAST:event_cancelarBusquedaPan_btnmodificarPan
 
     private void cancelarBusquedaProv_btnmodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBusquedaProv_btnmodificarPan
@@ -5494,6 +5522,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Este Metodo Sirve para listar todo
     private void ListAll() {
+        Listar((DefaultTableModel) listaProdConsultVentas_tbl.getModel(), Proco.ReadVenta());
         Listar((DefaultTableModel) tbl_listaInsumoConsultVentas.getModel(), Insumco.ReadVenta());
         Listar((DefaultTableModel) tbl_listaInsumosReg.getModel(), Insumco.ReadAll());
         Listar((DefaultTableModel) tbl_listaInsumoEdit.getModel(), Insumco.ReadAll());
@@ -5612,6 +5641,12 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         Cb.setEnabled(Cond);
     }
 
+    //Metodo para habilitar o desbailitar los Jtextfields y JButtons de las Ventas
+    public void HabilitarTXT_BTN_Agregar_Venta(JTextField cantidad, JButton comprar, boolean Cond) {
+        cantidad.setEnabled(!Cond);
+        comprar.setEnabled(Cond);
+    }
+
     //Metodo para habilitar o deshabilitar los Jtextfield del modificar Proveedor
     private void EnabledTxt_Proveedor(JTextField Nombre, JTextField Telefono, JTextField Nit, JTextField Producto, JTextField Direccion, boolean Cond) {
         Nombre.setEnabled(Cond);
@@ -5657,6 +5692,12 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         Nit.setText(t);
         Producto.setText(t);
         Direccion.setText(t);
+    }
+    
+    //Metodo para borrar TextField al agregar producto a ventas
+    public void BorrarTextFieldVentas(JTextField nombre, JTextField cantidad) {
+        nombre.setText(null);
+        cantidad.setText(null);
     }
 
     //Meotodo para sacar el total de la Pre-Compra
