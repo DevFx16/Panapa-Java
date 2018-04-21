@@ -79,14 +79,13 @@ public class View1 extends javax.swing.JFrame {
                 Insumco.setLista_Insumos(u1.getLista_Insumos());
                 InsuFactCo.setLista_Factura(u1.getLista_Factura_insumo());
                 GrafCo.setLista_Graficas(u1.getLista_Graficas());
-                if (Proveeco.getLista_proovedor().size() <= 0 && Panaderia != null) {
-                    Proveeco.Create(new Proveedor(UUID.randomUUID().toString(), Panaderia.getNombre(), "PANADERIA", Panaderia.getContacto(),
-                            Panaderia.getDireccion(), Panaderia.getNit(), 0));
-                }
-
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el archivo");
             }
+        }
+        if (Proveeco.getLista_proovedor().size() <= 0 && Panaderia != null) {
+            Proveeco.Create(new Proveedor(UUID.randomUUID().toString(), Panaderia.getNombre(), "PANADERIA", Panaderia.getContacto(),
+                    Panaderia.getDireccion(), Panaderia.getNit(), 0));
         }
 
     }
@@ -4108,14 +4107,18 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_pagoClientVenta_txtKeyPressed
 
     private void cancelarVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarVenta_btnActionPerformed
-        Listar((DefaultTableModel) listaProdVenta_tbl.getModel(), new ArrayList());
         BorrarTextFieldVentas(nombreProdVenta_txt, cantidadProdVenta_txt);
         HabilitarTXT_BTN_Agregar_Venta(cantidadProdVenta_txt, comprarVenta_btn, false);
         retirarProdVenta_btn.setEnabled(false);
         cantidadProdVenta_txt.setEnabled(false);
-        agregarProdVenta_btn.setEnabled(false);
-        selecProdVenta_chbx.setSelected(false);
+        SelecTable(listaProdConsultVentas_tbl, selecProdConsultVenta_chbx, agregarProdVenta_btn, false);
         cancelarVenta_btn.setEnabled(false);
+        totalProdVenta.setText("Total de la venta: 0.0");
+        for (int i = 0; i < listaProdVenta_tbl.getRowCount(); i++) {
+            Proco.CantidadVentaCancelar(Integer.parseInt(listaProdVenta_tbl.getValueAt(i, 0).toString()), Integer.parseInt(listaProdVenta_tbl.getValueAt(i, 2).toString()));
+        }
+        Listar((DefaultTableModel) listaProdVenta_tbl.getModel(), new ArrayList());
+        Listar((DefaultTableModel) listaProdConsultVentas_tbl.getModel(), Proco.ReadVenta());
     }//GEN-LAST:event_cancelarVenta_btnActionPerformed
 
     private void comprarVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarVenta_btnActionPerformed
@@ -4124,10 +4127,11 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     private void retirarProdVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarProdVenta_btnActionPerformed
         try {
-            if (rootPaneCheckingEnabled) {
+            if (ConfirmDialog("¿Estas seguro que desea retirar este item?")) {
                 JOptionPane.showMessageDialog(null, "Se ha retirado el item correctamente", "Retirado", 1);
                 ((DefaultTableModel) listaProdVenta_tbl.getModel()).removeRow(listaProdVenta_tbl.getSelectedRow());
                 selecProdVenta_chbx.setSelected(false);
+                TotalPreCompra(listaProdVenta_tbl, 3, totalProdVenta, "Total de la venta:");
                 if (listaProdVenta_tbl.getRowCount() <= 0) {
                     cancelarVenta_btn.doClick();
                 }
@@ -4138,26 +4142,38 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     private void agregarProdVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarProdVenta_btnActionPerformed
         try {
-            ((DefaultTableModel) listaProdVenta_tbl.getModel()).addRow(new String[]{(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 0).toString()), nombreProdVenta_txt.getText(), cantidadProdVenta_txt.getText()});
-            BorrarTextFieldVentas(nombreProdVenta_txt, cantidadProdVenta_txt);
-            HabilitarTXT_BTN_Agregar_Venta(cantidadProdVenta_txt, comprarVenta_btn, true);
-            cancelarVenta_btn.setEnabled(true);
-            agregarProdVenta_btn.setEnabled(false);
+            if (cantidadProdVenta_txt.getText() == null || cantidadProdVenta_txt.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Verifique la cantidad", "Error", 0);
+            } else if (Integer.parseInt(cantidadProdVenta_txt.getText()) > Proco.GetProducto(Integer.parseInt(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 0).toString())).getCantidad()
+                    || Integer.parseInt(cantidadProdVenta_txt.getText()) <= 0) {
+                JOptionPane.showMessageDialog(null, "Verifique la cantidad disponible", "Error", 0);
+            } else {
+                ((DefaultTableModel) listaProdVenta_tbl.getModel()).addRow(new String[]{(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 0).toString()),
+                    nombreProdVenta_txt.getText(), cantidadProdVenta_txt.getText(), (Integer.parseInt(cantidadProdVenta_txt.getText())
+                    * Proco.GetProducto(Integer.parseInt(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 0).toString())).getPrecio()) + ""});
+                Proco.CantidadVenta(Integer.parseInt(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 0).toString()), Integer.parseInt(cantidadProdVenta_txt.getText()));
+                BorrarTextFieldVentas(nombreProdVenta_txt, cantidadProdVenta_txt);
+                HabilitarTXT_BTN_Agregar_Venta(cantidadProdVenta_txt, comprarVenta_btn, true);
+                cancelarVenta_btn.setEnabled(true);
+                agregarProdVenta_btn.setEnabled(false);
+                TotalPreCompra(listaProdVenta_tbl, 3, totalProdVenta, "Total de la venta:");
+                Listar((DefaultTableModel) listaProdConsultVentas_tbl.getModel(), Proco.ReadVenta());
+            }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e, "Error", 0);
         }
     }//GEN-LAST:event_agregarProdVenta_btnActionPerformed
 
+    //Evento  Enter
     private void cantidadProdVenta_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadProdVenta_txtKeyPressed
-
+        EventoEnter(evt, agregarProdVenta_btn);
     }//GEN-LAST:event_cantidadProdVenta_txtKeyPressed
 
     private void listaProdConsultVentas_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProdConsultVentas_tblMouseClicked
-        SelecTable(listaProdConsultVentas_tbl, selecEditPan_chbx, EditPan_btn, true);
-        cancelarBusquedaPan_btn.setEnabled(true);
-        agregarProdVenta_btn.setEnabled(true);
+        IndexTable = null;
+        SelecTable(listaProdConsultVentas_tbl, selecProdConsultVenta_chbx, agregarProdVenta_btn, true);
         cantidadProdVenta_txt.setEnabled(true);
         nombreProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 1).toString());
-        cantidadProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 2).toString());
     }//GEN-LAST:event_listaProdConsultVentas_tblMouseClicked
 
     private void consultPanVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanVenta_btnActionPerformed
@@ -5693,7 +5709,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         Producto.setText(t);
         Direccion.setText(t);
     }
-    
+
     //Metodo para borrar TextField al agregar producto a ventas
     public void BorrarTextFieldVentas(JTextField nombre, JTextField cantidad) {
         nombre.setText(null);
