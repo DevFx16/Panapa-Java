@@ -178,9 +178,6 @@
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JTextField" name="nombrePanReg_txt">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="brazo"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nombrePanReg_txtKeyPressed"/>
                       </Events>
@@ -191,9 +188,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="precioPanReg_txt">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="500"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="precioPanReg_txtActionPerformed"/>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="precioPanReg_txtKeyPressed"/>
@@ -2403,9 +2397,6 @@
                           </Layout>
                           <SubComponents>
                             <Component class="javax.swing.JTextField" name="txt_nombreInsumoReg">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="brazo"/>
-                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_nombreInsumoRegKeyPressed"/>
                               </Events>
@@ -2416,9 +2407,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="txt_precioInsumoReg">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="500"/>
-                              </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_precioInsumoRegActionPerformed"/>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_precioInsumoRegKeyPressed"/>
@@ -3670,6 +3658,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="listaProdVenta_tblMouseClicked"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="listaProdVenta_tblKeyPressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -3921,14 +3910,14 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Contenedor_Stast" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="Contenedor_Stast" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Contenedor_Stast" min="-2" pref="586" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="Contenedor_Stast" pref="586" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4110,6 +4099,7 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbl_HistoVentaMouseClicked"/>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbl_HistoVentaKeyPressed"/>
                               </Events>
                             </Component>
                           </SubComponents>

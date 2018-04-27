@@ -358,7 +358,6 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        nombrePanReg_txt.setText("brazo");
         nombrePanReg_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 nombrePanReg_txtKeyPressed(evt);
@@ -367,7 +366,6 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre del Tipo de Producto : ");
 
-        precioPanReg_txt.setText("500");
         precioPanReg_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 precioPanReg_txtActionPerformed(evt);
@@ -1913,7 +1911,6 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        txt_nombreInsumoReg.setText("brazo");
         txt_nombreInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_nombreInsumoRegKeyPressed(evt);
@@ -1922,7 +1919,6 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre del Tipo de Producto : ");
 
-        txt_precioInsumoReg.setText("500");
         txt_precioInsumoReg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_precioInsumoRegActionPerformed(evt);
@@ -2771,6 +2767,11 @@ public class View1 extends javax.swing.JFrame {
                 listaProdVenta_tblMouseClicked(evt);
             }
         });
+        listaProdVenta_tbl.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                listaProdVenta_tblKeyPressed(evt);
+            }
+        });
         jScrollPane10.setViewportView(listaProdVenta_tbl);
         if (listaProdVenta_tbl.getColumnModel().getColumnCount() > 0) {
             listaProdVenta_tbl.getColumnModel().getColumn(0).setMinWidth(55);
@@ -3124,6 +3125,11 @@ public class View1 extends javax.swing.JFrame {
         tbl_HistoVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbl_HistoVentaMouseClicked(evt);
+            }
+        });
+        tbl_HistoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbl_HistoVentaKeyPressed(evt);
             }
         });
         jScrollPane12.setViewportView(tbl_HistoVenta);
@@ -4001,13 +4007,13 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     Estadisticas.setLayout(EstadisticasLayout);
     EstadisticasLayout.setHorizontalGroup(
         EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(Contenedor_Stast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(Contenedor_Stast)
     );
     EstadisticasLayout.setVerticalGroup(
         EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(EstadisticasLayout.createSequentialGroup()
-            .addComponent(Contenedor_Stast, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(Contenedor_Stast, javax.swing.GroupLayout.PREFERRED_SIZE, 586, Short.MAX_VALUE)
+            .addContainerGap())
     );
 
     Panel_General.addTab("Estadisticas", Estadisticas);
@@ -4815,8 +4821,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_btn_cancelarEditInsumomodificarPan
 
     private void tbl_listaInsumoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoVentaMouseClicked
-        retirarInsumoVenta_btn.setEnabled(true);
-        IndexTable = tbl_listaInsumoVenta.getSelectedRow();
+        SelecTable(tbl_listaInsumoVenta, chbx_selecInsumoVenta, retirarInsumoVenta_btn, true);
     }//GEN-LAST:event_tbl_listaInsumoVentaMouseClicked
 
     private void txt_nombreInsumoConsultVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreInsumoConsultVentaActionPerformed
@@ -5521,6 +5526,20 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     private void txt_PagoVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_PagoVentaKeyTyped
         ValTexfieldSNum(evt);
     }//GEN-LAST:event_txt_PagoVentaKeyTyped
+
+    //Evento enter
+    private void tbl_HistoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_HistoVentaKeyPressed
+        if (evt.getKeyChar() == ENTER) {
+            tbl_HistoVentaMouseClicked(null);
+        }
+    }//GEN-LAST:event_tbl_HistoVentaKeyPressed
+
+    //Evento enter
+    private void listaProdVenta_tblKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_listaProdVenta_tblKeyPressed
+        if (evt.getKeyChar() == ENTER) {
+            listaProdVenta_tblMouseClicked(null);
+        }
+    }//GEN-LAST:event_listaProdVenta_tblKeyPressed
 
     //Metodo para actualizar paneles que sean de tipo CRUD
     private void ActualizarPanelCrud(JTextField Create, JTextField Update, JTextField Read, JTextField Delete, JTabbedPane Panel) {
