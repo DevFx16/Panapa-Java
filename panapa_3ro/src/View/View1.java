@@ -5354,8 +5354,10 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         EventoEnter(evt, btn_cancelarBusquedaHistoCompra);
     }//GEN-LAST:event_btn_cancelarBusquedaHistoCompraKeyPressed
 
+    //Cancelar busqueda
     private void btn_cancelarBusquedaHistoCompramodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoCompramodificarPan
-        // TODO add your handling code here:
+        Listar((DefaultTableModel) tbl_HistoCompra.getModel(), InsuFactCo.ReadAll());
+        Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(), new ArrayList());
     }//GEN-LAST:event_btn_cancelarBusquedaHistoCompramodificarPan
 
     //Buscar Historial de compras
