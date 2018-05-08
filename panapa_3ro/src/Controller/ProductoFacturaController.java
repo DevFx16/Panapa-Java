@@ -23,7 +23,7 @@ public class ProductoFacturaController {
         for (int i = 0; i < getLista_Factura().size(); i++) {
             Get.add(new String[]{i + "", Format.format(getLista_Factura().get(i).getFecha().getTime()),
                 getLista_Factura().get(i).getProductos().size() + "", getLista_Factura().get(i).getTotal() + "",
-                getLista_Factura().get(i).getPago() + "", (getLista_Factura().get(i).getTotal() - getLista_Factura().get(i).getPago()) + ""});
+                getLista_Factura().get(i).getPago() + "", Math.abs(getLista_Factura().get(i).getTotal() - getLista_Factura().get(i).getPago()) + ""});
         }
         return Get;
     }
@@ -34,7 +34,7 @@ public class ProductoFacturaController {
             if (getLista_Factura().get(i).getFecha().after(Inicio) && getLista_Factura().get(i).getFecha().before(Fin)) {
                 Get.add(new String[]{i + "", Format.format(getLista_Factura().get(i).getFecha().getTime()),
                     getLista_Factura().get(i).getProductos().size() + "", getLista_Factura().get(i).getTotal() + "",
-                    getLista_Factura().get(i).getPago() + "", (getLista_Factura().get(i).getTotal() - getLista_Factura().get(i).getPago()) + ""});
+                    getLista_Factura().get(i).getPago() + "", Math.abs(getLista_Factura().get(i).getTotal() - getLista_Factura().get(i).getPago()) + ""});
             }
         }
         return Get;
