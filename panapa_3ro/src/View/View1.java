@@ -107,7 +107,7 @@ public class View1 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPanesReg_tbl = new javax.swing.JTable();
         registrarPan_btn = new javax.swing.JButton();
-        provePanReg_cmbx = new javax.swing.JComboBox<String>();
+        provePanReg_cmbx = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         Modificar_Producto = new javax.swing.JPanel();
         GuardarEditPan_btn = new javax.swing.JButton();
@@ -124,7 +124,7 @@ public class View1 extends javax.swing.JFrame {
         EditPan_btn = new javax.swing.JButton();
         cancelarEditPan_btn = new javax.swing.JButton();
         jLabel42 = new javax.swing.JLabel();
-        provePanEdit_cmbx = new javax.swing.JComboBox<String>();
+        provePanEdit_cmbx = new javax.swing.JComboBox<>();
         cancelarBusqProd_btn = new javax.swing.JButton();
         Consultar_Producto = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -219,10 +219,10 @@ public class View1 extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         tbl_listaInsumosReg = new javax.swing.JTable();
         btn_registrarInsumo = new javax.swing.JButton();
-        cmbx_proveInsumoReg = new javax.swing.JComboBox<String>();
+        cmbx_proveInsumoReg = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        cmbx_unidadInsumoReg = new javax.swing.JComboBox<String>();
+        cmbx_unidadInsumoReg = new javax.swing.JComboBox<>();
         Modificar_Insumo = new javax.swing.JPanel();
         btn_GuardarEditInsumo = new javax.swing.JButton();
         jScrollPane14 = new javax.swing.JScrollPane();
@@ -238,10 +238,10 @@ public class View1 extends javax.swing.JFrame {
         btn_EditInsumo = new javax.swing.JButton();
         btn_EliminarEditInsumo = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
-        cmbx_proveInsumoEdit = new javax.swing.JComboBox<String>();
+        cmbx_proveInsumoEdit = new javax.swing.JComboBox<>();
         btn_cancelBusqInsumoEdit = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
-        cmbx_unidadInsumoEdit = new javax.swing.JComboBox<String>();
+        cmbx_unidadInsumoEdit = new javax.swing.JComboBox<>();
         btn_cancelarEditInsumo = new javax.swing.JButton();
         Pre_Compra_Insumo = new javax.swing.JPanel();
         jScrollPane15 = new javax.swing.JScrollPane();
@@ -266,7 +266,7 @@ public class View1 extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         txt_totalProdInsumoVenta = new javax.swing.JTextField();
         btn_cancelarBusquedaInsumoVenta = new javax.swing.JButton();
-        cmbx_unidadInsumoVenta = new javax.swing.JComboBox<String>();
+        cmbx_unidadInsumoVenta = new javax.swing.JComboBox<>();
         jLabel41 = new javax.swing.JLabel();
         Ventas = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -428,7 +428,7 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        provePanReg_cmbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        provePanReg_cmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         provePanReg_cmbx.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 provePanReg_cmbxKeyPressed(evt);
@@ -640,7 +640,7 @@ public class View1 extends javax.swing.JFrame {
         jLabel42.setText("Nuevo Proveedor:");
         Modificar_Producto.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
-        provePanEdit_cmbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        provePanEdit_cmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         provePanEdit_cmbx.setEnabled(false);
         provePanEdit_cmbx.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1979,7 +1979,7 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        cmbx_proveInsumoReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_proveInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbx_proveInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cmbx_proveInsumoRegKeyPressed(evt);
@@ -1990,7 +1990,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel28.setText("Unidad de Medida:");
 
-        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
+        cmbx_unidadInsumoReg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
         cmbx_unidadInsumoReg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cmbx_unidadInsumoRegKeyPressed(evt);
@@ -2213,7 +2213,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel43.setText("Nuevo Proveedor:");
 
-        cmbx_proveInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbx_proveInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbx_proveInsumoEdit.setEnabled(false);
         cmbx_proveInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -2238,7 +2238,7 @@ public class View1 extends javax.swing.JFrame {
 
         jLabel35.setText("Unidad de Medida:");
 
-        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
+        cmbx_unidadInsumoEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
         cmbx_unidadInsumoEdit.setEnabled(false);
         cmbx_unidadInsumoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -2266,49 +2266,51 @@ public class View1 extends javax.swing.JFrame {
         Modificar_InsumoLayout.setHorizontalGroup(
             Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
                 .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_nombreInsumosEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbx_proveInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(30, 30, 30)
                         .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel32)
-                            .addComponent(jLabel43))))
-                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel35))
-                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                            .addComponent(txt_nombreInsumosEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbx_proveInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel32)
+                                    .addComponent(jLabel43))))
                         .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel33)
-                            .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(cmbx_unidadInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_precioInsumoEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(66, 66, 66)
-                .addComponent(btn_EditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_cancelarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_GuardarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_EliminarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(101, 101, 101)
-                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel35))
+                            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel33)
+                                    .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(cmbx_unidadInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txt_precioInsumoEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(66, 66, 66)
+                        .addComponent(btn_EditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_cancelarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_GuardarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_EliminarEditInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(101, 101, 101)
+                        .addGroup(Modificar_InsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(btn_cancelBusqInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(chbx_selecEditInsumo)
+                            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
+                                .addComponent(jLabel34)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_consultInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(btn_cancelBusqInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(chbx_selecEditInsumo)
-                    .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                        .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txt_nombreInsumoConsultEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_consultInsumoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Modificar_InsumoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane14)
+                        .addContainerGap()
+                        .addComponent(jScrollPane14)))
                 .addContainerGap())
         );
         Modificar_InsumoLayout.setVerticalGroup(
@@ -2593,7 +2595,7 @@ public class View1 extends javax.swing.JFrame {
             }
         });
 
-        cmbx_unidadInsumoVenta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
+        cmbx_unidadInsumoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UNIDAD", "DOCENA", "GRAMOS", "KILOGRAGRAMOS", "MILÍGRAMOS", "LITRO", "KILOLITRO", "MILÍLITRO" }));
         cmbx_unidadInsumoVenta.setEnabled(false);
 
         jLabel41.setText("Medida:");
@@ -3080,8 +3082,8 @@ public class View1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cancelarVenta_btn))
                             .addGroup(VentasLayout.createSequentialGroup()
-                                .addGroup(VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_PagoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_PagoVenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel30))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(totalProdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -3194,38 +3196,38 @@ public class View1 extends javax.swing.JFrame {
 
         Date_DesdeHistoVentas.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                    new java.awt.Color(0, 0, 0),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(222, 222, 222),
                     new java.awt.Color(255, 0, 0),
                     false,
                     false,
@@ -3237,38 +3239,38 @@ public class View1 extends javax.swing.JFrame {
 
     Date_HastaHistoVentas.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -3444,38 +3446,38 @@ Historial_ventasLayout.setHorizontalGroup(
 
     Date_HastaHistoCompra.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -3503,38 +3505,38 @@ btn_cancelarBusquedaHistoCompra.addActionListener(new java.awt.event.ActionListe
 
     Date_DesdeHistoCompra.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -3696,38 +3698,38 @@ Historial_ventas1Layout.setHorizontalGroup(
 
     Date_ConsultProducto.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -3888,38 +3890,38 @@ btn_ConsultProducto.addActionListener(new java.awt.event.ActionListener() {
 
     Date_ConsultInsumo.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
-                new java.awt.Color(0, 0, 0),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(222, 222, 222),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -4109,9 +4111,9 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         Contenedor_Stast.setIconAt(0, new javax.swing.ImageIcon(getClass().getResource("/Icons/receipt.png")));
         //Datos del Producto
         Contenedor_Stast.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Icons/receipt.png")));
-        
+
         Contenedor_Stast.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
-        
+
         Contenedor_Stast.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/folder.png")));
 
         listaProdVenta_tbl.getColumnModel().getColumn(0).setPreferredWidth(150);
@@ -4162,8 +4164,8 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                         Total, Get, Double.parseDouble(txt_PagoVenta.getText())));
                 Listar((DefaultTableModel) listaProdVenta_tbl.getModel(), new ArrayList());
                 cancelarVenta_btn.doClick();
-                GrafCo.Create(Graficar("Productos Mas Comprados", "Productos", "Cantidades", ProduFactCo.MayoresVendidos(Calendar.getInstance()), 4, true));
-                GrafCo.Create(Graficar("Productos Menos Comprados", "Productos", "Cantidades", ProduFactCo.MenoresVendidos(Calendar.getInstance()), 5, true));
+                GrafCo.Create(Graficar("Productos Mas Vendidos", "Productos", "Cantidades", ProduFactCo.MayoresVendidos(Calendar.getInstance()), 4, true));
+                GrafCo.Create(Graficar("Productos Menos Vendidos", "Productos", "Cantidades", ProduFactCo.MenoresVendidos(Calendar.getInstance()), 5, true));
                 GrafCo.Create(Graficar("Productos Con Mayores Ganancias", "Productos", "Ganancias", ProduFactCo.MayoresGanancias(Calendar.getInstance()), 6, false));
                 GrafCo.Create(Graficar("Productos Con Menores Ganancias", "Productos", "Ganancias", ProduFactCo.MenoresGanancias(Calendar.getInstance()), 7, false));
                 JOptionPane.showMessageDialog(null, "La compra ha sido efectuada", "Compra", 1);
@@ -4220,10 +4222,15 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_cantidadProdVenta_txtKeyPressed
 
     private void listaProdConsultVentas_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProdConsultVentas_tblMouseClicked
-        IndexTable = null;
-        SelecTable(listaProdConsultVentas_tbl, selecProdConsultVenta_chbx, agregarProdVenta_btn, true);
-        cantidadProdVenta_txt.setEnabled(true);
-        nombreProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 1).toString());
+        try {
+            IndexTable = null;
+            SelecTable(listaProdConsultVentas_tbl, selecProdConsultVenta_chbx, agregarProdVenta_btn, true);
+            cantidadProdVenta_txt.setEnabled(true);
+            nombreProdVenta_txt.setText(listaProdConsultVentas_tbl.getValueAt(listaProdConsultVentas_tbl.getSelectedRow(), 1).toString());
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_listaProdConsultVentas_tblMouseClicked
 
     private void consultPanVenta_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultPanVenta_btnActionPerformed
@@ -4236,9 +4243,14 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_nombrePanConsultVenta_txtKeyPressed
 
     private void listaProdVenta_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProdVenta_tblMouseClicked
-        SelecTable(listaProdVenta_tbl, selecProdVenta_chbx, retirarProdVenta_btn, true);
-        retirarProdVenta_btn.setEnabled(true);
-        selecProdVenta_chbx.setSelected(true);
+        try {
+            SelecTable(listaProdVenta_tbl, selecProdVenta_chbx, retirarProdVenta_btn, true);
+            retirarProdVenta_btn.setEnabled(true);
+            selecProdVenta_chbx.setSelected(true);
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_listaProdVenta_tblMouseClicked
 
     //Buscar en el eliminar proveedores
@@ -4254,8 +4266,13 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_listaProvEliminar_tblKeyPressed
 
     private void listaProvEliminar_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProvEliminar_tblMouseClicked
-        SelecTable(listaProvEliminar_tbl, selecEliminarProv_chbx, EliminarProv_btn, true);
-        cancelarElimProv_btn.setEnabled(true);
+        try {
+            SelecTable(listaProvEliminar_tbl, selecEliminarProv_chbx, EliminarProv_btn, true);
+            cancelarElimProv_btn.setEnabled(true);
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_listaProvEliminar_tblMouseClicked
 
     private void EliminarProv_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProv_btnActionPerformed
@@ -4348,14 +4365,19 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Evento para seleccionar un proveedor del modificar
     private void listaProveedoresEdit_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProveedoresEdit_tblMouseClicked
-        cancelarEditProv_btn.doClick();
-        SelecTable(listaProveedoresEdit_tbl, selecEditProv_chbx, EditProv_btn, true);
-        cancelarEditProv_btn.setEnabled(true);
-        nombreProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 1).toString());
-        serviProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 2).toString());
-        telefonoProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 3).toString());
-        direcProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 4).toString());
-        nitProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 5).toString());
+        try {
+            cancelarEditProv_btn.doClick();
+            SelecTable(listaProveedoresEdit_tbl, selecEditProv_chbx, EditProv_btn, true);
+            cancelarEditProv_btn.setEnabled(true);
+            nombreProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 1).toString());
+            serviProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 2).toString());
+            telefonoProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 3).toString());
+            direcProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 4).toString());
+            nitProvEdit_txt.setText(listaProveedoresEdit_tbl.getValueAt(listaProveedoresEdit_tbl.getSelectedRow(), 5).toString());
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_listaProveedoresEdit_tblMouseClicked
 
     //Evento del enter en el consultar proveedor en el modificar
@@ -4415,8 +4437,13 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Evento para seleccionar un producto del eliminar
     private void listaPanesEliminar_tblselecProdEliminar_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEliminar_tblselecProdEliminar_tbl
-        SelecTable(listaPanesEliminar_tbl, selecPanEliminar_chbx, eliminarPan_btn, true);
-        cancelarElimProd_btn.setEnabled(true);
+        try {
+            SelecTable(listaPanesEliminar_tbl, selecPanEliminar_chbx, eliminarPan_btn, true);
+            cancelarElimProd_btn.setEnabled(true);
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_listaPanesEliminar_tblselecProdEliminar_tbl
 
     //Consultar Productos Eventos
@@ -4461,12 +4488,17 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Evento para cuando se seleccione un pan de la tabla del modificar
     private void listaPanesEdit_tblselecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPanesEdit_tblselecProdModif_tbl
-        cancelarEditPan_btn.doClick();
-        SelecTable(listaPanesEdit_tbl, selecEditPan_chbx, EditPan_btn, true);
-        cancelarEditPan_btn.setEnabled(true);
-        nombrePanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 1).toString());
-        precioPanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 2).toString());
-        provePanEdit_cmbx.setSelectedItem(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 3).toString());
+        try {
+            cancelarEditPan_btn.doClick();
+            SelecTable(listaPanesEdit_tbl, selecEditPan_chbx, EditPan_btn, true);
+            cancelarEditPan_btn.setEnabled(true);
+            nombrePanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 1).toString());
+            precioPanEdit_txt.setText(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 2).toString());
+            provePanEdit_cmbx.setSelectedItem(listaPanesEdit_tbl.getValueAt(listaPanesEdit_tbl.getSelectedRow(), 3).toString());
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_listaPanesEdit_tblselecProdModif_tbl
 
     //Evento para Guardar La Modificación
@@ -4757,14 +4789,19 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Evento para las tablas del eliminar insumos
     private void tbl_listaInsumoEditselecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoEditselecProdModif_tbl
-        btn_cancelarEditInsumo.doClick();
-        SelecTable(tbl_listaInsumoEdit, chbx_selecEditInsumo, btn_EditInsumo, true);
-        btn_cancelarEditInsumo.setEnabled(true);
-        btn_EliminarEditInsumo.setEnabled(true);
-        txt_nombreInsumosEdit.setText(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 1).toString());
-        txt_precioInsumoEdit.setText(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 2).toString());
-        cmbx_proveInsumoEdit.setSelectedItem(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 3).toString());
-        cmbx_unidadInsumoEdit.setSelectedItem(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 4).toString());
+        try {
+            btn_cancelarEditInsumo.doClick();
+            SelecTable(tbl_listaInsumoEdit, chbx_selecEditInsumo, btn_EditInsumo, true);
+            btn_cancelarEditInsumo.setEnabled(true);
+            btn_EliminarEditInsumo.setEnabled(true);
+            txt_nombreInsumosEdit.setText(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 1).toString());
+            txt_precioInsumoEdit.setText(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 2).toString());
+            cmbx_proveInsumoEdit.setSelectedItem(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 3).toString());
+            cmbx_unidadInsumoEdit.setSelectedItem(tbl_listaInsumoEdit.getValueAt(tbl_listaInsumoEdit.getSelectedRow(), 4).toString());
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_tbl_listaInsumoEditselecProdModif_tbl
 
     //Evento del enter en las tablas del editar insumos
@@ -4837,7 +4874,12 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_btn_cancelarEditInsumomodificarPan
 
     private void tbl_listaInsumoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoVentaMouseClicked
-        SelecTable(tbl_listaInsumoVenta, chbx_selecInsumoVenta, retirarInsumoVenta_btn, true);
+        try {
+            SelecTable(tbl_listaInsumoVenta, chbx_selecInsumoVenta, retirarInsumoVenta_btn, true);
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_tbl_listaInsumoVentaMouseClicked
 
     private void txt_nombreInsumoConsultVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreInsumoConsultVentaActionPerformed
@@ -4859,11 +4901,16 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Evento de click para para editar cantidad
     private void tbl_listaInsumoConsultVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaInsumoConsultVentasMouseClicked
-        IndexTable = null;
-        SelecTable(tbl_listaInsumoConsultVentas, chbx_selecInsumoConsultVenta, btn_agregarInsumoVenta, true);
-        txt_cantidadInsumoVenta.setEnabled(true);
-        txt_nombreInsumoVenta.setText(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 1).toString());
-        cmbx_unidadInsumoVenta.setSelectedItem(Insumco.getLista_Insumos().get(Integer.parseInt(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString())).getUnidad());
+        try {
+            IndexTable = null;
+            SelecTable(tbl_listaInsumoConsultVentas, chbx_selecInsumoConsultVenta, btn_agregarInsumoVenta, true);
+            txt_cantidadInsumoVenta.setEnabled(true);
+            txt_nombreInsumoVenta.setText(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 1).toString());
+            cmbx_unidadInsumoVenta.setSelectedItem(Insumco.getLista_Insumos().get(Integer.parseInt(tbl_listaInsumoConsultVentas.getValueAt(tbl_listaInsumoConsultVentas.getSelectedRow(), 0).toString())).getUnidad());
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_tbl_listaInsumoConsultVentasMouseClicked
 
     private void txt_nombreInsumoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreInsumoVentaActionPerformed
@@ -4987,16 +5034,21 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Evento para cuando se selecciona un producto de las cantidades
     private void tbl_listaProdCantidadselecProdModif_tbl(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_listaProdCantidadselecProdModif_tbl
-        ArrayList<String[]> Get = new ArrayList<String[]>();
-        for (int i = 0; i < tbl_listaProdCantidad.getSelectedRows().length; i++) {
-            Get.add(new String[]{listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 0).toString(),
-                tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 1).toString(),
-                tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 2).toString(),
-                tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 3).toString()});
+        try {
+            ArrayList<String[]> Get = new ArrayList<String[]>();
+            for (int i = 0; i < tbl_listaProdCantidad.getSelectedRows().length; i++) {
+                Get.add(new String[]{listaPanesEdit_tbl.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 0).toString(),
+                    tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 1).toString(),
+                    tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 2).toString(),
+                    tbl_listaProdCantidad.getValueAt(tbl_listaProdCantidad.getSelectedRows()[i], 3).toString()});
+            }
+            Listar((DefaultTableModel) tbl_listaProdSelectCantidad.getModel(), Get);
+            EnabledBtn(btn_EditProdCantidad, btn_GuardarEditCantidad, btn_cancelarEditProdCantidad, true);
+            EnabledMod(btn_EditProdCantidad, btn_GuardarEditCantidad, false);
+        } catch (Exception e) {
+
         }
-        Listar((DefaultTableModel) tbl_listaProdSelectCantidad.getModel(), Get);
-        EnabledBtn(btn_EditProdCantidad, btn_GuardarEditCantidad, btn_cancelarEditProdCantidad, true);
-        EnabledMod(btn_EditProdCantidad, btn_GuardarEditCantidad, false);
+
     }//GEN-LAST:event_tbl_listaProdCantidadselecProdModif_tbl
 
     //Evento para la tabla de la cantidad
@@ -5399,7 +5451,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
                 SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_EliminarCompra, false);
                 Listar((DefaultTableModel) tbl_HistoCompra.getModel(), InsuFactCo.ReadAll());
                 Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(), new ArrayList());
-                JOptionPane.showMessageDialog(null, "El item ha sido eliminado satisfactoriamente", "Eliminado", 0);
+                JOptionPane.showMessageDialog(null, "El item ha sido eliminado satisfactoriamente", "Eliminado", 1);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error, digite de nuevo", "Error", 0);
@@ -5408,9 +5460,14 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Evento mouse
     private void tbl_HistoCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_HistoCompraMouseClicked
-        Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(),
-                InsuFactCo.ReadSelect(Integer.parseInt(tbl_HistoCompra.getValueAt(tbl_HistoCompra.getSelectedRow(), 0).toString())));
-        SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_EliminarCompra, true);
+        try {
+            Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(),
+                    InsuFactCo.ReadSelect(Integer.parseInt(tbl_HistoCompra.getValueAt(tbl_HistoCompra.getSelectedRow(), 0).toString())));
+            SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_EliminarCompra, true);
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_tbl_HistoCompraMouseClicked
 
     private void btn_cancelarBusquedaHistoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoVentaKeyPressed
@@ -5433,9 +5490,9 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
             if (ConfirmDialog("¿Esta seguro de querer eliminar este item?")) {
                 ProduFactCo.Delete(Integer.parseInt(IndexTable.toString()));
                 SelecTable(tbl_HistoVenta, chbx_selecHistoVenta, btn_EliminarVenta, false);
-                Listar((DefaultTableModel) tbl_HistoVenta.getModel(), InsuFactCo.ReadAll());
+                Listar((DefaultTableModel) tbl_HistoVenta.getModel(), ProduFactCo.ReadAll());
                 Listar((DefaultTableModel) tbl_HistoVentasFact.getModel(), new ArrayList());
-                JOptionPane.showMessageDialog(null, "El item ha sido eliminado satisfactoriamente", "Eliminado", 0);
+                JOptionPane.showMessageDialog(null, "El item ha sido eliminado satisfactoriamente", "Eliminado", 1);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error, digite de nuevo", "Error", 0);
@@ -5444,9 +5501,14 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
 
     //Eventos del mouse
     private void tbl_HistoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_HistoVentaMouseClicked
-        Listar((DefaultTableModel) tbl_HistoVentasFact.getModel(),
-                ProduFactCo.ReadSelect(Integer.parseInt(tbl_HistoVenta.getValueAt(tbl_HistoVenta.getSelectedRow(), 0).toString())));
-        SelecTable(tbl_HistoVenta, chbx_selecHistoVenta, btn_EliminarVenta, true);
+        try {
+            Listar((DefaultTableModel) tbl_HistoVentasFact.getModel(),
+                    ProduFactCo.ReadSelect(Integer.parseInt(tbl_HistoVenta.getValueAt(tbl_HistoVenta.getSelectedRow(), 0).toString())));
+            SelecTable(tbl_HistoVenta, chbx_selecHistoVenta, btn_EliminarVenta, true);
+        } catch (Exception e) {
+
+        }
+
     }//GEN-LAST:event_tbl_HistoVentaMouseClicked
 
     //Buscar Grafica Insumos
