@@ -5436,11 +5436,12 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     private void btn_cancelarBusquedaHistoCompramodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoCompramodificarPan
         Listar((DefaultTableModel) tbl_HistoCompra.getModel(), InsuFactCo.ReadAll());
         Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(), new ArrayList());
+        SelecTable(tbl_HistoCompra, chbx_selecHistoCompra, btn_cancelarBusquedaHistoCompra, false);
     }//GEN-LAST:event_btn_cancelarBusquedaHistoCompramodificarPan
 
     //Buscar Historial de compras
     private void btn_ConsultHistoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoCompraActionPerformed
-        BuscarDate(tbl_HistoCompra, InsuFactCo.Read(Date_DesdeHistoCompra.getSelectedDate(), Date_HastaHistoCompra.getSelectedDate()), cancelarVenta_btn);
+        BuscarDate(tbl_HistoCompra, InsuFactCo.Read(Date_DesdeHistoCompra.getSelectedDate(), Date_HastaHistoCompra.getSelectedDate()), btn_cancelarBusquedaHistoCompra);
     }//GEN-LAST:event_btn_ConsultHistoCompraActionPerformed
 
     //Eliminar Compra
@@ -5471,17 +5472,18 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_tbl_HistoCompraMouseClicked
 
     private void btn_cancelarBusquedaHistoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoVentaKeyPressed
-        // TODO add your handling code here:
+        EventoEnter(evt, btn_cancelarBusquedaHistoVenta);
     }//GEN-LAST:event_btn_cancelarBusquedaHistoVentaKeyPressed
 
     //Cancelar Busqieda
     private void btn_cancelarBusquedaHistoVentamodificarPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarBusquedaHistoVentamodificarPan
-        Listar((DefaultTableModel) tbl_HistoCompra.getModel(), InsuFactCo.ReadAll());
-        Listar((DefaultTableModel) tbl_HistoComprasFact.getModel(), new ArrayList());
+        Listar((DefaultTableModel) tbl_HistoVenta.getModel(), ProduFactCo.ReadAll());
+        Listar((DefaultTableModel) tbl_HistoVentasFact.getModel(), new ArrayList());
+        SelecTable(tbl_HistoVenta, chbx_selecHistoVenta, btn_cancelarBusquedaHistoVenta, false);
     }//GEN-LAST:event_btn_cancelarBusquedaHistoVentamodificarPan
 
     private void btn_ConsultHistoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoVentaActionPerformed
-
+      BuscarDate(tbl_HistoVenta, ProduFactCo.Read(Date_DesdeHistoVentas.getSelectedDate(), Date_HastaHistoVentas.getSelectedDate()), btn_cancelarBusquedaHistoVenta);
     }//GEN-LAST:event_btn_ConsultHistoVentaActionPerformed
 
     //Eliminar Venta
