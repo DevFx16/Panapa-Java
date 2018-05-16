@@ -4074,9 +4074,9 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
         //Proveedores
         Panel_General.setIconAt(1, new javax.swing.ImageIcon(getClass().getResource("/Icons/packing.png")));
         //Ventas
-        Panel_General.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png")));
+        Panel_General.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png")));
         //Estadisticas
-        Panel_General.setIconAt(3, new javax.swing.ImageIcon(getClass().getResource("/Icons/estadisticas.png")));
+        Panel_General.setIconAt(4, new javax.swing.ImageIcon(getClass().getResource("/Icons/estadisticas.png")));
 
         Panel_General.setIconAt(2, new javax.swing.ImageIcon(getClass().getResource("/Icons/groceries_1.png")));
 
