@@ -1,4 +1,3 @@
-
 package View;
 
 import static java.awt.Event.ENTER;
@@ -19,9 +18,11 @@ public class ViewLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         cargar_datos();
+
     }
 
     @SuppressWarnings("unchecked")
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -106,27 +107,35 @@ public class ViewLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         boolean usuario_existente = false;
         int index_user = 0;
+        Welcome w = new Welcome();
+        this.setVisible(false);
+         w.setVisible(true);
         for (int i = 0; i < Lista_panaderias.size(); i++) {
+            w.Label(i * 2);
             if (Lista_panaderias.get(i).getNom_usuario().equals(txt_usuario.getText())) {
                 usuario_existente = true;
                 index_user = i;
             }
         }
-
         if (usuario_existente) {
             if (Lista_panaderias.get(index_user).getPass_usuario().equals(txt_contraseña.getText())) {
                 View1 panapa1 = new View1(Lista_panaderias.get(index_user).getNom_usuario(), Lista_panaderias.get(index_user));
-                
                 this.dispose();
             } else {
+                w.dispose();
+                this.setVisible(true);
                 JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
             }
         } else {
+            w.dispose();
+            this.setVisible(true);
             JOptionPane.showMessageDialog(null, "El nombre de usuario no existe en la base de datos");
         }
+w.dispose();
 
     }//GEN-LAST:event_btn_loginActionPerformed
 
@@ -146,11 +155,12 @@ public class ViewLogin extends javax.swing.JFrame {
     private void Evento(java.awt.event.KeyEvent evt) {
         if (evt.getKeyChar() == ENTER) {
             btn_login.doClick();
+
         }
     }
 
     String nameFile = "..\\pa_crud_Data\\panaderias_lista1.dat";
-    ArrayList<Panaderia> Lista_panaderias = new ArrayList<  >();
+    ArrayList<Panaderia> Lista_panaderias = new ArrayList<>();
 
     public void cargar_datos() {
         File fichero = new File(nameFile);
@@ -198,7 +208,29 @@ public class ViewLogin extends javax.swing.JFrame {
                 new ViewLogin().setVisible(true);
             }
         });
+
     }
+    /*
+    public void loading() {
+        //loading para pasar a view1
+        Splash spla = new Splash();
+        spla.setVisible(true);
+
+        try {
+            for (int i = 0; i <= 100; i++) {
+                Thread.sleep(40);
+                spla.lbl_num.setText(Integer.toString(i) + "%");
+                spla.pr_bar.setValue(i);
+                View1 view = new View1();
+                if (i == 100) {
+                    spla.dispose();
+                    view.show();
+                }
+            }
+        } catch (Exception e) {
+        }
+    }
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
