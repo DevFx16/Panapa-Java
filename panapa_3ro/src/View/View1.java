@@ -42,7 +42,6 @@ public class View1 extends javax.swing.JFrame {
         mbar_nameUser.setText("Usuario: " + FileName);
         ListAll();
         nombrePanReg_txt.requestFocus();
-
         this.setVisible(true);
     }
 
@@ -5482,7 +5481,7 @@ btn_ConsultInsumo.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_btn_cancelarBusquedaHistoVentamodificarPan
 
     private void btn_ConsultHistoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultHistoVentaActionPerformed
-      BuscarDate(tbl_HistoVenta, ProduFactCo.Read(Date_DesdeHistoVentas.getSelectedDate(), Date_HastaHistoVentas.getSelectedDate()), btn_cancelarBusquedaHistoVenta);
+        BuscarDate(tbl_HistoVenta, ProduFactCo.Read(Date_DesdeHistoVentas.getSelectedDate(), Date_HastaHistoVentas.getSelectedDate()), btn_cancelarBusquedaHistoVenta);
     }//GEN-LAST:event_btn_ConsultHistoVentaActionPerformed
 
     //Eliminar Venta

@@ -11,14 +11,36 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UnsupportedLookAndFeelException;
 
+class Hilo extends Thread {
+
+    private String par;
+    private Panaderia par1;
+    private ViewLogin login;
+
+    public Hilo(String par, Panaderia par1, ViewLogin login) {
+        this.par = par;
+        this.par1 = par1;
+        this.login = login;
+    }
+
+    @Override
+    public void run() {
+        View1 panapa1 = new View1(par, par1);
+        login.dispose();
+    }
+}
+
 public class ViewLogin extends javax.swing.JFrame {
+
+    boolean usuario_existente = false;
+    int index_user = 0;
 
     public ViewLogin() {
         initComponents();
+        Load.setVisible(false);
         setLocationRelativeTo(null);
         setResizable(false);
         cargar_datos();
-
     }
 
     @SuppressWarnings("unchecked")
@@ -32,6 +54,7 @@ public class ViewLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txt_contraseña = new javax.swing.JPasswordField();
+        Load = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,7 +69,7 @@ public class ViewLogin extends javax.swing.JFrame {
 
         btn_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/packing.png"))); // NOI18N
         btn_login.setText("Iniciar Sesión");
-        btn_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_login.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginActionPerformed(evt);
@@ -69,12 +92,14 @@ public class ViewLogin extends javax.swing.JFrame {
             }
         });
 
+        Load.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Loading.gif"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
@@ -85,6 +110,10 @@ public class ViewLogin extends javax.swing.JFrame {
                         .addGap(18, 18, 18))
                     .addComponent(txt_contraseña))
                 .addGap(58, 58, 58))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(Load)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,11 +126,13 @@ public class ViewLogin extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGap(18, 18, 18)
+                .addComponent(Load)
+                .addGap(18, 18, 18)
                 .addComponent(btn_login)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -109,34 +140,28 @@ public class ViewLogin extends javax.swing.JFrame {
 
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        boolean usuario_existente = false;
-        int index_user = 0;
-        Welcome w = new Welcome();
-        this.setVisible(false);
-         w.setVisible(true);
+        Load.setVisible(true);
+        usuario_existente = false;
+        index_user = 0;
         for (int i = 0; i < Lista_panaderias.size(); i++) {
-            w.Label(i * 2);
             if (Lista_panaderias.get(i).getNom_usuario().equals(txt_usuario.getText())) {
                 usuario_existente = true;
                 index_user = i;
+                break;
             }
         }
         if (usuario_existente) {
             if (Lista_panaderias.get(index_user).getPass_usuario().equals(txt_contraseña.getText())) {
-                View1 panapa1 = new View1(Lista_panaderias.get(index_user).getNom_usuario(), Lista_panaderias.get(index_user));
-                this.dispose();
+                Hilo hilo = new Hilo(Lista_panaderias.get(index_user).getNom_usuario(), Lista_panaderias.get(index_user), this);
+                hilo.start();
             } else {
-                w.dispose();
-                this.setVisible(true);
+                Load.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
             }
         } else {
-            w.dispose();
-            this.setVisible(true);
+            Load.setVisible(false);
             JOptionPane.showMessageDialog(null, "El nombre de usuario no existe en la base de datos");
         }
-w.dispose();
-
     }//GEN-LAST:event_btn_loginActionPerformed
 
     //Evento del enter
@@ -210,29 +235,9 @@ w.dispose();
         });
 
     }
-    /*
-    public void loading() {
-        //loading para pasar a view1
-        Splash spla = new Splash();
-        spla.setVisible(true);
-
-        try {
-            for (int i = 0; i <= 100; i++) {
-                Thread.sleep(40);
-                spla.lbl_num.setText(Integer.toString(i) + "%");
-                spla.pr_bar.setValue(i);
-                View1 view = new View1();
-                if (i == 100) {
-                    spla.dispose();
-                    view.show();
-                }
-            }
-        } catch (Exception e) {
-        }
-    }
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Load;
     private javax.swing.JButton btn_login;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
