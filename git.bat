@@ -1,1 +1,1 @@
-gitbash
+powershell
