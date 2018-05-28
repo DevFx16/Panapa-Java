@@ -62,6 +62,9 @@ public class ViewLogin extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_usuarioKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_usuarioKeyTyped(evt);
+            }
         });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/groceries.png"))); // NOI18N
@@ -89,6 +92,9 @@ public class ViewLogin extends javax.swing.JFrame {
         txt_contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_contraseñaKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_contraseñaKeyTyped(evt);
             }
         });
 
@@ -176,6 +182,18 @@ public class ViewLogin extends javax.swing.JFrame {
     private void txt_usuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyPressed
         Evento(evt);
     }//GEN-LAST:event_txt_usuarioKeyPressed
+
+    private void txt_usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyTyped
+        if (!Character.isLetterOrDigit(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_usuarioKeyTyped
+
+    private void txt_contraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_contraseñaKeyTyped
+        if (!Character.isLetterOrDigit(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_contraseñaKeyTyped
 
     private void Evento(java.awt.event.KeyEvent evt) {
         if (evt.getKeyChar() == ENTER) {
