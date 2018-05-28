@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import Model.Panaderia;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,6 +37,10 @@ public class ViewLogin extends javax.swing.JFrame {
     int index_user = 0;
 
     public ViewLogin() {
+        
+        setTitle("Panapa 2.0.0");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Icons/bread.png")));
+        
         initComponents();
         Load.setVisible(false);
         setLocationRelativeTo(null);
